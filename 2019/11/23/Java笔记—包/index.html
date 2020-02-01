@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Java笔记—包 | MelodyHub</title>
+  
+  
+
+  
+  <link rel="alternate" href="/blog/atom.xml" title="MelodyHub">
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/blog/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>MelodyHub</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/blog/"
+            
+            
+            id="blog">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/blog/projects/"
+            
+            
+            id="blogprojects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/blog/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="blogfriends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/blog/about/"
+            
+              rel="nofollow"
+            
+            
+            id="blogabout">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/blog/' >
+        
+          MelodyHub
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/blog/"
+                  
+                  
+                  id="blog">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;博文
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/blog/"
+                
+                
+                id="blog">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/projects/"
+                
+                
+                id="blogprojects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogfriends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogabout">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/blog/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/">
+        Java笔记—包
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="http://yoursite.com" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-11-23</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h3 id="Java笔记——包"><a href="#Java笔记——包" class="headerlink" title="Java笔记——包"></a>Java笔记——包</h3><p>创建时间：2019.11.23</p>
+<p>说明：持续更新ing</p>
+<hr>
+<ol>
+<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3></li>
+</ol>
+<p><font color="red" size="5">包(package)</font></p>
+<p> 为了更好地组织<font color="blue" size="3"><strong>类</strong></font>，Java 提供了包机制，用于区别类名的命名空间。 </p>
+<p>✔ 用来组织和管理类、接口、枚举和注解<br>✔ 有三方面作用：1)便于<font color="orange">组织</font>,比如按功能、按团队等；2)<font color="orange">解决命名冲突</font>；3)进行访问<font color="orange">权限控制</font>(<font color="rorange">同包可用，包外不可见等</font>)</p>
+<blockquote>
+<p>如同类似OS的文件夹(或目录或路径)一样，包也采用了树形目录的存储方式。</p>
+</blockquote>
+<a id="more"></a>
+
+<hr>
+<ol start="2">
+<li><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3></li>
+</ol>
+<ul>
+<li>1、把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用。</li>
+<li>2、如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</li>
+<li>3、包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类。</li>
+</ul>
+<p>🔺 Java 使用包（package）这种机制是为了防止命名冲突，访问控制，提供搜索和定位类（class）、接口、枚举（enumerations）和注释（annotation）等。 </p>
+<blockquote>
+<p>同一个包中类名字是不同的，不同包中类的名字可以相同，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。 </p>
+</blockquote>
+<hr>
+<ol start="3">
+<li><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3></li>
+</ol>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>	包名</span><br><span class="line">或</span><br><span class="line"><span class="keyword">package</span> 父包名[.子包名][.孙包名][.层次下去]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>🔸<strong>包名符合标识符命名规范</strong>，一般由<u><font color="rorange">小写字母</font></u>组成<br>🔹必须出现在源文件的<u><font color="rorange">第一行</font></u>(忽略注释语句)<br>🔸每个源文件<font color="rorange"><u><strong>至多只能出现一个</strong></u>package语句</font><br>🔹如果没有package语句，那就使用<u><font color="orange">无名包</font>(或称默认包:所在的当前目录)<br>🔸包的背后对应着操作系统的路径名称</u></p><u>
+<ul>
+<li><p>示例：</p>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ch08.web.sample; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>{ </span><br><span class="line">    String name; </span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">//省略部分代码 </span></span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>{ </span><br><span class="line">    String name; </span><br><span class="line">    <span class="keyword">int</span> age; </span><br><span class="line">    <span class="comment">//省略部分代码</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  🔺<code>package ch08.web.sample;</code> 这个层级的文件夹必须先存在：即ch08/web/sample</p>
+<p>  <img src="https://i.loli.net/2019/11/23/e3XLTSaWmiuhEvR.png" alt="来自课件《8.类的更多探讨》.png"></p>
+</li>
+</ul>
+<hr>
+<ol start="4">
+<li><h3 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h3></li>
+</ol>
+<p>🔺<strong>import 关键字</strong></p>
+<blockquote>
+<p>为了能够使用某一个包的成员，我们需要在 Java 程序中明确导入该包。</p>
+<p>为了使用另外一个包中的成员(主要是类)，可以明确import该成员。</p>
+<p> <font color="blue">避免重复使用完整路径的类名</font>。</p>
+</blockquote>
+<ul>
+<li><p>语法格式：</p>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package1[.package2…].(classname|*);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>注意：</p>
+<ol>
+<li><p>必须紧跟在package语句之后(若有的话，若无package，则import出现在源文件头部)。</p>
+</li>
+<li><p>可以使用 <strong><code>*</code></strong> 来表示导入当前一层包中的所有类。但是<strong><code>*</code></strong> 不可以连续使用。</p>
+ <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.*.*; <span class="comment">// Error!</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>不表示可以继续导入当前包的子包</strong>。如果在一个包中，一个类想要使用本包中的另一个类，那么该包名可以省略。 </p>
+</li>
+<li><p><strong>类文件中可以包含任意数量的 import 声明。import 声明必须在包声明之后，类声明之前。</strong> </p>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ol start="5">
+<li><h3 id="Java常用包"><a href="#Java常用包" class="headerlink" title="Java常用包"></a>Java常用包</h3></li>
+</ol>
+<p>🔵JavaAPI的类库也是按照包的方式组织的</p>
+<table>
+<thead>
+<tr>
+<th>包名</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Java.lang</td>
+<td>Java语言进行程序设计的基础类(核心类库)，它是<font color="red">默认导入</font>的包</td>
+<td>Runnable接口和<font color="blue">Object、Math、String、StringBuffer、System</font>、Thread、Throwable类</td>
+</tr>
+<tr>
+<td>Java.util</td>
+<td>实用工具类包</td>
+<td>定义系统特性、随机数、日期时间、日历、集合类等</td>
+</tr>
+<tr>
+<td>Java.io</td>
+<td>IO类包</td>
+<td>包含能提供多种输入输出的文件读写类</td>
+</tr>
+<tr>
+<td>Java.net</td>
+<td>网络编程API</td>
+<td></td>
+</tr>
+<tr>
+<td>Java.sql</td>
+<td>数据库操作包</td>
+<td></td>
+</tr>
+<tr>
+<td>Java.text</td>
+<td>文本处理相关类</td>
+<td>包含了一些用来处理文本、数字和消息的类和接口</td>
+</tr>
+<tr>
+<td>Java.awt</td>
+<td>提供创建界面和绘制图形图像的所有类</td>
+<td></td>
+</tr>
+<tr>
+<td>Javax.asing</td>
+<td>awt上封装的GUI包</td>
+<td></td>
+</tr>
+</tbody></table>
+</u><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-11-30T01:36:24+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2019年11月30日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>笔记</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/&title=Java笔记—包 | MelodyHub&summary=Java笔记——包创建时间：2019.11.23
+说明：持续更新ing
+
+
+概念
+
+包(package)
+ 为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间。 
+✔ 用来组织和管理类、接口、枚举和注解✔ 有三方面作用：1)便于组织,比如按功能、按团队等；2)解决命名冲突；3)进行访问权限控制(同包可用，包外不可见等)
+
+如同类似OS的文件夹(或目录或路径)一样，包也采用了树形目录的存储方式。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/&title=Java笔记—包 | MelodyHub&summary=Java笔记——包创建时间：2019.11.23
+说明：持续更新ing
+
+
+概念
+
+包(package)
+ 为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间。 
+✔ 用来组织和管理类、接口、枚举和注解✔ 有三方面作用：1)便于组织,比如按功能、按团队等；2)解决命名冲突；3)进行访问权限控制(同包可用，包外不可见等)
+
+如同类似OS的文件夹(或目录或路径)一样，包也采用了树形目录的存储方式。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/&title=Java笔记—包 | MelodyHub&summary=Java笔记——包创建时间：2019.11.23
+说明：持续更新ing
+
+
+概念
+
+包(package)
+ 为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间。 
+✔ 用来组织和管理类、接口、枚举和注解✔ 有三方面作用：1)便于组织,比如按功能、按团队等；2)解决命名冲突；3)进行访问权限控制(同包可用，包外不可见等)
+
+如同类似OS的文件夹(或目录或路径)一样，包也采用了树形目录的存储方式。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                          <h4>
+                              <a href="/blog/2019/11/25/G.E.M.%E9%82%93%E7%B4%AB%E6%A3%8B%E3%80%8A%E5%8F%A5%E5%8F%B7%E3%80%8BMV%E9%A6%96%E6%92%AD%EF%BC%81/" rel="prev" title="G.E.M.邓紫棋《句号》MV首播！">
+                                
+                                    G.E.M.邓紫棋《句号》MV首播！
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/blog/tags/%E9%9F%B3%E4%B9%90/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 音乐</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/blog/2019/11/22/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/" rel="prev" title="推荐3款文本编辑器">
+                                  
+                                      推荐3款文本编辑器
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/blog/tags/%E5%B7%A5%E5%85%B7/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 工具</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Java笔记—包',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://p1.music.126.net/iFxdTdyPs4NQeIDVFWhnrg==/19077626253606492.jpg?param=180y180'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">MelodyHub</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+        
+          
+            <a href="/blog/mailto:melodyjerry@163.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/melodyjerry/melodyjerry.github.io"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/playlist?id=2815777391"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文本部件</div>
+  
+</header>
+
+  <div class='content pure'>
+    <p>这是一段支持markdown的文本<br><img src="https://i.loli.net/2020/02/01/U9SiE5qByk3PpAV.png" alt=""></p>
+
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer noopener" href="javascript:void(0)" target="_blank"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java笔记——包"><span class="toc-text">Java笔记——包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法格式"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包的使用"><span class="toc-text">包的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java常用包"><span class="toc-text">Java常用包</span></a></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/blog/" href="/blog/"
+          
+          
+          id="blog">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/projects/" href="/blog/projects/"
+          
+          
+          id="blogprojects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/friends/" href="/blog/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="blogfriends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/about/" href="/blog/about/"
+          
+            rel="nofollow"
+          
+          
+          id="blogabout">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/blog/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/blog/tags/Hexo/" style="font-size: 18px; color: #7e7e7e">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/blog/tags/SQL-Server/" style="font-size: 16px; color: #8b8b8b">SQL Server</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16px; color: #8b8b8b">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16px; color: #8b8b8b">工具</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 22px; color: #636363">笔记</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #707070">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://sm.ms/" href="https://sm.ms/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床 SM.MS
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成 Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="http://www.matools.com/api/java8" href="http://www.matools.com/api/java8"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Java 8 中文文档
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+      
+        
+          <a href="/blog/mailto:melodyjerry@163.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/melodyjerry/melodyjerry.github.io"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/playlist?id=2815777391"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/blog/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- fastclick -->
+  <script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9be900c53a224906b211e3197722875b.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/fcf6db62131446aeaa6153b4a052ff46.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/3c937de283cc47059765a7bff0a9d909.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a59feb981c8948bab6a798fd3c0b102d.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a013f27ee7aa45e7942c399450d5e1ea.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/6233b98b56f8492aaa91949bd498bac6.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/380dd4d772f04c2c88d6a3afed964854.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9d245fbafc4d4a8c957f6f413a5e57ee.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/92de1a94b5db4d369cb1d3df777adce9.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/e933ff6128504908b946a982411a72c0.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/b397ed63e8aa496c9d4bc93935c626b4.jpg!sswm"],
+          {
+            duration: "3000",
+            fade: "500"
+          });
+        } else {
+          $.backstretch(
+          ["https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9be900c53a224906b211e3197722875b.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/fcf6db62131446aeaa6153b4a052ff46.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/3c937de283cc47059765a7bff0a9d909.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a59feb981c8948bab6a798fd3c0b102d.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a013f27ee7aa45e7942c399450d5e1ea.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/6233b98b56f8492aaa91949bd498bac6.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/380dd4d772f04c2c88d6a3afed964854.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9d245fbafc4d4a8c957f6f413a5e57ee.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/92de1a94b5db4d369cb1d3df777adce9.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/e933ff6128504908b946a982411a72c0.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/b397ed63e8aa496c9d4bc93935c626b4.jpg!sswm"],
+          {
+            duration: "3000",
+            fade: "500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/blog/js/app.js"></script>
+
+
+  <script src="/blog/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
