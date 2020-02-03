@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-03T05:48:08.066Z</updated>
+  <updated>2020-02-03T06:04:24.075Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/"/>
     <id>http://yoursite.com/2020/02/03/即日起，博客双平台同步发布/</id>
     <published>2020-02-03T05:36:56.000Z</published>
-    <updated>2020-02-03T05:48:08.066Z</updated>
+    <updated>2020-02-03T06:04:24.075Z</updated>
     
     <content type="html"><![CDATA[<p>为了确保博客网站的连接，经历6h的打造，现<strong>新增Gitee版</strong>，目前两个可用博客如下：</p><ul><li>Hexo+Github 版  <a href="https://melodyhub.ltd/" target="_blank" rel="noopener">https://melodyhub.ltd/</a></li><li>Hexo+Gitee 版 <a href="https://melodyjerry.gitee.io/" target="_blank" rel="noopener">https://melodyjerry.gitee.io/</a>（新增）</li></ul><p>值得注意的是，除去连接速度的差异外，唯一的区别就是后增的Gitee版暂无HomePage（动画主页），后续会计划加入。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
@@ -36,8 +36,6 @@
     
     </summary>
     
-    
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
       <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
