@@ -64,6 +64,16 @@
   <h1 class='title'>MelodyHub</h1>
 
 
+
+<!--MelodyHub和搜索框之间-->
+<!-- 打字特效（蓝色）-->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+    </div>
+
   <div class="m_search">
     <form name="searchform" class="form u-search-form">
       <input type="text" class="input u-search-input" placeholder="" />
@@ -299,6 +309,23 @@
 
   <section class='meta'>
     
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme=""
+    data-mini=true 
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="song"
+    data-id="1372514696"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    
     
     <div class="meta" id="header-meta">
       
@@ -408,7 +435,7 @@
 <li>Hexo+Gitee 版 <a href="https://melodyjerry.gitee.io/" target="_blank" rel="noopener">https://melodyjerry.gitee.io/</a>（新增）</li>
 </ul>
 <p>值得注意的是，除去连接速度的差异外，唯一的区别就是后增的Gitee版暂无HomePage（动画主页），后续会计划加入。</p>
-<script>
+<a id="more"></a><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -438,10 +465,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-03T14:04:24+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-05T22:26:12+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2020年2月3日</p>
+    <p>更新于 2020年2月5日</p>
   </a>
 </div>
 
@@ -463,7 +490,12 @@
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/&title=即日起，博客双平台同步发布 | MelodyHub&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/&title=即日起，博客双平台同步发布 | MelodyHub&summary=为了确保博客网站的连接，经历6h的打造，现新增Gitee版，目前两个可用博客如下：
+
+Hexo+Github 版  https://melodyhub.ltd/
+Hexo+Gitee 版 https://melodyjerry.gitee.io/（新增）
+
+值得注意的是，除去连接速度的差异外，唯一的区别就是后增的Gitee版暂无HomePage（动画主页），后续会计划加入。"
           
           >
           
@@ -475,7 +507,12 @@
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/&title=即日起，博客双平台同步发布 | MelodyHub&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/&title=即日起，博客双平台同步发布 | MelodyHub&summary=为了确保博客网站的连接，经历6h的打造，现新增Gitee版，目前两个可用博客如下：
+
+Hexo+Github 版  https://melodyhub.ltd/
+Hexo+Gitee 版 https://melodyjerry.gitee.io/（新增）
+
+值得注意的是，除去连接速度的差异外，唯一的区别就是后增的Gitee版暂无HomePage（动画主页），后续会计划加入。"
           
           >
           
@@ -487,7 +524,12 @@
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/&title=即日起，博客双平台同步发布 | MelodyHub&summary="
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/03/%E5%8D%B3%E6%97%A5%E8%B5%B7%EF%BC%8C%E5%8D%9A%E5%AE%A2%E5%8F%8C%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E5%8F%91%E5%B8%83/&title=即日起，博客双平台同步发布 | MelodyHub&summary=为了确保博客网站的连接，经历6h的打造，现新增Gitee版，目前两个可用博客如下：
+
+Hexo+Github 版  https://melodyhub.ltd/
+Hexo+Gitee 版 https://melodyjerry.gitee.io/（新增）
+
+值得注意的是，除去连接速度的差异外，唯一的区别就是后增的Gitee版暂无HomePage（动画主页），后续会计划加入。"
           
           >
           
@@ -511,21 +553,40 @@
       
           <div class="prev-next">
               
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                          <h4>
+                              <a href="/blog/2020/02/03/%E6%B7%BB%E5%8A%A0CNZZ%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81/" rel="prev" title="添加CNZZ统计代码">
+                                
+                                    添加CNZZ统计代码
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/blog/tags/Hexo/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Hexo</a> <a class="tag" href="/blog/tags/%E5%8D%9A%E5%AE%A2/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 博客</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
               
                   <section class="next">
                       <span class="art-item-right" aria-hidden="true">
                           <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                           <h4>
-                              <a href="/blog/2020/01/01/%E5%86%8D%E8%A7%81%EF%BC%8C2019%EF%BC%9B%E4%BD%A0%E5%A5%BD%EF%BC%8C2020/" rel="prev" title="再见2019，你好2020">
+                              <a href="/blog/2020/02/02/%5B%E8%BD%AC%5DHexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/" rel="prev" title="[转]Hexo 博客主题个性化">
                                   
-                                      再见2019，你好2020
+                                      [转]Hexo 博客主题个性化
                                   
                               </a>
                           </h4>
                           
                               
                               <h6 class="tags">
-                                  <a class="tag" href="/blog/tags/%E9%9A%8F%E7%AC%94/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 随笔</a>
+                                  <a class="tag" href="/blog/tags/Hexo/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Hexo</a> <a class="tag" href="/blog/tags/%E5%8D%9A%E5%AE%A2/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 博客</a>
                               </h6>
                           
                       </span>
@@ -914,7 +975,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/blog/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/blog/tags/Hexo/" style="font-size: 19px; color: #777">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.67px; color: #8e8e8e">SQL Server</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 17.33px; color: #828282">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15.67px; color: #8e8e8e">工具</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 22.33px; color: #606060">笔记</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20.67px; color: #6c6c6c">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a>
+      <a href="/blog/tags/GitHub/" style="font-size: 15.67px; color: #8e8e8e">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 20.67px; color: #6c6c6c">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.67px; color: #8e8e8e">SQL Server</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 19px; color: #777">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15.67px; color: #8e8e8e">工具</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 22.33px; color: #606060">笔记</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a>
     </div>
   </section>
 
@@ -1038,6 +1099,19 @@
               <i class=" fa-fw" aria-hidden="true"></i>
             
             &nbsp;&nbsp;Material X 主题文档（部分）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://www.cnblogs.com/cxk1995/p/5800196.html" href="https://www.cnblogs.com/cxk1995/p/5800196.html"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;使用git将项目上传到github（最简单方法）
           </div>
           
         </a></li>
@@ -1400,5 +1474,49 @@ setInterval("createtime()",250);
 
 
   <script>setLoadingBarProgress(100);</script>
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 </html>
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 页面点击小红心 -->
+<!--<script type="text/javascript" src="/js/love.js"></script> -->
+
+<!-- 页面鼠标点击烟花爆炸效果 -->
+<!--<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+
+<!--浏览器搞笑标题、浏览器搞笑标题-->
+<!-- <script type="text/javascript" src="/js/FunnyTitle.js"></script> -->
+
+<!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;z=17&amp;rx=-40&amp;lx=-540&amp;ly=520&amp;hi=60" async="async"></script>
+
+<!-- 天气挂件 -->
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
