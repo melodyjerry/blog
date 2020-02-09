@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>MySQL的数据类型？ | MelodyHub</title>
+  
+  
+
+  
+  <link rel="alternate" href="/blog/atom.xml" title="MelodyHub">
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  
+  <meta name='theme-color' content='#FFFFFF'>
+  <meta name='msapplication-TileColor' content='#1BC3FB'>
+  <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/browserconfig.xml'>
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/site.webmanifest'>
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/melodyjerry/cdn-material-x@20.2.9/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>MelodyHub</h1>
+
+
+
+<!--MelodyHub和搜索框之间-->
+<!-- 打字特效（蓝色）-->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+    </div>
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/blog/"
+            
+            
+            id="blog">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/blog/projects/"
+            
+            
+            id="blogprojects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;成果展
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/blog/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="blogfriends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友人帐
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/blog/about/"
+            
+              rel="nofollow"
+            
+            
+            id="blogabout">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/blog/' >
+        
+          MelodyHub
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/blog/"
+                  
+                  
+                  id="blog">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;博文
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/blog/"
+                
+                
+                id="blog">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/projects/"
+                
+                
+                id="blogprojects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;成果展
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogfriends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;友人帐
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;随笔小抄
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogabout">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/blog/2020/02/09/MySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        MySQL的数据类型？
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>7.3k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>28分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="MySQL的数据类型"><a href="#MySQL的数据类型" class="headerlink" title="MySQL的数据类型"></a>MySQL的数据类型</h1><p>数据库中的每个列都应该有适当的数据类型，用于限制或允许该列中存储的数据。例如，列中存储的为数字，则相应的数据类型应该为数值类型。</p>
+<p>如果使用错误的数据类型可能会严重影响应用程序的功能和性能，所以在设计表时，应该特别重视数据列所用的数据类型。更改包含数据的列不是一件小事，这样做可能会导致数据丢失。因此，在创建表时必须为每个列设置正确的数据类型和长度。</p>
+<p>MySQL中定义数据字段的类型对你数据库的优化是非常重要的。</p>
+<p>MySQL支持所有标准SQL数值数据类型。</p>
+<p>MySQL支持多种类型，大致可以分为三类：</p>
+<ul>
+<li>数值</li>
+<li>日期/时间</li>
+<li>字符(串)类型。</li>
+</ul>
+<h1 id="数据类型分类"><a href="#数据类型分类" class="headerlink" title="数据类型分类"></a>数据类型分类</h1><ol>
+<li>数值类型（整数类型和小数类型）</li>
+</ol>
+<ul>
+<li>整数类型：包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT。</li>
+<li>小数类型：<ul>
+<li>浮点数类型包括 FLOAT 和 DOUBLE。</li>
+<li>定点数类型为 DECIMAL。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>日期/时间类型</li>
+</ol>
+<ul>
+<li>包括 YEAR、TIME、DATE、DATETIME 和 TIMESTAMP。</li>
+</ul>
+<ol start="3">
+<li>字符类型（文本字符串和二进制字符串）</li>
+</ol>
+<ul>
+<li>字符串类型：包括 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。</li>
+<li>二进制类型：包括 BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><p>MySQL支持所有标准SQL数值数据类型。</p>
+<p>这些类型包括严格数值数据类型(INTEGER、SMALLINT、DECIMAL和NUMERIC)，以及近似数值数据类型(FLOAT、REAL和DOUBLE PRECISION)。</p>
+<p>关键字INT是INTEGER的同义词，关键字DEC是DECIMAL的同义词。</p>
+<p>BIT数据类型保存位字段值，并且支持MyISAM、MEMORY、InnoDB和BDB表。</p>
+<p>作为SQL标准的扩展，MySQL也支持整数类型TINYINT、MEDIUMINT和BIGINT。下面的表显示了需要的每个整数类型的存储和范围。</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">范围（有符号）</th>
+<th align="left">范围（无符号）</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">TINYINT</td>
+<td align="left">1 字节</td>
+<td align="left">(-128，127)</td>
+<td align="left">(0，255)</td>
+<td align="left">小整数值</td>
+</tr>
+<tr>
+<td align="left">SMALLINT</td>
+<td align="left">2 字节</td>
+<td align="left">(-32 768，32 767)</td>
+<td align="left">(0，65 535)</td>
+<td align="left">大整数值</td>
+</tr>
+<tr>
+<td align="left">MEDIUMINT</td>
+<td align="left">3 字节</td>
+<td align="left">(-8 388 608，8 388 607)</td>
+<td align="left">(0，16 777 215)</td>
+<td align="left">大整数值</td>
+</tr>
+<tr>
+<td align="left">INT或INTEGER</td>
+<td align="left">4 字节</td>
+<td align="left">(-2 147 483 648，2 147 483 647)</td>
+<td align="left">(0，4 294 967 295)</td>
+<td align="left">大整数值</td>
+</tr>
+<tr>
+<td align="left">BIGINT</td>
+<td align="left">8 字节</td>
+<td align="left">(-9,223,372,036,854,775,808，9 223 372 036 854 775 807)</td>
+<td align="left">(0，18 446 744 073 709 551 615)</td>
+<td align="left">极大整数值</td>
+</tr>
+<tr>
+<td align="left">FLOAT</td>
+<td align="left">4 字节</td>
+<td align="left">(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td align="left">0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td align="left">单精度 浮点数值</td>
+</tr>
+<tr>
+<td align="left">DOUBLE</td>
+<td align="left">8 字节</td>
+<td align="left">(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td align="left">0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td align="left">双精度 浮点数值</td>
+</tr>
+<tr>
+<td align="left">DECIMAL</td>
+<td align="left">对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td align="left">依赖于M和D的值</td>
+<td align="left">依赖于M和D的值</td>
+<td align="left">小数值</td>
+</tr>
+</tbody></table>
+<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><blockquote>
+<p>整数类型又称数值型数据，数值型数据类型主要用来存储数字。</p>
+</blockquote>
+<p>MySQL提供了多种数值型数据类型，不同的数据类型提供不同的取值范围，可以存储的值范围越大，所需的存储空间也会越大。</p>
+<p>MySQL 主要提供的整数类型有 <strong>TINYINT</strong>、<strong>SMALLINT</strong>、<strong>MEDIUMINT</strong>、<strong>INT</strong>、<strong>BIGINT</strong>，其属性字段可以添加 AUTO_INCREMENT 自增约束条件。下表中列出了 MySQL 中的数值类型。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>很小的整数</td>
+<td>1个字节</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>小的整数</td>
+<td>2个宇节</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>中等大小的整数</td>
+<td>3个字节</td>
+</tr>
+<tr>
+<td>INT (INTEGHR)</td>
+<td>普通大小的整数</td>
+<td>4个字节</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>大整数</td>
+<td>8个字节</td>
+</tr>
+</tbody></table>
+<p>从上表中可以看到，不同类型的整数存储所需的字节数不相同，占用字节数最小的是 TINYINT 类型，占用字节最大的是 BIGINT 类型，占用的字节越多的类型所能表示的数值范围越大。</p>
+<p>根据占用字节数可以求出每一种数据类型的取值范围。例如，TINYINT 需要 1 个字节（8bit）来存储，那么 TINYINT 无符号数的最大值为 28-1，即 255；TINYINT 有符号数的最大值为 27-1，即 127。其他类型的整数的取值范围计算方法相同，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>-128〜127</td>
+<td>0 〜255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>-32768〜32767</td>
+<td>0〜65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>-8388608〜8388607</td>
+<td>0〜16777215</td>
+</tr>
+<tr>
+<td>INT (INTEGER)</td>
+<td>-2147483648〜2147483647</td>
+<td>0〜4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>-9223372036854775808〜9223372036854775807</td>
+<td>0〜18446744073709551615</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>提示：显示宽度和数据类型的取值范围是无关的。显示宽度只是指明 MySQL 最大可能显示的数字个数，数值的位数小于指定的宽度时会由空格填充。如果插入了大于显示宽度的值，只要该值不超过该类型整数的取值范围，数值依然可以插入，而且能够显示出来。例如，year 字段插入 19999，当使用 SELECT 查询该列值的时候，MySQL 显示的将是完整的带有 5 位数字的 19999，而不是 4 位数字的值。</p>
+</blockquote>
+<p>其他整型数据类型也可以在定义表结构时指定所需的显示宽度，如果不指定，则系统为每一种类型指定默认的宽度值。</p>
+<p>不同的整数类型有不同的取值范围，并且需要不同的存储空间，因此应根据实际需要选择最合适的类型，这样有利于提高查询的效率和节省存储空间。</p>
+<h3 id="小数类型"><a href="#小数类型" class="headerlink" title="小数类型"></a>小数类型</h3><p>MySQL 中使用浮点数和定点数来表示小数。</p>
+<p>浮点类型有两种，分别是单精度浮点数（<strong>FLOAT</strong>）和双精度浮点数（<strong>DOUBLE</strong>）；定点类型只有一种，就是 <strong>DECIMAL</strong>。</p>
+<p>浮点类型和定点类型都可以用<code>(M, D)</code>来表示，其中<code>M</code>称为精度，表示总共的位数；<code>D</code>称为标度，表示小数的位数。</p>
+<p>浮点数类型的取值范围为 M（1～255）和 D（1～30，且不能大于 M-2），分别表示显示宽度和小数位数。M 和 D 在 FLOAT 和DOUBLE 中是可选的，FLOAT 和 DOUBLE 类型将被保存为硬件所支持的最大精度。DECIMAL 的默认 D 值为 0、M 值为 10。</p>
+<p>下表中列出了 MySQL 中的小数类型和存储需求。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FLOAT</td>
+<td>单精度浮点数</td>
+<td>4 个字节</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>双精度浮点数</td>
+<td>8 个字节</td>
+</tr>
+<tr>
+<td>DECIMAL (M, D)，DEC</td>
+<td>压缩的“严格”定点数</td>
+<td>M+2 个字节</td>
+</tr>
+</tbody></table>
+<p>DECIMAL 类型不同于 FLOAT 和 DOUBLE。DOUBLE 实际上是以字符串的形式存放的，DECIMAL 可能的最大取值范围与 DOUBLE 相同，但是有效的取值范围由 M 和 D 决定。如果改变 M 而固定 D，则取值范围将随 M 的变大而变大。</p>
+<p>从上表中可以看到，DECIMAL 的存储空间并不是固定的，而由精度值 M 决定，占用 M+2 个字节。</p>
+<p>FLOAT 类型的取值范围如下：</p>
+<ul>
+<li>有符号的取值范围：-3.402823466E+38～-1.175494351E-38。</li>
+<li>无符号的取值范围：0 和 -1.175494351E-38～-3.402823466E+38。</li>
+</ul>
+<p>DOUBLE 类型的取值范围如下：</p>
+<ul>
+<li>有符号的取值范围：-1.7976931348623157E+308～-2.2250738585072014E-308。</li>
+<li>无符号的取值范围：0 和 -2.2250738585072014E-308～-1.7976931348623157E+308。</li>
+</ul>
+<blockquote>
+<p>提示：不论是定点还是浮点类型，如果用户指定的精度超出精度范围，则会四舍五入进行处理。</p>
+</blockquote>
+<p>FLOAT 和 DOUBLE 在不指定精度时，默认会按照实际的精度（由计算机硬件和操作系统决定），DECIMAL 如果不指定精度，默认为（10，0）。</p>
+<p>浮点数相对于定点数的优点是在长度一定的情况下，浮点数能够表示更大的范围；缺点是会引起精度问题。</p>
+<p>最后再强调一下：在 MySQL 中，定点数以字符串形式存储，在对精度要求比较高的时候（如货币、科学数据），使用 DECIMAL 的类型比较好，另外两个浮点数进行减法和比较运算时也容易出问题，所以在使用浮点数时需要注意，并尽量避免做浮点数比较。</p>
+<h2 id="日期-时间类型"><a href="#日期-时间类型" class="headerlink" title="日期/时间类型"></a>日期/时间类型</h2><p>MySQL 中有多处表示日期的数据类型：<strong>YEAR</strong>、<strong>TIME</strong>、<strong>DATE</strong>、<strong>DTAETIME</strong>、<strong>TIMESTAMP</strong>。当只记录年信息的时候，可以只使用 YEAR 类型。</p>
+<p>每个时间类型有一个有效值范围和一个”零”值。当指定不合法的MySQL不能表示的值时，系统将“零”值插入数据库中。</p>
+<p>TIMESTAMP类型有专有的自动更新特性，将在后面描述。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>日期格式</th>
+<th>日期范围</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>YEAR</td>
+<td>YYYY</td>
+<td>1901 ~ 2155</td>
+<td>1 个字节</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>HH:MM:SS</td>
+<td>-838:59:59 ~ 838:59:59</td>
+<td>3 个字节</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>YYYY-MM-DD</td>
+<td>1000-01-01 ~ 9999-12-3</td>
+<td>3 个字节</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1000-01-01 00:00:00 ~ 9999-12-31 23:59:59</td>
+<td>8 个字节</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1970-01-01 00:00:00/2038<br>结束时间是第 <strong>2147483647</strong> 秒，北京时间 <strong>2038-1-19 11:14:07</strong>，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td>4 个字节</td>
+</tr>
+</tbody></table>
+<h3 id="YEAR-类型"><a href="#YEAR-类型" class="headerlink" title="YEAR 类型"></a>YEAR 类型</h3><p>YEAR 类型是一个单字节类型，用于表示年，在存储时只需要 1 个字节。可以使用各种格式指定 YEAR，如下所示：</p>
+<ul>
+<li>以 4 位字符串或者 4 位数字格式表示的 YEAR，范围为 ‘1901’～’2155’。输入格式为 ‘YYYY’ 或者 YYYY，例如，输入 ‘2010’ 或 2010，插入数据库的值均为 2010。</li>
+<li>以 2 位字符串格式表示的 YEAR，范围为 ‘00’ 到 ‘99’。’00’～’69’ 和 ‘70’～’99’ 范围的值分别被转换为 2000～2069 和 1970～1999 范围的 YEAR 值。’0’ 与 ‘00’ 的作用相同。插入超过取值范围的值将被转换为 2000。</li>
+<li>以 2 位数字表示的 YEAR，范围为 1～99。1～99 和 70～99 范围的值分别被转换为 2001～2069 和 1970～1999 范围的 YEAR 值。注意，在这里 0 值将被转换为 0000，而不是 2000。</li>
+</ul>
+<blockquote>
+<p>提示：两位整数范围与两位字符串范围稍有不同。例如，插入 3000 年，读者可能会使用数字格式的 0 表示 YEAR，实际上，插入数据库的值为 0000，而不是所希望的 3000。只有使用字符串格式的 ‘0’ 或 ‘00’，才可以被正确解释为 3000，非法 YEAR值将被转换为 0000。</p>
+</blockquote>
+<h3 id="TIME-类型"><a href="#TIME-类型" class="headerlink" title="TIME 类型"></a>TIME 类型</h3><p>TIME 类型用于只需要时间信息的值，在存储时需要 3 个字节。格式为 HH:MM:SS。HH 表示小时，MM 表示分钟，SS 表示秒。</p>
+<p>TIME 类型的取值范围为 -838：59：59～838：59：59，小时部分如此大的原因是 TIME 类型不仅可以用于表示一天的时间（必须小于 24 小时），还可能是某个事件过去的时间或两个事件之间的时间间隔（可大于 24 小时，或者甚至为负）。</p>
+<p>可以使用各种格式指定 TIME 值，如下所示。</p>
+<ul>
+<li>‘D HH：MM：SS’ 格式的字符串。还可以使用这些“非严格”的语法：’HH：MM：SS’、’HH：MM’、’D HH’ 或 ‘SS’。这里的 D 表示日，可以取 0～34 之间的值。在插入数据库时，D 被转换为小时保存，格式为 “D*24+HH”。</li>
+<li>‘HHMMSS’ 格式、没有间隔符的字符串或者 HHMMSS 格式的数值，假定是有意义的时间。例如，’101112’ 被理解为’10：11：12’，但是 ‘106112’ 是不合法的（它有一个没有意义的分钟部分），在存储时将变为 00：00：00。</li>
+</ul>
+<blockquote>
+<p>提示：为 TIME 列分配简写值时应注意：如果没有冒号，MySQL 解释值时，假定最右边的两位表示秒。（MySQL 解释 TIME 值为过去的时间而不是当前的时间）。例如，读者可能认为 ‘1112’ 和 1112 表示 11：12：00（即 11 点过 12 分钟），但MySQL 将它们解释为 00：11：12（即 11 分 12 秒）。同样 ‘12’ 和 12 被解释为00：00：12。相反，TIME 值中如果使用冒号则肯定被看作当天的时间，也就是说，’11：12’ 表示 11：12：00，而不是 00：11：12。</p>
+</blockquote>
+<h3 id="DATE-类型"><a href="#DATE-类型" class="headerlink" title="DATE 类型"></a>DATE 类型</h3><p>DATE 类型用于仅需要日期值时，没有时间部分，在存储时需要 3 个字节。日期格式为 ‘YYYY-MM-DD’，其中 YYYY 表示年，MM 表示月，DD 表示日。</p>
+<p>在给 DATE 类型的字段赋值时，可以使用字符串类型或者数字类型的数据插入，只要符合 DATE 的日期格式即可。如下所示：</p>
+<ul>
+<li>以 ‘YYYY-MM-DD’ 或者 ‘YYYYMMDD’ 字符中格式表示的日期，取值范围为 ‘1000-01-01’～’9999-12-3’。例如，输入 ‘2015-12-31’ 或者 ‘20151231’，插入数据库的日期为2015-12-31。</li>
+<li>以 ‘YY-MM-DD’ 或者 ‘YYMMDD’ 字符串格式表示日期，在这里YY表示两位的年值。MySQL 解释两位年值的规则：’00～69’ 范围的年值转换为 ‘2000<del>2069’，’70</del>99’ 范围的年值转换为 ‘1970～1999’。例如，输入 ‘15-12-31’，插入数据库的日期为 2015-12-31；输入 ‘991231’，插入数据库的日期为 1999-12-31。</li>
+<li>以 YYMMDD 数字格式表示的日期，与前面相似，00~69 范围的年值转换为 2000～2069，80～99 范围的年值转换为 1980～1999。例如，输入 151231，插入数据库的日期为 2015-12-31，输入 991231，插入数据库的日期为 1999-12-31。</li>
+<li>使用 CURRENT_DATE 或者 NOW()，插入当前系统日期。</li>
+</ul>
+<blockquote>
+<p>提示：MySQL 允许“不严格”语法：任何标点符号都可以用作日期部分之间的间隔符。例如，’98-11-31’、’98.11.31’、’98/11/31’和‘98@11@31’ 是等价的，这些值也可以正确地插入数据库。</p>
+</blockquote>
+<h3 id="DATETIME-类型"><a href="#DATETIME-类型" class="headerlink" title="DATETIME 类型"></a>DATETIME 类型</h3><p>DATETIME 类型用于需要同时包含日期和时间信息的值，在存储时需要 8 个字节。日期格式为 ‘YYYY-MM-DD HH：MM：SS’，其中 YYYY 表示年，MM 表示月，DD 表示日，HH 表示小时，MM 表示分钟，SS 表示秒。</p>
+<p>在给 DATETIME 类型的字段赋值时，可以使用字符串类型或者数字类型的数据插入，只要符合 DATETIME 的日期格式即可，如下所示。</p>
+<ul>
+<li>以 ‘YYYY-MM-DD HH：MM：SS’ 或者 ‘YYYYMMDDHHMMSS’ 字符串格式表示的日期，取值范围为 ‘1000-01-01 00：00：00’～’9999-12-3 23：59：59’。例如，输入 ‘2014-12-31 05：05：05’ 或者 ‘20141231050505’，插入数据库的 DATETIME 值都为 2014-12-31 05：05：05。</li>
+<li>以 ‘YY-MM-DD HH：MM：SS’ 或者 ‘YYMMDDHHMMSS’ 字符串格式表示的日期，在这里 YY 表示两位的年值。与前面相同，’00～79’ 范围的年值转换为 ‘2000～2079’，’80～99’ 范围的年值转换为 ‘1980～1999’。例如，输入 ‘14-12-31 05：05：05’，插入数据库的 DATETIME 为 2014-12-31 05：05：05；输入 141231050505，插入数据库的 DATETIME 为 2014-12-31 05：05：05。</li>
+<li>以 YYYYMMDDHHMMSS 或者 YYMMDDHHMMSS 数字格式表示的日期和时间。例如，输入 20141231050505，插入数据库的 DATETIME 为 2014-12-31 05：05：05；输入 140505050505，插入数据库的 DATETIME 为 2014-12-31 05：05：05。</li>
+</ul>
+<blockquote>
+<p>提示：MySQL 允许“不严格”语法：任何标点符号都可用作日期部分或时间部分之间的间隔符。例如，’98-12-31 11：30：45’、’98.12.31 11+30+35’、’98/12/31 11<em>30</em>45’ 和 ‘98@12@31 11^30^45’ 是等价的，这些值都可以正确地插入数据库。</p>
+</blockquote>
+<h3 id="TIMESTAMP-类型"><a href="#TIMESTAMP-类型" class="headerlink" title="TIMESTAMP 类型"></a>TIMESTAMP 类型</h3><p>TIMESTAMP 的显示格式与 DATETIME 相同，显示宽度固定在 19 个字符，日期格式为 YYYY-MM-DD HH：MM：SS，在存储时需要 4 个字节。但是 TIMESTAMP 列的取值范围小于 DATETIME 的取值范围，为 ‘1970-01-01 00：00：01’UTC～’2038-01-19 03：14：07’UTC。在插入数据时，要保证在合法的取值范围内。</p>
+<blockquote>
+<p>提示：协调世界时（英：Coordinated Universal Time，法：Temps Universel Coordonné）又称为世界统一时间、世界标准时间、国际协调时间。英文（CUT）和法文（TUC）的缩写不同，作为妥协，简称 UTC。</p>
+</blockquote>
+<p>TIMESTAMP 与 DATETIME 除了存储字节和支持的范围不同外，还有一个最大的区别是：</p>
+<ul>
+<li>DATETIME 在存储日期数据时，按实际输入的格式存储，即输入什么就存储什么，与时区无关；</li>
+<li>而 TIMESTAMP 值的存储是以 UTC（世界标准时间）格式保存的，存储时对当前时区进行转换，检索时再转换回当前时区。即查询时，根据当前时区的不同，显示的时间值是不同的。</li>
+</ul>
+<blockquote>
+<p>提示：如果为一个 DATETIME 或 TIMESTAMP 对象分配一个 DATE 值，结果值的时间部分被设置为 ‘00：00：00’，因此 DATE 值未包含时间信息。如果为一个 DATE 对象分配一个 DATETIME 或 TIMESTAMP 值，结果值的时间部分被删除，因此DATE 值未包含时间信息。</p>
+</blockquote>
+<h2 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h2><p>MySQL 支持两类字符型数据：<strong>字符串类型和二进制类型</strong></p>
+<p>包括CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM和SET。该节描述了这些类型如何工作以及如何在查询中使用这些类型。</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小/存储需求</th>
+<th align="left">说明/用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CHAR</td>
+<td align="left">0-255字节</td>
+<td align="left">定长字符串</td>
+</tr>
+<tr>
+<td align="left">CHAR(M)</td>
+<td align="left">M 字节，1&lt;=M&lt;=255</td>
+<td align="left">固定长度非二进制字符串</td>
+</tr>
+<tr>
+<td align="left">VARCHAR</td>
+<td align="left">0-65535 字节</td>
+<td align="left">变长字符串</td>
+</tr>
+<tr>
+<td align="left">1VARCHAR(M)</td>
+<td align="left">L+1字节，在此，L&lt; = M和 1&lt;=M&lt;=255</td>
+<td align="left">变长非二进制字符串</td>
+</tr>
+<tr>
+<td align="left">TINYBLOB</td>
+<td align="left">0-255字节</td>
+<td align="left">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td align="left">TINYTEXT</td>
+<td align="left">0-255字节</td>
+<td align="left">短文本字符串</td>
+</tr>
+<tr>
+<td align="left">BLOB</td>
+<td align="left">0-65 535字节</td>
+<td align="left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="left">TEXT</td>
+<td align="left">0-65 535字节</td>
+<td align="left">长文本数据</td>
+</tr>
+<tr>
+<td align="left">MEDIUMBLOB</td>
+<td align="left">0-16 777 215字节</td>
+<td align="left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">MEDIUMTEXT</td>
+<td align="left">0-16 777 215字节</td>
+<td align="left">中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">LONGBLOB</td>
+<td align="left">0-4 294 967 295字节</td>
+<td align="left">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td align="left">LONGTEXT</td>
+<td align="left">0-4 294 967 295字节</td>
+<td align="left">极大文本数据</td>
+</tr>
+<tr>
+<td align="left">ENUM</td>
+<td align="left">1或2个字节，取决于枚举值的数目 (最大值为65535)</td>
+<td align="left">枚举类型，只能有一个枚举字符串值</td>
+</tr>
+<tr>
+<td align="left">SET</td>
+<td align="left">1、2、3、4或8个字节，取决于集合 成员的数量（最多64个成员）</td>
+<td align="left">一个设置，字符串对象可以有零个或 多个SET成员</td>
+</tr>
+</tbody></table>
+<p>CHAR 和 VARCHAR 类型类似，但它们保存和检索的方式不同。它们的最大长度和是否尾部空格被保留等方面也不同。在存储或检索过程中不进行大小写转换。</p>
+<p>BINARY 和 VARBINARY 类似于 CHAR 和 VARCHAR，不同的是它们包含二进制字符串而不要非二进制字符串。也就是说，它们包含字节字符串而不是字符字符串。这说明它们没有字符集，并且排序和比较基于列值字节的数值值。</p>
+<p>BLOB 是一个二进制大对象，可以容纳可变数量的数据。有 4 种 BLOB 类型：TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。它们区别在于可容纳存储范围不同。</p>
+<p>有 4 种 TEXT 类型：TINYTEXT、TEXT、MEDIUMTEXT 和 LONGTEXT。对应的这 4 种 BLOB 类型，可存储的最大长度不同，可根据实际情况选择。</p>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><blockquote>
+<p>又称“文本字符串类型”。</p>
+</blockquote>
+<p>字符串类型用来存储字符串数据，还可以存储图片和声音的二进制数据。字符串可以区分或者不区分大小写的串比较，还可以进行正则表达式的匹配查找。</p>
+<p>MySQL 中的字符串类型有 <strong>CHAR</strong>、<strong>VARCHAR</strong>、<strong>TINYTEXT</strong>、<strong>TEXT</strong>、<strong>MEDIUMTEXT</strong>、<strong>LONGTEXT</strong>、<strong>ENUM</strong>、<strong>SET</strong> 等。</p>
+<p>下表中列出了 MySQL 中的字符串数据类型，括号中的<code>M</code>表示可以为其指定长度。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CHAR(M)</td>
+<td>固定长度非二进制字符串</td>
+<td>M 字节，1&lt;=M&lt;=255</td>
+</tr>
+<tr>
+<td>VARCHAR(M)</td>
+<td>变长非二进制字符串</td>
+<td>L+1字节，在此，L&lt; = M和 1&lt;=M&lt;=255</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>非常小的非二进制字符串</td>
+<td>L+1字节，在此，L&lt;2^8</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>小的非二进制字符串</td>
+<td>L+2字节，在此，L&lt;2^16</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>中等大小的非二进制字符串</td>
+<td>L+3字节，在此，L&lt;2^24</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>大的非二进制字符串</td>
+<td>L+4字节，在此，L&lt;2^32</td>
+</tr>
+<tr>
+<td>ENUM</td>
+<td>枚举类型，只能有一个枚举字符串值</td>
+<td>1或2个字节，取决于枚举值的数目 (最大值为65535)</td>
+</tr>
+<tr>
+<td>SET</td>
+<td>一个设置，字符串对象可以有零个或 多个SET成员</td>
+<td>1、2、3、4或8个字节，取决于集合 成员的数量（最多64个成员）</td>
+</tr>
+</tbody></table>
+<p>VARCHAR 和 TEXT 类型是变长类型，其存储需求取决于列值的实际长度（在前面的表格中用 L 表示），而不是取决于类型的最大可能尺寸。</p>
+<p>例如，一个 VARCHAR(10) 列能保存一个最大长度为 10 个字符的字符串，实际的存储需要字符串的长度 L 加上一个字节以记录字符串的长度。对于字符 “abcd”，L 是 4，而存储要求 5 个字节。</p>
+<h4 id="CHAR-和-VARCHAR-类型"><a href="#CHAR-和-VARCHAR-类型" class="headerlink" title="CHAR 和 VARCHAR 类型"></a>CHAR 和 VARCHAR 类型</h4><p>CHAR(M) 为固定长度字符串，在定义时指定字符串列长。当保存时，在右侧填充空格以达到指定的长度。M 表示列的长度，范围是 0～255 个字符。</p>
+<p>例如，CHAR(4) 定义了一个固定长度的字符串列，包含的字符个数最大为 4。当检索到 CHAR 值时，尾部的空格将被删除。</p>
+<p>VARCHAR(M) 是长度可变的字符串，M 表示最大列的长度，M 的范围是 0～65535。VARCHAR 的最大实际长度由最长的行的大小和使用的字符集确定，而实际占用的空间为字符串的实际长度加 1。</p>
+<p>例如，VARCHAR(50) 定义了一个最大长度为 50 的字符串，如果插入的字符串只有 10 个字符，则实际存储的字符串为 10 个字符和一个字符串结束字符。VARCHAR 在值保存和检索时尾部的空格仍保留。</p>
+<p>【实例】下面将不同的字符串保存到 CHAR(4) 和 VARCHAR(4) 列，说明 CHAR 和 VARCHAR 之间的差别，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>插入值</th>
+<th>CHAR(4)</th>
+<th>存储需求</th>
+<th>VARCHAR(4)</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘ ‘</td>
+<td>‘  ‘</td>
+<td>4字节</td>
+<td>‘’</td>
+<td>1字节</td>
+</tr>
+<tr>
+<td>‘ab’</td>
+<td>‘ab ‘</td>
+<td>4字节</td>
+<td>‘ab’</td>
+<td>3字节</td>
+</tr>
+<tr>
+<td>‘abc’</td>
+<td>‘abc ‘</td>
+<td>4字节</td>
+<td>‘abc’</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>‘abcd’</td>
+<td>‘abcd’</td>
+<td>4字节</td>
+<td>‘abcd’</td>
+<td>5字节</td>
+</tr>
+<tr>
+<td>‘abcdef’</td>
+<td>‘abcd’</td>
+<td>4字节</td>
+<td>‘abcd’</td>
+<td>5字节</td>
+</tr>
+</tbody></table>
+<p>对比结果可以看到，CHAR(4) 定义了固定长度为 4 的列，无论存入的数据长度为多少，所占用的空间均为 4 个字节。VARCHAR(4) 定义的列所占的字节数为实际长度加 1。</p>
+<h4 id="TEXT-类型"><a href="#TEXT-类型" class="headerlink" title="TEXT 类型"></a>TEXT 类型</h4><p>TEXT 列保存非二进制字符串，如文章内容、评论等。当保存或查询 TEXT 列的值时，不删除尾部空格。</p>
+<p>TEXT 类型分为 4 种：TINYTEXT、TEXT、MEDIUMTEXT 和 LONGTEXT。不同的 TEXT 类型的存储空间和数据长度不同。</p>
+<ul>
+<li>TINYTEXT 表示长度为 255（28-1）字符的 TEXT 列。</li>
+<li>TEXT 表示长度为 65535（216-1）字符的 TEXT 列。</li>
+<li>MEDIUMTEXT 表示长度为 16777215（224-1）字符的 TEXT 列。</li>
+<li>LONGTEXT 表示长度为 4294967295 或 4GB（232-1）字符的 TEXT 列。</li>
+</ul>
+<h4 id="ENUM-类型"><a href="#ENUM-类型" class="headerlink" title="ENUM 类型"></a>ENUM 类型</h4><p>ENUM 是一个字符串对象，值为表创建时列规定中枚举的一列值。其语法格式如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;字段名&gt; ENUM( '值1', '值1', …, '值n' )</span><br></pre></td></tr></tbody></table></figure>
+
+<p>字段名指将要定义的字段，值 n 指枚举列表中第 n 个值。</p>
+<p>ENUM 类型的字段在取值时，能在指定的枚举列表中获取，而且一次只能取一个。如果创建的成员中有空格，尾部的空格将自动被删除。</p>
+<p>ENUM 值在内部用整数表示，每个枚举值均有一个索引值；列表值所允许的成员值从 1 开始编号，MySQL 存储的就是这个索引编号，枚举最多可以有 65535 个元素。</p>
+<p>例如，定义 ENUM 类型的列（’first’，’second’，’third’），该列可以取的值和每个值的索引如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>索引</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>‘’</td>
+<td>0</td>
+</tr>
+<tr>
+<td>’first</td>
+<td>1</td>
+</tr>
+<tr>
+<td>second</td>
+<td>2</td>
+</tr>
+<tr>
+<td>third</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>ENUM 值依照列索引顺序排列，并且空字符串排在非空字符串前，NULL 值排在其他所有枚举值前。</p>
+<blockquote>
+<p>提示：ENUM 列总有一个默认值。如果将 ENUM 列声明为 NULL，NULL 值则为该列的一个有效值，并且默认值为 NULL。如果 ENUM 列被声明为 NOT NULL，其默认值为允许的值列表的第 1 个元素。</p>
+</blockquote>
+<h4 id="SET-类型"><a href="#SET-类型" class="headerlink" title="SET 类型"></a>SET 类型</h4><p>SET 是一个字符串的对象，可以有零或多个值，SET 列最多可以有 64 个成员，值为表创建时规定的一列值。指定包括多个 SET 成员的 SET 列值时，各成员之间用逗号<code>,</code>隔开，语法格式如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET( '值1', '值2', …, '值n' )</span><br></pre></td></tr></tbody></table></figure>
+
+<p>与 ENUM 类型相同，SET 值在内部用整数表示，列表中每个值都有一个索引编号。当创建表时，SET 成员值的尾部空格将自动删除。</p>
+<p>但与 ENUM 类型不同的是，ENUM 类型的字段只能从定义的列值中选择一个值插入，而 SET 类型的列可从定义的列值中选择多个字符的联合。</p>
+<blockquote>
+<p>提示：如果插入 SET 字段中的列值有重复，则 MySQL 自动删除重复的值；插入 SET 字段的值的顺序并不重要，MySQL 会在存入数据库时，按照定义的顺序显示；如果插入了不正确的值，默认情况下，MySQL 将忽视这些值，给出警告。</p>
+</blockquote>
+<h3 id="二进制类型"><a href="#二进制类型" class="headerlink" title="二进制类型"></a>二进制类型</h3><blockquote>
+<p> 二进制字符串类型有时候也直接被称为“二进制类型”。</p>
+</blockquote>
+<p>MySQL 中的二进制字符串有 <strong>BIT</strong>、<strong>BINARY</strong>、<strong>VARBINARY</strong>、<strong>TINYBLOB</strong>、<strong>BLOB</strong>、<strong>MEDIUMBLOB</strong> 和 <strong>LONGBLOB</strong>。</p>
+<p>下表中列出了 MySQL 中的二进制数据类型，括号中的<code>M</code>表示可以为其指定长度。</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BIT(M)</td>
+<td>位字段类型</td>
+<td>大约 (M+7)/8 字节</td>
+</tr>
+<tr>
+<td>BINARY(M)</td>
+<td>固定长度二进制字符串</td>
+<td>M 字节</td>
+</tr>
+<tr>
+<td>VARBINARY (M)</td>
+<td>可变长度二进制字符串</td>
+<td>M+1 字节</td>
+</tr>
+<tr>
+<td>TINYBLOB (M)</td>
+<td>非常小的BLOB</td>
+<td>L+1 字节，在此，L&lt;2^8</td>
+</tr>
+<tr>
+<td>BLOB (M)</td>
+<td>小 BLOB</td>
+<td>L+2 字节，在此，L&lt;2^16</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB (M)</td>
+<td>中等大小的BLOB</td>
+<td>L+3 字节，在此，L&lt;2^24</td>
+</tr>
+<tr>
+<td>LONGBLOB (M)</td>
+<td>非常大的BLOB</td>
+<td>L+4 字节，在此，L&lt;2^32</td>
+</tr>
+</tbody></table>
+<h4 id="BIT-类型"><a href="#BIT-类型" class="headerlink" title="BIT 类型"></a>BIT 类型</h4><p>位字段类型。M 表示每个值的位数，范围为 1～64。如果 M 被省略，默认值为 1。如果为 BIT(M) 列分配的值的长度小于 M 位，在值的左边用 0 填充。例如，为 BIT(6) 列分配一个值 b’101’，其效果与分配 b’000101’ 相同。</p>
+<p>BIT 数据类型用来保存位字段值，例如以二进制的形式保存数据 13，13 的二进制形式为 1101，在这里需要位数至少为 4 位的 BIT 类型，即可以定义列类型为 BIT(4)。大于二进制 1111 的数据是不能插入 BIT(4) 类型的字段中的。</p>
+<blockquote>
+<p>提示：默认情况下，MySQL 不可以插入超出该列允许范围的值，因而插入数据时要确保插入的值在指定的范围内。</p>
+</blockquote>
+<h4 id="BINARY-和-VARBINARY-类型"><a href="#BINARY-和-VARBINARY-类型" class="headerlink" title="BINARY 和 VARBINARY 类型"></a>BINARY 和 VARBINARY 类型</h4><p>BINARY 和 VARBINARY 类型类似于 CHAR 和 VARCHAR，不同的是它们包含二进制字节字符串。使用的语法格式如下：</p>
+<p>列名称 BINARY(M) 或者 VARBINARY(M)</p>
+<p>BINARY 类型的长度是固定的，指定长度后，不足最大长度的，将在它们右边填充 “\0” 补齐，以达到指定长度。例如，指定列数据类型为 BINARY(3)，当插入 a 时，存储的内容实际为 “\a0\0”，当插入 ab 时，实际存储的内容为“ab\0”，无论存储的内容是否达到指定的长度，存储空间均为指定的值 M。</p>
+<p>VARBINARY 类型的长度是可变的，指定好长度之后，长度可以在 0 到最大值之间。例如，指定列数据类型为 VARBINARY(20)，如果插入的值长度只有 10，则实际存储空间为 10 加 1，实际占用的空间为字符串的实际长度加 1。</p>
+<h4 id="BLOB-类型"><a href="#BLOB-类型" class="headerlink" title="BLOB 类型"></a>BLOB 类型</h4><p>BLOB 是一个二进制的对象，用来存储可变数量的数据。BLOB 类型分为 4 种：TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB，它们可容纳值的最大长度不同，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>存储范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYBLOB</td>
+<td>最大长度为255 (28-1)字节</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>最大长度为65535 (216-1)字节</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>最大长度为16777215 (224-1)字节</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>最大长度为4294967295或4GB (231-1)字节</td>
+</tr>
+</tbody></table>
+<p>BLOB 列存储的是二进制字符串（字节字符串），TEXT 列存储的是非进制字符串（字符字符串）。</p>
+<p>BLOB 列是字符集，并且排序和比较基于列值字节的数值；TEXT 列有一个字符集，并且根据字符集对值进行排序和比较。</p>
+<hr>
+<p>以上笔记部分来自 <a href="http://c.biancheng.net" target="_blank" rel="noopener">C语言中文网</a> 、百度知道、<a href="https://www.csdn.net/" target="_blank" rel="noopener">CSDN</a>。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-09T20:58:19+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2020年2月9日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>笔记</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>MySQL</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://melodyjerry.github.io/blog/2020/02/09/MySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&title=MySQL的数据类型？ | MelodyHub&summary=MySQL的数据类型数据库中的每个列都应该有适当的数据类型，用于限制或允许该列中存储的数据。例如，列中存储的为数字，则相应的数据类型应该为数值类型。
+如果使用错误的数据类型可能会严重影响应用程序的功能和性能，所以在设计表时，应该特别重视数据列所用的数据类型。更改包含数据的列不是一件小事，这样做可能会导致数据丢失。因此，在创建表时必须为每个列设置正确的数据类型和长度。
+MySQL中定义数据字段的类型对你数据库的优化是非常重要的。
+MySQL支持所有标准SQL数值数据类型。
+MySQL支持多种类型，大致可以分为三类：
+
+数值
+日期/时间
+字符(串)类型。
+
+数据类型分类
+数值类型（整数类型和小数类型）
+
+
+整数类型：包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT。
+小数类型：
+浮点数类型包括 FLOAT 和 DOUBLE。
+定点数类型为 DECIMAL。
+
+
+
+
+日期/时间类型
+
+
+包括 YEAR、TIME、DATE、DATETIME 和 TIMESTAMP。
+
+
+字符类型（文本字符串和二进制字符串）
+
+
+字符串类型：包括 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。
+二进制类型：包括 BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://melodyjerry.github.io/blog/2020/02/09/MySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&title=MySQL的数据类型？ | MelodyHub&summary=MySQL的数据类型数据库中的每个列都应该有适当的数据类型，用于限制或允许该列中存储的数据。例如，列中存储的为数字，则相应的数据类型应该为数值类型。
+如果使用错误的数据类型可能会严重影响应用程序的功能和性能，所以在设计表时，应该特别重视数据列所用的数据类型。更改包含数据的列不是一件小事，这样做可能会导致数据丢失。因此，在创建表时必须为每个列设置正确的数据类型和长度。
+MySQL中定义数据字段的类型对你数据库的优化是非常重要的。
+MySQL支持所有标准SQL数值数据类型。
+MySQL支持多种类型，大致可以分为三类：
+
+数值
+日期/时间
+字符(串)类型。
+
+数据类型分类
+数值类型（整数类型和小数类型）
+
+
+整数类型：包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT。
+小数类型：
+浮点数类型包括 FLOAT 和 DOUBLE。
+定点数类型为 DECIMAL。
+
+
+
+
+日期/时间类型
+
+
+包括 YEAR、TIME、DATE、DATETIME 和 TIMESTAMP。
+
+
+字符类型（文本字符串和二进制字符串）
+
+
+字符串类型：包括 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。
+二进制类型：包括 BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://melodyjerry.github.io/blog/2020/02/09/MySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&title=MySQL的数据类型？ | MelodyHub&summary=MySQL的数据类型数据库中的每个列都应该有适当的数据类型，用于限制或允许该列中存储的数据。例如，列中存储的为数字，则相应的数据类型应该为数值类型。
+如果使用错误的数据类型可能会严重影响应用程序的功能和性能，所以在设计表时，应该特别重视数据列所用的数据类型。更改包含数据的列不是一件小事，这样做可能会导致数据丢失。因此，在创建表时必须为每个列设置正确的数据类型和长度。
+MySQL中定义数据字段的类型对你数据库的优化是非常重要的。
+MySQL支持所有标准SQL数值数据类型。
+MySQL支持多种类型，大致可以分为三类：
+
+数值
+日期/时间
+字符(串)类型。
+
+数据类型分类
+数值类型（整数类型和小数类型）
+
+
+整数类型：包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT。
+小数类型：
+浮点数类型包括 FLOAT 和 DOUBLE。
+定点数类型为 DECIMAL。
+
+
+
+
+日期/时间类型
+
+
+包括 YEAR、TIME、DATE、DATETIME 和 TIMESTAMP。
+
+
+字符类型（文本字符串和二进制字符串）
+
+
+字符串类型：包括 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。
+二进制类型：包括 BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E/" rel="prev" title="[转]MySQL数据库引擎">
+                                  
+                                      [转]MySQL数据库引擎
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/blog/tags/%E7%AC%94%E8%AE%B0/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 笔记</a> <a class="tag" href="/blog/tags/MySQL/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> MySQL</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'MySQL的数据类型？',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://p1.music.126.net/iFxdTdyPs4NQeIDVFWhnrg==/19077626253606492.jpg?param=180y180'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+         
+         <!-- 以下url可替换成https://m.mom1.cn/api/sp/api.js -->
+          <p><span id="jinrishici-sentence">MelodyHub</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        <div id="binft"></div>
+        
+  <!-- 彩色滚动变换字体 -->
+<center><script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["雪崩时没有一片雪花是无辜的。","彩虹风雨后，成功细节中。","只要精神不滑坡，办法总比困难多。","与积极的人在一起，可以让我们心情高昂。","向日葵看不到太阳也会开放，生活看不到希望也要坚持。","不要说你不会做!你是个人你就会做!"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script></center>
+  
+
+  
+ <!-- 待补充 --> 
+   <!-- 待补充 --> 
+    <!-- 待补充 --> 
+
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+        
+          
+            <a href="/blog/mailto:melodyjerry@163.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/melodyjerry/melodyjerry.github.io"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/playlist?id=2815777391"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;装作很多人打赏的样子</div>
+  
+</header>
+
+  <div class='content pure'>
+    <p><br><fancybox><img src="https://i.loli.net/2020/02/01/U9SiE5qByk3PpAV.png" alt=""></fancybox></p>
+
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer noopener" href="javascript:void(0)" target="_blank"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL的数据类型"><span class="toc-text">MySQL的数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型分类"><span class="toc-text">数据类型分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数值类型"><span class="toc-text">数值类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整数类型"><span class="toc-text">整数类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小数类型"><span class="toc-text">小数类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日期-时间类型"><span class="toc-text">日期/时间类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#YEAR-类型"><span class="toc-text">YEAR 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TIME-类型"><span class="toc-text">TIME 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DATE-类型"><span class="toc-text">DATE 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DATETIME-类型"><span class="toc-text">DATETIME 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TIMESTAMP-类型"><span class="toc-text">TIMESTAMP 类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符类型"><span class="toc-text">字符类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串类型"><span class="toc-text">字符串类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CHAR-和-VARCHAR-类型"><span class="toc-text">CHAR 和 VARCHAR 类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TEXT-类型"><span class="toc-text">TEXT 类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ENUM-类型"><span class="toc-text">ENUM 类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SET-类型"><span class="toc-text">SET 类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制类型"><span class="toc-text">二进制类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BIT-类型"><span class="toc-text">BIT 类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BINARY-和-VARBINARY-类型"><span class="toc-text">BINARY 和 VARBINARY 类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BLOB-类型"><span class="toc-text">BLOB 类型</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/blog/" href="/blog/"
+          
+          
+          id="blog">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/projects/" href="/blog/projects/"
+          
+          
+          id="blogprojects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          成果展示
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/friends/" href="/blog/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="blogfriends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          友人手帐
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          随笔小抄
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/about/" href="/blog/about/"
+          
+            rel="nofollow"
+          
+          
+          id="blogabout">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/blog/categories/%E7%94%B5%E5%BD%B1/" href="/blog/categories/%E7%94%B5%E5%BD%B1/"><div class='name'>电影</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <!--热门标签，旋转，来自https://arlxn.xyz/-->
+    <div class='content pure'>
+    <canvas width="225" height="250" id="resCanvas" style="">
+      <a href="/blog/tags/GitHub/" style="font-size: 16.86px; color: #868686">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.14px; color: #686868">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.57px; color: #5f5f5f">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 18.29px; color: #7c7c7c">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.43px; color: #8f8f8f">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 19.71px; color: #727272">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.86px; color: #868686">工具</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.43px; color: #8f8f8f">算法</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.43px; color: #8f8f8f">蓝桥杯</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.29px; color: #7c7c7c">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://sm.ms/" href="https://sm.ms/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床 SM.MS
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成 Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="http://www.matools.com/api/java8" href="http://www.matools.com/api/java8"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Java 8 中文文档
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/" href="https://mxclub.github.io/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Material X 主题文档（部分）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://www.cnblogs.com/cxk1995/p/5800196.html" href="https://www.cnblogs.com/cxk1995/p/5800196.html"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;使用git将项目上传到github（最简单方法）
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+      
+        
+          <a href="/blog/mailto:melodyjerry@163.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/melodyjerry/melodyjerry.github.io"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/playlist?id=2815777391"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+            <!--CNZZ统计-->
+	   
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+    
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("06/11/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script>
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/blog/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- fastclick -->
+  <script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+  </script>
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://img.vim-cn.com/ab/83bf717f43e05f8388ccb22ac2eab85175dd73.jpg", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9be900c53a224906b211e3197722875b.jpg!sswm", "https://img.vim-cn.com/bc/d93b404f17a33b1f8110dd7ad4c3f29d89ec58.jpg", "https://img.vim-cn.com/bc/d93b404f17a33b1f8110dd7ad4c3f29d89ec58.jpg", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/fcf6db62131446aeaa6153b4a052ff46.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/3c937de283cc47059765a7bff0a9d909.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a59feb981c8948bab6a798fd3c0b102d.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a013f27ee7aa45e7942c399450d5e1ea.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/6233b98b56f8492aaa91949bd498bac6.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/380dd4d772f04c2c88d6a3afed964854.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9d245fbafc4d4a8c957f6f413a5e57ee.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/92de1a94b5db4d369cb1d3df777adce9.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/e933ff6128504908b946a982411a72c0.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/b397ed63e8aa496c9d4bc93935c626b4.jpg!sswm"],
+          {
+            duration: "3000",
+            fade: "500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/ab/83bf717f43e05f8388ccb22ac2eab85175dd73.jpg", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9be900c53a224906b211e3197722875b.jpg!sswm", "https://img.vim-cn.com/bc/d93b404f17a33b1f8110dd7ad4c3f29d89ec58.jpg", "https://img.vim-cn.com/bc/d93b404f17a33b1f8110dd7ad4c3f29d89ec58.jpg", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/fcf6db62131446aeaa6153b4a052ff46.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/3c937de283cc47059765a7bff0a9d909.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a59feb981c8948bab6a798fd3c0b102d.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/a013f27ee7aa45e7942c399450d5e1ea.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/6233b98b56f8492aaa91949bd498bac6.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/380dd4d772f04c2c88d6a3afed964854.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/9d245fbafc4d4a8c957f6f413a5e57ee.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/92de1a94b5db4d369cb1d3df777adce9.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/e933ff6128504908b946a982411a72c0.jpg!sswm", "https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/b397ed63e8aa496c9d4bc93935c626b4.jpg!sswm"],
+          {
+            duration: "3000",
+            fade: "500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0.6/js/volantis.min.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+    appKey: "HjUUcTY42RErTnIt7O58GhvH",
+    placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 页面点击小红心 -->
+<!--<script type="text/javascript" src="/js/love.js"></script> -->
+
+<!-- 页面鼠标点击烟花爆炸效果 -->
+<!--<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+
+<!--浏览器搞笑标题、浏览器搞笑标题-->
+<!-- <script type="text/javascript" src="/js/FunnyTitle.js"></script> -->
+
+<!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;z=17&amp;rx=-40&amp;lx=-540&amp;ly=520&amp;hi=60" async="async"></script>
+
+<!-- 天气挂件 -->
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--音乐-->
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+<!-- 单击显示颜文字 | Designed by Lxn -->
+<script type="text/javascript" src="https://arlxn.xyz/js/click_show_text.js"></script>
+
+
+
