@@ -383,7 +383,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>1k字</p>
+        <p>1.2k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -413,7 +413,7 @@
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
         <h1 id="简单理解"><a href="#简单理解" class="headerlink" title="简单理解"></a>简单理解</h1><p><strong>JDBC</strong>（<strong>J</strong>ava <strong>D</strong>ata<strong>B</strong>ase <strong>C</strong>onnectivity）是 <strong>Java</strong> 和 <strong>数据库</strong> 之前的一座桥。</p>
-<p>实则，<strong>JDBC</strong> 是用于==Java编程语言和数据库之间的标准Java API==。</p>
+<p>实则，<strong>JDBC</strong> 是用于<font color="#85eb58">Java编程语言和数据库之间的标准Java API</font>。</p>
 <p>三者之间的关系就如下图 👇</p>
 <p><img src="https://i.loli.net/2019/12/05/Q9RLCmYzV4tjhva.png" alt=""></p>
 <a id="more"></a>
@@ -493,7 +493,7 @@
 </ol>
 <p><img src="https://i.loli.net/2019/12/05/5RJtqwNW2eZp6fY.png" alt=""></p>
 <h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>新建一个class，复制粘贴一下代码👇</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		<span class="comment">//SQL数据库引擎</span></span><br><span class="line">		String driverName=<span class="string">"com.microsoft.sqlserver.jdbc.SQLServerDriver"</span>;</span><br><span class="line">		<span class="comment">//数据源  ！！！！注意若出现加载或者连接数据库失败一般是这里出现问题</span></span><br><span class="line">		String dbURL=<span class="string">"jdbc:sqlserver://127.0.0.1:1433;DatabaseName=数据库名"</span>;<span class="comment">//【1】修改数据库名</span></span><br><span class="line">	    String Name=<span class="string">"登录名"</span>;<span class="comment">//【2】修改登陆名</span></span><br><span class="line">	    String Pwd=<span class="string">"密码"</span>;<span class="comment">//【3】修改密码</span></span><br><span class="line">	    <span class="keyword">try</span></span><br><span class="line">	    {</span><br><span class="line">	    	Class.forName(driverName);</span><br><span class="line">	    	Connection conn=DriverManager.getConnection(dbURL,Name,Pwd);</span><br><span class="line">	    	System.out.println(<span class="string">"连接数据库成功"</span>);</span><br><span class="line">	    }<span class="keyword">catch</span>(Exception e){</span><br><span class="line">	    	e.printStackTrace();</span><br><span class="line">	    	System.out.println(<span class="string">"连接失败"</span>);</span><br><span class="line">	    }</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBC_Demo</span> </span>{</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL</span></span><br><span class="line">    <span class="comment">//static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";</span></span><br><span class="line">	<span class="comment">//static final String DB_URL = "jdbc:mysql://localhost:3306/数据库名";</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL</span></span><br><span class="line">	<span class="comment">//static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  </span></span><br><span class="line">	<span class="comment">//static final String DB_URL = "jdbc:mysql://localhost:3306/数据库名?useSSL=false&amp;serverTimezone=UTC";</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment">// SQL Server数据库引擎</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.microsoft.sqlserver.jdbc.SQLServerDriver"</span>;</span><br><span class="line">    <span class="comment">// 数据源！！！注意若出现加载或者连接数据库失败一般是这里出现问题</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"dbc:sqlserver://localhost:1433;DatabaseName=数据库名"</span>; <span class="comment">//【1】修改 数据库名</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment">// 数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> String Name=<span class="string">"登录名"</span>;<span class="comment">//【2】修改 登录名</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> String Pwd=<span class="string">"密码"</span>;<span class="comment">//【3】修改 密码</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">	    <span class="keyword">try</span></span><br><span class="line">	    {</span><br><span class="line">	    	Class.forName(JDBC_DRIVER);</span><br><span class="line">	    	Connection conn=DriverManager.getConnection(DB_URL,Name,Pwd);</span><br><span class="line">	    	System.out.println(<span class="string">"连接数据库成功"</span>);</span><br><span class="line">	    }<span class="keyword">catch</span>(Exception e){</span><br><span class="line">	    	e.printStackTrace();</span><br><span class="line">	    	System.out.println(<span class="string">"连接失败"</span>);</span><br><span class="line">	    }</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>运行截图👇</p>
 <p><img src="https://i.loli.net/2019/12/05/kMgWysGUYvXmDHr.png" alt=""></p>
@@ -505,6 +505,8 @@
 <p>一换、一 run ……咦，可以了哈哈哈哈。</p>
 <p>期间参考了很多人的博客，但是那些都没有<strong><font size="6" color="red">强调 </font><font size="5" color="blue">IDE中的环境要设置为【jdk8】</font>。</strong></p>
 <p><em>写博客不易，如果本文对你有帮助，可以考虑给我 <font size="5" color="green">打赏</font> 哦</em>  *<em>( ͡° ͜ʖ ͡°)✧ *</em> </p>
+<hr>
+<p>2020.2.10 补充：关于JDBC连接MySQL的具体实例，可以前往 <a href="https://www.runoob.com/java/java-mysql-connect.html" target="_blank" rel="noopener">这里</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -535,10 +537,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-12-08T17:23:04+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-10T00:02:16+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2019年12月8日</p>
+    <p>更新于 2020年2月10日</p>
   </a>
 </div>
 
@@ -547,7 +549,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/SQL-Server/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>SQL Server</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>MySQL</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/SQL-Server/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>SQL Server</p></a></div>
 
 
         
@@ -561,7 +563,7 @@
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
           href="http://connect.qq.com/widget/shareqq/index.html?url=https://melodyjerry.github.io/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/&title=用JDBC连接数据库 | MelodyHub&summary=简单理解JDBC（Java DataBase Connectivity）是 Java 和 数据库 之前的一座桥。
-实则，JDBC 是用于==Java编程语言和数据库之间的标准Java API==。
+实则，JDBC 是用于Java编程语言和数据库之间的标准Java API。
 三者之间的关系就如下图 👇
 "
           
@@ -576,7 +578,7 @@
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://melodyjerry.github.io/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/&title=用JDBC连接数据库 | MelodyHub&summary=简单理解JDBC（Java DataBase Connectivity）是 Java 和 数据库 之前的一座桥。
-实则，JDBC 是用于==Java编程语言和数据库之间的标准Java API==。
+实则，JDBC 是用于Java编程语言和数据库之间的标准Java API。
 三者之间的关系就如下图 👇
 "
           
@@ -591,7 +593,7 @@
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
           href="http://service.weibo.com/share/share.php?url=https://melodyjerry.github.io/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/&title=用JDBC连接数据库 | MelodyHub&summary=简单理解JDBC（Java DataBase Connectivity）是 Java 和 数据库 之前的一座桥。
-实则，JDBC 是用于==Java编程语言和数据库之间的标准Java API==。
+实则，JDBC 是用于Java编程语言和数据库之间的标准Java API。
 三者之间的关系就如下图 👇
 "
           
@@ -850,12 +852,12 @@
               <section class='widget plain'>
   
 <header class='pure'>
-  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;装作很多人打赏的样子</div>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;小小~公告牌</div>
   
 </header>
 
   <div class='content pure'>
-    <p><br><fancybox><img src="https://i.loli.net/2020/02/01/U9SiE5qByk3PpAV.png" alt=""></fancybox></p>
+    <p><fancybox><img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" alt=""></fancybox><br><center>暂时不知道写什么 ( ͡° ͜ʖ ͡°)✧  </center></p>
 
   </div>
 </section>
@@ -1055,31 +1057,6 @@
           
             
               
-  <section class='widget category'>
-    
-<header class='pure'>
-  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
-  
-    <a class="rightBtn"
-    
-      rel="nofollow"
-    
-    
-    href="/blog/categories/"
-    title="categories/">
-    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
-  
-</header>
-
-    <div class='content pure'>
-      <ul class="entry">
-        
-          <li><a class="flat-box" title="/blog/categories/%E7%94%B5%E5%BD%B1/" href="/blog/categories/%E7%94%B5%E5%BD%B1/"><div class='name'>电影</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
 
             
           
@@ -1133,7 +1110,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.86px; color: #868686">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.14px; color: #686868">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.57px; color: #5f5f5f">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 18.29px; color: #7c7c7c">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.43px; color: #8f8f8f">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 19.71px; color: #727272">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.86px; color: #868686">工具</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.43px; color: #8f8f8f">算法</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.43px; color: #8f8f8f">蓝桥杯</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.29px; color: #7c7c7c">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/GitHub/" style="font-size: 16.5px; color: #888">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.5px; color: #666">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.75px; color: #5e5e5e">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.25px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.25px; color: #6f6f6f">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.5px; color: #888">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.25px; color: #919191">算法</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.25px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.75px; color: #808080">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 
@@ -1235,7 +1212,7 @@
           
         </a></li>
       
-        <li><a class="flat-box" title="http://www.matools.com/api/java8" href="http://www.matools.com/api/java8"
+        <li><a class="flat-box" title="https://io-oi.me/tech/hexo-next-optimization/" href="https://io-oi.me/tech/hexo-next-optimization/"
           
           
           >
@@ -1243,7 +1220,7 @@
             
               <i class=" fa-fw" aria-hidden="true"></i>
             
-            &nbsp;&nbsp;Java 8 中文文档
+            &nbsp;&nbsp;打造个性超赞博客
           </div>
           
         </a></li>
@@ -1270,6 +1247,19 @@
               <i class=" fa-fw" aria-hidden="true"></i>
             
             &nbsp;&nbsp;使用git将项目上传到github（最简单方法）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://me.idealli.com/post/73ad4183.html" href="https://me.idealli.com/post/73ad4183.html"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;给hexo静态博客添加动态相册功能
           </div>
           
         </a></li>
