@@ -244,6 +244,313 @@
       
         
   <h2 class="title">
+    <a href="/blog/2020/02/09/%E5%B7%A5%E5%85%B7-%E6%96%87%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%BD%AF%E4%BB%B6/">
+      [工具]文件加密软件
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://github.com/Albert-W/Folder-locker" target="_blank" rel="nofollow noopener">
+        
+          <img src="https://avatars0.githubusercontent.com/u/21038139?s=460&v=4">
+        
+        <p>Albert-W</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>755字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="Folder-locker"><a href="#Folder-locker" class="headerlink" title="Folder-locker"></a>Folder-locker</h1><p>这是一个小巧的文件上锁软件，<strong>没有压缩和加密过程</strong>，方便快捷。</p>
+<h2 id="功能展示"><a href="#功能展示" class="headerlink" title="功能展示"></a>功能展示</h2><p><img src="https://albert-w.github.io/Folder-locker/locker.gif" alt="img"></p>
+<p>在想加密的文件夹上，右键则可呼出加密面板，输入两次密码确认加密。</p>
+<p>在已加密的文件夹上，右键，输入密码，则取消加密</p>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>项目分了两个目录：</p>
+<ul>
+<li>DButility 用于通过轻量极数据库SQLite 保存密码。<ul>
+<li>通过Md5算法对密码加密，通过SQL参数防止SQL注入。</li>
+</ul>
+</li>
+<li>folderLocker 用于实现业务逻辑。</li>
+</ul>
+<h2 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h2><ul>
+<li>下载软件安装包 <a href="https://github.com/Albert-W/Folder-locker/blob/master/FolderLocker.exe" target="_blank" rel="noopener">Folder Locker.exe</a></li>
+<li>进行安装，建议安装在D盘。</li>
+<li>可以右键使用，也可以打开软件主页面使用。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>密码保存在本机数据库，没有上传任何服务器。</li>
+<li>删除软件会同时删除数据库，因而删除密码。</li>
+</ul>
+<p>如果忘记密码：</p>
+<p>如果密码遗失，文件被锁，可以通过命令行工具重命名：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Users\91991\Music</span><br><span class="line">ren "Test.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0}" "Test1"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者把文件复制出来。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Users\91991\Music</span><br><span class="line">cd '.\Test.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0}\'</span><br><span class="line">ls</span><br><span class="line">mv .\* ..\Test1\</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>项目地址：</strong> <a href="https://github.com/Albert-W/Folder-locker" target="_blank" rel="noopener">https://github.com/Albert-W/Folder-locker</a> </p>
+<p><strong>项目展示：</strong> <a href="https://albert-w.github.io/Folder-locker/" target="_blank" rel="noopener">https://albert-w.github.io/Folder-locker/</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E5%B7%A5%E5%85%B7-%E6%96%87%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%BD%AF%E4%BB%B6/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 工具</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/08/%E7%99%BB%E5%BD%95MySQL/">
+      登录MySQL
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-08</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>817字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>安装好MySQL后，默认启动服务，这时候开始尝试登录MySQL数据库。</p>
+<p>有两种登录方式：</p>
+<ul>
+<li>Power Shell 或 CMD（DOS窗口）</li>
+<li>命令行客户端（MySQL Command Line Client）【安装软件时，一般会安装的】</li>
+</ul>
+<h2 id="Power-Shell"><a href="#Power-Shell" class="headerlink" title="Power Shell"></a>Power Shell</h2><ol>
+<li>启动 Power Shell 。</li>
+<li>输入命令<code>cd C:\Program Files\MySQL\MySQL Server 8.0\bin</code>（cd+空格+安装目录/bin），回车。</li>
+<li>输入登录命令，回车。登录命令有4中，选其一即可：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#第一种 服务器主机地址+不接密码</span><br><span class="line">mysql -h localhost -u root -p</span><br><span class="line">#第二种 服务器主机地址+密码</span><br><span class="line">mysql -h localhost -u root -proot</span><br><span class="line">#第三种 省略服务器主机地址+不接密码，默认localhost</span><br><span class="line">mysql -u root -p</span><br><span class="line">#第四种 省略服务器主机地址+密码，默认localhost</span><br><span class="line">mysql -u root -proot</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<blockquote>
+<p>提示：mysql 为登录命令，-h 后面的参数是服务器的主机地址，在这里客户端和服务器在同一台机器上，所以输入 localhost 或者 IP 地址；-u 后面跟登录数据库的用户名称，在这里为 root；-p 后面是用户登录密码。</p>
+</blockquote>
+<p>在 DOS 窗口下运行该命令后，系统会提示输入密码。密码输入正确以后，即可登录到 MySQL 数据库。</p>
+<p>可以在 mysql 命令中直接加上密码，该命令为 mysql -h localhost -u root -proot。这里的 -p 后面的 root 就是密码。此处<strong>特别注意 -p 和密码之间没有空格</strong>。如果出现空格，系统将不会把后面的字符串当成密码来对待。</p>
+</blockquote>
+<ol start="4">
+<li>系统提示输入密码。（若选用第二/四种方式进行登录，则跳过本步骤）</li>
+<li>成功登录到MySQL数据库。登录成功后进入 MySQL 初始界面，会出现“Welcome to the MySQL monitor”的欢迎语，如下图所示。</li>
+</ol>
+<p><fancybox><img src="https://s2.ax1x.com/2020/02/08/1Whw0P.png" alt=""></fancybox></p>
+<blockquote>
+<p>登录成功后进入 MySQL 初始界面，会出现“Welcome to the MySQL monitor”的欢迎语，然后下面还有一些说明性的语句，如图所示。</p>
+<p>这些说明性语句介绍如下：</p>
+<ul>
+<li>Commands end with; or\g：说明 mysql 命令行下的命令是以分号（;）或“\g”来结束的，遇到这个结束符就开始执行命令。</li>
+<li>Your MySQL connection id is 3：id 表示 MySQL 数据库的连接次数。</li>
+<li>Server version: 5. 7.29-log MySQL Community Server（GPL）：Server version 后面说明数据库的版本，这个版本为 5.7.29。Community 表示该版本是社区版。</li>
+<li>Type ‘help;’ or ‘\h’ for help：表示输入”help;“或者”\h“可以看到帮助信息。</li>
+<li>Type ‘\c’ to clear the current input statement：表示遇到”\c“就清除前面的命令。</li>
+</ul>
+<blockquote>
+<p>提示：当窗口中出现如上图所示的说明信息，命令提示符变为“<strong>mysql&gt;</strong>”时，表明已经成功登录 MySQL 服务器，可以开始对数据库进行操作了。 </p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>输入命令<code>exit</code>，即可退出MySQL。</li>
+</ol>
+<h2 id="MySQL-Command-Line-Client"><a href="#MySQL-Command-Line-Client" class="headerlink" title="MySQL Command Line Client"></a>MySQL Command Line Client</h2><p>打开 MySQL Command Line Client 进入提示输入密码的界面，如图所示。</p>
+<p><img src="https://s2.ax1x.com/2020/02/08/1WhohF.png" alt=""></p>
+<blockquote>
+<p>输入正确的密码后，登录到 MySQL 软件。<strong>如果以这种方式登录 MySQL，需要保证 MySQL 服务处于启动状态。</strong></p>
+</blockquote>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/08/%E7%99%BB%E5%BD%95MySQL/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
     <a href="/blog/2020/02/08/MySQL%E5%9F%BA%E7%A1%80%E6%95%99%E5%AD%A6/">
       MySQL基础教学
     </a>
@@ -1253,236 +1560,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/07/Java%E4%B9%8Bprintf%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E7%9A%84%E4%BE%8B%E5%AD%90/">
-      Java之printf格式化输出的例子
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://www.runoob.com/" target="_blank" rel="nofollow noopener">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>菜鸟教程</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-07</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.6k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>6分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>转载自<a href="https://www.runoob.com/w3cnote/java-printf-formate-demo.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/07/Java%E4%B9%8Bprintf%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E7%9A%84%E4%BE%8B%E5%AD%90/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/05/%E8%BD%AC-%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E6%8C%82%E4%BB%B6/">
-      给博客添加一些挂件
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-05</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>2.6k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>11分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>阅读了<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a> 和 <a href="https://www.itrhx.com/" target="_blank" rel="noopener">TRHX‘S BLOG</a> 等文档/文章后，搜集了一部分教程</p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/05/%E8%BD%AC-%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E6%8C%82%E4%BB%B6/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -2409,7 +2486,6 @@ setInterval("createtime()",250);
 
   <script>setLoadingBarProgress(100);</script>
   
-  <!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
 <!-- Your XlchPlayerKey -->
 <script>XlchKey="O7NQ6f6YIg";</script>
 <!-- font-awesome 4.2.0 -->
@@ -2422,7 +2498,39 @@ setInterval("createtime()",250);
 <script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-  
+
+<!--绚丽彩虹播放器-->
+<!-- Your XlchPlayerKey -->
+<script>XlchKey="O7NQ6f6YIg";</script>
+<!-- font-awesome 4.2.0 -->
+<link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- JQuery 2.2.4 -->
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- JQuery-mousewheel 3.1.9 -->
+<script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar -->
+<script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<!-- BadApplePlayer -->
+<script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
+
+
+
+<!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
+{% if theme.badApplePlayer.enable %}
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- Your XlchPlayerKey -->
+<script>XlchKey="{{theme.badApplePlayer.XlchKey}}";</script>
+<!-- font-awesome 4.2.0 -->
+<link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- JQuery 2.2.4 -->
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- JQuery-mousewheel 3.1.9 -->
+<script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar -->
+<script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<!-- BadApplePlayer -->
+<script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
+{% endif %} 
   
   
 <script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
@@ -2491,6 +2599,7 @@ color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canva
 
 <!-- 单击显示颜文字 | Designed by Lxn -->
 <script type="text/javascript" src="https://arlxn.xyz/js/click_show_text.js"></script>
+
 
 
 

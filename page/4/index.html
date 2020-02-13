@@ -244,6 +244,137 @@
       
         
   <h2 class="title">
+    <a href="/blog/2020/02/03/%E6%B7%BB%E5%8A%A0CNZZ%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81/">
+      添加CNZZ统计代码
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-03</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>352字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>先在博客主题配置文件themes\material-x_config.yml添加代码：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#添加CNZZ统计</span><br><span class="line">cnzz: true</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里这个cnzz的名字可以自己取；然后在themes\material-x\layout_partial里面创建一个 cnzz.ejs文件；把cnzz给的代码复制进去；</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz){ %&gt; </span><br><span class="line">//这里添加复制的CNZZ代码</span><br><span class="line">&lt;% } %&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>然后再在footer.ejs的后面添加上一行代码就可以显示了（这里的位置可以换，可以不是scripts.ejs，或者是head.ejs，看自己的喜好）</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--CNZZ统计--&gt;</span><br><span class="line">&lt;%- partial('cnzz') %&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>对百度统计也可以进行同样的处理；</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz){ %&gt;//前面要添加的代码</span><br><span class="line">//百度统计的代码</span><br><span class="line">&lt;% } %&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>与上面的操作基本一致只是取得名字不一样。</p>
+<p>上面的是一种方法；</p>
+<p>如果嫌麻烦的话直接就在footer.ejs的后面添加cnzz的代码；直接就可以显示了（同理，可以添加在其他位置），貌似添加在这里速度最快。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz){ %&gt; //前面要添加的代码</span><br><span class="line">//这里添加复制的CNZZ代码</span><br><span class="line">&lt;% } %&gt; //后面要添加的</span><br></pre></td></tr></tbody></table></figure>
+<p>参考链接：<a href="https://blog.csdn.net/whjkm/article/details/37884563" target="_blank" rel="noopener">https://blog.csdn.net/whjkm/article/details/37884563</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/03/%E6%B7%BB%E5%8A%A0CNZZ%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
     <a href="/blog/2020/02/02/%5B%E8%BD%AC%5DHexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/">
       [转]Hexo 博客主题个性化
     </a>
@@ -1198,242 +1329,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">
-      用JDBC连接数据库
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-12-03</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.2k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>4分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="简单理解"><a href="#简单理解" class="headerlink" title="简单理解"></a>简单理解</h1><p><strong>JDBC</strong>（<strong>J</strong>ava <strong>D</strong>ata<strong>B</strong>ase <strong>C</strong>onnectivity）是 <strong>Java</strong> 和 <strong>数据库</strong> 之前的一座桥。</p>
-<p>实则，<strong>JDBC</strong> 是用于<font color="#85eb58">Java编程语言和数据库之间的标准Java API</font>。</p>
-<p>三者之间的关系就如下图 👇</p>
-<p><img src="https://i.loli.net/2019/12/05/Q9RLCmYzV4tjhva.png" alt=""></p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
-        
-          <a href="/blog/tags/SQL-Server/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> SQL Server</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/12/01/Java-API%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/">
-      Java——API中文手册
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-12-01</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>140字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-navbar-collapse"><a href="http://www.matools.com/api/java8" target="_blank" rel="noopener">【Java 8中文版开发文档，Java 8中文版 API手册中文版】( http://www.matools.com/api/java8 )</a> </button></div></div></nav>
-      
-        <div class="readmore">
-          <a href="/blog/2019/12/01/Java-API%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -2360,7 +2255,6 @@ setInterval("createtime()",250);
 
   <script>setLoadingBarProgress(100);</script>
   
-  <!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
 <!-- Your XlchPlayerKey -->
 <script>XlchKey="O7NQ6f6YIg";</script>
 <!-- font-awesome 4.2.0 -->
@@ -2373,7 +2267,39 @@ setInterval("createtime()",250);
 <script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-  
+
+<!--绚丽彩虹播放器-->
+<!-- Your XlchPlayerKey -->
+<script>XlchKey="O7NQ6f6YIg";</script>
+<!-- font-awesome 4.2.0 -->
+<link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- JQuery 2.2.4 -->
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- JQuery-mousewheel 3.1.9 -->
+<script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar -->
+<script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<!-- BadApplePlayer -->
+<script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
+
+
+
+<!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
+{% if theme.badApplePlayer.enable %}
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- Your XlchPlayerKey -->
+<script>XlchKey="{{theme.badApplePlayer.XlchKey}}";</script>
+<!-- font-awesome 4.2.0 -->
+<link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- JQuery 2.2.4 -->
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- JQuery-mousewheel 3.1.9 -->
+<script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar -->
+<script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<!-- BadApplePlayer -->
+<script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
+{% endif %} 
   
   
 <script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
@@ -2442,6 +2368,7 @@ color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canva
 
 <!-- 单击显示颜文字 | Designed by Lxn -->
 <script type="text/javascript" src="https://arlxn.xyz/js/click_show_text.js"></script>
+
 
 
 
