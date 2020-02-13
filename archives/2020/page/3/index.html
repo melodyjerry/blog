@@ -61,12 +61,7 @@
     <cover class='cover  half'>
       
         
-
-
-
-
   <h1 class='title'>MelodyHub</h1>
-
 
 
 
@@ -78,6 +73,7 @@
       <span id="subtitle">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
       <span id="typed-cursor"></span>
     </div>
+    
 
   <div class="m_search">
     <form name="searchform" class="form u-search-form">
@@ -132,16 +128,11 @@
       
     
   </ul>
+  
+
+
+
 </div>
-
-
-<br><br>
-<!--动态时钟-->
-<center>
-<div><canvas id="canvas"  absolute="right" style="width:30%" width="820" height="250"></canvas></div>
-<script async="">!function(){function t(t){var r=[];a.fillStyle="#1bc3fb";var h=new Date,u=70,s=30,v=h.getHours(),g=Math.floor(v/10),m=v%10;r.push({num:g}),r.push({num:m}),r.push({num:10});var c=h.getMinutes(),g=Math.floor(c/10),m=c%10;r.push({num:g}),r.push({num:m}),r.push({num:10});var M=h.getSeconds(),g=Math.floor(M/10),m=M%10;r.push({num:g}),r.push({num:m});for(var p=0;p<r.length;p++)r[p].offsetX=u,u=f(u,s,r[p].num,t),p<r.length-1&&10!=r[p].num&&10!=r[p+1].num&&(u+=l);if(0==i.length)i=r;else for(var C=0;C<i.length;C++)i[C].num!=r[C].num&&(n(r[C]),i[C].num=r[C].num);return e(t),o(),h}function n(t){for(var n=t.num,e=m[n],o=0;o<e.length;o++)for(var f=0;f<e[o].length;f++)if(1==e[o][f]){var a={offsetX:t.offsetX+u+2*u*f,offsetY:30+u+2*u*o,color:g[Math.floor(Math.random()*g.length)],g:1.5+Math.random(),vx:4*Math.pow(-1,Math.ceil(10*Math.random()))+Math.random(),vy:-5};v.push(a)}}function e(t){for(var n=0;n<v.length;n++)t.beginPath(),t.fillStyle=v[n].color,t.arc(v[n].offsetX,v[n].offsetY,u,0,2*Math.PI),t.fill()}function o(){for(var t=0,n=0;n<v.length;n++){var e=v[n];e.offsetX+=e.vx,e.offsetY+=e.vy,e.vy+=e.g,e.offsetY>h-u&&(e.offsetY=h-u,e.vy=-e.vy*s),e.offsetX>u&&e.offsetX<r-u&&(v[t]=v[n],t++)}for(;t<v.length;t++)v.pop()}function f(t,n,e,o){for(var f=m[e],a=0;a<f.length;a++)for(var r=0;r<f[a].length;r++)1==f[a][r]&&(o.beginPath(),o.arc(t+u+2*u*r,n+u+2*u*a,u,0,2*Math.PI),o.fill());return o.beginPath(),t+=f[0].length*u*2}var a,r=820,h=250,u=7,l=10,s=.65,v=[];const g=["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];var i=[],m=[[[0,0,1,1,1,0,0],[0,1,1,0,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,0,1,1,0],[0,0,1,1,1,0,0]],[[0,0,0,1,1,0,0],[0,1,1,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[1,1,1,1,1,1,1]],[[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,0,1,1,0,0,0],[0,1,1,0,0,0,0],[1,1,0,0,0,0,0],[1,1,0,0,0,1,1],[1,1,1,1,1,1,1]],[[1,1,1,1,1,1,1],[0,0,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,0,1,1,1,0,0],[0,0,0,0,1,1,0],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[0,0,0,0,1,1,0],[0,0,0,1,1,1,0],[0,0,1,1,1,1,0],[0,1,1,0,1,1,0],[1,1,0,0,1,1,0],[1,1,1,1,1,1,1],[0,0,0,0,1,1,0],[0,0,0,0,1,1,0],[0,0,0,0,1,1,0],[0,0,0,1,1,1,1]],[[1,1,1,1,1,1,1],[1,1,0,0,0,0,0],[1,1,0,0,0,0,0],[1,1,1,1,1,1,0],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[0,0,0,0,1,1,0],[0,0,1,1,0,0,0],[0,1,1,0,0,0,0],[1,1,0,0,0,0,0],[1,1,0,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[1,1,1,1,1,1,1],[1,1,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0]],[[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,1,1,0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]]],c=document.getElementById("canvas");c.width=r,c.height=h,a=c.getContext("2d");new Date;setInterval(function(){a.clearRect(0,0,a.canvas.width,a.canvas.height),t(a)},50)}()</script>
-</center>
-
 
       
     </cover>
@@ -320,6 +311,264 @@
   <section class="post-list">
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/07/%E4%BD%BF%E7%94%A8-fancybox-%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%B5%8F%E8%A7%88%E5%99%A8/">
+      使用fancybox标签实现图片浏览器
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-07</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>102字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>使用<code>&lt;fancybox&gt;&lt;/fancybox&gt;</code>标签实现图片浏览器</p>
+<ul>
+<li>单张图，只提供<strong>放大</strong>🔍<strong>关闭❌</strong>两个按钮，见黄色标记👇</li>
+</ul>
+<fancybox>
+
+<p><img src="https://s2.ax1x.com/2020/02/07/12ZifU.png" alt=""></p>
+</fancybox>
+
+<ul>
+<li>多张图，可<strong>幻灯片播放</strong>，见红色标记👇</li>
+</ul>
+<p><fancybox><img src="https://s2.ax1x.com/2020/02/07/12AON8.png" alt=""></fancybox></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/07/%E4%BD%BF%E7%94%A8-fancybox-%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%B5%8F%E8%A7%88%E5%99%A8/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E2%80%94-%E5%85%A5%E9%97%A8%E8%AE%AD%E7%BB%83-Fibonacci%E6%95%B0%E5%88%97/">
+      蓝桥杯-入门训练-Fibonacci数列
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-07</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>558字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h2 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h2><p>时间限制：1.0s  内存限制：256.0MB</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
+<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入包含一个整数n。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
+<blockquote>
+<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
+</blockquote>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><p>10</p>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>55</p>
+<h2 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h2><p>22</p>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h3><p>7704</p>
+<h2 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h2><p>1 &lt;= n &lt;= 1,000,000。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E2%80%94-%E5%85%A5%E9%97%A8%E8%AE%AD%E7%BB%83-Fibonacci%E6%95%B0%E5%88%97/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+          <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 蓝桥杯</a>
+        
+          <a href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 算法</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1264,265 +1513,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">
-      文章分类
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>132字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>多个分类有两种关系，一种是层级（等同于文件夹），一种是并列（等同于标签）。</p>
-<p><strong>多级分类</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categories: [分类A, 分类B]</span><br></pre></td></tr></tbody></table></figure>
-
-<p>或者</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - 分类A</span><br><span class="line">  - 分类B</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>并列分类</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - [分类A]</span><br><span class="line">  - [分类B]</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>多级+并列分类</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - [分类A, 分类B]</span><br><span class="line">  - [分类C, 分类D]</span><br></pre></td></tr></tbody></table></figure>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <div class="aplayer"
-    data-theme=""
-    data-mini=true 
-    
-    data-mode="circulation"
-    data-server="netease"
-    data-type="song"
-    data-id="28341146"
-    data-volume="0.7">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
-
-
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E9%9F%B3%E4%B9%90bgm/">
-      文章音乐bgm
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>167字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>标题右边显示迷你音乐播放器，支持的字段有：<code>server</code>、<code>type</code>、<code>id</code>，取值详见【进阶设定 -&gt; 第三方服务 -&gt; APlayer】。</p>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">music:</span><br><span class="line">  enable: true      # true（文章内和文章列表都显示） internal（只在文章内显示）</span><br><span class="line">  server: netease   # netease（网易云音乐）tencent（QQ音乐） xiami（虾米） kugou（酷狗）</span><br><span class="line">  type: song        # song （单曲） album （专辑） playlist （歌单） search （搜索）</span><br><span class="line">  id: 26664345      # 歌曲/专辑/歌单 ID</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
-
-<p>实际效果见：<a href="https://mxclub.github.io/example/文章专属BGM/" target="_blank" rel="noopener">《文章专属BGM》</a></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E9%9F%B3%E4%B9%90bgm/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1922,7 +1912,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.5px; color: #888">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.5px; color: #666">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.75px; color: #5e5e5e">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.25px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.25px; color: #6f6f6f">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.5px; color: #888">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.25px; color: #919191">算法</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.25px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.75px; color: #808080">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/GitHub/" style="font-size: 16.22px; color: #8a8a8a">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.78px; color: #646464">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.89px; color: #5d5d5d">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19.56px; color: #737373">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.11px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.67px; color: #6c6c6c">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.33px; color: #828282">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.11px; color: #919191">算法</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.11px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.44px; color: #7b7b7b">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 
@@ -2471,7 +2461,11 @@ setInterval("createtime()",250);
 <!-- BadApplePlayer -->
 <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
 
+
 <!--绚丽彩虹播放器-->
+<!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
+
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
 <!-- Your XlchPlayerKey -->
 <script>XlchKey="O7NQ6f6YIg";</script>
 <!-- font-awesome 4.2.0 -->
@@ -2484,31 +2478,8 @@ setInterval("createtime()",250);
 <script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-
-
-
-<!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
-{% if theme.badApplePlayer.enable %}
-<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<!-- Your XlchPlayerKey -->
-<script>XlchKey="{{theme.badApplePlayer.XlchKey}}";</script>
-<!-- font-awesome 4.2.0 -->
-<link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<!-- JQuery 2.2.4 -->
-<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<!-- JQuery-mousewheel 3.1.9 -->
-<script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
-<!-- Scrollbar -->
-<script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
-<!-- BadApplePlayer -->
-<script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-{% endif %} 
+ 
   
-  
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
-</html>
-
-
 <!--动态线条背景-->
 <script type="text/javascript"
 color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
@@ -2571,6 +2542,11 @@ color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canva
 
 <!-- 单击显示颜文字 | Designed by Lxn -->
 <script type="text/javascript" src="https://arlxn.xyz/js/click_show_text.js"></script>
+  
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
+
+
 
 
 

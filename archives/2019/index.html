@@ -61,12 +61,7 @@
     <cover class='cover  half'>
       
         
-
-
-
-
   <h1 class='title'>MelodyHub</h1>
-
 
 
 
@@ -78,6 +73,7 @@
       <span id="subtitle">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
       <span id="typed-cursor"></span>
     </div>
+    
 
   <div class="m_search">
     <form name="searchform" class="form u-search-form">
@@ -132,16 +128,11 @@
       
     
   </ul>
+  
+
+
+
 </div>
-
-
-<br><br>
-<!--动态时钟-->
-<center>
-<div><canvas id="canvas"  absolute="right" style="width:30%" width="820" height="250"></canvas></div>
-<script async="">!function(){function t(t){var r=[];a.fillStyle="#1bc3fb";var h=new Date,u=70,s=30,v=h.getHours(),g=Math.floor(v/10),m=v%10;r.push({num:g}),r.push({num:m}),r.push({num:10});var c=h.getMinutes(),g=Math.floor(c/10),m=c%10;r.push({num:g}),r.push({num:m}),r.push({num:10});var M=h.getSeconds(),g=Math.floor(M/10),m=M%10;r.push({num:g}),r.push({num:m});for(var p=0;p<r.length;p++)r[p].offsetX=u,u=f(u,s,r[p].num,t),p<r.length-1&&10!=r[p].num&&10!=r[p+1].num&&(u+=l);if(0==i.length)i=r;else for(var C=0;C<i.length;C++)i[C].num!=r[C].num&&(n(r[C]),i[C].num=r[C].num);return e(t),o(),h}function n(t){for(var n=t.num,e=m[n],o=0;o<e.length;o++)for(var f=0;f<e[o].length;f++)if(1==e[o][f]){var a={offsetX:t.offsetX+u+2*u*f,offsetY:30+u+2*u*o,color:g[Math.floor(Math.random()*g.length)],g:1.5+Math.random(),vx:4*Math.pow(-1,Math.ceil(10*Math.random()))+Math.random(),vy:-5};v.push(a)}}function e(t){for(var n=0;n<v.length;n++)t.beginPath(),t.fillStyle=v[n].color,t.arc(v[n].offsetX,v[n].offsetY,u,0,2*Math.PI),t.fill()}function o(){for(var t=0,n=0;n<v.length;n++){var e=v[n];e.offsetX+=e.vx,e.offsetY+=e.vy,e.vy+=e.g,e.offsetY>h-u&&(e.offsetY=h-u,e.vy=-e.vy*s),e.offsetX>u&&e.offsetX<r-u&&(v[t]=v[n],t++)}for(;t<v.length;t++)v.pop()}function f(t,n,e,o){for(var f=m[e],a=0;a<f.length;a++)for(var r=0;r<f[a].length;r++)1==f[a][r]&&(o.beginPath(),o.arc(t+u+2*u*r,n+u+2*u*a,u,0,2*Math.PI),o.fill());return o.beginPath(),t+=f[0].length*u*2}var a,r=820,h=250,u=7,l=10,s=.65,v=[];const g=["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];var i=[],m=[[[0,0,1,1,1,0,0],[0,1,1,0,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,0,1,1,0],[0,0,1,1,1,0,0]],[[0,0,0,1,1,0,0],[0,1,1,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[1,1,1,1,1,1,1]],[[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,0,1,1,0,0,0],[0,1,1,0,0,0,0],[1,1,0,0,0,0,0],[1,1,0,0,0,1,1],[1,1,1,1,1,1,1]],[[1,1,1,1,1,1,1],[0,0,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,0,1,1,1,0,0],[0,0,0,0,1,1,0],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[0,0,0,0,1,1,0],[0,0,0,1,1,1,0],[0,0,1,1,1,1,0],[0,1,1,0,1,1,0],[1,1,0,0,1,1,0],[1,1,1,1,1,1,1],[0,0,0,0,1,1,0],[0,0,0,0,1,1,0],[0,0,0,0,1,1,0],[0,0,0,1,1,1,1]],[[1,1,1,1,1,1,1],[1,1,0,0,0,0,0],[1,1,0,0,0,0,0],[1,1,1,1,1,1,0],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[0,0,0,0,1,1,0],[0,0,1,1,0,0,0],[0,1,1,0,0,0,0],[1,1,0,0,0,0,0],[1,1,0,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[1,1,1,1,1,1,1],[1,1,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,0,0,1,1,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0]],[[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,1,1,0]],[[0,1,1,1,1,1,0],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[1,1,0,0,0,1,1],[0,1,1,1,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,0,1,1],[0,0,0,0,1,1,0],[0,0,0,1,1,0,0],[0,1,1,0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0],[0,0,0,0]]],c=document.getElementById("canvas");c.width=r,c.height=h,a=c.getContext("2d");new Date;setInterval(function(){a.clearRect(0,0,a.canvas.width,a.canvas.height),t(a)},50)}()</script>
-</center>
-
 
       
     </cover>
@@ -358,6 +349,114 @@
       
         
   <h2 class="title">
+    <a href="/blog/2019/12/28/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E5%90%8C%E5%AD%A6%E5%BD%95V1-4%E5%85%AC%E6%B5%8B%E7%89%88/">
+      绚丽彩虹同学录V1.4公测版
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-28</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>506字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/28/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E5%90%8C%E5%AD%A6%E5%BD%95V1-4%E5%85%AC%E6%B5%8B%E7%89%88/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
     <a href="/blog/2019/12/22/2019%E5%86%AC%E8%87%B3/">
       2019冬至
     </a>
@@ -460,6 +559,240 @@
       <div class="full-width auto-padding tags">
         
           <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/13/%E8%BD%AC-%E5%88%86%E4%BA%AB%E5%87%A0%E6%AC%BE%E4%B8%8D%E9%94%99%E7%9A%84%E6%B5%AA%E6%BC%AB%E7%B4%A0%E6%9D%90/">
+      [转]分享几款不错的浪漫素材
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://www.liaofuzhan.com/" target="_blank" rel="nofollow noopener">
+        
+          <img src="https://www.liaofuzhan.com/images/beichen.png">
+        
+        <p>北宸</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-13</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>623字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>原文链接：<a href="https://www.liaofuzhan.com/posts/3564551888.html" target="_blank" rel="noopener">https://www.liaofuzhan.com/posts/3564551888.html</a></p>
+<hr>
+<p>双旦将至，快找个暖冬又暖心的 TA 一起跨年吧！如果你还是一枚单身汪，那么再过几天的时间，又到了别人狂欢你孤单的圣诞之夜！再再再过几天时间，又双叒叕到了别人狂欢你孤单的跨年之夜！落单的人往往最怕过节，更何况双旦佳节的连环暴击，别人疯狂撒着狗粮，而你只能接受着来自情侣们的亿万点伤害，SO，与其不甘寂寞，何不为爱情放纵一次？撩个对象一起过双旦吧，2019 年最后一个脱单的机会，为你呈现 ！</p>
+<p>感谢 <a href="https://github.com/leafjame/Surprise" target="_blank" rel="noopener">leafjame</a> 和 <a href="https://github.com/enfangzhong/loveSource" target="_blank" rel="noopener">EnfangZhong</a> 提供的素材！</p>
+<p>本站只集成了以下四种，其它效果可下载源码后查看</p>
+<p><a href="https://www.liaofuzhan.com/love/" target="_blank" rel="noopener">表白专场</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/13/%E8%BD%AC-%E5%88%86%E4%BA%AB%E5%87%A0%E6%AC%BE%E4%B8%8D%E9%94%99%E7%9A%84%E6%B5%AA%E6%BC%AB%E7%B4%A0%E6%9D%90/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 素材</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/12/%E5%B7%A5%E5%85%B7-ASCII-%E5%AD%97%E7%AC%A6%E7%94%BB%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7/">
+      [工具]ASCII字符画制作工具
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-12</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>475字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p><img src="https://s2.ax1x.com/2020/02/12/1bF6JJ.png" alt=""></p>
+<p>想为自己的博客设计一个专属的ASCII字符画，便找到以下三款工具（含线上）</p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/12/%E5%B7%A5%E5%85%B7-ASCII-%E5%AD%97%E7%AC%A6%E7%94%BB%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 工具</a>
         
       </div>
     
@@ -1171,382 +1504,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E2%80%94%EF%BC%88%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92%EF%BC%89%E9%98%B6%E5%B1%82/">
-      Java—(递归+非递归)阶层
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>564字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>2分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>递归阶层算法、非递归阶层算法</p>
-<p>扩展①：求阶层的和</p>
-<p>扩展②：寻找最高阶、打印阶层的计算过程</p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E2%80%94%EF%BC%88%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92%EF%BC%89%E9%98%B6%E5%B1%82/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E2%80%94-%E5%90%91%E4%B8%8B-%E4%B8%8A%E5%8F%96%E6%95%B4/">
-      Java—向下/上取整
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>166字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>Java中对数的舍入也分有</p>
-<ul>
-<li>向上舍入（向上取整）</li>
-<li>向下舍入（向下取整）</li>
-</ul>
-<p>Java的<strong>Math类</strong>中包含数舍入的方法：</p>
-<ul>
-<li><strong>ceil()</strong></li>
-<li><strong>floor()</strong></li>
-</ul>
-<h1 id="ceil-和floor"><a href="#ceil-和floor" class="headerlink" title="ceil()和floor()"></a>ceil()和floor()</h1><table>
-<thead>
-<tr>
-<th>ceil()</th>
-<th>floor()</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>向上取整</td>
-<td>向下取整</td>
-</tr>
-<tr>
-<td>返回大于等于( &gt;= )给定参数的的最小整数，类型为双精度浮点型。</td>
-<td>返回小于等于（&lt;=）给定参数的最大整数 。</td>
-</tr>
-</tbody></table>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E2%80%94-%E5%90%91%E4%B8%8B-%E4%B8%8A%E5%8F%96%E6%95%B4/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E2%80%94%E6%89%93%E5%8D%B0%E5%AD%97%E6%AF%8D%E8%A1%A8/">
-      Java—打印字母表
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>896字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>4分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p><strong><font color="green">A到Z</font>的ASCII码值是<font color="blue">65到90</font></strong></p>
-<p><strong><font color="green">a到z</font>的ASCII码值是<font color="blue">97到122</font></strong></p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E2%80%94%E6%89%93%E5%8D%B0%E5%AD%97%E6%AF%8D%E8%A1%A8/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1940,7 +1897,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.5px; color: #888">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.5px; color: #666">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.75px; color: #5e5e5e">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.25px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.25px; color: #6f6f6f">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.5px; color: #888">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.25px; color: #919191">算法</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.25px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.75px; color: #808080">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/GitHub/" style="font-size: 16.22px; color: #8a8a8a">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.78px; color: #646464">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.89px; color: #5d5d5d">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19.56px; color: #737373">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.11px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.67px; color: #6c6c6c">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.33px; color: #828282">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.11px; color: #919191">算法</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.11px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.44px; color: #7b7b7b">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 
@@ -2489,7 +2446,11 @@ setInterval("createtime()",250);
 <!-- BadApplePlayer -->
 <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
 
+
 <!--绚丽彩虹播放器-->
+<!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
+
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
 <!-- Your XlchPlayerKey -->
 <script>XlchKey="O7NQ6f6YIg";</script>
 <!-- font-awesome 4.2.0 -->
@@ -2502,31 +2463,8 @@ setInterval("createtime()",250);
 <script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-
-
-
-<!--源码来自https://www.liaofuzhan.com/posts/2636059693.html-->
-{% if theme.badApplePlayer.enable %}
-<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<!-- Your XlchPlayerKey -->
-<script>XlchKey="{{theme.badApplePlayer.XlchKey}}";</script>
-<!-- font-awesome 4.2.0 -->
-<link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<!-- JQuery 2.2.4 -->
-<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<!-- JQuery-mousewheel 3.1.9 -->
-<script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
-<!-- Scrollbar -->
-<script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
-<!-- BadApplePlayer -->
-<script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-{% endif %} 
+ 
   
-  
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
-</html>
-
-
 <!--动态线条背景-->
 <script type="text/javascript"
 color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
@@ -2589,6 +2527,11 @@ color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canva
 
 <!-- 单击显示颜文字 | Designed by Lxn -->
 <script type="text/javascript" src="https://arlxn.xyz/js/click_show_text.js"></script>
+  
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
+
+
 
 
 

@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://melodyjerry.github.io/blog/"/>
-  <updated>2020-02-13T06:35:47.487Z</updated>
+  <updated>2020-02-13T13:05:34.741Z</updated>
   <id>https://melodyjerry.github.io/blog/</id>
   
   <author>
@@ -17,26 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>绚丽彩虹同学录V1.4公测版</title>
-    <link href="https://melodyjerry.github.io/blog/2020/02/13/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E5%90%8C%E5%AD%A6%E5%BD%95V1-4%E5%85%AC%E6%B5%8B%E7%89%88/"/>
-    <id>https://melodyjerry.github.io/blog/2020/02/13/绚丽彩虹同学录V1-4公测版/</id>
-    <published>2020-02-13T06:34:01.000Z</published>
-    <updated>2020-02-13T06:35:47.487Z</updated>
+    <title>绚丽彩虹播放器</title>
+    <link href="https://melodyjerry.github.io/blog/2020/02/13/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    <id>https://melodyjerry.github.io/blog/2020/02/13/绚丽彩虹播放器/</id>
+    <published>2020-02-13T08:16:30.000Z</published>
+    <updated>2020-02-13T13:05:34.741Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h1 id="部分截图"><a href="#部分截图" class="headerlink" title="部分截图"></a>部分截图</h1><p><a href="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759321415.png" target="_blank" rel="noopener"><img src="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759321415.png" alt="最新绚丽彩虹同学录V1.4公测版源码分享-第1张图片-零零娱乐网"></a></p><p><a href="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759642765.png" target="_blank" rel="noopener"><img src="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759642765.png" alt="最新绚丽彩虹同学录V1.4公测版源码分享-第2张图片-零零娱乐网"></a></p><p><a href="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759908930.png" target="_blank" rel="noopener"><img src="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759908930.png" alt="最新绚丽彩虹同学录V1.4公测版源码分享-第3张图片-零零娱乐网"></a></p><p><a href="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759597921.png" target="_blank" rel="noopener"><img src="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759597921.png" alt="最新绚丽彩虹同学录V1.4公测版源码分享-第4张图片-零零娱乐网"></a></p><p><a href="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759480505.png" target="_blank" rel="noopener"><img src="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759480505.png" alt="最新绚丽彩虹同学录V1.4公测版源码分享-第5张图片-零零娱乐网"></a></p><p><a href="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759341459.png" target="_blank" rel="noopener"><img src="http://www.00ylw.com/zb_users/upload/2019/03/201903301553941759341459.png" alt="最新绚丽彩虹同学录V1.4公测版源码分享-第6张图片-零零娱乐网"></a></p><h1 id="版本更新"><a href="#版本更新" class="headerlink" title="版本更新"></a>版本更新</h1><ol><li>自动更新(推荐):</li></ol><p>管理员登陆后，进入控制台，点击检查更新，如有新版本点击“一键更新”等待更新完成即可。</p><ol start="2"><li>手动更新流程:</li></ol><p>更新包地址: <a href="http://cdn.badapple.top/PHP/XlchClassbook/UpdatePack" target="_blank" rel="noopener">http://cdn.badapple.top/PHP/XlchClassbook/UpdatePack</a><br>下载对应版本的更新包,手动解压覆盖更新包到同学录安装目录。</p><h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>☆ 1.4 公测版 (1004)</p><p>更新内容：</p><p>重要提示：更新完毕后请到 管理员控制台-&gt;站点配置-&gt;保存，以刷新数据！</p><p>修复:手机上传图片打开相机</p><p>修复:“对我留言”功能</p><p>修复:无法删除相册</p><p>修复:允许空名相册</p><p>修复:权限组配置错误导致的安全漏洞</p><p>修复:验证码大小写问题</p><p>增加:可选绚丽彩虹播放器</p><p>增加:自定义导航栏功能</p><p>增加:教师、班长等权限组</p><p>增加:畅言图床、sm.ms、七牛云存储上传</p><p>增加:评论回复支持表情</p><p>增加:导入似水年华V3数据</p><p>优化:图片流设计</p><p>优化:同学录页面卡片设计</p><p>优化:管理员可设置用户是否允许上传相册</p><p>优化:安装时自动修复数据表结构</p><p>优化:配置文件结构变更</p><p>优化:做了一点微小的工作(细节优化)</p><p>更新时间：2018-07-03 23:39:54</p><p>☆ 1.3 公测版 (1003)</p><p>更新内容：</p><p>修复:后台修改用户组 提示“用户名已被使用”</p><p>修复:“对TA留言”功能</p><p>修复:验证码大小写问题</p><p>修复:代码逻辑错误导致的安全隐患</p><p>修复:代码逻辑错误导致的无法在后台更新到新版本</p><p>更新时间：2018-04-22 21:20:20</p><h1 id="文章附件"><a href="#文章附件" class="headerlink" title="文章附件"></a>文章附件</h1><p><a href="https://www.lanzous.com/i3lw6bi" target="_blank" rel="noopener">蓝奏网盘</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    <content type="html"><![CDATA[<p>代码来自<a href="https://www.badapple.top/?mod=User" target="_blank" rel="noopener">绚丽彩虹播放器</a></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Your XlchPlayerKey --&gt;</span><br><span class="line">&lt;script&gt;XlchKey="O7NQ6f6YIg";&lt;/script&gt;</span><br><span class="line">&lt;!-- font-awesome 4.2.0 --&gt;</span><br><span class="line">&lt;link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"&gt;</span><br><span class="line">&lt;!-- JQuery 2.2.4 --&gt;</span><br><span class="line">&lt;script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- JQuery-mousewheel 3.1.9 --&gt;</span><br><span class="line">&lt;script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- Scrollbar --&gt;</span><br><span class="line">&lt;script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- BadApplePlayer --&gt;</span><br><span class="line">&lt;script src="https://static.https.badapple.top/BadApplePlayer/Player.js"&gt;&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure><p>教程：<a href="https://www.liaofuzhan.com/posts/2636059693.html" target="_blank" rel="noopener">https://www.liaofuzhan.com/posts/2636059693.html</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h1 id=&quot;部分截图&quot;&gt;&lt;a href=&quot;#部分截图&quot; class=&quot;headerlink&quot; title=&quot;部分截图&quot;&gt;&lt;/a&gt;部分截图&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.00ylw.com/zb_users/uplo
+        &lt;p&gt;代码来自&lt;a href=&quot;https://www.badapple.top/?mod=User&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;绚丽彩虹播放器&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
       
     
     </summary>
     
     
+    
+      <category term="Hexo" scheme="https://melodyjerry.github.io/blog/tags/Hexo/"/>
     
   </entry>
   
@@ -53,6 +54,35 @@
     
       &lt;p&gt;效果：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/13/1q2qr8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Hexo" scheme="https://melodyjerry.github.io/blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[转]Hexo主题使用Valine-Admin管理评论和评论提醒</title>
+    <link href="https://melodyjerry.github.io/blog/2020/02/13/%E8%BD%AC-Hexo%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Valine-Admin%E7%AE%A1%E7%90%86%E8%AF%84%E8%AE%BA%E5%92%8C%E8%AF%84%E8%AE%BA%E6%8F%90%E9%86%92/"/>
+    <id>https://melodyjerry.github.io/blog/2020/02/13/转-Hexo主题使用Valine-Admin管理评论和评论提醒/</id>
+    <published>2020-02-12T16:31:06.000Z</published>
+    <updated>2020-02-12T17:20:04.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文链接：<a href="https://segmentfault.com/a/1190000021474516?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000021474516?utm_source=tag-newest</a></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本今天在写文章，然后没事就去博客看了一下。突然发现有人在文章下面评论。是早上评论的但是我晚上才看到。</p><p>我的留言系统使用的是<code>Valine</code>,发现留言并没有提醒，只有回复了才会有提醒。</p><p>这不能忍。毕竟好不容易来个朋友竟然没有交流上你说难受不难受😡</p><p>然后我就去百度了一下<code>Valine-Admin</code></p><blockquote><p>Valine-Admin 是一个对 Valine 评论系统的拓展应用，可增强 <code>Valine</code> 的邮件通知功能。基于 Leancloud 的云引擎与云函数。可以提供邮件 <code>通知站长</code> 和 <code>@ 通知</code> 的功能，而且还支持自定义邮件通知模板。</p></blockquote><p>发现这个插件很不错我就研究了一下。下面是整合教程。</p><a id="more"></a><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>首先其他的不错说了，在阅读本篇文章之前你最好已经整合了<code>Valine</code>留言。</p><p>由于我已经整合过了所以前面几个步骤的图片来源自@Valine-Admin</p><p>首先登陆账号，找到云引擎在点击设置。</p><blockquote><p>复制仓库地址：<a href="https://github.com/zhaojun1998/Valine-Admin.git" target="_blank" rel="noopener">https://github.com/zhaojun199…</a></p></blockquote><p><img src="https://segmentfault.com/img/remote/1460000021474520" alt="img"></p><p>把git仓库地址房子代码库输入框中。</p><p>切换到部署标签页，分支使用 master，点击部署。</p><p><img src="https://segmentfault.com/img/remote/1460000021474521" alt="img"></p><p>接下来输入分支为<code>master</code></p><p><img src="https://segmentfault.com/img/remote/1460000021474522" alt="img"></p><p>部署完成之后就是设置环境变量</p><h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>点击设置，找到自定义环境变量点击新增变量</p><p><img src="https://segmentfault.com/img/remote/1460000021474523" alt="img"></p><ul><li><code>SITE_NAME</code> : 网站名称。</li><li><code>SITE_URL</code> : 网站地址, <strong>最后不要加 <code>/</code> 。</strong></li><li><code>SMTP_USER</code> : SMTP 服务用户名，一般为邮箱地址。</li><li><code>SMTP_PASS</code> : SMTP 密码，一般为授权码，而不是邮箱的登陆密码，请自行查询对应邮件服务商的获取方式</li><li><code>SMTP_SERVICE</code> : 邮件服务提供商，支持 <code>QQ</code>、<code>163</code>、<code>126</code>、<code>Gmail</code>、<code>"Yahoo"</code>、<code>......</code> ，全部支持请参考 : <a href="https://nodemailer.com/smtp/well-known/#supported-services" target="_blank" rel="noopener">Nodemailer Supported services</a>。 — <em>如这里没有你使用的邮件提供商，请查看<a href="https://www.nhtzj.com/高级配置.md#自定义邮件服务器" target="_blank" rel="noopener">自定义邮件服务器</a></em></li><li><code>SENDER_NAME</code> : 寄件人名称。</li><li><code>TO_EMAIL</code>：这个是填收邮件提醒的邮箱地址，若没有这个字段，则将邮件发到<code>SMTP_USER</code>。</li><li><code>TEMPLATE_NAME</code>：设置提醒邮件的主题，目前内置了两款主题，分别为 <code>default</code> 与 <code>rainbow</code>。默认为 <code>default</code></li></ul><p>设置好以上变量之后 点击实例</p><p><img src="https://segmentfault.com/img/remote/1460000021474524" alt="img"></p><p>然后重启项目，注意任何变动都要重启项目</p><p>然后看一下效果</p><p><img src="https://segmentfault.com/img/remote/1460000021474525" alt="img"></p><p>还不错</p><h2 id="自定义后台"><a href="#自定义后台" class="headerlink" title="自定义后台"></a>自定义后台</h2><p>点击设置然后点击Web主机域名找到自己的后台地址</p><p><img src="https://segmentfault.com/img/remote/1460000021474527" alt="img"></p><p>然后在<code>存储-数据-_User表</code>中增加账号， 只需要填写 <code>email</code>、<code>password</code>、<code>username</code> 其中邮箱必须设置为你的上面环境变量的邮箱</p><p><img src="https://ask.qcloudimg.com/http-save/yehe-1001860/kshxbtfh6x.png?imageView2/2/w/1620"></p><p>设置完之后登录就能在你的后台管理评论</p><h2 id="解决休眠"><a href="#解决休眠" class="headerlink" title="解决休眠"></a>解决休眠</h2><p>免费版的 LeanCloud 容器，是有强制性休眠策略的，不能 24 小时运行：</p><ul><li>每天必须休眠 6 个小时</li><li>30 分钟内没有外部请求，则休眠。</li><li>休眠后如果有新的外部请求实例则马上启动（但激活时此次发送邮件会失败）。</li></ul><p>也就是如果服务器休眠了的话用户第一次评论是提醒不了的。</p><p>参考了Valine-Admin官网找到了解决办法。</p><p>首先在环境变量<code>ADMIN_URL</code>增加服务器地址，就是你的后台服务器地址</p><p><img src="https://segmentfault.com/img/remote/1460000021474526" alt="img"></p><p>下面是你的服务器地址，可以自定义</p><p>同样登录后台</p><p>找到定时任务</p><p><img src="https://segmentfault.com/img/remote/1460000021474528" alt="img"></p><p>然后点击创建任务，上面是我创建好的</p><p><img src="https://segmentfault.com/img/remote/1460000021474529" alt="img"></p><p>选择self_wake函数，然后运行时间使用cron表达式</p><blockquote><p>0 0/30 7-23 ? 表示每天6点到11点 每30分钟叫醒服务器一次</p></blockquote><p>这样就完美的解决了服务器休眠的问题</p><p>那如果用户不在时间范围内发留言了怎么办？我们也可以创建一个捡漏的定时任务</p><p><img src="https://segmentfault.com/img/remote/1460000021474531" alt="img"></p><p>创建捡漏定时任务</p><p>然后运行函数选择resend_mails,同样使用cron表达式</p><blockquote><p>0 0 8 ?</p></blockquote><p>表示每八个小时进行捡漏一次，这样如果有留言遗漏的话就能即使的提醒。</p><p><strong>附 <code>crontab</code> 定时器代码：**</strong></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/20 7-23 * * * curl https://你配置的域名前缀.leanapp.cn</span><br></pre></td></tr></tbody></table></figure><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>有人会说了不久一个破博客吗？都不知道有没有人看干嘛还要这么麻烦。其实并不麻烦，这只是一个态度而已。</p><p>欢迎关注我的公众号，也可在公众号进行留言会及时回复</p><p><img src="https://segmentfault.com/img/remote/1460000021474530" alt="img"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文链接：&lt;a href=&quot;https://segmentfault.com/a/1190000021474516?utm_source=tag-newest&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://segmentfault.com/a/1190000021474516?utm_source=tag-newest&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;原本今天在写文章，然后没事就去博客看了一下。突然发现有人在文章下面评论。是早上评论的但是我晚上才看到。&lt;/p&gt;
+&lt;p&gt;我的留言系统使用的是&lt;code&gt;Valine&lt;/code&gt;,发现留言并没有提醒，只有回复了才会有提醒。&lt;/p&gt;
+&lt;p&gt;这不能忍。毕竟好不容易来个朋友竟然没有交流上你说难受不难受😡&lt;/p&gt;
+&lt;p&gt;然后我就去百度了一下&lt;code&gt;Valine-Admin&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Valine-Admin 是一个对 Valine 评论系统的拓展应用，可增强 &lt;code&gt;Valine&lt;/code&gt; 的邮件通知功能。基于 Leancloud 的云引擎与云函数。可以提供邮件 &lt;code&gt;通知站长&lt;/code&gt; 和 &lt;code&gt;@ 通知&lt;/code&gt; 的功能，而且还支持自定义邮件通知模板。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;发现这个插件很不错我就研究了一下。下面是整合教程。&lt;/p&gt;
     
     </summary>
     
@@ -487,6 +517,27 @@
   </entry>
   
   <entry>
+    <title>博客中的icon</title>
+    <link href="https://melodyjerry.github.io/blog/2020/02/08/%E5%8D%9A%E5%AE%A2%E4%B8%AD%E7%9A%84icon/"/>
+    <id>https://melodyjerry.github.io/blog/2020/02/08/博客中的icon/</id>
+    <published>2020-02-08T13:45:34.000Z</published>
+    <updated>2020-02-13T13:05:33.940Z</updated>
+    
+    <content type="html"><![CDATA[<p>在主题的配置文件中的 icon 是 <code>fontawesome</code> 图标名，你要显示什么图标，去 <a href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank" rel="noopener">fontawesome.com</a> 找免费版的就可以了。</p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在主题的配置文件中的 icon 是 &lt;code&gt;fontawesome&lt;/code&gt; 图标名，你要显示什么图标，去 &lt;a href=&quot;https://fontawesome.com/icons?d=gallery&amp;amp;m=free&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;fontawesome.com&lt;/a&gt; 找免费版的就可以了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Hexo" scheme="https://melodyjerry.github.io/blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL基础教学</title>
     <link href="https://melodyjerry.github.io/blog/2020/02/08/MySQL%E5%9F%BA%E7%A1%80%E6%95%99%E5%AD%A6/"/>
     <id>https://melodyjerry.github.io/blog/2020/02/08/MySQL基础教学/</id>
@@ -645,78 +696,6 @@
 &lt;h1 id=&quot;输入格式&quot;&gt;&lt;a href=&quot;#输入格式&quot; class=&quot;headerlink&quot; title=&quot;输入格式&quot;&gt;&lt;/a&gt;输入格式&lt;/h1&gt;&lt;p&gt;本试题没有输入。&lt;/p&gt;
 &lt;h2 id=&quot;输出格式&quot;&gt;&lt;a href=&quot;#输出格式&quot; class=&quot;headerlink&quot; title=&quot;输出格式&quot;&gt;&lt;/a&gt;输出格式&lt;/h2&gt;&lt;p&gt;输出32行，按从小到大的顺序每行一个长度为5的01串。&lt;/p&gt;
 &lt;h1 id=&quot;样例输出&quot;&gt;&lt;a href=&quot;#样例输出&quot; class=&quot;headerlink&quot; title=&quot;样例输出&quot;&gt;&lt;/a&gt;样例输出&lt;/h1&gt;&lt;p&gt;00000&lt;br&gt;00001&lt;br&gt;00010&lt;br&gt;00011&lt;br&gt;&amp;lt;以下部分省略&amp;gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
-    
-      <category term="蓝桥杯" scheme="https://melodyjerry.github.io/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-      <category term="算法" scheme="https://melodyjerry.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用fancybox标签实现图片浏览器</title>
-    <link href="https://melodyjerry.github.io/blog/2020/02/07/%E4%BD%BF%E7%94%A8-fancybox-%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    <id>https://melodyjerry.github.io/blog/2020/02/07/使用-fancybox-标签实现图片浏览器/</id>
-    <published>2020-02-07T12:42:55.000Z</published>
-    <updated>2020-02-07T15:20:51.233Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用<code>&lt;fancybox&gt;&lt;/fancybox&gt;</code>标签实现图片浏览器</p><ul><li>单张图，只提供<strong>放大</strong>🔍<strong>关闭❌</strong>两个按钮，见黄色标记👇</li></ul><fancybox><p><img src="https://s2.ax1x.com/2020/02/07/12ZifU.png" alt=""></p></fancybox><ul><li>多张图，可<strong>幻灯片播放</strong>，见红色标记👇</li></ul><p><fancybox><img src="https://s2.ax1x.com/2020/02/07/12AON8.png" alt=""></fancybox></p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用&lt;code&gt;&amp;lt;fancybox&amp;gt;&amp;lt;/fancybox&amp;gt;&lt;/code&gt;标签实现图片浏览器&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;单张图，只提供&lt;strong&gt;放大&lt;/strong&gt;🔍&lt;strong&gt;关闭❌&lt;/strong&gt;两个按钮，见黄色标记👇&lt;/li&gt;
-&lt;/ul&gt;
-&lt;fancybox&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/07/12ZifU.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/fancybox&gt;
-
-&lt;ul&gt;
-&lt;li&gt;多张图，可&lt;strong&gt;幻灯片播放&lt;/strong&gt;，见红色标记👇&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;fancybox&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/07/12AON8.png&quot; alt=&quot;&quot;&gt;&lt;/fancybox&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Hexo" scheme="https://melodyjerry.github.io/blog/tags/Hexo/"/>
-    
-      <category term="博客" scheme="https://melodyjerry.github.io/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>蓝桥杯-入门训练-Fibonacci数列</title>
-    <link href="https://melodyjerry.github.io/blog/2020/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E2%80%94-%E5%85%A5%E9%97%A8%E8%AE%AD%E7%BB%83-Fibonacci%E6%95%B0%E5%88%97/"/>
-    <id>https://melodyjerry.github.io/blog/2020/02/07/蓝桥杯—-入门训练-Fibonacci数列/</id>
-    <published>2020-02-07T11:48:54.000Z</published>
-    <updated>2020-02-07T15:20:51.243Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h2><p>时间限制：1.0s  内存限制：256.0MB</p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p><p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入包含一个整数n。</p><h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p><blockquote><p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p></blockquote><h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><p>10</p><h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>55</p><h2 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h2><p>22</p><h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h3><p>7704</p><h2 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h2><p>1 &lt;= n &lt;= 1,000,000。</p><a id="more"></a><h2 id="提交代码（Java）"><a href="#提交代码（Java）" class="headerlink" title="提交代码（Java）"></a>提交代码（Java）</h2><h3 id="第一次提交"><a href="#第一次提交" class="headerlink" title="第一次提交"></a>第一次提交</h3><p>第一次时候，我想使用<strong>递归</strong>的方式👇</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> n = sc.nextInt();</span><br><span class="line">System.out.println(F(n)%<span class="number">10007</span>);</span><br><span class="line">sc.close();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{</span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">1</span>||n==<span class="number">2</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> F(n-<span class="number">1</span>)+F(n-<span class="number">2</span>);</span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>提交后，系统提示【<strong>运行超时</strong>】👇</p><p><fancybox><img src="https://i.loli.net/2020/02/07/d6o8x2OnvDZ7luL.png" alt=""></fancybox></p><h3 id="第二次提交"><a href="#第二次提交" class="headerlink" title="第二次提交"></a>第二次提交</h3><p>使用递归来处理，比较耗时。</p><p>而且这次我按照题目的提示【<strong>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</strong>】来处理，就改用数组来实现👇</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> n = sc.nextInt();</span><br><span class="line"><span class="keyword">int</span> F[] = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">2</span>];</span><br><span class="line">F[<span class="number">1</span>] = F[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(n &gt; <span class="number">2</span>) {</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>; i&lt;=n; i++)</span><br><span class="line"><span class="comment">// F[i]直接计算到求余数的值，即保存余数</span></span><br><span class="line">F[i]=(F[i-<span class="number">1</span>]+F[i-<span class="number">2</span>])%<span class="number">10007</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//F[n]即所求值</span></span><br><span class="line">System.out.println(F[n]);</span><br><span class="line">sc.close();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>这次直接通过👇</p><fancybox><p><img src="https://s2.ax1x.com/2020/02/07/12F55D.png" alt=""></p></fancybox><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;资源限制&quot;&gt;&lt;a href=&quot;#资源限制&quot; class=&quot;headerlink&quot; title=&quot;资源限制&quot;&gt;&lt;/a&gt;资源限制&lt;/h2&gt;&lt;p&gt;时间限制：1.0s  内存限制：256.0MB&lt;/p&gt;
-&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。&lt;/p&gt;
-&lt;p&gt;当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。&lt;/p&gt;
-&lt;h2 id=&quot;输入格式&quot;&gt;&lt;a href=&quot;#输入格式&quot; class=&quot;headerlink&quot; title=&quot;输入格式&quot;&gt;&lt;/a&gt;输入格式&lt;/h2&gt;&lt;p&gt;输入包含一个整数n。&lt;/p&gt;
-&lt;h3 id=&quot;输出格式&quot;&gt;&lt;a href=&quot;#输出格式&quot; class=&quot;headerlink&quot; title=&quot;输出格式&quot;&gt;&lt;/a&gt;输出格式&lt;/h3&gt;&lt;p&gt;输出一行，包含一个整数，表示Fn除以10007的余数。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;样例输入&quot;&gt;&lt;a href=&quot;#样例输入&quot; class=&quot;headerlink&quot; title=&quot;样例输入&quot;&gt;&lt;/a&gt;样例输入&lt;/h2&gt;&lt;p&gt;10&lt;/p&gt;
-&lt;h3 id=&quot;样例输出&quot;&gt;&lt;a href=&quot;#样例输出&quot; class=&quot;headerlink&quot; title=&quot;样例输出&quot;&gt;&lt;/a&gt;样例输出&lt;/h3&gt;&lt;p&gt;55&lt;/p&gt;
-&lt;h2 id=&quot;样例输入-1&quot;&gt;&lt;a href=&quot;#样例输入-1&quot; class=&quot;headerlink&quot; title=&quot;样例输入&quot;&gt;&lt;/a&gt;样例输入&lt;/h2&gt;&lt;p&gt;22&lt;/p&gt;
-&lt;h3 id=&quot;样例输出-1&quot;&gt;&lt;a href=&quot;#样例输出-1&quot; class=&quot;headerlink&quot; title=&quot;样例输出&quot;&gt;&lt;/a&gt;样例输出&lt;/h3&gt;&lt;p&gt;7704&lt;/p&gt;
-&lt;h2 id=&quot;数据规模与约定&quot;&gt;&lt;a href=&quot;#数据规模与约定&quot; class=&quot;headerlink&quot; title=&quot;数据规模与约定&quot;&gt;&lt;/a&gt;数据规模与约定&lt;/h2&gt;&lt;p&gt;1 &amp;lt;= n &amp;lt;= 1,000,000。&lt;/p&gt;
     
     </summary>
     
