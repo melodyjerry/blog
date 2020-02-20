@@ -330,6 +330,1056 @@
       
         
   <h2 class="title">
+    <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E5%8C%BA%E5%88%AB%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E9%97%AE%E9%A2%98/">
+      [转]MySQL区别大小写字母的问题
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://blog.csdn.net/qq_15160079/article/details/100976519" target="_blank" rel="nofollow noopener">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>曼巴进化者</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>443字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>如果直接使用MYSQL客户端用SQL语句查询数据库中的数据，SQL语句中字段的大写或小写查出的数据是一样的，说明查询条件对字段的大小写是不敏感（默认）。</p>
+<h1 id="怎样让MYSQL对大小字母写敏感？"><a href="#怎样让MYSQL对大小字母写敏感？" class="headerlink" title="怎样让MYSQL对大小字母写敏感？"></a>怎样让MYSQL对大小字母写敏感？</h1><h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>MYSQL区别大小写需要设置collate（校对） 。 </p>
+<p><strong>collate规则：</strong></p>
+<ul>
+<li><p>*_bin: 表示的是 <code>binary casesensitive collation</code>，也就是说是区分大小写的</p>
+</li>
+<li><p>*_cs: 表示的是 <code>casesensitive collation</code>，区分大小写</p>
+</li>
+<li><p>*_ci: 表示的是 <code>caseinsensitive collation</code>，不区分大小写</p>
+</li>
+</ul>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
+<li><p>可以将查询条件用binary()括起来。 比如： </p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where binary username= 'jack';</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>可以修改该字段的collation 为 binary。比如：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE TABLENAME MODIFY COLUMN COLUMNNAME VARCHAR(50) BINARY CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h2></li>
+</ol>
+<p>mysql查询默认是不区分大小写的 如:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where username=‘jack';</span><br><span class="line">select * from emp where username='JACK';</span><br></pre></td></tr></tbody></table></figure>
+<p>得到的结果是一样的，如果我们需要进行区分的话可以按照如下方法来做：</p>
+<h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><p>要让mysql查询区分大小写，可以：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where binary username='jack'</span><br><span class="line">select * from emp where binary username='JACK'</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>在建表时时候加以标识</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create table emp(</span><br><span class="line">   username varchar(20) binary</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>原理：对于CHAR、VARCHAR和TEXT类型，BINARY属性可以为列分配该列字符集的校对规则。<strong>BINARY属性是指定列字符集的二元校对规则的简写。排序和比较基于数值字符值,因此也就自然区分了大小写。</strong></p>
+</blockquote>
+<hr>
+<p>原文链接：<a href="https://blog.csdn.net/qq_15160079/article/details/100976519" target="_blank" rel="noopener">https://blog.csdn.net/qq_15160079/article/details/100976519</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E5%8C%BA%E5%88%AB%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/Navicat-Premium%E8%BF%9E%E6%8E%A5MySQL%E5%A4%B1%E8%B4%A5%EF%BC%9F/">
+      Navicat Premium连接MySQL失败？
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>265字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用Navicat Premium连接MySQL失败，并弹窗提示👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fOM4A.png" alt=""></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>从错误信息可知caching_sha2_password不能加载。</p>
+<p>以上报错是由于目前已有的客户端连接软件还不支持Mysql8新增加的加密方式caching_sha2_password，所以我们需要修改用户的加密方式，将其改为老的加密验证方式。</p>
+<p>大安装Mysql数据库的主机上登录Mysql对应的用户，上面连接时用的用户为root，所以我们登录root用户。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol>
+<li>执行命令，查看当前用户的加密方式：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"></span><br><span class="line">select user,plugin from user where user='root';</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以看到当前用户的加密方式为caching_sha2_password。</p>
+<ol start="2">
+<li>登录MySQL后输入，执行命令：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YourPassword';</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></tbody></table></figure>
+<p>将用户的加密方式改为mysql_native_password。</p>
+<ol start="3">
+<li>再次尝试连接Mysql，连接成功。</li>
+</ol>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/Navicat-Premium%E8%BF%9E%E6%8E%A5MySQL%E5%A4%B1%E8%B4%A5%EF%BC%9F/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E5%90%8E%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8AMySQL%EF%BC%9F/">
+      输入密码后登录不上MySQL？
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>306字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>昨晚安装好MySQL后，可以登录。但是今天输入密码后，总是没办法登录。</p>
+<p>刚开始我是用DOS窗口的，我检查了命令，命令也没输错啊。</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fTjC6.png" alt=""></p>
+<p>接着转去MySQL Command Line Client试试，一直没反应。</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1f7rPx.png" alt=""></p>
+<p>我突然想到“是不是MySQL服务没有启动？”</p>
+<p>果然！看了一下，这个时候MySQL需要手动启动，于是我把MySQL服务设置成<strong>开机自动启动</strong>，以后就省去手动启动这个麻烦。</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1f7XZj.png" alt=""></p>
+<p>回到DOS，输入<code>mysql -h localhost -u root -p</code>试试，可以正常登录MySQL了hh  <strong>o(<em>￣▽￣</em>)o</strong></p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fHVoR.png" alt=""></p>
+<hr>
+<p>除了上面这种到<strong>【服务】</strong>手动开启MySQL服务的方法外，也可以用<strong>PowerShell(管理员)</strong>来启动。</p>
+<p>输入命令<code>net start mysql</code>，启动MySQL服务。启动成功会在左下角弹窗提示👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fHo79.png" alt=""></p>
+<p>一定是要<strong>带有管理员权限的PowerShell</strong>，否者只会是这个样子👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fbPht.png" alt=""></p>
+<blockquote>
+<p>输入<code>net start mysql</code>，按回车键，就能启动 MySQL 服务，停止服务的命令为<code>net stop mysql</code>。</p>
+</blockquote>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E5%90%8E%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8AMySQL%EF%BC%9F/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/08/%E7%99%BB%E5%BD%95MySQL/">
+      登录MySQL
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-08</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>817字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>安装好MySQL后，默认启动服务，这时候开始尝试登录MySQL数据库。</p>
+<p>有两种登录方式：</p>
+<ul>
+<li>Power Shell 或 CMD（DOS窗口）</li>
+<li>命令行客户端（MySQL Command Line Client）【安装软件时，一般会安装的】</li>
+</ul>
+<h2 id="Power-Shell"><a href="#Power-Shell" class="headerlink" title="Power Shell"></a>Power Shell</h2><ol>
+<li>启动 Power Shell 。</li>
+<li>输入命令<code>cd C:\Program Files\MySQL\MySQL Server 8.0\bin</code>（cd+空格+安装目录/bin），回车。</li>
+<li>输入登录命令，回车。登录命令有4中，选其一即可：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#第一种 服务器主机地址+不接密码</span><br><span class="line">mysql -h localhost -u root -p</span><br><span class="line">#第二种 服务器主机地址+密码</span><br><span class="line">mysql -h localhost -u root -proot</span><br><span class="line">#第三种 省略服务器主机地址+不接密码，默认localhost</span><br><span class="line">mysql -u root -p</span><br><span class="line">#第四种 省略服务器主机地址+密码，默认localhost</span><br><span class="line">mysql -u root -proot</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<blockquote>
+<p>提示：mysql 为登录命令，-h 后面的参数是服务器的主机地址，在这里客户端和服务器在同一台机器上，所以输入 localhost 或者 IP 地址；-u 后面跟登录数据库的用户名称，在这里为 root；-p 后面是用户登录密码。</p>
+</blockquote>
+<p>在 DOS 窗口下运行该命令后，系统会提示输入密码。密码输入正确以后，即可登录到 MySQL 数据库。</p>
+<p>可以在 mysql 命令中直接加上密码，该命令为 mysql -h localhost -u root -proot。这里的 -p 后面的 root 就是密码。此处<strong>特别注意 -p 和密码之间没有空格</strong>。如果出现空格，系统将不会把后面的字符串当成密码来对待。</p>
+</blockquote>
+<ol start="4">
+<li>系统提示输入密码。（若选用第二/四种方式进行登录，则跳过本步骤）</li>
+<li>成功登录到MySQL数据库。登录成功后进入 MySQL 初始界面，会出现“Welcome to the MySQL monitor”的欢迎语，如下图所示。</li>
+</ol>
+<p><fancybox><img src="https://s2.ax1x.com/2020/02/08/1Whw0P.png" alt=""></fancybox></p>
+<blockquote>
+<p>登录成功后进入 MySQL 初始界面，会出现“Welcome to the MySQL monitor”的欢迎语，然后下面还有一些说明性的语句，如图所示。</p>
+<p>这些说明性语句介绍如下：</p>
+<ul>
+<li>Commands end with; or\g：说明 mysql 命令行下的命令是以分号（;）或“\g”来结束的，遇到这个结束符就开始执行命令。</li>
+<li>Your MySQL connection id is 3：id 表示 MySQL 数据库的连接次数。</li>
+<li>Server version: 5. 7.29-log MySQL Community Server（GPL）：Server version 后面说明数据库的版本，这个版本为 5.7.29。Community 表示该版本是社区版。</li>
+<li>Type ‘help;’ or ‘\h’ for help：表示输入”help;“或者”\h“可以看到帮助信息。</li>
+<li>Type ‘\c’ to clear the current input statement：表示遇到”\c“就清除前面的命令。</li>
+</ul>
+<blockquote>
+<p>提示：当窗口中出现如上图所示的说明信息，命令提示符变为“<strong>mysql&gt;</strong>”时，表明已经成功登录 MySQL 服务器，可以开始对数据库进行操作了。 </p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>输入命令<code>exit</code>，即可退出MySQL。</li>
+</ol>
+<h2 id="MySQL-Command-Line-Client"><a href="#MySQL-Command-Line-Client" class="headerlink" title="MySQL Command Line Client"></a>MySQL Command Line Client</h2><p>打开 MySQL Command Line Client 进入提示输入密码的界面，如图所示。</p>
+<p><img src="https://s2.ax1x.com/2020/02/08/1WhohF.png" alt=""></p>
+<blockquote>
+<p>输入正确的密码后，登录到 MySQL 软件。<strong>如果以这种方式登录 MySQL，需要保证 MySQL 服务处于启动状态。</strong></p>
+</blockquote>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/08/%E7%99%BB%E5%BD%95MySQL/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/08/MySQL%E5%9F%BA%E7%A1%80%E6%95%99%E5%AD%A6/">
+      MySQL基础教学
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-08</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>72字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>两个学习MySQL基础的网站：</p>
+<ul>
+<li><a href="https://www.runoob.com/mysql/mysql-tutorial.html" target="_blank" rel="noopener">C语言中文网</a></li>
+<li><a href="http://c.biancheng.net/mysql/" target="_blank" rel="noopener">菜鸟教程</a></li>
+</ul>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/08/MySQL%E5%9F%BA%E7%A1%80%E6%95%99%E5%AD%A6/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/08/Java%E2%80%94%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%B3%E4%BE%A7%E5%87%BA%E7%8E%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%90%E4%B8%B2/">
+      Java—替换字符串右侧出现的第一个子串
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-08</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>170字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>🔺需求 👇</p>
+<p>编程实现一个方法，能把一个字符串src的右侧出现的第一个olds子串替换为news，并把替换后的结果返回。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/08/Java%E2%80%94%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%B3%E4%BE%A7%E5%87%BA%E7%8E%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%90%E4%B8%B2/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/07/Java%E2%80%94%E8%BD%AC%E7%BD%AE%E6%95%B0%E7%BB%84/">
+      Java—转置数组
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-07</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>339字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>🔺需求 👇</p>
+<p>编写一个程序，其功能是能随机生成一个数组、同时完成对该数组的转置并打印输出转置后的数组。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/07/Java%E2%80%94%E8%BD%AC%E7%BD%AE%E6%95%B0%E7%BB%84/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/11/30/Java%E2%80%94%EF%BC%88%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92%EF%BC%89%E9%98%B6%E5%B1%82/">
+      Java—(递归+非递归)阶层
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-11-30</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>564字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>递归阶层算法、非递归阶层算法</p>
+<p>扩展①：求阶层的和</p>
+<p>扩展②：寻找最高阶、打印阶层的计算过程</p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/11/30/Java%E2%80%94%EF%BC%88%E9%80%92%E5%BD%92-%E9%9D%9E%E9%80%92%E5%BD%92%EF%BC%89%E9%98%B6%E5%B1%82/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
     <a href="/blog/2019/11/30/Java%E2%80%94-%E5%90%91%E4%B8%8B-%E4%B8%8A%E5%8F%96%E6%95%B4/">
       Java—向下/上取整
     </a>
@@ -446,9 +1496,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -563,1038 +1613,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
         
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E2%80%945%E7%A7%8D%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/">
-      Java—5种生成随机数的方法
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>806字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>3分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>5种生成随机数的简单方法</p>
-<p>和一篇大佬的文章👇</p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E2%80%945%E7%A7%8D%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
           <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E4%B8%AD%E7%9A%84%E3%80%81-%E5%92%8C/">
-      Java中的<<、>>和>>>
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>608字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>2分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h1><ul>
-<li><strong>左移运算符</strong> <strong><code>&lt;&lt;</code></strong> </li>
-<li>👉使指定值的所有位都左移规定的次数</li>
-<li>左移m&lt;&lt;n，代表把数字m在无溢出的前提下<strong>乘以2的n次方</strong>　 </li>
-</ul>
-<h1 id="右移"><a href="#右移" class="headerlink" title="右移"></a>右移</h1><ul>
-<li><strong>右移运算符</strong> <strong><code>&gt;&gt;</code></strong></li>
-<li>👉 使指定值的所有位都右移规定的次数</li>
-<li>右移m&gt;&gt;n 代表把数字m除以2的n次方，原来是正数的还是正数，负数还是负数</li>
-<li>注意，如果是单数，也就是二进制末位为1，则结果是<strong>将m除以2的n次方的整数商</strong> </li>
-</ul>
-<h1 id="无符号右移"><a href="#无符号右移" class="headerlink" title="无符号右移"></a>无符号右移</h1><p>  <strong>无符号右移运算符</strong> <strong><code>&gt;&gt;&gt;</code></strong></p>
-<p>👉<strong>同右移，但是结果全变正数</strong></p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E4%B8%AD%E7%9A%84%E3%80%81-%E5%92%8C/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E2%80%94%E7%94%A8%E6%9C%80%E6%9C%89%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%972%E4%B9%98%E4%BB%A58/">
-      Java用最有效率的方法计算2乘以8
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>161字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E2%80%94%E7%94%A8%E6%9C%80%E6%9C%89%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%972%E4%B9%98%E4%BB%A58/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94static%E5%85%B3%E9%94%AE%E5%AD%97/">
-      Java笔记—static关键字
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-28</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>840字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>3分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h1><p><strong>修饰目标 (成员数据/方法/成员内部类/代码块)属于类的</strong></p>
-<table>
-<thead>
-<tr>
-<th>静态类</th>
-<th>静态块</th>
-<th>静态方法</th>
-<th>静态变量</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>static 成员内部类</td>
-<td><font color="red">static 代码块</font></td>
-<td>static 成员方法</td>
-<td>static 成员变量</td>
-</tr>
-<tr>
-<td>直接通过类就可以访问。所有对象共享该类</td>
-<td>只能出现在类中不能出现方法体中，<font color="red">类加载后初始化时被执行一次</font>。<font color="sapphire">注意:区分构造代码块，每次构造都被执行</font></td>
-<td>直接通过<font color="orange">类</font>就可以<font color="orange">调用</font>。不用等创建了实例后</td>
-<td>类加载时在Java<font color="blue">方法区分配空间，所有对象共享</font></td>
-</tr>
-</tbody></table>
-<p>区别：<strong>无static关键字成员属于具体的对象实例： <font color="green"> 实例变量、实例方法</font>(只能通过对象调用)、实例成员内部类(只能通过对象引用)</strong></p>
-<h3 id="static-成员的访问格式"><a href="#static-成员的访问格式" class="headerlink" title="static 成员的访问格式"></a>static 成员的访问格式</h3><p>一般要通过 *<em>“  类名  ” *</em>来访问</p>
-<table>
-<thead>
-<tr>
-<th>静态变量</th>
-<th>静态方法</th>
-<th>静态成员内部类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>类名 . 静态变量</td>
-<td>类名 . 静态方法</td>
-<td>类名 . 静态成员内部类</td>
-</tr>
-</tbody></table>
-<p>注意两点：</p>
-<p>🔺 static成员方法/代码块：<strong>方法体 <font color="red" size="5"> 只能</font> 使用静态成员变量(或内部类)或调用静态方法。（老师称： <font color="blue"> 静者恒静</font>）</strong></p>
-<p>🔺 static成员方法/代码块：<strong>方法体中不能出现this(当前对象)或super(基类对象)</strong></p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94static%E5%85%B3%E9%94%AE%E5%AD%97/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94this%E5%85%B3%E9%94%AE%E5%AD%97/">
-      Java笔记—this关键字
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-28</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>331字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="this-关键字"><a href="#this-关键字" class="headerlink" title="this 关键字"></a>this 关键字</h1><p>三个形式上的用途，但本质上就两个：</p>
-<ul>
-<li><font color="red">调用重载的其他构造方法</font>：放置在构造方法体首行的this()或this(实参列表)</li>
-<li>作为当前对象，<font color="red">引用成员</font>（数据、方法等）：区分同名变量等</li>
-<li>作为当前对象，方法返回当前对象的引用，形成<font color="red">链式调用</font></li>
-</ul>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94this%E5%85%B3%E9%94%AE%E5%AD%97/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/">
-      Java笔记—包
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-23</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>3分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h3 id="Java笔记——包"><a href="#Java笔记——包" class="headerlink" title="Java笔记——包"></a>Java笔记——包</h3><p>创建时间：2019.11.23</p>
-<p>说明：持续更新ing</p>
-<hr>
-<ol>
-<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3></li>
-</ol>
-<p><font color="red" size="5">包(package)</font></p>
-<p> 为了更好地组织<font color="blue" size="3"><strong>类</strong></font>，Java 提供了包机制，用于区别类名的命名空间。 </p>
-<p>✔ 用来组织和管理类、接口、枚举和注解<br>✔ 有三方面作用：1)便于<font color="orange">组织</font>,比如按功能、按团队等；2)<font color="orange">解决命名冲突</font>；3)进行访问<font color="orange">权限控制</font>(<font color="rorange">同包可用，包外不可见等</font>)</p>
-<blockquote>
-<p>如同类似OS的文件夹(或目录或路径)一样，包也采用了树形目录的存储方式。</p>
-</blockquote>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/21/Java%E7%AC%94%E8%AE%B0%E2%80%94%E7%BB%A7%E6%89%BF/">
-      Java笔记—继承
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-21</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>2.5k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>9分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p><font size="5"> Java笔记——继承</font></p>
-<p>创建时间：2019.11.21</p>
-<p>说明：持续更新ing</p>
-<hr>
-<ol>
-<li><h3 id="继承源于自然"><a href="#继承源于自然" class="headerlink" title="继承源于自然"></a>继承源于自然</h3><p><img src="https://i.loli.net/2019/11/23/UcXixmHJRBgnzrA.png" alt="UTOOLS1574477223867.png"></p>
-</li>
-</ol>
-<blockquote>
-<p>就比如：<br><br>兔子和羊属于食草动物类，狮子和豹属于食肉动物类。<br><br>食草动物和食肉动物又是属于动物类。<br><br>虽然食草动物和食肉动物都是属于动物，但是两者的属性和行为上有差别，所以 <strong>子类会具有父类的一般特性也会具有自身的特性</strong>。</p>
-</blockquote>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/21/Java%E7%AC%94%E8%AE%B0%E2%80%94%E7%BB%A7%E6%89%BF/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/20/Java%E7%AC%94%E8%AE%B0%E2%80%94%E6%95%B0%E7%BB%84/">
-      Java笔记—数组
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-20</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.6k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>6分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h3 id="Java笔记——数组"><a href="#Java笔记——数组" class="headerlink" title="Java笔记——数组"></a>Java笔记——数组</h3><p>创建时间：2019.11.20</p>
-<p>说明：持续更新ing</p>
-<p>——————————————————————————— 我 是 分 割 线 ————————————————————————————</p>
-<p><font size="5" color="blue">数组</font></p>
-<hr>
-<ol>
-<li><font size="5" color="blue">数组</font>是一组<strong>相同类型的变量（元素）的集合</strong>。可以用来存放一组相同类型的数据。数组的学习涉及数组的定义、赋值和使用。再扩展一点就是二维数组的应用。<strong>数组既是一种重要的数据类型，也是一种重要的数据结构。</strong></li>
-</ol>
-<hr>
-<ol start="2">
-<li><p><font size="5" color="red">数组（array）</font>————一组相同类型的变量(元素)集合</p>
-<ul>
-<li><p><strong>相同</strong>的<strong>任意类型</strong> <em>(包括基本类型、类类型等)</em></p>
-</li>
-<li><p>这组变量被<strong>连续地</strong>存放在Java<strong>堆区</strong>的内存空间</p>
-</li>
-<li><p>数组是一种<strong>引用类型</strong>，数组名是一个地址的别名</p>
-</li>
-<li><p>数组需要创建（new），否则不会被分配<strong>堆</strong>空间</p>
-</li>
-<li><p>数组名对应的地址单元中存放上述连续堆区空间的首地址 </p>
-<p>🔺 对程序员而言, 数组总体有三样东西：<font size="3" color="oreign">数组名+数组长度+数组元素</font></p></li></ul></li></ol>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/20/Java%E7%AC%94%E8%AE%B0%E2%80%94%E6%95%B0%E7%BB%84/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
         
       </div>
     
@@ -1619,7 +1640,7 @@
             </a>
           
           <p class="current">
-            2 / 3
+            2 / 4
           </p>
           
             <a class="next" rel="next" href="/blog/tags/%E7%AC%94%E8%AE%B0/page/3/">
@@ -2004,7 +2025,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.22px; color: #8a8a8a">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.78px; color: #646464">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.89px; color: #5d5d5d">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19.56px; color: #737373">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.11px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.67px; color: #6c6c6c">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.33px; color: #828282">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.11px; color: #919191">算法</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.11px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.44px; color: #7b7b7b">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 16px; color: #8b8b8b">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 17px; color: #858585">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 19px; color: #777">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 20px; color: #707070">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #707070">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 

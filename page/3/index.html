@@ -247,8 +247,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/02/07/%E4%BD%BF%E7%94%A8-fancybox-%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%B5%8F%E8%A7%88%E5%99%A8/">
-      使用fancybox标签实现图片浏览器
+    <a href="/blog/2020/02/14/rejected-master-master-fetch-first-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+      ![rejected]master->master(fetch first)问题的解决方案
     </a>
   </h2>
 
@@ -278,7 +278,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-07</p>
+    <p>2020-02-14</p>
   </a>
 </div>
 
@@ -296,7 +296,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>102字</p>
+        <p>369字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -325,22 +325,20 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p>使用<code>&lt;fancybox&gt;&lt;/fancybox&gt;</code>标签实现图片浏览器</p>
-<ul>
-<li>单张图，只提供<strong>放大</strong>🔍<strong>关闭❌</strong>两个按钮，见黄色标记👇</li>
-</ul>
-<fancybox>
+      <p>今天在做<code>git push -u origin master</code>时出现了如下错误：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! [rejected]        master -&gt; master (fetch first)</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://s2.ax1x.com/2020/02/07/12ZifU.png" alt=""></p>
-</fancybox>
-
-<ul>
-<li>多张图，可<strong>幻灯片播放</strong>，见红色标记👇</li>
-</ul>
-<p><fancybox><img src="https://s2.ax1x.com/2020/02/07/12AON8.png" alt=""></fancybox></p>
+<p>分析原因，基本上可以确定是因为github上的远程库与本地库版本不一致（我对github上的文件做了编辑操作，且未更新到本地，当然也可能还有其他原因…），通过一番研究，找到了两种解决方案：</p>
+<h2 id="温柔型方案："><a href="#温柔型方案：" class="headerlink" title="温柔型方案："></a>温柔型方案：</h2><ol>
+<li><p>通过<code>git pull</code>先将本地库更新到与远程库一致的版本，但要注意本地库后来做的修改可能被覆盖，最好使用<code>git fetch</code>(不会自动合并)，查看更新情况再有选择合并，或者先将本地库修改过的文件备份，<code>git pull</code>后再重新修改；</p>
+</li>
+<li><p>再运行<code>git push</code>即可成功。</p>
+</li>
+</ol>
+<h2 id="暴力型方案："><a href="#暴力型方案：" class="headerlink" title="暴力型方案："></a>暴力型方案：</h2><p>git提供了一种强制上传的方式：<code>git push -f</code>，它会忽略版本不一致等问题，强制将本地库上传的远程库，但是一定要谨慎使用，因为-f会用本地库覆盖掉远程库，如果远程库上有重要更新，或者有其他同伴做的修改，也都会被覆盖，所以一定要在确定无严重后果的前提下使用此操作。</p>
       
         <div class="readmore">
-          <a href="/blog/2020/02/07/%E4%BD%BF%E7%94%A8-fancybox-%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%B5%8F%E8%A7%88%E5%99%A8/" class="flat-box">
+          <a href="/blog/2020/02/14/rejected-master-master-fetch-first-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -350,9 +348,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
+          <a href="/blog/tags/GitHub/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> GitHub</a>
         
       </div>
     
@@ -375,8 +371,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E2%80%94-%E5%85%A5%E9%97%A8%E8%AE%AD%E7%BB%83-Fibonacci%E6%95%B0%E5%88%97/">
-      蓝桥杯-入门训练-Fibonacci数列
+    <a href="/blog/2020/02/14/%E8%BD%AC-%E4%BD%BF%E7%94%A8Cmder%E6%9B%BF%E6%8D%A2cmd-%E8%AE%A9%E5%BC%80%E5%8F%91%E6%9B%B4%E9%AB%98%E6%95%88/">
+      [转]使用Cmder替换cmd,让开发更高效
     </a>
   </h2>
 
@@ -406,7 +402,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-07</p>
+    <p>2020-02-14</p>
   </a>
 </div>
 
@@ -424,7 +420,243 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>558字</p>
+        <p>847字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p><img src="https://s2.ax1x.com/2020/02/14/1juWVg.png" alt="cmder"></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/14/%E8%BD%AC-%E4%BD%BF%E7%94%A8Cmder%E6%9B%BF%E6%8D%A2cmd-%E8%AE%A9%E5%BC%80%E5%8F%91%E6%9B%B4%E9%AB%98%E6%95%88/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 工具</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/14/%E5%88%A0%E9%99%A4%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%AD%E7%9A%84OEM%E5%88%86%E5%8C%BA/">
+      删除磁盘管理中的OEM分区
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-14</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>193字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>用windows自带的工具-DISKPART来实现，而且不会破坏其他分区的数据，具体操作如下：</p>
+<p>首先打开CMD，输入  diskpart.exe 回车   提示转入DISKPART</p>
+<p>然后输入 rescan 回车   （扫描硬盘）</p>
+<p>接着输入 list disk 回车   （硬盘列表，可以看到连接到该主机的硬盘列表）</p>
+<p>选择一个磁盘：  select disk 磁盘号 回车</p>
+<p>显示磁盘中的分区： list partition 回车</p>
+<p>选择一个分区：  select partition 分区号 回车</p>
+<p>删除分区：      delete partition override 回车</p>
+<p>基本就能删除OEM分区了。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/14/%E5%88%A0%E9%99%A4%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%AD%E7%9A%84OEM%E5%88%86%E5%8C%BA/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 系统</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/14/%E5%B7%A5%E5%85%B7-ScreenToGif-%E4%B8%80%E6%AC%BE%E5%B0%8F%E8%80%8C%E5%AE%9E%E7%94%A8%E7%9A%84%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%E7%94%9F%E6%88%90gif%E5%B7%A5%E5%85%B7/">
+      [工具]ScreenToGif:一款小而实用的屏幕录制生成gif工具
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-14</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>559字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -453,372 +685,276 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h2 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h2><p>时间限制：1.0s  内存限制：256.0MB</p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
-<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入包含一个整数n。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
-<blockquote>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
+      <blockquote>
+<p>因为写博客或工作等原因，经常需要录制屏幕并制作gif图。ScreenToGif使用了小半年了，给我的感觉就是“小而实用”，大小仅2M多（压缩后才几百K），但却包含了录制及常用的gif处理功能。</p>
 </blockquote>
-<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><p>10</p>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>55</p>
-<h2 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h2><p>22</p>
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h3><p>7704</p>
-<h2 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h2><p>1 &lt;= n &lt;= 1,000,000。</p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E2%80%94-%E5%85%A5%E9%97%A8%E8%AE%AD%E7%BB%83-Fibonacci%E6%95%B0%E5%88%97/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-          <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 蓝桥杯</a>
-        
-          <a href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 算法</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/07/Java%E4%B9%8Bprintf%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E7%9A%84%E4%BE%8B%E5%AD%90/">
-      Java之printf格式化输出的例子
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://www.runoob.com/" target="_blank" rel="nofollow noopener">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>菜鸟教程</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-07</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.6k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>6分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>转载自<a href="https://www.runoob.com/w3cnote/java-printf-formate-demo.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/07/Java%E4%B9%8Bprintf%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E7%9A%84%E4%BE%8B%E5%AD%90/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/05/%E8%BD%AC-%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E6%8C%82%E4%BB%B6/">
-      给博客添加一些挂件
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-05</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>2.6k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>11分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>阅读了<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a> 和 <a href="https://www.itrhx.com/" target="_blank" rel="noopener">TRHX‘S BLOG</a> 等文档/文章后，搜集了一部分教程</p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/05/%E8%BD%AC-%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E6%8C%82%E4%BB%B6/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/05/%E8%BD%AC-%E4%BD%BF%E7%94%A8Hexo-Git-Backup%E6%8F%92%E4%BB%B6%E5%A4%87%E4%BB%BD%E4%BD%A0%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/">
-      [转]使用Hexo-Git-Backup插件备份你的Hexo博客
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://www.itrhx.com/" target="_blank" rel="nofollow noopener">
-        
-          <img src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.9/images/trhx.png">
-        
-        <p>TRHX</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-05</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>492字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>2分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>欢迎关注我的 CSDN 专栏：<a href="https://blog.csdn.net/qq_36759224/article/category/9285510" target="_blank" rel="noopener">《个人博客搭建：Hexo+Github Pages》</a>，从搭建到美化一条龙，帮你解决 Hexo 常见问题！</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/9166166-09c81f536b3acdfb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="ScreenToGif"></p>
+<p>ScreenToGif：仅从名字就可以了解到它是一款屏幕转gif图的软件。而事实上，它不仅可以录制屏幕，同时也包含了摄像头录制，白板书写录制等功能，并且在录制后，可以对录制内容进行增删、修改、压缩等处理。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/9166166-d23dc9e5227845ff.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/512/format/webp" alt="ScreenToGif"></p>
+<p>ScreenToGif是一款免安装软件，下载并解压缩后，双击exe文件就可以运行。ScreenToGif还支持打开多次，以上Gif就是用一个ScreenToGif来录制另一个ScreenToGif界面。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/9166166-3e089a594b649874.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="ScreenToGif界面"></p>
+<p> 上图是ScreenToGif编辑器主页，ScreenToGif分两大功能，录制和编辑，从上图可以看到其编辑功能还是蛮强大的，至少在常规gif制作的功能都包含了：</p>
+<blockquote>
+<ol>
+<li>在编辑中有很多对帧的操作如:增加删除、循环、反转，特别是移除重复帧功能，能很好的减小gif占用内存大小；</li>
+<li>而在图片选项中则包含了水印、微动、模糊、字幕、自由文本、自由绘制等功能；</li>
+<li>ScreenToGif还支持简单的过渡动画；</li>
+<li>统计功能则提供了总帧数、总时长、帧大小、延时、帧分辨率等数据的统计；</li>
+<li>如下图：在编辑结束后，我们可以根据需求选择适合的类型及编码进行保存；</li>
+<li>到目前为止，ScreenToGif已适配20多种语言，并提供上传服务。</li>
+</ol>
+</blockquote>
+<p><img src="https:////upload-images.jianshu.io/upload_images/9166166-a00c74e3501a6851.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/288/format/webp" alt="ScreenToGif文件类型及编码"></p>
+<blockquote>
+<p>ScreenToGif是一个开源项目<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FNickeManarin%2FScreenToGif%2Freleases" target="_blank" rel="noopener">ScreenToGif Github</a>，本文下方也提供目前最新的2.14.1版本免安装exe程序。</p>
+</blockquote>
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fitlao5.com%2Fwp%2Ftools%2FScreenToGif2.14.1.rar" target="_blank" rel="noopener">版本2.14.1下载地址</a></p>
 <hr>
-<p>由于 Hexo 博客是静态托管的，所有的原始数据都保存在本地，如果哪一天电脑坏了，或者是误删了本地数据，那就是叫天天不应叫地地不灵了，此时定时备份就显得比较重要了，常见的备份方法有：打包数据保存到U盘、云盘或者其他地方，但是早就有大神开发了备份插件：<a href="https://github.com/coneycode/hexo-git-backup" target="_blank" rel="noopener">hexo-git-backup</a> ，只需要一个命令就可以将所有数据包括主题文件备份到 github 了</p>
+<p>作者：ThinkinLiu_IT老五<br>链接：<a href="https://www.jianshu.com/p/17121d0587fc" target="_blank" rel="noopener">https://www.jianshu.com/p/17121d0587fc</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
       
         <div class="readmore">
-          <a href="/blog/2020/02/05/%E8%BD%AC-%E4%BD%BF%E7%94%A8Hexo-Git-Backup%E6%8F%92%E4%BB%B6%E5%A4%87%E4%BB%BD%E4%BD%A0%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/" class="flat-box">
+          <a href="/blog/2020/02/14/%E5%B7%A5%E5%85%B7-ScreenToGif-%E4%B8%80%E6%AC%BE%E5%B0%8F%E8%80%8C%E5%AE%9E%E7%94%A8%E7%9A%84%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%E7%94%9F%E6%88%90gif%E5%B7%A5%E5%85%B7/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 工具</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/14/%E9%9A%8F%E7%AC%94-%E7%9B%B8%E4%BF%A1%E8%87%AA%E5%B7%B1/">
+      [随笔]相信自己
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-14</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>400字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>下午，起兴想整理笔记本里的数据时，发现了一些有趣的东西，拿出一部分来记作随笔。</p>
+<h1 id="相信自己"><a href="#相信自己" class="headerlink" title="相信自己"></a>相信自己</h1><p>在个人文件夹中，发现一个名为<strong><font size="5" color="#86b0ed">“相信自己”</font></strong>的Word文档，点开来，里面就一句话，简简单单的一句<strong><font size="5" color="rgb(26,188,156)">“如果有时候怀疑了，觉得不知道自己为什么一开始要做这个选择，或者觉得自己付出太多不值得，那就想想当初自己做这个决定的初心。或许一切就能释然了”</font></strong>。</p>
+<p><img src="https://s2.ax1x.com/2020/02/14/1XO0hR.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2020/02/14/1XLKRx.png" alt=""></p>
+<h1 id="一起玩耍吧"><a href="#一起玩耍吧" class="headerlink" title="一起玩耍吧"></a>一起玩耍吧</h1><p>18年，在网上看到一个视频，教用一些简单VB代码来制作的小程序。</p>
+<p>只有连续点击<strong>确定/是</strong>，才能结束程序。</p>
+<p>用来<strong>表白/坑人</strong>，挺不错的hh</p>
+<p>猜猜我用来干嘛呢 <strong>( ͡° ͜ʖ ͡°)✧ ~</strong></p>
+<p><img src="https://s2.ax1x.com/2020/02/14/1Xzpi4.png" alt=""></p>
+<p>演示👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/14/1jS5CQ.gif" alt=""></p>
+<p>制作过程很简单，新建一个<strong>txt文本</strong>，粘贴我写好的代码，保存后修改后缀为<strong>.vbs</strong>，完事。</p>
+<p>代码👇</p>
+<figure class="highlight vbscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">msgbox</span> <span class="string">"我们可以一起玩吗？"</span>,vbQuestion,<span class="string">"在吗？"</span></span><br><span class="line"><span class="built_in">msgbox</span> (<span class="string">"可以吗？"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">dim</span> j</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> <span class="keyword">while</span> j&lt;<span class="number">1</span></span><br><span class="line"><span class="keyword">Select</span> <span class="keyword">Case</span> <span class="built_in">msgbox</span>(<span class="string">"真的真的真的可以吗？"</span>,<span class="number">68</span>,<span class="string">"请郑重的回答我"</span>)</span><br><span class="line"><span class="keyword">Case</span> <span class="number">6</span> j=<span class="number">1</span></span><br><span class="line"><span class="keyword">Case</span> <span class="number">7</span> <span class="built_in">msgbox</span>(<span class="string">"别嘛，我就是要和你一起玩"</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">Select</span></span><br><span class="line"><span class="keyword">loop</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">msgbox</span>(<span class="string">"我就知道你会同意的，啦啦啦"</span>)</span><br></pre></td></tr></tbody></table></figure>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/14/%E9%9A%8F%E7%AC%94-%E7%9B%B8%E4%BF%A1%E8%87%AA%E5%B7%B1/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/13/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E6%92%AD%E6%94%BE%E5%99%A8/">
+      绚丽彩虹播放器
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-13</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>203字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/13/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E6%92%AD%E6%94%BE%E5%99%A8/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -830,10 +966,363 @@
         
           <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
         
-          <a href="/blog/tags/GitHub/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> GitHub</a>
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/13/%E5%8A%A8%E6%80%81%E6%97%B6%E9%92%9F/">
+      动态时钟
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-13</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.3k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>8分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>效果：</p>
+<p><img src="https://s2.ax1x.com/2020/02/13/1q2qr8.png" alt=""></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/13/%E5%8A%A8%E6%80%81%E6%97%B6%E9%92%9F/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/13/%E8%BD%AC-Hexo%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Valine-Admin%E7%AE%A1%E7%90%86%E8%AF%84%E8%AE%BA%E5%92%8C%E8%AF%84%E8%AE%BA%E6%8F%90%E9%86%92/">
+      [转]Hexo主题使用Valine-Admin管理评论和评论提醒
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://segmentfault.com/a/1190000021474516?utm_source=tag-newest" target="_blank" rel="nofollow noopener">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>乱敲代码</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-13</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.2k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>4分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>原文链接：<a href="https://segmentfault.com/a/1190000021474516?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000021474516?utm_source=tag-newest</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本今天在写文章，然后没事就去博客看了一下。突然发现有人在文章下面评论。是早上评论的但是我晚上才看到。</p>
+<p>我的留言系统使用的是<code>Valine</code>,发现留言并没有提醒，只有回复了才会有提醒。</p>
+<p>这不能忍。毕竟好不容易来个朋友竟然没有交流上你说难受不难受😡</p>
+<p>然后我就去百度了一下<code>Valine-Admin</code></p>
+<blockquote>
+<p>Valine-Admin 是一个对 Valine 评论系统的拓展应用，可增强 <code>Valine</code> 的邮件通知功能。基于 Leancloud 的云引擎与云函数。可以提供邮件 <code>通知站长</code> 和 <code>@ 通知</code> 的功能，而且还支持自定义邮件通知模板。</p>
+</blockquote>
+<p>发现这个插件很不错我就研究了一下。下面是整合教程。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/13/%E8%BD%AC-Hexo%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Valine-Admin%E7%AE%A1%E7%90%86%E8%AF%84%E8%AE%BA%E5%92%8C%E8%AF%84%E8%AE%BA%E6%8F%90%E9%86%92/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/11/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Ehalo%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%B5%84%E6%BA%90/">
+      一些关于halo博客的资源
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-11</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>98字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p><a href="https://github.com/halo-dev/halo-app/releases" target="_blank" rel="noopener">https://github.com/halo-dev/halo-app/releases</a></p>
+<p>halo教程<br><a href="https://ryanc.cc/tags/halo" target="_blank" rel="noopener">https://ryanc.cc/tags/halo</a></p>
+<p>Docker Compose 部署Halo教程<br><a href="https://ryanc.cc/archives/docker-compose-run-halo" target="_blank" rel="noopener">https://ryanc.cc/archives/docker-compose-run-halo</a></p>
+<p>halo替换hexo<br><a href="https://wenthywang.cn/archives/2019070217154001586/" target="_blank" rel="noopener">https://wenthywang.cn/archives/2019070217154001586/</a></p>
+<p>halo替换hexo<br><a href="https://www.shizuri.net/Z-Turn/halo.html" target="_blank" rel="noopener">https://www.shizuri.net/Z-Turn/halo.html</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/11/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Ehalo%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%B5%84%E6%BA%90/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
         
           <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
         
+          <a href="/blog/tags/halo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> halo</a>
+        
       </div>
     
   </section>
@@ -855,8 +1344,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/02/05/RSS%E8%AE%A2%E9%98%85-%E5%90%AB%E8%BD%AC%E8%BD%BD%E5%86%85%E5%AE%B9/">
-      RSS订阅(含转载内容)
+    <a href="/blog/2020/02/11/%E4%BB%BB%E6%AD%A3%E9%9D%9E-%E5%94%AF%E4%B8%80%E6%9C%89%E6%84%A7%E7%9A%84%E6%98%AF%E5%AF%B9%E4%B8%8D%E8%B5%B7%E7%88%B6%E6%AF%8D/">
+      任正非:唯一有愧的是对不起父母
     </a>
   </h2>
 
@@ -886,7 +1375,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-05</p>
+    <p>2020-02-11</p>
   </a>
 </div>
 
@@ -904,14 +1393,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>629字</p>
+        <p>4k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>2分</p>
+        <p>14分</p>
       </a>
     </div>
   
@@ -933,23 +1422,10 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h1 id="添加RSS订阅"><a href="#添加RSS订阅" class="headerlink" title="添加RSS订阅"></a>添加RSS订阅</h1><p>RSS订阅是站点用来和其他站点之间共享内容的一种简易方式，即Really Simple Syndication（简易信息聚合），如果不会使用，可以参见百度百科：<a href="https://baike.baidu.com/item/RSS订阅/663114" target="_blank" rel="noopener">https://baike.baidu.com/item/RSS%E8%AE%A2%E9%98%85/663114</a> ；首先我们安装feed插件，在本地hexo目录下右键<code>git bash here</code>，输入以下命令：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-feed</span><br></pre></td></tr></tbody></table></figure>
-
-<p>等待安装完成后，打开hexo目录下配置文件的<code>_config.yml</code>，在末尾添加以下配置：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">#RSS订阅</span><br><span class="line">plugin:</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">#Feed Atom</span><br><span class="line">feed:</span><br><span class="line">type: atom</span><br><span class="line">path: atom.xml</span><br><span class="line">limit: 20</span><br></pre></td></tr></tbody></table></figure>
-
-<p>随后打开主题配置文件<code>_config.yml</code>，添加以下配置：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rss: /atom.xml</span><br></pre></td></tr></tbody></table></figure>
-
-<p>至此，RSS订阅功能添加完成</p>
-<hr>
-<p><font size="5">【注】</font>以下内容转载自互联网，其作者：奔跑中的奶酪<img src="https://www.runningcheese.com/wp-content/uploads/2019070607074296.png" style="zoom:25%;"></p>
-<h1 id="《可能是目前最全的RSS订阅源了》"><a href="#《可能是目前最全的RSS订阅源了》" class="headerlink" title="《可能是目前最全的RSS订阅源了》"></a>《可能是目前最全的RSS订阅源了》</h1><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><img src="https://tva3.sinaimg.cn/large/7a6a15d5gy1fieoorpfd0j20l4034jsj.jpg" alt="可能是目前最全的RSS订阅源了"><br>继上一篇文章《<a href="https://www.runningcheese.com/go?url=http://www.runningcheese.com/rss-feed" target="_blank" rel="noopener">当我们谈论RSS时，我们在谈论什么？</a> 》发布后，阅读甚少，反响也是平平。奶酪不得不承认一个事实，RSS 做为一种“上古神器”，如果你经历过 RSS 的风光时期，你会一直喜欢它。但如果你对它了解甚少，尽管我再如何推荐，高使用门槛还是很难让你对RSS喜欢得起来。</p>
-<p>RSS 高门槛的主要原因在于，优质RSS阅读器选择少，以及订阅源的缺失。上一期我极力推荐了一款在线 RSS 阅读器 <a href="https://www.runningcheese.com/go?url=https://feeder.co/reader" target="_blank" rel="noopener">Feeder.co</a>，它已经足够的优秀了。所以接下来的问题，就是解决如何寻找订阅源的问题了，而本期内容正是解决如何查找RSS 订阅源的问题。</p>
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        前几天，弟在做高考语文预测卷时，突然跟我说“老哥，你去看看<strong>任正非的文章《我的父亲母亲》</strong>，很有深意”。在看完文章后还有一篇<strong>作者是柳传志的读后感</strong>。对这两篇文章深有感触，所以专门开设并记录在博文里。</p>
       
         <div class="readmore">
-          <a href="/blog/2020/02/05/RSS%E8%AE%A2%E9%98%85-%E5%90%AB%E8%BD%AC%E8%BD%BD%E5%86%85%E5%AE%B9/" class="flat-box">
+          <a href="/blog/2020/02/11/%E4%BB%BB%E6%AD%A3%E9%9D%9E-%E5%94%AF%E4%B8%80%E6%9C%89%E6%84%A7%E7%9A%84%E6%98%AF%E5%AF%B9%E4%B8%8D%E8%B5%B7%E7%88%B6%E6%AF%8D/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -959,473 +1435,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/05/%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0Github/">
-      将本地文件上传到GitHub
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-05</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>106字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>百度“如何将文件上传到Github”，其中发现两篇很有用的教程：</p>
-<h1 id="使用git将项目上传到github（最简单方法）"><a href="#使用git将项目上传到github（最简单方法）" class="headerlink" title="使用git将项目上传到github（最简单方法）"></a><a href="https://www.cnblogs.com/cxk1995/p/5800196.html" target="_blank" rel="noopener">使用git将项目上传到github（最简单方法）</a></h1><h1 id="如何使用git把本地代码上传（更新）到github上"><a href="#如何使用git把本地代码上传（更新）到github上" class="headerlink" title="如何使用git把本地代码上传（更新）到github上"></a><a href="https://baijiahao.baidu.com/s?id=1619544681032320225&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">如何使用git把本地代码上传（更新）到github上</a></h1>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/05/%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0Github/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/GitHub/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> GitHub</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E6%A0%87%E6%98%BE%E7%A4%BA/">
-      浏览器网页标签页图标显示
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-04</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>332字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E6%A0%87%E6%98%BE%E7%A4%BA/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/HTML/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> HTML</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E4%BD%9C%E8%80%85/">
-      文章作者
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>100字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>由于支持多作者共同维护一个博客，所以可以设置单独一篇文章的作者：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">author:</span><br><span class="line">  name: 作者</span><br><span class="line">  avatar: https://img.vim-cn.com/a1/d53c11fb5d4fd69529bc805d385fe818feb3f6.png</span><br><span class="line">  url: https://baidu.com</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E4%BD%9C%E8%80%85/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/">
-      文章置顶
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>93字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>在Front-matter中设置以下值：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: true</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>如果想自定义置顶标签的文字，可以直接设置为字符串，例如：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: 近期更新</span><br></pre></td></tr></tbody></table></figure>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+          <a href="/blog/tags/%E6%96%87%E7%AB%A0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 文章</a>
         
       </div>
     
@@ -1450,7 +1460,7 @@
             </a>
           
           <p class="current">
-            3 / 8
+            3 / 11
           </p>
           
             <a class="next" rel="next" href="/blog/page/4/">
@@ -1833,7 +1843,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.22px; color: #8a8a8a">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.78px; color: #646464">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.89px; color: #5d5d5d">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19.56px; color: #737373">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.11px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.67px; color: #6c6c6c">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.33px; color: #828282">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.11px; color: #919191">算法</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.11px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.44px; color: #7b7b7b">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 16px; color: #8b8b8b">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 17px; color: #858585">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 19px; color: #777">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 20px; color: #707070">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #707070">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 

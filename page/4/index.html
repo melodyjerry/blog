@@ -247,8 +247,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">
-      文章分类
+    <a href="/blog/2020/02/10/%E8%A7%A3%E5%86%B3bash-hexo-command-not-found/">
+      解决bash: hexo: command not found
     </a>
   </h2>
 
@@ -278,7 +278,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
+    <p>2020-02-10</p>
   </a>
 </div>
 
@@ -296,7 +296,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>132字</p>
+        <p>108字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -325,155 +325,15 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p>多个分类有两种关系，一种是层级（等同于文件夹），一种是并列（等同于标签）。</p>
-<p><strong>多级分类</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categories: [分类A, 分类B]</span><br></pre></td></tr></tbody></table></figure>
+      <p><br>记录一次离奇的车祸现场。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>今天用<code>hexo</code>新建文章<code>hexo new</code>时<code>git</code>报错：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash: hexo: command not found</span><br></pre></td></tr></tbody></table></figure>
 
-<p>或者</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - 分类A</span><br><span class="line">  - 分类B</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>并列分类</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - [分类A]</span><br><span class="line">  - [分类B]</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>多级+并列分类</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - [分类A, 分类B]</span><br><span class="line">  - [分类C, 分类D]</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>将<code>G:\blog_gitee\node_modules\.bin</code>添加进PATH。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>可能是因为我今天更新<code>npm</code>了？</p>
       
         <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <div class="aplayer"
-    data-theme=""
-    data-mini=true 
-    
-    data-mode="circulation"
-    data-server="netease"
-    data-type="song"
-    data-id="28341146"
-    data-volume="0.7">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
-
-
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E9%9F%B3%E4%B9%90bgm/">
-      文章音乐bgm
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>167字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>标题右边显示迷你音乐播放器，支持的字段有：<code>server</code>、<code>type</code>、<code>id</code>，取值详见【进阶设定 -&gt; 第三方服务 -&gt; APlayer】。</p>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">music:</span><br><span class="line">  enable: true      # true（文章内和文章列表都显示） internal（只在文章内显示）</span><br><span class="line">  server: netease   # netease（网易云音乐）tencent（QQ音乐） xiami（虾米） kugou（酷狗）</span><br><span class="line">  type: song        # song （单曲） album （专辑） playlist （歌单） search （搜索）</span><br><span class="line">  id: 26664345      # 歌曲/专辑/歌单 ID</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
-
-<p>实际效果见：<a href="https://mxclub.github.io/example/文章专属BGM/" target="_blank" rel="noopener">《文章专属BGM》</a></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%96%87%E7%AB%A0%E9%9F%B3%E4%B9%90bgm/" class="flat-box">
+          <a href="/blog/2020/02/10/%E8%A7%A3%E5%86%B3bash-hexo-command-not-found/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -506,8 +366,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/02/03/%E6%B7%BB%E5%8A%A0CNZZ%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81/">
-      添加CNZZ统计代码
+    <a href="/blog/2020/02/10/%E8%BD%AC-CentOS-7%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD/">
+      [转]CentOS 7镜像下载
     </a>
   </h2>
 
@@ -537,7 +397,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
+    <p>2020-02-10</p>
   </a>
 </div>
 
@@ -555,7 +415,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>352字</p>
+        <p>336字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -584,23 +444,31 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p>先在博客主题配置文件themes\material-x_config.yml添加代码：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#添加CNZZ统计</span><br><span class="line">cnzz: true</span><br></pre></td></tr></tbody></table></figure>
+      <p>官网下载链接：<a href="http://isoredirect.centos.org/centos/7.4.1708/isos/x86_64/" target="_blank" rel="noopener">http://isoredirect.centos.org/centos/7/isos/x86_64/</a></p>
+<p><strong><em>step1: 进入下载页，选择阿里云站点进行下载</em></strong></p>
+<p>Actual Country 国内资源          Nearby Countries 周边国家资源</p>
+<p>阿里云站点：<a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/</a></p>
+<p>每个链接都包括了镜像文件的地址、类型及版本号等信息</p>
+<p>选择当前国家资源区站点下载，获取资源速度比较快</p>
+<img src="https:////upload-images.jianshu.io/upload_images/4170765-6a8d1c8f689e6545.png?imageMogr2/auto-orient/strip|imageView2/2/w/502/format/webp" alt="img" style="zoom:80%;">
 
-<p>这里这个cnzz的名字可以自己取；然后在themes\material-x\layout_partial里面创建一个 cnzz.ejs文件；把cnzz给的代码复制进去；</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz){ %&gt; </span><br><span class="line">//这里添加复制的CNZZ代码</span><br><span class="line">&lt;% } %&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>然后再在footer.ejs的后面添加上一行代码就可以显示了（这里的位置可以换，可以不是scripts.ejs，或者是head.ejs，看自己的喜好）</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--CNZZ统计--&gt;</span><br><span class="line">&lt;%- partial('cnzz') %&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>对百度统计也可以进行同样的处理；</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz){ %&gt;//前面要添加的代码</span><br><span class="line">//百度统计的代码</span><br><span class="line">&lt;% } %&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>与上面的操作基本一致只是取得名字不一样。</p>
-<p>上面的是一种方法；</p>
-<p>如果嫌麻烦的话直接就在footer.ejs的后面添加cnzz的代码；直接就可以显示了（同理，可以添加在其他位置），貌似添加在这里速度最快。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.cnzz){ %&gt; //前面要添加的代码</span><br><span class="line">//这里添加复制的CNZZ代码</span><br><span class="line">&lt;% } %&gt; //后面要添加的</span><br></pre></td></tr></tbody></table></figure>
-<p>参考链接：<a href="https://blog.csdn.net/whjkm/article/details/37884563" target="_blank" rel="noopener">https://blog.csdn.net/whjkm/article/details/37884563</a></p>
+<img src="https:////upload-images.jianshu.io/upload_images/4170765-079a53e5b94f35f8.png?imageMogr2/auto-orient/strip|imageView2/2/w/472/format/webp" alt="img" style="zoom:80%;">
+
+<p><strong><em>step1: 进入阿里云站点，选择</em></strong> <strong>CentOS-7-x86_64-DVD-1804.iso下载</strong></p>
+<img src="https:////upload-images.jianshu.io/upload_images/4170765-74d8c1e65e699710.png?imageMogr2/auto-orient/strip|imageView2/2/w/776/format/webp" alt="img" style="zoom:80%;">
+
+<p>各个版本的ISO镜像文件说明：</p>
+<p>CentOS-7-x86_64-DVD-1708.iso        标准安装版（推荐）</p>
+<p>CentOS-7-x86_64-Everything-1708.iso    完整版，集成所有软件（以用来补充系统的软件或者填充本地镜像）</p>
+<p>CentOS-7-x86_64-LiveGNOME-1708.iso     GNOME桌面版  </p>
+<p>CentOS-7-x86_64-LiveKDE-1708.iso      KDE桌面版  </p>
+<p>CentOS-7-x86_64-Minimal-1708.iso      精简版，自带的软件最少</p>
+<p>CentOS-7-x86_64-NetInstall-1708.iso    网络安装版（从网络安装或者救援系统） </p>
+<hr>
+<p>作者：Ada54<br>链接：<a href="https://www.jianshu.com/p/a63f47e096e8" target="_blank" rel="noopener">https://www.jianshu.com/p/a63f47e096e8</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
       
         <div class="readmore">
-          <a href="/blog/2020/02/03/%E6%B7%BB%E5%8A%A0CNZZ%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81/" class="flat-box">
+          <a href="/blog/2020/02/10/%E8%BD%AC-CentOS-7%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -610,134 +478,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/02/%5B%E8%BD%AC%5DHexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/">
-      [转]Hexo 博客主题个性化
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://www.itrhx.com/" target="_blank" rel="nofollow noopener">
-        
-          <img src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.9/images/trhx.png">
-        
-        <p>TRHX</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-02</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>416字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>permalink: <a href="https://www.itrhx.com/2018/08/27/A04-Hexo-blog-topic-personalization/" target="_blank" rel="noopener">https://www.itrhx.com/2018/08/27/A04-Hexo-blog-topic-personalization/</a></p>
-<p><strong>以下为原文的摘要：</strong></p>
-<p>本文将讲述一些博客主题的美化、实用功能的添加，本文以作者 <a href="https://luuman.github.io/Home/H1/index.html" target="_blank" rel="noopener">luuman</a> 的 <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank" rel="noopener">spfk</a> 主题和作者 <a href="https://xaoxuu.com/" target="_blank" rel="noopener">xaoxuu</a> 的 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material X</a> 主题为例，文章会不定时进行更新。文章涉及有关参考资料、教程、链接如有侵权请联系我删除！</p>
-<p>本文在CSDN的链接：<a href="https://itrhx.blog.csdn.net/article/details/85420403" target="_blank" rel="noopener">《Hexo 博客优化之博客美化》</a>、<a href="https://itrhx.blog.csdn.net/article/details/85010191" target="_blank" rel="noopener">《Hexo 博客优化之实用功能添加》</a>，Hexo 博客专栏，从前期搭建到后期美化，帮您解决常见问题：<a href="https://itrhx.blog.csdn.net/category_9285510.html" target="_blank" rel="noopener">《Github/Coding Pages + Hexo》</a>，对您有帮助就点个赞吧❤️</p>
-<p><strong>请注意：</strong>不同主题可能方法有些不同，相同主题不同版本，配置方法也有所差异！</p>
-<p><strong>博客美化前提条件：</strong>有一定的前端基础，了解 HTML、CSS、JS，了解 CSS 预处理语言 Sass、Less、Stylus，搞懂 hexo 的目录结构。</p>
-<p><strong>博客美化通用步骤：</strong>选定主题，认真阅读主题文档，分析主题目录结构，了解每个文件是对应网页哪个部分的，认真阅读美化教程，美化教程本质上只为你提供核心代码和思路，具体代码要添加到哪个地方，需要你自己搞懂主题结构，添加到需要的、合适的位置！</p>
-<p><strong>博客美化终极奥秘：</strong>创作第一，体验第二，避免繁杂，简洁为上！</p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/02/%5B%E8%BD%AC%5DHexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
+          <a href="/blog/tags/%E9%95%9C%E5%83%8F/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 镜像</a>
         
       </div>
     
@@ -760,141 +501,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/02/01/%5B%E8%BD%AC%5D%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EHexo%E7%9A%84%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/">
-      [转]如何搭建基于Hexo的独立博客
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
-        
-          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/avatar/avatar.png">
-        
-        <p>xaoxuu</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-01</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>62字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>permalink: <a href="https://xaoxuu.com/blog/2017-07-05-hexo-blog/" target="_blank" rel="noopener">https://xaoxuu.com/blog/2017-07-05-hexo-blog/</a><br><img src="https://img.vim-cn.com/d9/a9af7dc49fc0af8ca3e6dd2450a2f7095a87db.png" alt=""></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/01/%5B%E8%BD%AC%5D%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EHexo%E7%9A%84%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
-        
-          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <div class="aplayer"
-    data-theme=""
-    data-mini=true 
-    
-    data-mode="circulation"
-    data-server="netease"
-    data-type="song"
-    data-id="28341146"
-    data-volume="0.7">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
-
-
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/01/24/%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%99%A4%E5%A4%95/">
-      第一个除夕
+    <a href="/blog/2020/02/10/%E7%BB%99Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1/">
+      给Hexo博客添加不蒜子统计
     </a>
   </h2>
 
@@ -924,7 +532,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-01-24</p>
+    <p>2020-02-10</p>
   </a>
 </div>
 
@@ -942,7 +550,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>94字</p>
+        <p>319字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -971,13 +579,10 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p>🌸于我们，这是妈走后的第一个除夕、春节。</p>
-<p>💓“老妈，我们都在等你回来。就差你了，快和我们一起来吃团圆饭啦！”</p>
-<p><fancybox><img src="https://s2.ax1x.com/2020/02/08/1RLj1K.png" alt="除夕团圆饭"></fancybox></p>
-
+      
       
         <div class="readmore">
-          <a href="/blog/2020/01/24/%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%99%A4%E5%A4%95/" class="flat-box">
+          <a href="/blog/2020/02/10/%E7%BB%99Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -987,7 +592,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
         
       </div>
     
@@ -1010,8 +615,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2020/01/01/%E5%86%8D%E8%A7%81%EF%BC%8C2019%EF%BC%9B%E4%BD%A0%E5%A5%BD%EF%BC%8C2020/">
-      再见2019，你好2020
+    <a href="/blog/2020/02/09/%E5%88%B0%E5%8D%9A%E5%AE%A2%E9%87%8C%E5%85%BB%E9%B1%BC/">
+      到博客里养鱼
     </a>
   </h2>
 
@@ -1041,7 +646,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-01-01</p>
+    <p>2020-02-09</p>
   </a>
 </div>
 
@@ -1059,7 +664,122 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>1.3k字</p>
+        <p>1.9k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>11分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>鱼🐟</p>
+<p><img src="https://s2.ax1x.com/2020/02/19/3VmMX8.png" alt=""></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E5%88%B0%E5%8D%9A%E5%AE%A2%E9%87%8C%E5%85%BB%E9%B1%BC/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E/">
+      [转]MySQL数据库引擎
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.2k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -1088,14 +808,10 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=32217265&amp;auto=0&amp;height=66"></iframe>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是作为我2019年最后一年博客，同时是2020的第一篇博客。</p>
-<p>起手写这篇博客时候是2019年12月晚上8点57分，距离2019的结束约3个小时👇</p>
-<p><img src="https://i.loli.net/2019/12/31/OFSKCE5qIWHJMza.png" alt=""></p>
+      <p>接下来介绍一下存储引擎的基本概念、MySQL支持的存储引擎、存储引擎的选择以及操作默认存储引擎。</p>
       
         <div class="readmore">
-          <a href="/blog/2020/01/01/%E5%86%8D%E8%A7%81%EF%BC%8C2019%EF%BC%9B%E4%BD%A0%E5%A5%BD%EF%BC%8C2020/" class="flat-box">
+          <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -1105,7 +821,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
         
       </div>
     
@@ -1128,8 +846,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/12/28/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E5%90%8C%E5%AD%A6%E5%BD%95V1-4%E5%85%AC%E6%B5%8B%E7%89%88/">
-      绚丽彩虹同学录V1.4公测版
+    <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E5%8C%BA%E5%88%AB%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E9%97%AE%E9%A2%98/">
+      [转]MySQL区别大小写字母的问题
     </a>
   </h2>
 
@@ -1143,11 +861,11 @@
             
   <div class='new-meta-item author'>
     
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+      <a href="https://blog.csdn.net/qq_15160079/article/details/100976519" target="_blank" rel="nofollow noopener">
         
           <i class="fas fa-user" aria-hidden="true"></i>
         
-        <p>Melody Jerry</p>
+        <p>曼巴进化者</p>
       </a>
     
   </div>
@@ -1159,7 +877,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-12-28</p>
+    <p>2020-02-09</p>
   </a>
 </div>
 
@@ -1177,7 +895,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>506字</p>
+        <p>443字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -1206,128 +924,40 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/blog/2019/12/28/%E7%BB%9A%E4%B8%BD%E5%BD%A9%E8%99%B9%E5%90%8C%E5%AD%A6%E5%BD%95V1-4%E5%85%AC%E6%B5%8B%E7%89%88/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/12/22/2019%E5%86%AC%E8%87%B3/">
-      2019冬至
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-12-22</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>222字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>😄2019.12.20-22，三天，在小姨家度过了一个冬至小长假。</p>
-<p>🧡周五下午从学校出发，骑着小蓝到地铁站乘地铁，经过3条（2、3、9线）地铁线、18（13+3+2）个站、2次（嘉禾望岗、 高增）换乘，来到花都的小姨家。</p>
-<p>以下为20号下午抵达花都时发的随笔</p>
+      <p>如果直接使用MYSQL客户端用SQL语句查询数据库中的数据，SQL语句中字段的大写或小写查出的数据是一样的，说明查询条件对字段的大小写是不敏感（默认）。</p>
+<h1 id="怎样让MYSQL对大小字母写敏感？"><a href="#怎样让MYSQL对大小字母写敏感？" class="headerlink" title="怎样让MYSQL对大小字母写敏感？"></a>怎样让MYSQL对大小字母写敏感？</h1><h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>MYSQL区别大小写需要设置collate（校对） 。 </p>
+<p><strong>collate规则：</strong></p>
 <ul>
-<li>#生活</li>
-<li>#记录三个月来，第一次出学校出趟远门.</li>
-<li>ᶘ ͡°ᴥ͡°ᶅ<br>  今天的天气真不错，音乐、风、云……都陪伴着我，特别轻松</li>
-<li>(୨୧•͈ᴗ•͈)<br>  因为想家了，但回深圳有些麻烦，先来趟花都吧</li>
-<li>( ´◔ ‸◔`)<br>  海珠来花都，还是有丶远。到了花都就变得有丶冷了</li>
+<li><p>*_bin: 表示的是 <code>binary casesensitive collation</code>，也就是说是区分大小写的</p>
+</li>
+<li><p>*_cs: 表示的是 <code>casesensitive collation</code>，区分大小写</p>
+</li>
+<li><p>*_ci: 表示的是 <code>caseinsensitive collation</code>，不区分大小写</p>
+</li>
 </ul>
-<p>💛</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
+<li><p>可以将查询条件用binary()括起来。 比如： </p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where binary username= 'jack';</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>可以修改该字段的collation 为 binary。比如：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE TABLENAME MODIFY COLUMN COLUMNNAME VARCHAR(50) BINARY CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h2></li>
+</ol>
+<p>mysql查询默认是不区分大小写的 如:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where username=‘jack';</span><br><span class="line">select * from emp where username='JACK';</span><br></pre></td></tr></tbody></table></figure>
+<p>得到的结果是一样的，如果我们需要进行区分的话可以按照如下方法来做：</p>
+<h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><p>要让mysql查询区分大小写，可以：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where binary username='jack'</span><br><span class="line">select * from emp where binary username='JACK'</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>在建表时时候加以标识</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create table emp(</span><br><span class="line">   username varchar(20) binary</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>原理：对于CHAR、VARCHAR和TEXT类型，BINARY属性可以为列分配该列字符集的校对规则。<strong>BINARY属性是指定列字符集的二元校对规则的简写。排序和比较基于数值字符值,因此也就自然区分了大小写。</strong></p>
+</blockquote>
+<hr>
+<p>原文链接：<a href="https://blog.csdn.net/qq_15160079/article/details/100976519" target="_blank" rel="noopener">https://blog.csdn.net/qq_15160079/article/details/100976519</a></p>
       
         <div class="readmore">
-          <a href="/blog/2019/12/22/2019%E5%86%AC%E8%87%B3/" class="flat-box">
+          <a href="/blog/2020/02/09/%E8%BD%AC-MySQL%E5%8C%BA%E5%88%AB%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -1337,7 +967,540 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/Navicat-Premium%E8%BF%9E%E6%8E%A5MySQL%E5%A4%B1%E8%B4%A5%EF%BC%9F/">
+      Navicat Premium连接MySQL失败？
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>265字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用Navicat Premium连接MySQL失败，并弹窗提示👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fOM4A.png" alt=""></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>从错误信息可知caching_sha2_password不能加载。</p>
+<p>以上报错是由于目前已有的客户端连接软件还不支持Mysql8新增加的加密方式caching_sha2_password，所以我们需要修改用户的加密方式，将其改为老的加密验证方式。</p>
+<p>大安装Mysql数据库的主机上登录Mysql对应的用户，上面连接时用的用户为root，所以我们登录root用户。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol>
+<li>执行命令，查看当前用户的加密方式：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"></span><br><span class="line">select user,plugin from user where user='root';</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以看到当前用户的加密方式为caching_sha2_password。</p>
+<ol start="2">
+<li>登录MySQL后输入，执行命令：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YourPassword';</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></tbody></table></figure>
+<p>将用户的加密方式改为mysql_native_password。</p>
+<ol start="3">
+<li>再次尝试连接Mysql，连接成功。</li>
+</ol>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/Navicat-Premium%E8%BF%9E%E6%8E%A5MySQL%E5%A4%B1%E8%B4%A5%EF%BC%9F/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/%E6%96%87%E7%AB%A0%E5%86%85%E8%B7%B3%E8%BD%AC/">
+      文章内跳转
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>2.4k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>9分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p><a href="#jump">点击我跳转</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 跳转起点</span><br><span class="line">[点击我跳转](#jump)</span><br><span class="line"></span><br><span class="line">2.跳转终点</span><br><span class="line">&lt;span id="jump"&gt;&lt;font color='blue'&gt;[我是跳转内容]&lt;/font&gt;&lt;/span&gt;&lt;a href="#jump" class="footnote-backref"&gt;↩&lt;/a&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><span id="jump"><font color="blue">[我是跳转内容]</font></span><a href="#jump" class="footnote-backref">↩</a></p>
+<p>参考文章：</p>
+<p><a href="https://www.jianshu.com/p/4898c2e9a36d" target="_blank" rel="noopener">https://www.jianshu.com/p/4898c2e9a36d</a></p>
+<p><a href="https://blog.csdn.net/qq_38276669/article/details/86748936" target="_blank" rel="noopener">https://blog.csdn.net/qq_38276669/article/details/86748936</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E6%96%87%E7%AB%A0%E5%86%85%E8%B7%B3%E8%BD%AC/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E5%90%8E%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8AMySQL%EF%BC%9F/">
+      输入密码后登录不上MySQL？
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>306字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>昨晚安装好MySQL后，可以登录。但是今天输入密码后，总是没办法登录。</p>
+<p>刚开始我是用DOS窗口的，我检查了命令，命令也没输错啊。</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fTjC6.png" alt=""></p>
+<p>接着转去MySQL Command Line Client试试，一直没反应。</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1f7rPx.png" alt=""></p>
+<p>我突然想到“是不是MySQL服务没有启动？”</p>
+<p>果然！看了一下，这个时候MySQL需要手动启动，于是我把MySQL服务设置成<strong>开机自动启动</strong>，以后就省去手动启动这个麻烦。</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1f7XZj.png" alt=""></p>
+<p>回到DOS，输入<code>mysql -h localhost -u root -p</code>试试，可以正常登录MySQL了hh  <strong>o(<em>￣▽￣</em>)o</strong></p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fHVoR.png" alt=""></p>
+<hr>
+<p>除了上面这种到<strong>【服务】</strong>手动开启MySQL服务的方法外，也可以用<strong>PowerShell(管理员)</strong>来启动。</p>
+<p>输入命令<code>net start mysql</code>，启动MySQL服务。启动成功会在左下角弹窗提示👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fHo79.png" alt=""></p>
+<p>一定是要<strong>带有管理员权限的PowerShell</strong>，否者只会是这个样子👇</p>
+<p><img src="https://s2.ax1x.com/2020/02/09/1fbPht.png" alt=""></p>
+<blockquote>
+<p>输入<code>net start mysql</code>，按回车键，就能启动 MySQL 服务，停止服务的命令为<code>net stop mysql</code>。</p>
+</blockquote>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E5%90%8E%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8AMySQL%EF%BC%9F/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/09/%E5%B7%A5%E5%85%B7-%E6%96%87%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%BD%AF%E4%BB%B6/">
+      [工具]文件加密软件
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://github.com/Albert-W/Folder-locker" target="_blank" rel="nofollow noopener">
+        
+          <img src="https://avatars0.githubusercontent.com/u/21038139?s=460&v=4">
+        
+        <p>Albert-W</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-09</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>755字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="Folder-locker"><a href="#Folder-locker" class="headerlink" title="Folder-locker"></a>Folder-locker</h1><p>这是一个小巧的文件上锁软件，<strong>没有压缩和加密过程</strong>，方便快捷。</p>
+<h2 id="功能展示"><a href="#功能展示" class="headerlink" title="功能展示"></a>功能展示</h2><p><img src="https://albert-w.github.io/Folder-locker/locker.gif" alt="img"></p>
+<p>在想加密的文件夹上，右键则可呼出加密面板，输入两次密码确认加密。</p>
+<p>在已加密的文件夹上，右键，输入密码，则取消加密</p>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>项目分了两个目录：</p>
+<ul>
+<li>DButility 用于通过轻量极数据库SQLite 保存密码。<ul>
+<li>通过Md5算法对密码加密，通过SQL参数防止SQL注入。</li>
+</ul>
+</li>
+<li>folderLocker 用于实现业务逻辑。</li>
+</ul>
+<h2 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h2><ul>
+<li>下载软件安装包 <a href="https://github.com/Albert-W/Folder-locker/blob/master/FolderLocker.exe" target="_blank" rel="noopener">Folder Locker.exe</a></li>
+<li>进行安装，建议安装在D盘。</li>
+<li>可以右键使用，也可以打开软件主页面使用。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>密码保存在本机数据库，没有上传任何服务器。</li>
+<li>删除软件会同时删除数据库，因而删除密码。</li>
+</ul>
+<p>如果忘记密码：</p>
+<p>如果密码遗失，文件被锁，可以通过命令行工具重命名：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Users\91991\Music</span><br><span class="line">ren "Test.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0}" "Test1"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者把文件复制出来。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Users\91991\Music</span><br><span class="line">cd '.\Test.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0}\'</span><br><span class="line">ls</span><br><span class="line">mv .\* ..\Test1\</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>项目地址：</strong> <a href="https://github.com/Albert-W/Folder-locker" target="_blank" rel="noopener">https://github.com/Albert-W/Folder-locker</a> </p>
+<p><strong>项目展示：</strong> <a href="https://albert-w.github.io/Folder-locker/" target="_blank" rel="noopener">https://albert-w.github.io/Folder-locker/</a></p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/09/%E5%B7%A5%E5%85%B7-%E6%96%87%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%BD%AF%E4%BB%B6/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 工具</a>
         
       </div>
     
@@ -1362,7 +1525,7 @@
             </a>
           
           <p class="current">
-            4 / 8
+            4 / 11
           </p>
           
             <a class="next" rel="next" href="/blog/page/5/">
@@ -1745,7 +1908,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.22px; color: #8a8a8a">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.78px; color: #646464">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.89px; color: #5d5d5d">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19.56px; color: #737373">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.11px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.67px; color: #6c6c6c">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.33px; color: #828282">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.11px; color: #919191">算法</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.11px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.44px; color: #7b7b7b">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 16px; color: #8b8b8b">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 17px; color: #858585">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 19px; color: #777">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 20px; color: #707070">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #707070">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 

@@ -445,9 +445,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -586,9 +586,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -703,9 +703,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -820,9 +820,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -948,9 +948,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -1064,9 +1064,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -1138,14 +1138,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>840字</p>
+        <p>1.7k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>3分</p>
+        <p>6分</p>
       </a>
     </div>
   
@@ -1167,7 +1167,8 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h1 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h1><p><strong>修饰目标 (成员数据/方法/成员内部类/代码块)属于类的</strong></p>
+      <h1 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h1><p>static类型，又叫类类型。</p>
+<p><strong>修饰目标 (成员数据/方法/成员内部类/代码块)属于类的</strong></p>
 <table>
 <thead>
 <tr>
@@ -1191,7 +1192,13 @@
 </tr>
 </tbody></table>
 <p>区别：<strong>无static关键字成员属于具体的对象实例： <font color="green"> 实例变量、实例方法</font>(只能通过对象调用)、实例成员内部类(只能通过对象引用)</strong></p>
-<h3 id="static-成员的访问格式"><a href="#static-成员的访问格式" class="headerlink" title="static 成员的访问格式"></a>static 成员的访问格式</h3><p>一般要通过 *<em>“  类名  ” *</em>来访问</p>
+<h3 id="静态的特点"><a href="#静态的特点" class="headerlink" title="静态的特点"></a>静态的特点</h3><ol>
+<li>随着类的加载而加载<br> 也就是，说静态会随着类的消失而消失，说明静态的生命周期最长。</li>
+<li>优先于对象的存在<br> 明确一点：静态是先存在的，对象是后存在的。</li>
+<li>被所有对象共享。</li>
+<li>可以直接被类名多调用。</li>
+</ol>
+<h3 id="static-成员的访问格式"><a href="#static-成员的访问格式" class="headerlink" title="static 成员的访问格式"></a>static 成员的访问格式</h3><p>一般要通过 *<em>“  类名.  ” *</em> 的形式来访问</p>
 <table>
 <thead>
 <tr>
@@ -1201,14 +1208,22 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>类名 . 静态变量</td>
-<td>类名 . 静态方法</td>
-<td>类名 . 静态成员内部类</td>
+<td>类名.静态变量</td>
+<td>类名.静态方法</td>
+<td>类名.静态成员内部类</td>
 </tr>
 </tbody></table>
-<p>注意两点：</p>
-<p>🔺 static成员方法/代码块：<strong>方法体 <font color="red" size="5"> 只能</font> 使用静态成员变量(或内部类)或调用静态方法。（老师称： <font color="blue"> 静者恒静</font>）</strong></p>
-<p>🔺 static成员方法/代码块：<strong>方法体中不能出现this(当前对象)或super(基类对象)</strong></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>🔺 static成员方法/代码块：<strong>静态方法 <font color="green" size="5"> 只能</font>  使用<font color="red">静态成员变量(或内部类)或调用静态方法。</font>（任课老师称： <font color="blue"> 静者恒静</font>）</strong></p>
+<p>🔺非静态方法可以访问静态、也可以访问非静态。</p>
+<p>🔺 static成员方法/代码块：<strong>方法体中不能出现this(当前对象)或super(基类对象)</strong>。因为静态优先于对象存在，所以静态方法中不可以出现this、super关键字。</p>
+<h3 id="实例变量和类变量的区别"><a href="#实例变量和类变量的区别" class="headerlink" title="实例变量和类变量的区别"></a>实例变量和类变量的区别</h3><ol>
+<li>存放位置<br> 类变量随着类的加载存在于方法区中，实例变量随着对象的对象的建立存在于堆内存里</li>
+<li>生命周期<br> 类变量生命周期最长，随着“类”的加载而加载，随着类的消失而消失<br> 实例变量随着“对象”的消失而消失</li>
+</ol>
+<h3 id="静态的利弊"><a href="#静态的利弊" class="headerlink" title="静态的利弊"></a>静态的利弊</h3><ul>
+<li>利：1、对对象的共享数据进行单独空间的存储，节省空间，没有必要没一个对象中都存储一份。2、可以直接被类名所调用。</li>
+<li>弊：生命周期过长，访问出现局限性（只能访问静态）</li>
+</ul>
       
         <div class="readmore">
           <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94static%E5%85%B3%E9%94%AE%E5%AD%97/" class="flat-box">
@@ -1221,9 +1236,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -1342,9 +1357,9 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
     
@@ -1982,7 +1997,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/GitHub/" style="font-size: 16.22px; color: #8a8a8a">GitHub</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 21.78px; color: #646464">Hexo</a> <a href="/blog/tags/Java/" style="font-size: 22.89px; color: #5d5d5d">Java</a> <a href="/blog/tags/MySQL/" style="font-size: 19.56px; color: #737373">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15.11px; color: #919191">SQL Server</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20.67px; color: #6c6c6c">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.33px; color: #828282">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15.11px; color: #919191">算法</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15.11px; color: #919191">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 18.44px; color: #7b7b7b">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 16px; color: #8b8b8b">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 17px; color: #858585">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 19px; color: #777">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 20px; color: #707070">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #707070">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 
