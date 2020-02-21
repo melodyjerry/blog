@@ -546,37 +546,28 @@
 </li>
 <li><p>在类上使用<strong><code>@WebServlet</code>注解</strong>，进行配置</p>
 <ul>
-<li><p><code>@WebServlet("资源路径")</code></p>
-</li>
-<li><p>比如：</p>
-</li>
-<li><pre><code>  @WebServlet(urlPatterns = "/demo2")
-  或
-  @WebServlet(value = "/demo2")
-  或
-  @WebServlet("/demo2")
-  <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">5. 访问：http://localhost:8080/Servlet3/demo2</span><br><span class="line"></span><br><span class="line">![](https://s2.ax1x.com/2020/02/20/3eyUxA.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## @WebServlet注解</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* `@WebServlet`中有个很特殊的属性`value`</span><br><span class="line">* 一般**表示最重要的属性**，就用`value`表示。</span><br><span class="line">* 特性：**如果只有一个属性，`value`可以省略不写。**</span><br><span class="line">* 除去`value`，最重要的属性是`urlPatterns`</span><br></pre></td></tr></tbody></table></figure>
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface WebServlet {
+<li><code>@WebServlet("资源路径")</code></li>
+<li>比如：<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@WebServlet(urlPatterns = "/demo2")</span><br><span class="line">或</span><br><span class="line">@WebServlet(value = "/demo2")</span><br><span class="line">或</span><br><span class="line">@WebServlet("/demo2")</span><br></pre></td></tr></tbody></table></figure>
 
-String name() default "";    //相当于&lt;Servlet-name&gt;
-String[] value() default {};    //代表urlPatterns()属性配置
-String[] urlPatterns() default {};    //相当于&lt;url-pattern&gt;            
-int loadOnStartup() default -1;    //相当于&lt;load-on-startup&gt;            
-WebInitParam[] initParams() default {};            
-boolean asyncSupported() default false;            
-String smallIcon() default "";        
-String largeIcon() default "";            
-String description() default "";            
-String displayName() default "";
-</code></pre></li>
+
+</li>
 </ul>
 </li>
 </ol>
-<p>}</p>
-<pre><code></code></pre><script>
+<ol start="5">
+<li>访问：<a href="http://localhost:8080/Servlet3/demo2" target="_blank" rel="noopener">http://localhost:8080/Servlet3/demo2</a></li>
+</ol>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eyUxA.png" alt=""></p>
+<h2 id="WebServlet注解"><a href="#WebServlet注解" class="headerlink" title="@WebServlet注解"></a>@WebServlet注解</h2><ul>
+<li><code>@WebServlet</code>中有个很特殊的属性<code>value</code></li>
+<li>一般<strong>表示最重要的属性</strong>，就用<code>value</code>表示。</li>
+<li>特性：<strong>如果只有一个属性，<code>value</code>可以省略不写。</strong></li>
+<li>除去<code>value</code>，最重要的属性是<code>urlPatterns</code></li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Target({ElementType.TYPE})</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface WebServlet {</span><br><span class="line"></span><br><span class="line">    String name() default "";	//相当于&lt;Servlet-name&gt;</span><br><span class="line">    String[] value() default {};	//代表urlPatterns()属性配置</span><br><span class="line">    String[] urlPatterns() default {};	//相当于&lt;url-pattern&gt;			</span><br><span class="line">    int loadOnStartup() default -1;	//相当于&lt;load-on-startup&gt;			</span><br><span class="line">    WebInitParam[] initParams() default {};			</span><br><span class="line">    boolean asyncSupported() default false;			</span><br><span class="line">    String smallIcon() default "";		</span><br><span class="line">    String largeIcon() default "";			</span><br><span class="line">    String description() default "";			</span><br><span class="line">    String displayName() default "";</span><br><span class="line">  </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="Servlet-体系结构"><a href="#Servlet-体系结构" class="headerlink" title="Servlet 体系结构"></a>Servlet 体系结构</h1><p>跳转到我得下一篇博文👉 [Servlet 体系结构](<a href="https://melodyjerry.gitee.io/blog/2020/02/20/Servlet" target="_blank" rel="noopener">https://melodyjerry.gitee.io/blog/2020/02/20/Servlet</a> 体系结构/)</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -606,10 +597,10 @@ String displayName() default "";
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-20T17:37:34+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-21T17:54:31+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2020年2月20日</p>
+    <p>更新于 2020年2月21日</p>
   </a>
 </div>
 
@@ -710,7 +701,7 @@ Servlet就是一个接口，定义了Java类被浏览器访问到（Tomcat识别
                           
                               
                               <h6 class="tags">
-                                  <a class="tag" href="/blog/tags/JavaWeb/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> JavaWeb</a> <a class="tag" href="/blog/tags/Tomcat/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Tomcat</a> <a class="tag" href="/blog/tags/IDEA/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> IDEA</a>
+                                  <a class="tag" href="/blog/tags/JavaWeb/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> JavaWeb</a> <a class="tag" href="/blog/tags/IDEA/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> IDEA</a> <a class="tag" href="/blog/tags/Tomcat/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Tomcat</a>
                               </h6>
                           
                       </span>
@@ -983,7 +974,7 @@ Servlet就是一个接口，定义了Java类被浏览器访问到（Tomcat识别
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet：-server-applet"><span class="toc-text">Servlet： server applet</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速理解"><span class="toc-text">快速理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速入门"><span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#执行原理"><span class="toc-text">执行原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ServletDemo"><span class="toc-text">ServletDemo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet中的生命周期方法"><span class="toc-text">Servlet中的生命周期方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-被创建：执行init方法，只执行一次"><span class="toc-text">1.被创建：执行init方法，只执行一次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-提供服务：执行service方法，可执行多次"><span class="toc-text">2.提供服务：执行service方法，可执行多次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-被销毁：执行destroy方法，只执行一次"><span class="toc-text">3.被销毁：执行destroy方法，只执行一次</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet-3-0"><span class="toc-text">Servlet 3.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#好处"><span class="toc-text">好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet：-server-applet"><span class="toc-text">Servlet： server applet</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速理解"><span class="toc-text">快速理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速入门"><span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#执行原理"><span class="toc-text">执行原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ServletDemo"><span class="toc-text">ServletDemo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet中的生命周期方法"><span class="toc-text">Servlet中的生命周期方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-被创建：执行init方法，只执行一次"><span class="toc-text">1.被创建：执行init方法，只执行一次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-提供服务：执行service方法，可执行多次"><span class="toc-text">2.提供服务：执行service方法，可执行多次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-被销毁：执行destroy方法，只执行一次"><span class="toc-text">3.被销毁：执行destroy方法，只执行一次</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet-3-0"><span class="toc-text">Servlet 3.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#好处"><span class="toc-text">好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebServlet注解"><span class="toc-text">@WebServlet注解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet-体系结构"><span class="toc-text">Servlet 体系结构</span></a></li></ol>
     </div>
   </section>
 
@@ -1188,7 +1179,7 @@ Servlet就是一个接口，定义了Java类被浏览器访问到（Tomcat识别
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 16px; color: #8b8b8b">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 17px; color: #858585">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 19px; color: #777">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 20px; color: #707070">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #707070">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 17px; color: #858585">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 16px; color: #8b8b8b">HTTP</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 18px; color: #7e7e7e">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 20px; color: #707070">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 15px; color: #929292">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">云服务器</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 19px; color: #777">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 
