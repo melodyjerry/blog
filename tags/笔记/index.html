@@ -354,6 +354,561 @@
       
         
   <h2 class="title">
+    <a href="/blog/2020/03/02/MVC%EF%BC%9A%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/">
+      MVC：开发模式
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-03-02</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>382字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="MVC：开发模式"><a href="#MVC：开发模式" class="headerlink" title="MVC：开发模式"></a>MVC：开发模式</h1><h2 id="一、jsp演变历史"><a href="#一、jsp演变历史" class="headerlink" title="一、jsp演变历史"></a>一、jsp演变历史</h2><ol>
+<li>早期只有servlet，只能使用response输出标签数据，非常麻烦</li>
+<li>后来又jsp，简化了Servlet的开发，如果过度使用jsp，在jsp中即写大量的java代码，有写html表，造成难于维护，难于分工协作</li>
+<li>再后来，java的web开发，借鉴mvc开发模式，使得程序的设计更加合理性</li>
+</ol>
+<h2 id="二、MVC"><a href="#二、MVC" class="headerlink" title="二、MVC"></a>二、MVC</h2><p><fancybox><img src="https://s2.ax1x.com/2020/02/27/3wYqbT.png" alt="3wYqbT.png"></fancybox></p>
+<h3 id="M"><a href="#M" class="headerlink" title="M"></a>M</h3><ul>
+<li><strong>Model，模型。JavaBean</strong></li>
+</ul>
+<ul>
+<li>完成具体的业务操作，如：查询数据库，封装对象</li>
+</ul>
+<h3 id="V"><a href="#V" class="headerlink" title="V"></a>V</h3><ul>
+<li><strong>View，视图。JSP</strong></li>
+<li>展示数据</li>
+</ul>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><ul>
+<li><strong>Controller，控制器。Servlet</strong></li>
+</ul>
+<ul>
+<li>获取用户的输入</li>
+<li>调用模型</li>
+<li>将数据交给视图进行展示</li>
+</ul>
+<h2 id="三、优缺点"><a href="#三、优缺点" class="headerlink" title="三、优缺点"></a>三、优缺点</h2><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li><strong>耦合性低，方便维护，可以利于分工协作</strong></li>
+<li><strong>重用性高</strong></li>
+<li>生命周期成本低</li>
+<li>部署快</li>
+<li><strong>可维护性高</strong></li>
+<li><strong>有软件工程化管理</strong></li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li><strong>使得项目架构变得复杂，对开发人员要求高</strong></li>
+<li><strong>不适合小型，中等规模的应用程序</strong></li>
+<li>增加系统结构和实现的复杂性</li>
+<li>视图与控制器间的过于紧密的连接</li>
+<li>视图对模型数据的低效率访问</li>
+<li>一般高级的界面工具或构造器不支持模式</li>
+</ol>
+<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><ol>
+<li><p>[CSDN] <a href="https://blog.csdn.net/liitdar/article/details/86685880" target="_blank" rel="noopener">MVC模式简介</a></p>
+</li>
+<li><p>[菜鸟教程] <a href="https://www.runoob.com/design-pattern/mvc-pattern.html" target="_blank" rel="noopener">MVC 模式</a></p>
+</li>
+<li><p>[百度百科] <a href="https://baike.baidu.com/item/MVC%E6%A1%86%E6%9E%B6/9241230?fromtitle=mvc&amp;fromid=85990&amp;fr=aladdin" target="_blank" rel="noopener">MVC框架</a></p>
+</li>
+</ol>
+      
+        <div class="readmore">
+          <a href="/blog/2020/03/02/MVC%EF%BC%9A%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/MVC/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MVC</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/24/HTTP%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">
+      HTTP案例：文件下载
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-24</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>705字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>结束HTTP的学习后，记录一份案例学习的笔记。</p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><ol>
+<li>页面显示超链接</li>
+<li>点击超链接后弹出下载提示框</li>
+<li>完成图片文件下载</li>
+</ol>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/24/HTTP%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/HTTP/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> HTTP</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/24/HTTP%E4%B8%AD%E7%9A%84ServletContext%E5%AF%B9%E8%B1%A1/">
+      HTTP中的ServletContext对象
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-24</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.2k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>5分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h1><ul>
+<li><p><strong>ServletContext对象范围：所有用户所有请求的数据</strong></p>
+</li>
+<li><p><font color="red" size="6">谨慎使用。</font><font color="red">所有用户可以操控它，不太安全；而且，它的生命周期长：服务器始到终，存储的数据多了，会造成内存的压力。</font></p>
+</li>
+</ul>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<li>代表整个web应用，可以和程序的容器（服务器）来通信（交互数据）</li>
+</ul>
+<h1 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h1><ol>
+<li>通过<code>request</code>对象获取</li>
+</ol>
+<ul>
+<li>调用<code>request.getServletContext();</code></li>
+</ul>
+<ol start="2">
+<li>通过<code>HttpServlet</code>获取</li>
+</ol>
+<ul>
+<li>调用<code>this.getServletContext();</code></li>
+</ul>
+<p><font color="red" size="6">注意：</font><br>2个调用方法获取到的<strong>ServletContext</strong>都是<strong>一样的</strong>。因此，更多的时候会使用<code>this.getServletContext();</code></p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ol>
+<li>获取mine类型</li>
+<li>域对象：共享数据</li>
+<li>获取文件的真实路径(服务器路径)</li>
+</ol>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/24/HTTP%E4%B8%AD%E7%9A%84ServletContext%E5%AF%B9%E8%B1%A1/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/HTTP/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> HTTP</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/23/BeanUtils%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+      BeanUtils的基本使用
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-23</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>663字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>2分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>在<a href="https://melodyjerry.gitee.io/blog/2020/02/22/HTTP%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%EF%BC%9A%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" target="_blank" rel="noopener">《HTTP案例学习：用户登录》</a>的学习中，使用到<strong>BeanUtils</strong>。</p>
+<p>案例中只涉及到封装username、password两个对象，但是实际上的用户登录界面，有十几个数据对象需要封装。</p>
+<p>按原来的方式，是非常麻烦的。期望<strong>能够一次把所有参数获取到，并且通过一个方法，一次把所有数据封装成一个对象。</strong></p>
+<p><strong><font color="red" size="5">BeanUtils，一个工具类，简化数据封装</font></strong></p>
+<p>这里专门挑出来，做一份简单的笔记。</p>
+<p>配合<a href="https://www.bilibili.com/video/av70420291?p=143" target="_blank" rel="noopener">【教学视频】</a>、<a href="https://blog.csdn.net/wzc1991520/article/details/80176679" target="_blank" rel="noopener">【BeanUtils工具类常用方法】</a> 食用更佳。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/23/BeanUtils%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/HTTP/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> HTTP</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
     <a href="/blog/2020/02/22/HTTP%E5%93%8D%E5%BA%94%E4%BF%A1%E6%81%AF%E6%95%B0%E6%8D%AE-Response/">
       HTTP响应信息数据-Response
     </a>
@@ -403,14 +958,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>52字</p>
+        <p>2.5k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>1分</p>
+        <p>11分</p>
       </a>
     </div>
   
@@ -432,10 +987,256 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      
+      <p>接着前面两篇博文 <a href="https://melodyjerry.gitee.io/blog/2020/02/21/HTTP%EF%BC%9A%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/" target="_blank" rel="noopener">《HTTP：超文本传输协议》</a> 、 <a href="https://melodyjerry.gitee.io/blog/2020/02/21/HTTP%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF%E6%95%B0%E6%8D%AE-Request/" target="_blank" rel="noopener">《HTTP请求信息数据 - Request》</a> 的学习。</p>
+<p>现在记录关于 <strong>HTTP响应信息数据-Response</strong> 的笔记。</p>
+<hr>
+<h1 id="响应信息数据-格式"><a href="#响应信息数据-格式" class="headerlink" title="响应信息数据   格式"></a>响应信息数据   格式</h1><ul>
+<li><code>Servlet</code>类中<code>service()</code>方法的参数<code>ServletResponse</code></li>
+<li><strong>Response在一次响应结束后，自动被销毁，其输出流也会自动被关闭。</strong></li>
+<li>字符串数据，比如：</li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html;charset=UTF-8</span><br><span class="line">Content-Length: 101</span><br><span class="line">Date: Wed, 06 Jun 2018 07:08:42 GMT</span><br><span class="line">	</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;$Title$&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        hello , response</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
       
         <div class="readmore">
           <a href="/blog/2020/02/22/HTTP%E5%93%8D%E5%BA%94%E4%BF%A1%E6%81%AF%E6%95%B0%E6%8D%AE-Response/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/HTTP/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> HTTP</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/22/%E5%88%9B%E5%BB%BA@Test%E6%B5%8B%E8%AF%95Druid%E8%BF%9E%E6%8E%A5%E6%B1%A0%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98/">
+      创建@Test测试Druid连接池时的问题
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-22</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>698字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>记录学习 <a href="https://melodyjerry.gitee.io/blog/2020/02/22/HTTP%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%EF%BC%9A%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" target="_blank" rel="noopener">《HTTP案例学习：用户登录》</a> 时候遇到的一些问题</p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/22/%E5%88%9B%E5%BB%BA@Test%E6%B5%8B%E8%AF%95Druid%E8%BF%9E%E6%8E%A5%E6%B1%A0%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/IDEA/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> IDEA</a>
+        
+          <a href="/blog/tags/Druid/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Druid</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2020/02/22/HTTP%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%EF%BC%9A%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95&%E9%AA%8C%E8%AF%81%E7%A0%81/">
+      HTTP案例学习：用户登录&验证码
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-22</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>3.2k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>16分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>本笔记包括两个案例，分别是<strong>用户登录、验证码</strong>。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2020/02/22/HTTP%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0%EF%BC%9A%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95&%E9%AA%8C%E8%AF%81%E7%A0%81/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -521,14 +1322,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>911字</p>
+        <p>3.5k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>4分</p>
+        <p>16分</p>
       </a>
     </div>
   
@@ -550,7 +1351,7 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p>接着上篇博文 <a href="">《HTTP：超文本传输协议》</a> 的学习。</p>
+      <p>接着上篇博文 <a href="https://melodyjerry.gitee.io/blog/2020/02/21/HTTP%EF%BC%9A%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/" target="_blank" rel="noopener">《HTTP：超文本传输协议》</a> 的学习。</p>
 <p>现在，来学习两个对象：Request &amp; Response。</p>
 <h1 id="request对象和response对象的原理"><a href="#request对象和response对象的原理" class="headerlink" title="request对象和response对象的原理"></a>request对象和response对象的原理</h1><ol>
 <li><strong>request和response对象是由服务器创建的</strong>。接着我们来使用它们</li>
@@ -567,8 +1368,17 @@
 <p>Tomcat 是用<strong>纯Java语言编写</strong>的</p>
 </blockquote>
 <h1 id="request功能"><a href="#request功能" class="headerlink" title="request功能"></a>request功能</h1><ol>
+<li>基础功能<ul>
 <li>获取请求消息数据</li>
-<li>其他功能</li>
+</ul>
+</li>
+<li>其他功能：<ul>
+<li>1.获取请求参数通用方式</li>
+<li>2.请求转发</li>
+<li>3.共享数据</li>
+<li>4.获取ServletContext</li>
+</ul>
+</li>
 </ol>
 <h2 id="获取请求消息数据"><a href="#获取请求消息数据" class="headerlink" title="获取请求消息数据"></a>获取请求消息数据</h2><ol>
 <li>获取请求行数据</li>
@@ -663,14 +1473,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>1.1k字</p>
+        <p>1.5k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>4分</p>
+        <p>6分</p>
       </a>
     </div>
   
@@ -868,793 +1678,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/20/Servlet%EF%BC%9A%E8%BF%90%E8%A1%8C%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-      Servlet：运行在服务器端的小程序
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-20</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.5k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>6分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="Servlet：-server-applet"><a href="#Servlet：-server-applet" class="headerlink" title="Servlet： server applet"></a>Servlet： server applet</h1><ul>
-<li>概念：运行在服务器端的小程序</li>
-<li>Servlet就是一个接口，定义了Java类被浏览器访问到（Tomcat识别）的规则<span id="jump"><font color="blue">（我是跳转内容）</font></span><a href="#jump" class="footnote-backref">↩</a>。</li>
-<li>将来我们自定义一个类，实现Servlet接口，复写（重写Override）方法。</li>
-</ul>
-<h1 id="快速理解"><a href="#快速理解" class="headerlink" title="快速理解"></a>快速理解</h1><p> <fancybox><img src="https://s2.ax1x.com/2020/02/19/3EI7WT.png" alt="快速理解"></fancybox></p>
-
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/20/Servlet%EF%BC%9A%E8%BF%90%E8%A1%8C%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/Tomcat/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Tomcat</a>
-        
-          <a href="/blog/tags/Servlet/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Servlet</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/19/Tomcat%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6/">
-      Tomcat：Web服务器软件
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-19</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>914字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>3分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="Tomcat：web服务器软件"><a href="#Tomcat：web服务器软件" class="headerlink" title="Tomcat：web服务器软件"></a>Tomcat：web服务器软件</h1><blockquote>
-<p>Tomcat 是用<strong>纯Java语言编写</strong>的</p>
-</blockquote>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>下载 <a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
-<p>免安装，解压压缩包即可。</p>
-<blockquote>
-<p>注意：安装目录建议不要有中文和空格</p>
-</blockquote>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="https://s2.ax1x.com/2020/02/19/3E1r6I.png" alt="目录结构"></p>
-<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ul>
-<li><p>Windows：运行<code>./bin/startup.bat</code></p>
-</li>
-<li><p>Linux：运行<code>./bin/startup.sh</code></p>
-</li>
-</ul>
-<p><img src="https://s2.ax1x.com/2020/02/19/3E39nx.png" alt="Windows10下运行"></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/19/Tomcat%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/Tomcat/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Tomcat</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/18/JavaScript%EF%BC%9A%E8%AE%A9%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0%E5%8A%A8%E8%B5%B7%E6%9D%A5/">
-      JavaScript：让页面元素动起来
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-18</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>7.7k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>31分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>一门<strong>客户端脚本语言</strong></p>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li>运行在客户端浏览器中的。每一个浏览器都有JavaScript的解析引擎</li>
-<li>脚本语言：<strong>不需要编译</strong>，直接就可以被浏览器解析执行了</li>
-</ul>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>可以来<strong>增强用户和html页面的交互过程</strong>，可以来控制html元素，让页面有一些动态的效果，<strong>增强用户的体验</strong>。</li>
-</ul>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/18/JavaScript%EF%BC%9A%E8%AE%A9%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0%E5%8A%A8%E8%B5%B7%E6%9D%A5/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/JavaScript/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaScript</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/17/CSS%E9%A1%B5%E9%9D%A2%E7%BE%8E%E5%8C%96%E5%92%8C%E5%B8%83%E5%B1%80%E6%8E%A7%E5%88%B6/">
-      CSS：页面美化和布局控制
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-17</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.1k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>4分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets :层叠样式表</p>
-<blockquote>
-<p>层叠：多个样式可以作用在同一个html的元素上，同时生效</p>
-</blockquote>
-<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ol>
-<li>功能强大</li>
-<li>将内容展示和样式控制分离<ul>
-<li>降低耦合度。解耦</li>
-<li>让分工协作更容易</li>
-<li>提高开发效率</li>
-</ul>
-</li>
-</ol>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/17/CSS%E9%A1%B5%E9%9D%A2%E7%BE%8E%E5%8C%96%E5%92%8C%E5%B8%83%E5%B1%80%E6%8E%A7%E5%88%B6/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/JavaWeb/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaWeb</a>
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/CSS/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> CSS</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/16/MySQL%E4%B8%AD%E7%9A%84%E7%BA%A6%E6%9D%9F/">
-      MySQL中的约束
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-16</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>2.8k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>11分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h2 id="什么是约束"><a href="#什么是约束" class="headerlink" title="什么是约束"></a>什么是约束</h2><blockquote>
-<p>约束：constraint<br>MySQL中的约束，实则是对数据表中数据的限制条件</p>
-</blockquote>
-<h2 id="约束的作用"><a href="#约束的作用" class="headerlink" title="约束的作用"></a>约束的作用</h2><blockquote>
-<p>约束保证数据的完整性和一致性</p>
-</blockquote>
-<ul>
-<li>比如：设计数据表时，要求username字段不允许重复，这时候就需要在CREATE数据表时加入相应的约束。再比如注册时候必须填写邮箱、性别等。</li>
-</ul>
-<h2 id="约束的分类"><a href="#约束的分类" class="headerlink" title="约束的分类"></a>约束的分类</h2><h3 id="按约束定义的位置可分"><a href="#按约束定义的位置可分" class="headerlink" title="按约束定义的位置可分"></a>按约束定义的位置可分</h3><ul>
-<li>列级约束</li>
-<li>表级约束</li>
-</ul>
-<h3 id="按约束的作用可分"><a href="#按约束的作用可分" class="headerlink" title="按约束的作用可分"></a>按约束的作用可分</h3><table>
-<thead>
-<tr>
-<th>主键 约束</th>
-<th>PRIMARY KEY</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>外键 约束</td>
-<td>FOREIGN KEY</td>
-<td></td>
-</tr>
-<tr>
-<td>非空 约束</td>
-<td>NOT NULL</td>
-<td></td>
-</tr>
-<tr>
-<td>唯一 约束</td>
-<td>UNIQUE KEY</td>
-<td></td>
-</tr>
-<tr>
-<td>默认 约束</td>
-<td>DEFAULT</td>
-<td></td>
-</tr>
-</tbody></table>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/16/MySQL%E4%B8%AD%E7%9A%84%E7%BA%A6%E6%9D%9F/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2020/02/16/%E8%BD%AC-MySQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9AUNSIGNED%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-      [转]MySQL数据类型：UNSIGNED注意事项
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-16</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>67字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>1分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>原文链接：<a href="https://www.cnblogs.com/blankqdb/archive/2012/11/03/blank_qdb.html" target="_blank" rel="noopener">https://www.cnblogs.com/blankqdb/archive/2012/11/03/blank_qdb.html</a></p>
-      
-        <div class="readmore">
-          <a href="/blog/2020/02/16/%E8%BD%AC-MySQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9AUNSIGNED%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1664,7 +1687,7 @@
         <div class="prev-next">
           
           <p class="current">
-            1 / 4
+            1 / 5
           </p>
           
             <a class="next" rel="next" href="/blog/tags/%E7%AC%94%E8%AE%B0/page/2/">
@@ -2049,7 +2072,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 17px; color: #858585">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 16px; color: #8b8b8b">HTTP</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 18px; color: #7e7e7e">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 20px; color: #707070">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 15px; color: #929292">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">云服务器</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 19px; color: #777">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14.83px; color: #939393">CSS</a> <a href="/blog/tags/Druid/" style="font-size: 14px; color: #999">Druid</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 15.67px; color: #8e8e8e">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15.67px; color: #8e8e8e">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 17.33px; color: #828282">HTTP</a> <a href="/blog/tags/Hexo/" style="font-size: 23.17px; color: #5b5b5b">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 19px; color: #777">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 21.5px; color: #666">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 22.33px; color: #606060">JavaWeb</a> <a href="/blog/tags/MVC/" style="font-size: 14px; color: #999">MVC</a> <a href="/blog/tags/MySQL/" style="font-size: 18.17px; color: #7d7d7d">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 14.83px; color: #939393">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14.83px; color: #939393">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 16.5px; color: #888">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">云服务器</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 19.83px; color: #717171">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.5px; color: #888">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.83px; color: #939393">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 14.83px; color: #939393">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20.67px; color: #6c6c6c">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 

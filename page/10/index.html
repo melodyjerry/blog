@@ -247,8 +247,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/30/Java%E2%80%94%E7%94%A8%E6%9C%80%E6%9C%89%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%972%E4%B9%98%E4%BB%A58/">
-      Java用最有效率的方法计算2乘以8
+    <a href="/blog/2019/12/23/%E6%96%87%E7%AB%A0%E5%86%85%E9%95%BF%E5%9B%BE/">
+      文章内长图
     </a>
   </h2>
 
@@ -278,7 +278,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-30</p>
+    <p>2019-12-23</p>
   </a>
 </div>
 
@@ -296,7 +296,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>161字</p>
+        <p>100字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -325,10 +325,14 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      
+      <p>文章内长图，使用html来实现</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;&lt;div style="position:relative;width:400px;  height:400px; overflow:auto"&gt;&lt;img     src ="https://i.loli.net/2019/12/31/LiP98f6XqgoHmla.png"&gt;&lt;/div&gt;&lt;/center&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果👇</p>
+<center><div style="position:relative;width:400px;  height:400px; overflow:auto"><img src="https://i.loli.net/2019/12/31/LiP98f6XqgoHmla.png"></div></center>
       
         <div class="readmore">
-          <a href="/blog/2019/11/30/Java%E2%80%94%E7%94%A8%E6%9C%80%E6%9C%89%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%972%E4%B9%98%E4%BB%A58/" class="flat-box">
+          <a href="/blog/2019/12/23/%E6%96%87%E7%AB%A0%E5%86%85%E9%95%BF%E5%9B%BE/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -338,9 +342,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
         
       </div>
     
@@ -363,8 +365,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94static%E5%85%B3%E9%94%AE%E5%AD%97/">
-      Java笔记—static关键字
+    <a href="/blog/2019/12/22/2019%E5%86%AC%E8%87%B3/">
+      2019冬至
     </a>
   </h2>
 
@@ -394,7 +396,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-28</p>
+    <p>2019-12-22</p>
   </a>
 </div>
 
@@ -412,179 +414,7 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>1.7k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>6分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h1><p>static类型，又叫类类型。</p>
-<p><strong>修饰目标 (成员数据/方法/成员内部类/代码块)属于类的</strong></p>
-<table>
-<thead>
-<tr>
-<th>静态类</th>
-<th>静态块</th>
-<th>静态方法</th>
-<th>静态变量</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>static 成员内部类</td>
-<td><font color="red">static 代码块</font></td>
-<td>static 成员方法</td>
-<td>static 成员变量</td>
-</tr>
-<tr>
-<td>直接通过类就可以访问。所有对象共享该类</td>
-<td>只能出现在类中不能出现方法体中，<font color="red">类加载后初始化时被执行一次</font>。<font color="sapphire">注意:区分构造代码块，每次构造都被执行</font></td>
-<td>直接通过<font color="orange">类</font>就可以<font color="orange">调用</font>。不用等创建了实例后</td>
-<td>类加载时在Java<font color="blue">方法区分配空间，所有对象共享</font></td>
-</tr>
-</tbody></table>
-<p>区别：<strong>无static关键字成员属于具体的对象实例： <font color="green"> 实例变量、实例方法</font>(只能通过对象调用)、实例成员内部类(只能通过对象引用)</strong></p>
-<h3 id="静态的特点"><a href="#静态的特点" class="headerlink" title="静态的特点"></a>静态的特点</h3><ol>
-<li>随着类的加载而加载<br> 也就是，说静态会随着类的消失而消失，说明静态的生命周期最长。</li>
-<li>优先于对象的存在<br> 明确一点：静态是先存在的，对象是后存在的。</li>
-<li>被所有对象共享。</li>
-<li>可以直接被类名多调用。</li>
-</ol>
-<h3 id="static-成员的访问格式"><a href="#static-成员的访问格式" class="headerlink" title="static 成员的访问格式"></a>static 成员的访问格式</h3><p>一般要通过 *<em>“  类名.  ” *</em> 的形式来访问</p>
-<table>
-<thead>
-<tr>
-<th>静态变量</th>
-<th>静态方法</th>
-<th>静态成员内部类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>类名.静态变量</td>
-<td>类名.静态方法</td>
-<td>类名.静态成员内部类</td>
-</tr>
-</tbody></table>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>🔺 static成员方法/代码块：<strong>静态方法 <font color="green" size="5"> 只能</font>  使用<font color="red">静态成员变量(或内部类)或调用静态方法。</font>（任课老师称： <font color="blue"> 静者恒静</font>）</strong></p>
-<p>🔺非静态方法可以访问静态、也可以访问非静态。</p>
-<p>🔺 static成员方法/代码块：<strong>方法体中不能出现this(当前对象)或super(基类对象)</strong>。因为静态优先于对象存在，所以静态方法中不可以出现this、super关键字。</p>
-<h3 id="实例变量和类变量的区别"><a href="#实例变量和类变量的区别" class="headerlink" title="实例变量和类变量的区别"></a>实例变量和类变量的区别</h3><ol>
-<li>存放位置<br> 类变量随着类的加载存在于方法区中，实例变量随着对象的对象的建立存在于堆内存里</li>
-<li>生命周期<br> 类变量生命周期最长，随着“类”的加载而加载，随着类的消失而消失<br> 实例变量随着“对象”的消失而消失</li>
-</ol>
-<h3 id="静态的利弊"><a href="#静态的利弊" class="headerlink" title="静态的利弊"></a>静态的利弊</h3><ul>
-<li>利：1、对对象的共享数据进行单独空间的存储，节省空间，没有必要没一个对象中都存储一份。2、可以直接被类名所调用。</li>
-<li>弊：生命周期过长，访问出现局限性（只能访问静态）</li>
-</ul>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94static%E5%85%B3%E9%94%AE%E5%AD%97/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94this%E5%85%B3%E9%94%AE%E5%AD%97/">
-      Java笔记—this关键字
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-28</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>331字</p>
+        <p>222字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -613,15 +443,20 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h1 id="this-关键字"><a href="#this-关键字" class="headerlink" title="this 关键字"></a>this 关键字</h1><p>三个形式上的用途，但本质上就两个：</p>
+      <p>😄2019.12.20-22，三天，在小姨家度过了一个冬至小长假。</p>
+<p>🧡周五下午从学校出发，骑着小蓝到地铁站乘地铁，经过3条（2、3、9线）地铁线、18（13+3+2）个站、2次（嘉禾望岗、 高增）换乘，来到花都的小姨家。</p>
+<p>以下为20号下午抵达花都时发的随笔</p>
 <ul>
-<li><font color="red">调用重载的其他构造方法</font>：放置在构造方法体首行的this()或this(实参列表)</li>
-<li>作为当前对象，<font color="red">引用成员</font>（数据、方法等）：区分同名变量等</li>
-<li>作为当前对象，方法返回当前对象的引用，形成<font color="red">链式调用</font></li>
+<li>#生活</li>
+<li>#记录三个月来，第一次出学校出趟远门.</li>
+<li>ᶘ ͡°ᴥ͡°ᶅ<br>  今天的天气真不错，音乐、风、云……都陪伴着我，特别轻松</li>
+<li>(୨୧•͈ᴗ•͈)<br>  因为想家了，但回深圳有些麻烦，先来趟花都吧</li>
+<li>( ´◔ ‸◔`)<br>  海珠来花都，还是有丶远。到了花都就变得有丶冷了</li>
 </ul>
+<p>💛</p>
       
         <div class="readmore">
-          <a href="/blog/2019/11/28/Java%E7%AC%94%E8%AE%B0%E2%80%94this%E5%85%B3%E9%94%AE%E5%AD%97/" class="flat-box">
+          <a href="/blog/2019/12/22/2019%E5%86%AC%E8%87%B3/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -631,9 +466,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+          <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
         
       </div>
     
@@ -656,8 +489,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/26/%E6%B5%85%E8%B0%88SQLServer%E8%A7%A6%E5%8F%91%E5%99%A8/">
-      对SQL的触发器的浅理解
+    <a href="/blog/2019/12/21/phpEnv%E4%B8%80%E6%AC%BE%E4%BC%98%E9%9B%85%E5%BC%BA%E5%A4%A7%E7%9A%84php%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%20(1)/">
+      phpEnv一款优雅强大的php集成开发环境
     </a>
   </h2>
 
@@ -687,7 +520,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-26</p>
+    <p>2019-12-21</p>
   </a>
 </div>
 
@@ -705,14 +538,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>295字</p>
+        <p>544字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>1分</p>
+        <p>2分</p>
       </a>
     </div>
   
@@ -737,19 +570,13 @@
       
       
         <div class="readmore">
-          <a href="/blog/2019/11/26/%E6%B5%85%E8%B0%88SQLServer%E8%A7%A6%E5%8F%91%E5%99%A8/" class="flat-box">
+          <a href="/blog/2019/12/21/phpEnv%E4%B8%80%E6%AC%BE%E4%BC%98%E9%9B%85%E5%BC%BA%E5%A4%A7%E7%9A%84php%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%20(1)/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
         </div>
       
     </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/SQL-Server/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> SQL Server</a>
-        
-      </div>
     
   </section>
 </article>
@@ -770,8 +597,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/25/G.E.M.%E9%82%93%E7%B4%AB%E6%A3%8B%E3%80%8A%E5%8F%A5%E5%8F%B7%E3%80%8BMV%E9%A6%96%E6%92%AD%EF%BC%81/">
-      G.E.M.邓紫棋《句号》MV首播！
+    <a href="/blog/2019/12/13/%E8%BD%AC-%E5%88%86%E4%BA%AB%E5%87%A0%E6%AC%BE%E4%B8%8D%E9%94%99%E7%9A%84%E6%B5%AA%E6%BC%AB%E7%B4%A0%E6%9D%90/">
+      [转]分享几款不错的浪漫素材
     </a>
   </h2>
 
@@ -785,11 +612,11 @@
             
   <div class='new-meta-item author'>
     
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+      <a href="https://www.liaofuzhan.com/" target="_blank" rel="nofollow noopener">
         
-          <i class="fas fa-user" aria-hidden="true"></i>
+          <img src="https://www.liaofuzhan.com/images/beichen.png">
         
-        <p>Melody Jerry</p>
+        <p>北宸</p>
       </a>
     
   </div>
@@ -801,7 +628,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-25</p>
+    <p>2019-12-13</p>
   </a>
 </div>
 
@@ -819,14 +646,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>363字</p>
+        <p>623字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>1分</p>
+        <p>2分</p>
       </a>
     </div>
   
@@ -848,256 +675,15 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h1 id="G-E-M-邓紫棋《句号》MV首播！"><a href="#G-E-M-邓紫棋《句号》MV首播！" class="headerlink" title=" G.E.M.邓紫棋《句号》MV首播！"></a><font size="5" color="red"> G.E.M.邓紫棋《句号》MV首播！</font></h1><img src="https://i.loli.net/2019/11/25/RTwEij64JmDkUOz.png" alt="UTOOLS1574691446957.png" style="zoom:67%;">
-
-<p>🧡点击破亿『全创作天后』G.E.M.邓紫棋和过去告别，向未来大步迈开，开启音乐版图新起点的一个<font size="4" color="blue">“句号”</font>。 这是华语乐坛前所未见的真实披露之作，她用&lt;句号&gt;这首歌，预告了全新的音乐篇章，翻页之后，就要开始。 </p>
-<h1 id="榜单Top-1"><a href="#榜单Top-1" class="headerlink" title="榜单Top 1"></a><font size="5" color="red">榜单Top 1</font></h1><p> 💗邓紫棋新歌《句号》上线颇有波折，国内几大音乐平台推迟上线，但在<strong>唯一上线的Apple Music平台</strong>，已经<strong>超过霉霉新歌《lover》</strong>，一举拿下  <strong><font size="6" color="orange">榜单 Top1！</font></strong></p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=76560081&amp;page=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div>
-
-<p>官方MV视频第一发布于微博： <a href="https://weibo.com/gemtang?refer_flag=1005055014_" target="_blank" rel="noopener">GEM鄧紫棋</a>  </p>
-<p>2019.11.28更换 <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 网页视频源：    <a href="https://www.bilibili.com/video/av76560081?from=search&amp;seid=5278800382046148117" target="_blank" rel="noopener">B站官方合作发布</a> </p>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/25/G.E.M.%E9%82%93%E7%B4%AB%E6%A3%8B%E3%80%8A%E5%8F%A5%E5%8F%B7%E3%80%8BMV%E9%A6%96%E6%92%AD%EF%BC%81/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 音乐</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/23/%E7%94%B5%E5%BD%B1-%E3%80%8ALadybird%E3%80%8B%E6%BC%94%E7%BB%8E%E5%AE%8C%E6%95%B418%E5%B2%81%E7%9A%84%E9%9D%92%E6%98%A5/">
-      [电影]《Ladybird》演绎完整18岁的青春
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-23</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1.3k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>4分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <center>《LadyBird》，2017年的青春轻喜剧，烂番茄指数高达99%！</center>
-      
-        <div class="readmore">
-          <a href="/blog/2019/11/23/%E7%94%B5%E5%BD%B1-%E3%80%8ALadybird%E3%80%8B%E6%BC%94%E7%BB%8E%E5%AE%8C%E6%95%B418%E5%B2%81%E7%9A%84%E9%9D%92%E6%98%A5/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 电影</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/blog/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/">
-      Java笔记—包
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Melody Jerry</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-23</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item wordcount">
-      <a class='notlink'>
-        <i class="fas fa-keyboard" aria-hidden="true"></i>
-        <p>字数统计:</p>
-        <p>1k字</p>
-      </a>
-    </div>
-    <div class="new-meta-item readtime">
-      <a class='notlink'>
-        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-        <p>阅读时长≈</p>
-        <p>3分</p>
-      </a>
-    </div>
-  
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h3 id="Java笔记——包"><a href="#Java笔记——包" class="headerlink" title="Java笔记——包"></a>Java笔记——包</h3><p>创建时间：2019.11.23</p>
-<p>说明：持续更新ing</p>
+      <p>原文链接：<a href="https://www.liaofuzhan.com/posts/3564551888.html" target="_blank" rel="noopener">https://www.liaofuzhan.com/posts/3564551888.html</a></p>
 <hr>
-<ol>
-<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3></li>
-</ol>
-<p><font color="red" size="5">包(package)</font></p>
-<p> 为了更好地组织<font color="blue" size="3"><strong>类</strong></font>，Java 提供了包机制，用于区别类名的命名空间。 </p>
-<p>✔ 用来组织和管理类、接口、枚举和注解<br>✔ 有三方面作用：1)便于<font color="orange">组织</font>,比如按功能、按团队等；2)<font color="orange">解决命名冲突</font>；3)进行访问<font color="orange">权限控制</font>(<font color="rorange">同包可用，包外不可见等</font>)</p>
-<blockquote>
-<p>如同类似OS的文件夹(或目录或路径)一样，包也采用了树形目录的存储方式。</p>
-</blockquote>
+<p>双旦将至，快找个暖冬又暖心的 TA 一起跨年吧！如果你还是一枚单身汪，那么再过几天的时间，又到了别人狂欢你孤单的圣诞之夜！再再再过几天时间，又双叒叕到了别人狂欢你孤单的跨年之夜！落单的人往往最怕过节，更何况双旦佳节的连环暴击，别人疯狂撒着狗粮，而你只能接受着来自情侣们的亿万点伤害，SO，与其不甘寂寞，何不为爱情放纵一次？撩个对象一起过双旦吧，2019 年最后一个脱单的机会，为你呈现 ！</p>
+<p>感谢 <a href="https://github.com/leafjame/Surprise" target="_blank" rel="noopener">leafjame</a> 和 <a href="https://github.com/enfangzhong/loveSource" target="_blank" rel="noopener">EnfangZhong</a> 提供的素材！</p>
+<p>本站只集成了以下四种，其它效果可下载源码后查看</p>
+<p><a href="https://www.liaofuzhan.com/love/" target="_blank" rel="noopener">表白专场</a></p>
       
         <div class="readmore">
-          <a href="/blog/2019/11/23/Java%E7%AC%94%E8%AE%B0%E2%80%94%E5%8C%85/" class="flat-box">
+          <a href="/blog/2019/12/13/%E8%BD%AC-%E5%88%86%E4%BA%AB%E5%87%A0%E6%AC%BE%E4%B8%8D%E9%94%99%E7%9A%84%E6%B5%AA%E6%BC%AB%E7%B4%A0%E6%9D%90/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -1107,9 +693,7 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
-        
-          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+          <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 素材</a>
         
       </div>
     
@@ -1132,8 +716,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/22/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/">
-      推荐3款文本编辑器
+    <a href="/blog/2019/12/12/%E5%B7%A5%E5%85%B7-ASCII-%E5%AD%97%E7%AC%A6%E7%94%BB%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7/">
+      [工具]ASCII字符画制作工具
     </a>
   </h2>
 
@@ -1163,7 +747,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-22</p>
+    <p>2019-12-12</p>
   </a>
 </div>
 
@@ -1181,14 +765,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>1.3k字</p>
+        <p>475字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>4分</p>
+        <p>2分</p>
       </a>
     </div>
   
@@ -1210,13 +794,11 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今天作者推荐两款文本编辑器。</p>
-<p>我先后使用的Notepad 3、Sublime、Atom、VS Code、Vim。</p>
-<p>这里作者就只推荐<strong>Notepad 3、Sublime和Atom</strong>。</p>
-<p>关于VS Code和Vim，文末有两篇教程供大家入手。</p>
+      <p><img src="https://s2.ax1x.com/2020/02/12/1bF6JJ.png" alt=""></p>
+<p>想为自己的博客设计一个专属的ASCII字符画，便找到以下三款工具（含线上）</p>
       
         <div class="readmore">
-          <a href="/blog/2019/11/22/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/" class="flat-box">
+          <a href="/blog/2019/12/12/%E5%B7%A5%E5%85%B7-ASCII-%E5%AD%97%E7%AC%A6%E7%94%BB%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -1249,8 +831,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/21/Java%E7%AC%94%E8%AE%B0%E2%80%94%E7%BB%A7%E6%89%BF/">
-      Java笔记—继承
+    <a href="/blog/2019/12/08/Java%E2%80%94%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%B3%E4%BE%A7%E5%87%BA%E7%8E%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%90%E4%B8%B2/">
+      Java—替换字符串右侧出现的第一个子串
     </a>
   </h2>
 
@@ -1280,7 +862,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-21</p>
+    <p>2019-12-08</p>
   </a>
 </div>
 
@@ -1298,14 +880,14 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>2.5k字</p>
+        <p>170字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
       <a class='notlink'>
         <i class="fas fa-hourglass-half" aria-hidden="true"></i>
         <p>阅读时长≈</p>
-        <p>9分</p>
+        <p>1分</p>
       </a>
     </div>
   
@@ -1327,20 +909,11 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p><font size="5"> Java笔记——继承</font></p>
-<p>创建时间：2019.11.21</p>
-<p>说明：持续更新ing</p>
-<hr>
-<ol>
-<li><h3 id="继承源于自然"><a href="#继承源于自然" class="headerlink" title="继承源于自然"></a>继承源于自然</h3><p><img src="https://i.loli.net/2019/11/23/UcXixmHJRBgnzrA.png" alt="UTOOLS1574477223867.png"></p>
-</li>
-</ol>
-<blockquote>
-<p>就比如：<br><br>兔子和羊属于食草动物类，狮子和豹属于食肉动物类。<br><br>食草动物和食肉动物又是属于动物类。<br><br>虽然食草动物和食肉动物都是属于动物，但是两者的属性和行为上有差别，所以 <strong>子类会具有父类的一般特性也会具有自身的特性</strong>。</p>
-</blockquote>
+      <p>🔺需求 👇</p>
+<p>编程实现一个方法，能把一个字符串src的右侧出现的第一个olds子串替换为news，并把替换后的结果返回。</p>
       
         <div class="readmore">
-          <a href="/blog/2019/11/21/Java%E7%AC%94%E8%AE%B0%E2%80%94%E7%BB%A7%E6%89%BF/" class="flat-box">
+          <a href="/blog/2019/12/08/Java%E2%80%94%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%B3%E4%BE%A7%E5%87%BA%E7%8E%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%90%E4%B8%B2/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -1375,8 +948,8 @@
       
         
   <h2 class="title">
-    <a href="/blog/2019/11/20/Java%E7%AC%94%E8%AE%B0%E2%80%94%E6%95%B0%E7%BB%84/">
-      Java笔记—数组
+    <a href="/blog/2019/12/08/%E6%96%87%E7%AB%A0%E8%A7%86%E9%A2%91/">
+      文章视频（B站）
     </a>
   </h2>
 
@@ -1406,7 +979,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-20</p>
+    <p>2019-12-08</p>
   </a>
 </div>
 
@@ -1424,7 +997,249 @@
       <a class='notlink'>
         <i class="fas fa-keyboard" aria-hidden="true"></i>
         <p>字数统计:</p>
-        <p>1.6k字</p>
+        <p>181字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>目前博文主要引用的是B站视频👇</p>
+<p>小窗口版、修改src即可👇</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src="//player.bilibili.com/player.html?aid=76560081&amp;cid=130958803&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"&gt; &lt;/iframe&gt;&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>浏览测试效果👇</p>
+<iframe src="//player.bilibili.com/player.html?aid=76560081&amp;cid=130958803&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
+大窗口版👇
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"&gt;&lt;iframe src="//player.bilibili.com/player.html?aid=76560081&amp;amp;page=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"&gt;&lt;/iframe&gt;&lt;/div&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>浏览测试效果👇</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=76560081&amp;page=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/08/%E6%96%87%E7%AB%A0%E8%A7%86%E9%A2%91/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/Hexo/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hexo</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/07/Java%E2%80%94%E8%BD%AC%E7%BD%AE%E6%95%B0%E7%BB%84/">
+      Java—转置数组
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-07</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>339字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>1分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>🔺需求 👇</p>
+<p>编写一个程序，其功能是能随机生成一个数组、同时完成对该数组的转置并打印输出转置后的数组。</p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/07/Java%E2%80%94%E8%BD%AC%E7%BD%AE%E6%95%B0%E7%BB%84/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+        
+          <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/07/%E3%80%90%E7%BA%AA%E5%BF%B5%E3%80%91%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%B8%8A%E7%BA%BF%E4%B8%80%E4%B8%AA%E6%9C%88/">
+      【纪念】我的博客上线一个月
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-07</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.9k字</p>
       </a>
     </div>
     <div class="new-meta-item readtime">
@@ -1453,31 +1268,12 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <h3 id="Java笔记——数组"><a href="#Java笔记——数组" class="headerlink" title="Java笔记——数组"></a>Java笔记——数组</h3><p>创建时间：2019.11.20</p>
-<p>说明：持续更新ing</p>
-<p>——————————————————————————— 我 是 分 割 线 ————————————————————————————</p>
-<p><font size="5" color="blue">数组</font></p>
-<hr>
-<ol>
-<li><font size="5" color="blue">数组</font>是一组<strong>相同类型的变量（元素）的集合</strong>。可以用来存放一组相同类型的数据。数组的学习涉及数组的定义、赋值和使用。再扩展一点就是二维数组的应用。<strong>数组既是一种重要的数据类型，也是一种重要的数据结构。</strong></li>
-</ol>
-<hr>
-<ol start="2">
-<li><p><font size="5" color="red">数组（array）</font>————一组相同类型的变量(元素)集合</p>
-<ul>
-<li><p><strong>相同</strong>的<strong>任意类型</strong> <em>(包括基本类型、类类型等)</em></p>
-</li>
-<li><p>这组变量被<strong>连续地</strong>存放在Java<strong>堆区</strong>的内存空间</p>
-</li>
-<li><p>数组是一种<strong>引用类型</strong>，数组名是一个地址的别名</p>
-</li>
-<li><p>数组需要创建（new），否则不会被分配<strong>堆</strong>空间</p>
-</li>
-<li><p>数组名对应的地址单元中存放上述连续堆区空间的首地址 </p>
-<p>🔺 对程序员而言, 数组总体有三样东西：<font size="3" color="oreign">数组名+数组长度+数组元素</font></p></li></ul></li></ol>
+      <p>大致写完这文章时，已是2019年12月7日的夜晚00时41分。</p>
+<p>从最简单的纯粹的文字，到文字加粗，到用图床（<a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a>）来插入图片，到利用HTML来丰富博客，等等……本小白的博客之旅早已开始，学习、生活，图文、视频、音乐，想写想分享的都不会少。</p>
+<p><strong>今天这篇文章，一是回顾这一个多月来写博客的点滴，二是对未来的一些期望、想法，三是纪念一个人！！！</strong></p>
       
         <div class="readmore">
-          <a href="/blog/2019/11/20/Java%E7%AC%94%E8%AE%B0%E2%80%94%E6%95%B0%E7%BB%84/" class="flat-box">
+          <a href="/blog/2019/12/07/%E3%80%90%E7%BA%AA%E5%BF%B5%E3%80%91%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%B8%8A%E7%BA%BF%E4%B8%80%E4%B8%AA%E6%9C%88/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -1487,9 +1283,130 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 笔记</a>
+          <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 随笔</a>
+        
+          <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 博客</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">
+      用JDBC连接数据库
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://melodyjerry.github.io/blog" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Melody Jerry</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-12-03</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.2k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>4分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="简单理解"><a href="#简单理解" class="headerlink" title="简单理解"></a>简单理解</h1><p><strong>JDBC</strong>（<strong>J</strong>ava <strong>D</strong>ata<strong>B</strong>ase <strong>C</strong>onnectivity）是 <strong>Java</strong> 和 <strong>数据库</strong> 之前的一座桥。</p>
+<p>实则，<strong>JDBC</strong> 是用于<font color="#85eb58">Java编程语言和数据库之间的标准Java API</font>。</p>
+<p>三者之间的关系就如下图 👇</p>
+<p><img src="https://i.loli.net/2019/12/05/Q9RLCmYzV4tjhva.png" alt=""></p>
+      
+        <div class="readmore">
+          <a href="/blog/2019/12/03/%E7%94%A8JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
         
           <a href="/blog/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+          <a href="/blog/tags/MySQL/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> MySQL</a>
+        
+          <a href="/blog/tags/SQL-Server/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> SQL Server</a>
         
       </div>
     
@@ -1514,7 +1431,7 @@
             </a>
           
           <p class="current">
-            10 / 12
+            10 / 13
           </p>
           
             <a class="next" rel="next" href="/blog/page/11/">
@@ -1897,7 +1814,7 @@
     <!--热门标签，旋转，来自https://arlxn.xyz/-->
     <div class='content pure'>
     <canvas width="225" height="250" id="resCanvas" style="">
-      <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 17px; color: #858585">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15px; color: #929292">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 16px; color: #8b8b8b">HTTP</a> <a href="/blog/tags/Hexo/" style="font-size: 23px; color: #5c5c5c">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 18px; color: #7e7e7e">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 22px; color: #636363">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 20px; color: #707070">JavaWeb</a> <a href="/blog/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 15px; color: #929292">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 15px; color: #929292">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 18px; color: #7e7e7e">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">云服务器</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 21px; color: #696969">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #7e7e7e">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px; color: #929292">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px; color: #929292">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 19px; color: #777">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
+      <a href="/blog/tags/CSS/" style="font-size: 14.83px; color: #939393">CSS</a> <a href="/blog/tags/Druid/" style="font-size: 14px; color: #999">Druid</a> <a href="/blog/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 15.67px; color: #8e8e8e">GitHub</a> <a href="/blog/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/blog/tags/HTML/" style="font-size: 15.67px; color: #8e8e8e">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 17.33px; color: #828282">HTTP</a> <a href="/blog/tags/Hexo/" style="font-size: 23.17px; color: #5b5b5b">Hexo</a> <a href="/blog/tags/IDEA/" style="font-size: 19px; color: #777">IDEA</a> <a href="/blog/tags/Java/" style="font-size: 21.5px; color: #666">Java</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/JavaWeb/" style="font-size: 22.33px; color: #606060">JavaWeb</a> <a href="/blog/tags/MVC/" style="font-size: 14px; color: #999">MVC</a> <a href="/blog/tags/MySQL/" style="font-size: 18.17px; color: #7d7d7d">MySQL</a> <a href="/blog/tags/SQL-Server/" style="font-size: 14.83px; color: #939393">SQL Server</a> <a href="/blog/tags/Servlet/" style="font-size: 14.83px; color: #939393">Servlet</a> <a href="/blog/tags/Tomcat/" style="font-size: 16.5px; color: #888">Tomcat</a> <a href="/blog/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/blog/tags/halo/" style="font-size: 14px; color: #999">halo</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">云服务器</a> <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 19.83px; color: #717171">博客</a> <a href="/blog/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16.5px; color: #888">工具</a> <a href="/blog/tags/%E6%96%87%E7%AB%A0/" style="font-size: 14px; color: #999">文章</a> <a href="/blog/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 14px; color: #999">电影</a> <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 24px; color: #555">笔记</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.83px; color: #939393">算法</a> <a href="/blog/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/blog/tags/%E7%B4%A0%E6%9D%90/" style="font-size: 14px; color: #999">素材</a> <a href="/blog/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/blog/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 14.83px; color: #939393">蓝桥杯</a> <a href="/blog/tags/%E9%95%9C%E5%83%8F/" style="font-size: 14px; color: #999">镜像</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20.67px; color: #6c6c6c">随笔</a> <a href="/blog/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 14px; color: #999">音乐</a></canvas>
     </div>
   </section>
 
