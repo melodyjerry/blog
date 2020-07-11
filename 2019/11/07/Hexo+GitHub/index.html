@@ -184,10 +184,10 @@
   
   
     
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
+        <span id="leancloud-post-views"></span> 次
       </span>
     
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2019年12月6日 晚上
+                  本文最后更新于：7 个月前
                 
               </p>
             
@@ -347,7 +347,36 @@ $ git config --global user.email "your Email"</code></pre></div><h2 id="二、�
           lang: "zh-CN",
           highlight: true,
           recordIP: true,
-          serverURLs: "",
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
         });
       });
     }
@@ -427,7 +456,7 @@ $ git config --global user.email "your Email"</code></pre></div><h2 id="二、�
 
 <!--动态线条背景-->
 <script type="text/javascript"
-color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
 </script>
 
 <!-- 天气挂件 -->
@@ -501,21 +530,22 @@ color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canva
 
     
       
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
             总访问量 
-            <span id="busuanzi_value_site_pv"></span>
+            <span id="leancloud-site-pv"></span>
              次
           </span>
       
       
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
             总访客数 
-            <span id="busuanzi_value_site_uv"></span>
+            <span id="leancloud-site-uv"></span>
              人
           </span>
       
+
     
   </div>
 
@@ -609,7 +639,185 @@ setInterval("createtime()",250);
 
 
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2019/11/07/Hexo+GitHub/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
 
 
 

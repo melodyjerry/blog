@@ -170,7 +170,166 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="最长递增子序列（LIS）">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/">最长递增子序列（LIS）</a>
+
+      <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+
+代码/**
+ * @Classname LIS
+ * @Description 最长递增子序列（LIS）
+ * @Date 2020/5/9 下午 9:09
+ * @Created by jerry
+ */
+public class LIS {
+    public static int LIS(int[] nums) {
+        if(nums.length &lt;= 1){
+  </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="【LeetCode】69. x 的平方根">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">【LeetCode】69. x 的平方根</a>
+
+      <a href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="index-excerpt">
+        
+        
+          
+        
+        <div>这是今天”每日一题”的题目，等级是简单。不过，确实耐人寻味。最简单的方法就是采用JAVA的Math类库的方法
+但是这样做，还有什么意义呢，是吧？
+
+# 题目描述
+
+实现 `int sqrt(int x)` 函数。
+
+计算并返回 x 的平方根，其中 x 是非负整数。
+
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+
+示例 1:
+&gt; 输入: 4
+&gt; 输出: 2
+
+示例 2:</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="最长公共子序列（LCS）">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/">最长公共子序列（LCS）</a>
+
+      <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+
+代码#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt; 
+#include&lt;math.h&gt;
+
+using namespace std;
+const int MAX = 100;
+const int  m = 7, n = 6;
+int C[MAX][MAX];    // C[i][j]：Xi和Yj的LCS长度 
+int X[m] = </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="博客园写随笔时用数学公式">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">博客园写随笔时用数学公式</a>
 
       <a href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" class="index-excerpt">
@@ -209,7 +368,13 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/09/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%86%99%E9%9A%8F%E7%AC%94%E6%97%B6%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="【LeetCode】69. x 的平方根">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/05/09/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%86%99%E9%9A%8F%E7%AC%94%E6%97%B6%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">【LeetCode】69. x 的平方根</a>
 
       <a href="/blog/2020/05/09/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%86%99%E9%9A%8F%E7%AC%94%E6%97%B6%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="index-excerpt">
@@ -248,7 +413,13 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="正式开通博客园">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/">正式开通博客园</a>
 
       <a href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/" class="index-excerpt">
@@ -281,7 +452,13 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/04/23/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="Fiddler抓包工具">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/04/23/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/">Fiddler抓包工具</a>
 
       <a href="/blog/2020/04/23/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/" class="index-excerpt">
@@ -319,7 +496,13 @@ https://www.cnblogs.com/yyhh/p/5140852.html</div>
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/04/23/MVC%EF%BC%9A%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="MVC：开发模式">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/04/23/MVC%EF%BC%9A%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/">MVC：开发模式</a>
 
       <a href="/blog/2020/04/23/MVC%EF%BC%9A%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
@@ -366,7 +549,13 @@ Model，模型。JavaBean
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/04/23/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="将博客搬至CSDN">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/04/23/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/">将博客搬至CSDN</a>
 
       <a href="/blog/2020/04/23/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/" class="index-excerpt">
@@ -400,7 +589,13 @@ CSDN博客链接：https://blog.csdn.net/weixin_43438052</div>
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/04/22/%E2%80%9C%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E2%80%9D%E9%9A%90%E8%97%8F%E5%BC%8F%E6%8C%89%E9%92%AEhtml%E5%AE%9E%E7%8E%B0/" target="_self">
+          <img src="https://api.mz-moe.cn/img.php" srcset="/blog/img/loading.gif" alt="“点击查看”隐藏式按钮html实现">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a class="index-header" href="/blog/2020/04/22/%E2%80%9C%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E2%80%9D%E9%9A%90%E8%97%8F%E5%BC%8F%E6%8C%89%E9%92%AEhtml%E5%AE%9E%E7%8E%B0/">“点击查看”隐藏式按钮html实现</a>
 
       <a href="/blog/2020/04/22/%E2%80%9C%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E2%80%9D%E9%9A%90%E8%97%8F%E5%BC%8F%E6%8C%89%E9%92%AEhtml%E5%AE%9E%E7%8E%B0/" class="index-excerpt">
@@ -432,118 +627,11 @@ CSDN博客链接：https://blog.csdn.net/weixin_43438052</div>
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/04/22/%E4%B8%80%E6%AC%BE%E7%82%AB%E4%B8%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E6%92%AD%E6%94%BE%E5%99%A8%E6%8F%92%E4%BB%B6/">一款炫丽的网页播放器插件</a>
-
-      <a href="/blog/2020/04/22/%E4%B8%80%E6%AC%BE%E7%82%AB%E4%B8%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E6%92%AD%E6%94%BE%E5%99%A8%E6%8F%92%E4%BB%B6/" class="index-excerpt">
-        
-        
-          
-        
-        <div>一款炫丽的网页播放器插件网上看到一款挺不错的基于 HTML 5 实现的播放器插件，支持多平台音乐解析、精准 LRC 歌词、智能记忆、视频播放等多种功能。目前免费使用，只需注册即可 DIY。作者表明自己是个初！中！生！，在 2016 年用业余时间写的（网传是抄袭、暴力破解他人作品），目前每天的访问量 10W+，用的人还是挺多的，本站点也进行了集成，可在左下角体验效果。
-
-2020 年 04 月 01</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-22
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/04/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E9%95%BF%E5%9B%BE%E6%96%B9%E6%B3%95/">浏览器截长图的方法</a>
-
-      <a href="/blog/2020/04/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E9%95%BF%E5%9B%BE%E6%96%B9%E6%B3%95/" class="index-excerpt">
-        
-        
-          
-        
-        <div>
-Chrome -&gt; F12 -&gt; Ctrl+Shift+P -&gt; Capture full size screenshot
-
-Firefox -&gt; F12 -&gt; 右上角”…“ -&gt; 设置 -&gt; 可选的工具箱按钮 -&gt; 截取整个页面 -&gt; 右上角“相机”按钮
-
-
-
-
-
-</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-09
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/04/08/win10%E5%BF%AB%E9%80%9F%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E5%BC%80cmd/">win10快速在当前文件夹打开cmd</a>
-
-      <a href="/blog/2020/04/08/win10%E5%BF%AB%E9%80%9F%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E5%BC%80cmd/" class="index-excerpt">
-        
-        
-          
-        
-        <div>一般有两种简单、直接的方法：
-
-在路径栏输入cmd，回车 即可在当前位置打开命令窗口
-按住Shift键+鼠标右键，可见在“在此处打开cmd”
-</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-08
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/page/6/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/21/">21</a><a class="extend next" rel="next" href="/blog/page/8/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/blog/page/6/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/22/">22</a><a class="extend next" rel="next" href="/blog/page/8/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -603,7 +691,7 @@ Firefox -&gt; F12 -&gt; 右上角”…“ -&gt; 设置 -&gt; 可选的工具箱
 
 <!--动态线条背景-->
 <script type="text/javascript"
-color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
 </script>
 
 <!-- 天气挂件 -->
@@ -677,21 +765,22 @@ color="255,0,0" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canva
 
     
       
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
             总访问量 
-            <span id="busuanzi_value_site_pv"></span>
+            <span id="leancloud-site-pv"></span>
              次
           </span>
       
       
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
             总访客数 
-            <span id="busuanzi_value_site_uv"></span>
+            <span id="leancloud-site-uv"></span>
              人
           </span>
       
+
     
   </div>
 
@@ -785,7 +874,185 @@ setInterval("createtime()",250);
 
 
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('false' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/page/7/index.html');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
 
 
 
