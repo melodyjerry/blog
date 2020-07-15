@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#b9b9b9">
+  <meta name="description" content="">
+  <meta name="author" content="Melody Jerry">
+  <meta name="keywords" content="">
+  <title>Maven项目管理 - MelodyHub</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/blog/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/blog/atom.xml" title="MelodyHub" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>MelodyHub</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/blog/img/cover3.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-11 19:55">
+      2020年7月11日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      36
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：3 小时前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <p><img src="https://s1.ax1x.com/2020/07/13/UJbRm9.png" srcset="/blog/img/loading.gif" alt="UJbRm9.png"></p>
+<p>左者使用SSM框架，需要导入jar包；</p>
+<p>右者使用Maven，不需要导入jar包。</p>
+<h1 id="Maven是什么？"><a href="#Maven是什么？" class="headerlink" title="Maven是什么？"></a>Maven是什么？</h1><ul>
+<li><strong>Maven是Apache下的项目管理工具</strong>，它由<strong>纯Java</strong>语言开发，可以帮助我们<strong>更方便的管理和构建Java项目</strong>。</li>
+</ul>
+<h1 id="为什么要使用Maven？"><a href="#为什么要使用Maven？" class="headerlink" title="为什么要使用Maven？"></a>为什么要使用Maven？</h1><p>1、  jar包管理：</p>
+<ul>
+<li>a)   从<strong>Maven中央仓库</strong>获取<strong>标准的规范的jar包以及相关依赖的jar包</strong>，避免自己下载到错误的jar包；</li>
+<li>b)   <strong>本地仓库统一管理jar包，使jar包与项目分离，减轻项目体积。</strong></li>
+</ul>
+<p>2、  maven是跨平台的可以在window、linux上使用。</p>
+<p>3、  清晰的项目结构；</p>
+<p>4、  多工程开发，<strong>将模块拆分成若干工程</strong>，利于团队协作开发。</p>
+<p>5、  一键构建项目：使用命令可以对项目进行一键构建，操作系统中无需安装eclipse和tomcat。</p>
+<h1 id="下载、安装、配置环境变量Maven"><a href="#下载、安装、配置环境变量Maven" class="headerlink" title="下载、安装、配置环境变量Maven"></a>下载、安装、配置环境变量Maven</h1><p>a)   <a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
+<p>b)   安装JDK 1.8；</p>
+<p>c)   配置环境变量；</p>
+<ul>
+<li><p>i.     win + r 打开运行窗口 或者 进入cmd命令窗口；</p>
+</li>
+<li><p>ii.     输入sysdm.cpl打开系统属性 -&gt; 高级 -&gt; 环境变量；</p>
+</li>
+<li><p>iii.     新建系统变量，变量名：<code>MAVEN_HOME</code>，变量值：<code>Maven安装路径</code>；</p>
+</li>
+<li><p>iv.     在<code>Path</code>下追加一条属性指向Maven的bin目录 <code>%MAVEN_HOME%/bin</code></p>
+</li>
+</ul>
+<h1 id="Maven的优点"><a href="#Maven的优点" class="headerlink" title="Maven的优点"></a>Maven的优点</h1><p><font size="5" color="blue">a)</font>   jar包管理：依赖管理</p>
+<ul>
+<li><p>i.     <strong>从Maven中央仓库获取标准的规范的jar包以及相关依赖的jar包</strong>，避免自己下载到错误的jar包；</p>
+</li>
+<li><p>ii.    <strong>本地仓库统一管理jar包，使jar包与项目分离，减轻项目体积。</strong><br><img src="https://s1.ax1x.com/2020/07/13/UJg1jf.png" srcset="/blog/img/loading.gif" alt="Maven项目获取jar包的方式"></p>
+</li>
+<li><p>iii.     Maven项目通过<strong>坐标的方式</strong>从本地仓库获取jar包；</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>坐标</th>
+<th>本地仓库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>由公司/组织名(groupId) + 项目名/子项目名(artifactId) + 版本号(version)组成</td>
+<td>存放很多jar包，供Maven项目使用</td>
+</tr>
+</tbody></table>
+<ol>
+<li>Maven通过建立本地仓库索引，可以快速的找到符合要求的jar包，从而解决效率问题；</li>
+<li>多个Maven项目都可以从本地仓库获取jar包；</li>
+<li>设置本地仓库：<em>maven根目录</em> -&gt; <em>conf</em> -&gt; <em>settings.xml</em>，将<code>localRepository</code>标签中的路径替换成自己本地仓库的路径；</li>
+</ol>
+<ul>
+<li><p>iv.     Maven三种仓库概念：本地仓库、远程仓库、中央仓库</p>
+<ul>
+<li>中央仓库-官方：<a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></li>
+<li>中央仓库-阿里云：<a href="https://maven.aliyun.com/mvn/search" target="_blank" rel="noopener">https://maven.aliyun.com/mvn/search</a></li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJ2Sr8.png" srcset="/blog/img/loading.gif" alt="Maven三种仓库概念"></p>
+</li>
+</ul>
+<ul>
+<li>v.     设置阿里云Maven仓库镜像：</li>
+</ul>
+<ol>
+<li>在<code>settings.xml</code>文件中的<code>mirrors</code>下添加<code>mirror</code>标签； <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span></code></pre></div>
+
+</li>
+</ol>
+<p><font size="5" color="blue">b)</font>   maven由纯Java语言开发，是跨平台的可以在window、linux、mac上使用。</p>
+<p><font size="5" color="blue">c)</font>   清晰的项目结构；</p>
+<p><font size="5" color="blue">d)</font>   使用Maven将大型项目按照模块拆分成若干工程，不同的团队维护各自的工程，可大大的提升开发效率；</p>
+<ul>
+<li><p>i.     大型商城项目按业务分成商品管理、用户管理、订单管理等等模块。</p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJRPOK.png" srcset="/blog/img/loading.gif" alt="大型项目，分模块开发"></p>
+</li>
+</ul>
+<ul>
+<li><p>ii.     中小型项目按照传统项目分为Web、Service、Dao层，依照员工自身的业务能力分配工作。</p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJRVFH.png" srcset="/blog/img/loading.gif" alt="中小型项目，分层开发"></p>
+</li>
+</ul>
+<p><font size="5" color="blue">e)</font>   一键构建项目：使用命令可以对项目进行一键构建，操作系统中无需安装eclipse和tomcat。</p>
+<h1 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h1><ul>
+<li><code>clean</code>：       清理，编译后的目录；</li>
+<li><code>compile</code>：    编译，只编译main目录，不编译test中的代码；</li>
+<li><code>test-compile</code>：编译test目录中的代码；</li>
+<li><code>test</code>：        运行test里边的代码；</li>
+<li><code>package</code>：    打包<ul>
+<li>i.     java项目-&gt;打成jar包；</li>
+<li>ii.     web项目-&gt;打成war包；</li>
+</ul>
+</li>
+<li><code>install</code>：发布项目到本地仓库，用在打jar包上，打成jar包可以被其他项目使用；</li>
+<li><code>tomcat:run</code>：一键构建项目；</li>
+</ul>
+<h1 id="Maven命令的生命周期"><a href="#Maven命令的生命周期" class="headerlink" title="Maven命令的生命周期"></a>Maven命令的生命周期</h1><p> 不同的生命周期可以一起执行，例如：先clean 再compile</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>生命周期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clean</td>
+<td>clean</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>compile、test-compile、test、package、install</td>
+</tr>
+<tr>
+<td>Site</td>
+<td>site命令，生成项目描述文档静态页</td>
+</tr>
+</tbody></table>
+<h1 id="Maven命令的执行顺序"><a href="#Maven命令的执行顺序" class="headerlink" title="Maven命令的执行顺序"></a>Maven命令的执行顺序</h1><ol>
+<li><p>在相同生命周期中的命令才会受执行顺序的影响；</p>
+</li>
+<li><p>Default生命周期中的命令执行顺序：</p>
+<div class="hljs"><pre><code class="hljs clean">compile &lt;- test-compile &lt;- test &lt;- package &lt;- install；</code></pre></div>
+
+</li>
+</ol>
+<h1 id="Maven入门程序"><a href="#Maven入门程序" class="headerlink" title="Maven入门程序"></a>Maven入门程序</h1><p><font size="5" color="blue">Ø</font> 入门程序：</p>
+<ol>
+<li><p>创建Maven项目；</p>
+</li>
+<li><p>在src -&gt; main -&gt; webapp下创建WEB-INF目录，并在目录下创建web.xml；</p>
+</li>
+<li><p>修改Maven默认编译级别：</p>
+<ul>
+<li><p>a)   全局编译级别 -&gt; 修改settings.xml</p>
+</li>
+<li><p>b)   项目级别修改 -&gt; 项目对应的pom.xml</p>
+</li>
+</ul>
+</li>
+<li><p>在Java Resourcese -&gt; src/main/java下写代码，创建包和Servlet；</p>
+</li>
+<li><p>添加servlet-api： </p>
+</li>
+<li><p>在servlet-api中添加<code>scope</code>标签，值为：proviede；</p>
+<ul>
+<li>a)   如果不加此标签有很大几率报错，因为tomcat中也有servlet-api的包导致冲突；</li>
+</ul>
+</li>
+<li><p>运行：发生错误，原因是maven默认使用tomcat6.xx，不支持@WebServle注解；</p>
+<ul>
+<li><p>a)   解决方案1：需要去web.xml中配置<code>Servlet</code>;</p>
+</li>
+<li><p>b)   解决方案2：配置高版本tomcat插件；</p>
+</li>
+</ul>
+</li>
+<li><p>最后测试，启动服务，在地址栏输入请求，显示结果；</p>
+</li>
+</ol>
+<p><font size="5" color="blue">Ø</font> 使用tomcat7插件运行项目</p>
+<p><font size="5" color="blue">Ø</font> Scope依赖作用域也可称作依赖范围：maven中的依赖，会根据程序所处的阶段和场景发生变化，所以maven用scope属性来做限制；</p>
+<ul>
+<li><p>a)   <code>compile</code>（默认值）：在编译、运行、测试、打包都有效；</p>
+</li>
+<li><p>b)   <code>provided</code>：编译、测试时有效，运行、打包无效；</p>
+</li>
+<li><p>c)   <code>test</code>：仅在测试时有效；</p>
+</li>
+<li><p>d)   <code>runtime</code>：测试、运行、打包时有效；</p>
+</li>
+<li><p>e)   <code>system</code>：不推荐使用，使用system作用域不会去本地仓库寻找依赖，要指定本地路径；</p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJfQIg.png" srcset="/blog/img/loading.gif" alt="依赖关系中作用域说明"></p>
+</li>
+</ul>
+<h1 id="Maven热部署"><a href="#Maven热部署" class="headerlink" title="Maven热部署"></a>Maven热部署</h1><p><strong>Maven 3.5.4 + tomcat 8.5.32 热部署：</strong></p>
+<blockquote>
+<p>热部署：在tomcat运行时将项目部署上去；</p>
+</blockquote>
+<ol>
+<li>开启tomcat热部署：</li>
+</ol>
+<ul>
+<li>a)   修改tomcat -&gt; conf-&gt; tomcat-users.xml 配置文件；</li>
+<li>b)   在tomcat-users标签中加入以下代码：</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">"manager-gui"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">"manager-script"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">username</span>=<span class="hljs-string">"joey"</span> <span class="hljs-attr">password</span>=<span class="hljs-string">"123123"</span> <span class="hljs-attr">roles</span>=<span class="hljs-string">"manager-gui, manager-script"</span>/&gt;</span></code></pre></div>
+
+<ul>
+<li><p>c)   启动tomcat；</p>
+</li>
+<li><p>d)   修改项目中pom.xml，在tomcat7的插件上添加以下代码：</p>
+</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://localhost:8080/manager/text<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>joey<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>123123<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></code></pre></div>
+
+<ul>
+<li><p>e)   右键项目-&gt; run as -&gt; maven build… 在goals中使用tomcat7:deploy或tomcat7:redeploy来进行热部署；</p>
+<ul>
+<li><p>i.     tomcat7:deploy，第一次部署时使用。</p>
+</li>
+<li><p>ii.     tomcat7:redeploy，非第一次部署时使用。</p>
+</li>
+</ul>
+</li>
+<li><p>f)    部署完毕，打开浏览器测试；</p>
+</li>
+</ul>
+<h1 id="Maven整合SSM框架"><a href="#Maven整合SSM框架" class="headerlink" title="Maven整合SSM框架"></a>Maven整合SSM框架</h1><ol>
+<li>Maven+SSM框架整合；</li>
+</ol>
+<ul>
+<li><p>a)   加入SSM框架所需的依赖；</p>
+</li>
+<li><p>b)   配置插件；</p>
+</li>
+<li><p>c)   导入SSM框架所需配置文件, 配置文件下载：<a href="https://www.cnblogs.com/melodyjerry/p/13304361.html" target="_blank" rel="noopener">https://www.cnblogs.com/melodyjerry/p/13304361.html</a>；</p>
+</li>
+<li><p>d)   配置Maven Resources资源放行：</p>
+<ul>
+<li>i.     因为Maven会把src/main/java下的*.java文件文件编译放到target/classes目录目录中，但这目录中的其他文件会被忽略；</li>
+<li>ii.     Mybatis Mapper映射文件也要放在src/main/java下，所以不能忽略；</li>
+<li>iii.     因此我们需要对src/main/java下的配置文件进行过滤，不能被忽略；</li>
+<li>iv.     利用Maven中的<code>Resources</code>标签可以进行配置；</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>测试；</li>
+</ol>
+<ul>
+<li>a)   新建名为User的bean对象，有<code>username</code>，<code>password</code>俩字段；</li>
+<li>b)   新建login.jsp，可以输入用户名和密码，通过表单提交到后台；</li>
+<li>c)   后台接受用户名和密码，跳转页面，并显示；</li>
+</ul>
+<ol start="3">
+<li>读取数据库显示游戏列表；</li>
+</ol>
+<ul>
+<li>a)   导入item_info表；</li>
+<li>b)   在login.jsp中增加<code>button</code>，点击后跳转页面，显示列表；</li>
+</ul>
+<h1 id="Maven模块化开发"><a href="#Maven模块化开发" class="headerlink" title="Maven模块化开发"></a>Maven模块化开发</h1><p> <img src="https://s1.ax1x.com/2020/07/13/UJfOw8.png" srcset="/blog/img/loading.gif" alt="Maven模块化开发项目依赖关系"></p>
+<p><font size="5" color="blue">Ø</font> 需求：将Maven-SSM项目以层为单位拆分，按模块开发；</p>
+<ol>
+<li><p>创建父项目，在父项目中加入依赖；</p>
+</li>
+<li><p>创建mapper层子项目继承父项目；</p>
+</li>
+<li><p>子项目可以继承父项目的依赖；</p>
+</li>
+<li><p>利用junit测试mapper模块项目； </p>
+</li>
+<li><p>Maven的依赖传递，与依赖版本管理；</p>
+</li>
+</ol>
+<ul>
+<li>a)   依赖传递：添加依赖的jar包如果还依赖其他jar包，则在添加时会一起引入；</li>
+<li>b)   依赖冲突：Base-project由3个子项目组成，A-project依赖Tools.jar 1.0版本，C-project依赖Tools.jar 2.0版本，根据依赖传递机制，Base-project将同时依赖Tools.jar两个版本，但这造成了冲突。根据路径最近获胜策略，该项目最终依赖Tools.jar 1.0，导致C-project无法调用getAll方法从而报错，因此我们要手动选择一个适合项目的版本。</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJhnp9.png" srcset="/blog/img/loading.gif" alt="Maven模块化开发项目依赖关系"></p>
+<ul>
+<li><p>c)   解决依赖冲突的办法：</p>
+<ul>
+<li><p>i.    <strong>直接声明</strong>：直接添加Tools.jar 2.0依赖；</p>
+</li>
+<li><p>ii.     <strong>排除</strong>：使用<code>&lt;dependency&gt;</code>标签中的<code>&lt;exclusions&gt;</code>标签排除A-project中的Tools.jar 1.0依赖；</p>
+</li>
+<li><p>iii.     <strong>依赖管理，版本锁定</strong>：<code>&lt;dependencyManagement&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml">1. <span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span>是依赖管理，该标签下添加的<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>可以声明依赖，但是不会引入jar包；
+
+2. 只有声明在<span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>标签下<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>中的依赖才会被引用到项目中；
+
+3. 在<span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span>下添加jar包坐标后，<span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>标签下<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>标签的版本号可以忽略不写；
+
+4. <span class="hljs-tag">&lt; <span class="hljs-attr">properties</span>&gt;</span>标签可以自定义版本号，用el表达式赋值给<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>标签；
+
+5. 统一管理jar包版本，修改方便；</code></pre></div>
+
+<ol start="6">
+<li><p>创建scervice模块项目，利用junit测试service模块项目；</p>
+</li>
+<li><p>依赖作用域对依赖传递的影响；</p>
+</li>
+<li><p>创建controller模块项目，运行程序；</p>
+</li>
+</ol>
+<h1 id="Maven远程仓库Nexus（私服）"><a href="#Maven远程仓库Nexus（私服）" class="headerlink" title="Maven远程仓库Nexus（私服）"></a>Maven远程仓库Nexus（私服）</h1><p><font size="5" color="blue">Ø</font> Nexus获取与配置：</p>
+<p>1、  下载Nexus <a href="https://www.sonatype.com/download-oss-sonatype?hsCtaTracking=920dd7b5-7ef3-47fe-9600-10fecad8aa32|f59d5f10-099f-4c66-a622-0254373f4a92" target="_blank" rel="noopener">点击我下载</a></p>
+<p>2、  Nexus安装，解压缩到本地即可；</p>
+<p>3、  Nexus安装目录下nexus-3.14.0-04/etc/nexus-default.properties配置表中可以修改以下属性：</p>
+<p>​    a)   application-host : Nexus服务监听的主机；</p>
+<p>​    b)   application-port: Nexus服务监听的端口；</p>
+<p>​    c)   nexus-context-path : Nexus服务的上下文路径；</p>
+<p>4、  Nexus服务配置和启动：</p>
+<p>​    a)   以管理员身份运行cmd -&gt; 进入到nexus安装目录../nexus-3.14.0-04/bin目录下；</p>
+<p>​    b)   在cmd中运行 nexus.exe/install 可以安装nexus服务；</p>
+<p>​    c)   在cmd中运行 nexus.exe/start 可以启动nexus服务；</p>
+<p>​    d)   在cmd中运行 nexus.exe/stop 可以停止nexus服务；</p>
+<p>5、  登录Nexus：</p>
+<p>​    a)   启动服务后，根据nexus-default.properties的配置进行登录，如果没有修改，可以在浏览器中输入<a href="http://localhost:8081来登录；">http://localhost:8081来登录；</a></p>
+<p>​    b)   默认用户名是admin，密码是admin123；</p>
+<p>6、  仓库类型：nexus有多种仓库类型：</p>
+<p> <img src="https://s1.ax1x.com/2020/07/13/UJhjnx.png" srcset="/blog/img/loading.gif" alt="Nexus仓库类型介绍"></p>
+<p>​     </p>
+<p><font size="5" color="blue">Ø</font> Nexus使用：</p>
+<p>需求：将项目中的mapper.jar包提交到远程仓库中， 使service项目从远程仓库获取；</p>
+<p><font size="3" color="#ed9f00">✧☼</font> 上传jar包到远程仓库；</p>
+<p>1、  在Maven的 setting.xml中配置nexus访问权限；</p>
+<p>2、  在项目的pom.xml中配置nexus仓库位置；</p>
+<p>3、  以上2个配置标签中的id要一致；</p>
+<p>4、  使用deploy命令将项目打包，发布到nexus中；</p>
+<p>5、  检查仓库中是否有上传好的jar包；</p>
+<p><font size="3" color="#ed9f00">✧☼</font> 从远程仓库下载jar包：</p>
+<p>1、 使用profiles标签在Maven的setting.xml中配置仓库位置；</p>
+<p>2、 激活profiles标签，使它发生作用；</p>
+<p>3、 如果之前打包了，删除本地仓库下的mapper.jar；</p>
+<p>4、 关闭mapper子项目，让service子项目依赖mapper.jar包；</p>
+<p>5、 更新项目，从远程仓库中获取mapper.jar；</p>
+<p><font size="3" color="#ed9f00">✧☼</font> 使用自定义用户和自定义仓库进行上传和下载jar包：</p>
+<p>1、  建议先将管理员密码修改；</p>
+<p>2、  在Roles中可以增加用户权限组，里边可以自定义用户权限；</p>
+<p>3、  在Users中可以增加用户，分配设置好的权限；</p>
+<p>4、  在Repositories中新建仓库；</p>
+<p>​    a)   name：仓库名称；</p>
+<p>​    b)   version pollcy：版本策略；</p>
+<p>​                 i.     Release：发行版；</p>
+<p>​                 ii.     Snapshot：快照版；</p>
+<p>​                iii.     Mixed：混合模式；</p>
+<p>​    c)   Layout pollcy：布局策略；</p>
+<p>​                 i.     Strict：严格；</p>
+<p>​                 ii.     Permissive：宽松；</p>
+<p>​    d)   Deployment pollcy：部署策略；</p>
+<p>​                 i.     Allow redeploy：允许重新部署；</p>
+<p>​                 ii.     Disable redeploy：禁止重新部署；</p>
+<p>​                iii.     Read-only：只读；</p>
+<p>5、  修改配置，将jar包上传到自定义仓库，然后从自定义仓库下载jar包；</p>
+<hr>
+<p>资源下载：<a href="http://www.sikiedu.com/course/284/material/14783/download" target="_blank" rel="noopener">http://www.sikiedu.com/course/284/material/14783/download</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/JavaWeb/">JavaWeb</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Maven/">Maven</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/07/15/SSM%E6%95%B4%E5%90%88%E5%8F%8AMaven%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SSM整合及Maven配置文件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/07/11/Mybatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/">
+                        <span class="hidden-mobile">Mybatis框架概述</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+
+
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 天气挂件 -->
+<!-- <div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>-->
+  
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "disabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+
+
+
+
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_1278597820" style="display: none"></span>
+    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    
+  </div>
+  
+  
+  
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--宅音乐播放器 https://player.ilt.me/admin-->
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="992f0d81b6b74b93b6bbdb56f57a6c58"></script>
+
+<!--闲聊么http://www.xianliao.me/faq<script>var xlm_wid='15920';var xlm_url='https://www.xianliao.me/';</script><script type="text/javascript" charset="UTF-8" src="https://www.xianliao.me/embed.js"></script>--> 
+ 
+<center>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+
+
+
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle1">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+</div>
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle1", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("06/11/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script><div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&m=2&c=ff0000&cr1=ffffff&f=arial&l=33&z=17&rx=-40&lx=-540&ly=520&hi=60" async="async"></script>
+</center>
+
+<!--cnzz-->
+<center>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</center>
+
+
+  
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/blog/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2020/07/11/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Maven项目管理&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    var path = "/blog/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+  <script>(function (i, s, o, g, r, a, m) {
+      i['DaoVoiceObject'] = r;
+      i[r] = i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      a.charset = 'utf-8';
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/87b73b33.js", 'daovoice');
+    daovoice('init', {
+      app_id: "87b73b33",
+    });
+    daovoice('update');
+  </script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3ec76546d2bce23889863e13f01a5b5f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1278597820&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
