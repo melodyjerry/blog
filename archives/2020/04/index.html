@@ -163,7 +163,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 223 篇文章</p>
+  <p class="h4">共计 250 篇文章</p>
   <hr>
   
     
@@ -172,6 +172,12 @@
     
     <a href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">正式开通博客园</span>
+      <span style="float: right;">04-23</span>
+    </a>
+  
+    
+    <a href="/blog/2020/04/23/%E5%AE%9E%E7%8E%B0%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9%E6%8A%98%E5%8F%A0/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">实现博客内容折叠</span>
       <span style="float: right;">04-23</span>
     </a>
   
@@ -223,13 +229,19 @@
       <span style="float: right;">04-08</span>
     </a>
   
-    
-    <a href="/blog/2020/04/07/virtualbox%E5%AE%89%E8%A3%85ubuntu16-LTS%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">virtualbox安装ubuntu16 LTS及其配置</span>
-      <span style="float: right;">04-07</span>
-    </a>
-  
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/archives/2020/04/page/2/">2</a><a class="extend next" rel="next" href="/blog/archives/2020/04/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

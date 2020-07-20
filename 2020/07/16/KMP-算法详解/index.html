@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#b9b9b9">
+  <meta name="description" content="">
+  <meta name="author" content="Melody Jerry">
+  <meta name="keywords" content="">
+  <title>[转]KMP 算法详解 - MelodyHub</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/blog/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/blog/atom.xml" title="MelodyHub" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>MelodyHub</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-16 15:55">
+      2020年7月16日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      55
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：4 天前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <p>转载保存一份关于【KMP】算法的笔记，作者是我很喜欢的一个<a href="https://labuladong.gitbook.io/algo/" target="_blank" rel="noopener">算法大佬 labuladong</a>。在向他学习的同时顺便帮他宣传一下，记得去GitHub上给他点个star👉 <iframe src="https://ghbtns.com/github-btn.html?user=labuladong&amp;repo=fucking-algorithm&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe></p>
+<blockquote>
+<p><strong>致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章</strong>：</p>
+<p><img src="https://s1.ax1x.com/2020/07/16/UBMg1g.png" srcset="/blog/img/loading.gif" alt="UBMg1g.png"></p>
+<p>GitHub：<a href="https://github.com/labuladong/fucking-algorithm" target="_blank" rel="noopener">刷算法全靠套路，认准 labuladong 就够了！</a></p>
+</blockquote>
+<a id="more"></a>
+
+<hr>
+<h1 id="动态规划之KMP字符匹配算法"><a href="#动态规划之KMP字符匹配算法" class="headerlink" title="动态规划之KMP字符匹配算法"></a>动态规划之KMP字符匹配算法</h1><p>读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：</p>
+<p><a href="https://leetcode-cn.com/problems/implement-strstr/solution/kmp-suan-fa-xiang-jie-by-labuladong/" target="_blank" rel="noopener">28.实现 strStr()</a></p>
+<p>KMP 算法（Knuth-Morris-Pratt 算法）是一个著名的字符串匹配算法，效率很高，但是确实有点复杂。</p>
+<p>很多读者抱怨 KMP 算法无法理解，这很正常，想到大学教材上关于 KMP 算法的讲解，也不知道有多少未来的 Knuth、Morris、Pratt 被提前劝退了。有一些优秀的同学通过手推 KMP 算法的过程来辅助理解该算法，这是一种办法，不过本文要从逻辑层面帮助读者理解算法的原理。十行代码之间，KMP 灰飞烟灭。</p>
+<p><strong>先在开头约定，本文用 <code>pat</code> 表示模式串，长度为 <code>M</code>，<code>txt</code> 表示文本串，长度为 <code>N</code>。KMP 算法是在 <code>txt</code> 中查找子串 <code>pat</code>，如果存在，返回这个子串的起始索引，否则返回 -1</strong>。</p>
+<p>为什么我认为 KMP 算法就是个动态规划问题呢，等会再解释。对于动态规划，之前多次强调了要明确 <code>dp</code> 数组的含义，而且同一个问题可能有不止一种定义 <code>dp</code> 数组含义的方法，不同的定义会有不同的解法。</p>
+<p>读者见过的 KMP 算法应该是，一波诡异的操作处理 <code>pat</code> 后形成一个一维的数组 <code>next</code>，然后根据这个数组经过又一波复杂操作去匹配 <code>txt</code>。时间复杂度 O(N)，空间复杂度 O(M)。其实它这个 <code>next</code> 数组就相当于 <code>dp</code> 数组，其中元素的含义跟 <code>pat</code> 的前缀和后缀有关，判定规则比较复杂，不好理解。<strong>本文则用一个二维的 <code>dp</code> 数组（但空间复杂度还是 O(M)），重新定义其中元素的含义，使得代码长度大大减少，可解释性大大提高</strong>。</p>
+<p>PS：本文的代码参考《算法4》，原代码使用的数组名称是 <code>dfa</code>（确定有限状态机），因为我们的公众号之前有一系列动态规划的文章，就不说这么高大上的名词了，我对书中代码进行了一点修改，并沿用 <code>dp</code> 数组的名称。</p>
+<h3 id="一、KMP-算法概述"><a href="#一、KMP-算法概述" class="headerlink" title="一、KMP 算法概述"></a>一、KMP 算法概述</h3><p>首先还是简单介绍一下 KMP 算法和暴力匹配算法的不同在哪里，难点在哪里，和动态规划有啥关系。</p>
+<p>暴力的字符串匹配算法很容易写，看一下它的运行逻辑：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-comment">// 暴力匹配（伪码）</span>
+<span class="hljs-built_in">int</span> search(String pat, String txt) {
+    <span class="hljs-built_in">int</span> M = pat.length;
+    <span class="hljs-built_in">int</span> N = txt.length;
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt;= N - M; i++) {
+        <span class="hljs-built_in">int</span> j;
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; M; j++) {
+            <span class="hljs-keyword">if</span> (pat[j] != txt[i+j])
+                <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-comment">// pat 全都匹配了</span>
+        <span class="hljs-keyword">if</span> (j == M) <span class="hljs-keyword">return</span> i;
+    }
+    <span class="hljs-comment">// txt 中不存在 pat 子串</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+}</code></pre></div>
+
+<p>对于暴力算法，如果出现不匹配字符，同时回退 <code>txt</code> 和 <code>pat</code> 的指针，嵌套 for 循环，时间复杂度 $O(MN)$，空间复杂度$O(1)$。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。</p>
+<p>比如 txt = “aaacaaab” pat = “aaab”：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/1.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/1.gif" srcset="/blog/img/loading.gif" alt="brutal"></a></p>
+<p>很明显，<code>pat</code> 中根本没有字符 c，根本没必要回退指针 <code>i</code>，暴力解法明显多做了很多不必要的操作。</p>
+<p>KMP 算法的不同之处在于，它会花费空间来记录一些信息，在上述情况中就会显得很聪明：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/2.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/2.gif" srcset="/blog/img/loading.gif" alt="kmp1"></a></p>
+<p>再比如类似的 txt = “aaaaaaab” pat = “aaab”，暴力解法还会和上面那个例子一样蠢蠢地回退指针 <code>i</code>，而 KMP 算法又会耍聪明：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/3.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/3.gif" srcset="/blog/img/loading.gif" alt="kmp2"></a></p>
+<p>因为 KMP 算法知道字符 b 之前的字符 a 都是匹配的，所以每次只需要比较字符 b 是否被匹配就行了。</p>
+<p><strong>KMP 算法永不回退 <code>txt</code> 的指针 <code>i</code>，不走回头路（不会重复扫描 <code>txt</code>），而是借助 <code>dp</code> 数组中储存的信息把 <code>pat</code> 移到正确的位置继续匹配</strong>，时间复杂度只需 O(N)，用空间换时间，所以我认为它是一种动态规划算法。</p>
+<p>KMP 算法的难点在于，如何计算 <code>dp</code> 数组中的信息？如何根据这些信息正确地移动 <code>pat</code> 的指针？这个就需要<strong>确定有限状态自动机</strong>来辅助了，别怕这种高大上的文学词汇，其实和动态规划的 <code>dp</code> 数组如出一辙，等你学会了也可以拿这个词去吓唬别人。</p>
+<p>还有一点需要明确的是：<strong>计算这个 <code>dp</code> 数组，只和 <code>pat</code> 串有关</strong>。意思是说，只要给我个 <code>pat</code>，我就能通过这个模式串计算出 <code>dp</code> 数组，然后你可以给我不同的 <code>txt</code>，我都不怕，利用这个 <code>dp</code> 数组我都能在 O(N) 时间完成字符串匹配。</p>
+<p>具体来说，比如上文举的两个例子：</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">txt1</span> = <span class="hljs-string">"aaacaaab"</span> 
+<span class="hljs-attr">pat</span> = <span class="hljs-string">"aaab"</span>
+<span class="hljs-attr">txt2</span> = <span class="hljs-string">"aaaaaaab"</span> 
+<span class="hljs-attr">pat</span> = <span class="hljs-string">"aaab"</span></code></pre></div>
+
+<p>我们的 <code>txt</code> 不同，但是 <code>pat</code> 是一样的，所以 KMP 算法使用的 <code>dp</code> 数组是同一个。</p>
+<p>只不过对于 <code>txt1</code> 的下面这个即将出现的未匹配情况：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/txt1.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/txt1.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p><code>dp</code> 数组指示 <code>pat</code> 这样移动：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/txt2.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/txt2.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>PS：这个<code>j</code> 不要理解为索引，它的含义更准确地说应该是<strong>状态</strong>（state），所以它会出现这个奇怪的位置，后文会详述。</p>
+<p>而对于 <code>txt2</code> 的下面这个即将出现的未匹配情况：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/txt3.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/txt3.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p><code>dp</code> 数组指示 <code>pat</code> 这样移动：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/txt4.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/txt4.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>明白了 <code>dp</code> 数组只和 <code>pat</code> 有关，那么我们这样设计 KMP 算法就会比较漂亮：</p>
+<div class="hljs"><pre><code class="hljs arduino"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KMP</span> {</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[][] dp;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> pat;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">KMP</span><span class="hljs-params">(<span class="hljs-keyword">String</span> pat)</span> </span>{
+        <span class="hljs-keyword">this</span>.pat = pat;
+        <span class="hljs-comment">// 通过 pat 构建 dp 数组</span>
+        <span class="hljs-comment">// 需要 O(M) 时间</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">search</span><span class="hljs-params">(<span class="hljs-keyword">String</span> txt)</span> </span>{
+        <span class="hljs-comment">// 借助 dp 数组去匹配 txt</span>
+        <span class="hljs-comment">// 需要 O(N) 时间</span>
+    }
+}</code></pre></div>
+
+<p>这样，当我们需要用同一 <code>pat</code> 去匹配不同 <code>txt</code> 时，就不需要浪费时间构造 <code>dp</code> 数组了：</p>
+<div class="hljs"><pre><code class="hljs reasonml">KMP kmp = <span class="hljs-keyword">new</span> <span class="hljs-constructor">KMP(<span class="hljs-string">"aaab"</span>)</span>;
+<span class="hljs-built_in">int</span> pos1 = kmp.search(<span class="hljs-string">"aaacaaab"</span>); <span class="hljs-comment">//4</span>
+<span class="hljs-built_in">int</span> pos2 = kmp.search(<span class="hljs-string">"aaaaaaab"</span>); <span class="hljs-comment">//4</span></code></pre></div>
+
+<h3 id="二、状态机概述"><a href="#二、状态机概述" class="headerlink" title="二、状态机概述"></a>二、状态机概述</h3><p>为什么说 KMP 算法和状态机有关呢？是这样的，我们可以认为 <code>pat</code> 的匹配就是状态的转移。比如当 pat = “ABABC”：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/state.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/state.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>如上图，圆圈内的数字就是状态，状态 0 是起始状态，状态 5（<code>pat.length</code>）是终止状态。开始匹配时 <code>pat</code> 处于起始状态，一旦转移到终止状态，就说明在 <code>txt</code> 中找到了 <code>pat</code>。比如说当前处于状态 2，就说明字符 “AB” 被匹配：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/state2.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/state2.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>另外，处于不同状态时，<code>pat</code> 状态转移的行为也不同。比如说假设现在匹配到了状态 4，如果遇到字符 A 就应该转移到状态 3，遇到字符 C 就应该转移到状态 5，如果遇到字符 B 就应该转移到状态 0：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/state4.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/state4.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>具体什么意思呢，我们来一个个举例看看。用变量 <code>j</code> 表示指向当前状态的指针，当前 <code>pat</code> 匹配到了状态 4：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/exp1.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/exp1.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>如果遇到了字符 “A”，根据箭头指示，转移到状态 3 是最聪明的：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/exp3.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/exp3.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>如果遇到了字符 “B”，根据箭头指示，只能转移到状态 0（一夜回到解放前）：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/exp5.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/exp5.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>如果遇到了字符 “C”，根据箭头指示，应该转移到终止状态 5，这也就意味着匹配完成：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/exp7.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/exp7.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>当然了，还可能遇到其他字符，比如 Z，但是显然应该转移到起始状态 0，因为 <code>pat</code> 中根本都没有字符 Z：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/z.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/z.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>这里为了清晰起见，我们画状态图时就把其他字符转移到状态 0 的箭头省略，只画 <code>pat</code> 中出现的字符的状态转移：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/allstate.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/allstate.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>KMP 算法最关键的步骤就是构造这个状态转移图。<strong>要确定状态转移的行为，得明确两个变量，一个是当前的匹配状态，另一个是遇到的字符</strong>；确定了这两个变量后，就可以知道这个情况下应该转移到哪个状态。</p>
+<p>下面看一下 KMP 算法根据这幅状态转移图匹配字符串 <code>txt</code> 的过程：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/kmp.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/kmp.gif" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p><strong>请记住这个 GIF 的匹配过程，这就是 KMP 算法的核心逻辑</strong>！</p>
+<p>为了描述状态转移图，我们定义一个二维 dp 数组，它的含义如下：</p>
+<div class="hljs"><pre><code class="hljs angelscript">dp[j][c] = next
+<span class="hljs-number">0</span> &lt;= j &lt; M，代表当前的状态
+<span class="hljs-number">0</span> &lt;= c &lt; <span class="hljs-number">256</span>，代表遇到的字符（ASCII 码）
+<span class="hljs-number">0</span> &lt;= next &lt;= M，代表下一个状态
+
+dp[<span class="hljs-number">4</span>][<span class="hljs-string">'A'</span>] = <span class="hljs-number">3</span> 表示：
+当前是状态 <span class="hljs-number">4</span>，如果遇到字符 A，
+pat 应该转移到状态 <span class="hljs-number">3</span>
+
+dp[<span class="hljs-number">1</span>][<span class="hljs-string">'B'</span>] = <span class="hljs-number">2</span> 表示：
+当前是状态 <span class="hljs-number">1</span>，如果遇到字符 B，
+pat 应该转移到状态 <span class="hljs-number">2</span></code></pre></div>
+
+<p>根据我们这个 dp 数组的定义和刚才状态转移的过程，我们可以先写出 KMP 算法的 search 函数代码：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> search(String txt) {
+    <span class="hljs-built_in">int</span> M = pat.length();
+    <span class="hljs-built_in">int</span> N = txt.length();
+    <span class="hljs-comment">// pat 的初始态为 0</span>
+    <span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) {
+        <span class="hljs-comment">// 当前是状态 j，遇到字符 txt[i]，</span>
+        <span class="hljs-comment">// pat 应该转移到哪个状态？</span>
+        j = dp[j][txt.charAt(i)];
+        <span class="hljs-comment">// 如果达到终止态，返回匹配开头的索引</span>
+        <span class="hljs-keyword">if</span> (j == M) <span class="hljs-keyword">return</span> i - M + <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-comment">// 没到达终止态，匹配失败</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+}</code></pre></div>
+
+<p>到这里，应该还是很好理解的吧，<code>dp</code> 数组就是我们刚才画的那幅状态转移图，如果不清楚的话回去看下 GIF 的算法演进过程。下面讲解：如何通过 <code>pat</code> 构建这个 <code>dp</code> 数组？</p>
+<h3 id="三、构建状态转移图"><a href="#三、构建状态转移图" class="headerlink" title="三、构建状态转移图"></a>三、构建状态转移图</h3><p>回想刚才说的：<strong>要确定状态转移的行为，必须明确两个变量，一个是当前的匹配状态，另一个是遇到的字符</strong>，而且我们已经根据这个逻辑确定了 <code>dp</code> 数组的含义，那么构造 <code>dp</code> 数组的框架就是这样：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">j</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">M:</span> <span class="hljs-comment"># 状态</span>
+    <span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">c</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">256:</span> <span class="hljs-comment"># 字符</span>
+        <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">next</span></code></pre></div>
+
+<p>这个 next 状态应该怎么求呢？显然，<strong>如果遇到的字符 <code>c</code> 和 <code>pat[j]</code> 匹配的话</strong>，状态就应该向前推进一个，也就是说 <code>next = j + 1</code>，我们不妨称这种情况为<strong>状态推进</strong>：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/forward.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/forward.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p><strong>如果字符 <code>c</code> 和 <code>pat[j]</code> 不匹配的话</strong>，状态就要回退（或者原地不动），我们不妨称这种情况为<strong>状态重启</strong>：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/back.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/back.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>那么，如何得知在哪个状态重启呢？解答这个问题之前，我们再定义一个名字：<strong>影子状态</strong>（我编的名字），用变量 <code>X</code> 表示。<strong>所谓影子状态，就是和当前状态具有相同的前缀</strong>。比如下面这种情况：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/shadow.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/shadow.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>当前状态 <code>j = 4</code>，其影子状态为 <code>X = 2</code>，它们都有相同的前缀 “AB”。因为状态 <code>X</code> 和状态 <code>j</code> 存在相同的前缀，所以当状态 <code>j</code> 准备进行状态重启的时候（遇到的字符 <code>c</code> 和 <code>pat[j]</code> 不匹配），可以通过 <code>X</code> 的状态转移图来获得<strong>最近的重启位置</strong>。</p>
+<p>比如说刚才的情况，如果状态 <code>j</code> 遇到一个字符 “A”，应该转移到哪里呢？首先只有遇到 “C” 才能推进状态，遇到 “A” 显然只能进行状态重启。<strong>状态 <code>j</code> 会把这个字符委托给状态 <code>X</code> 处理，也就是 <code>dp[j]['A'] = dp[X]['A']</code></strong>：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/shadow1.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/shadow1.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>为什么这样可以呢？因为：既然 <code>j</code> 这边已经确定字符 “A” 无法推进状态，<strong>只能回退</strong>，而且 KMP 就是要<strong>尽可能少的回退</strong>，以免多余的计算。那么 <code>j</code> 就可以去问问和自己具有相同前缀的 <code>X</code>，如果 <code>X</code> 遇见 “A” 可以进行「状态推进」，那就转移过去，因为这样回退最少。</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/A.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/A.gif" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>当然，如果遇到的字符是 “B”，状态 <code>X</code> 也不能进行「状态推进」，只能回退，<code>j</code> 只要跟着 <code>X</code> 指引的方向回退就行了：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/shadow2.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/shadow2.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>你也许会问，这个 <code>X</code> 怎么知道遇到字符 “B” 要回退到状态 0 呢？因为 <code>X</code> 永远跟在 <code>j</code> 的身后，状态 <code>X</code> 如何转移，在之前就已经算出来了。动态规划算法不就是利用过去的结果解决现在的问题吗？</p>
+<p>这样，我们就细化一下刚才的框架代码：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">int</span> <span class="hljs-string">X</span> <span class="hljs-comment"># 影子状态</span>
+<span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">j</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">M:</span>
+    <span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">c</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">256:</span>
+        <span class="hljs-string">if</span> <span class="hljs-string">c</span> <span class="hljs-string">==</span> <span class="hljs-string">pat[j]:</span>
+            <span class="hljs-comment"># 状态推进</span>
+            <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">j</span> <span class="hljs-string">+</span> <span class="hljs-number">1</span>
+        <span class="hljs-attr">else:</span> 
+            <span class="hljs-comment"># 状态重启</span>
+            <span class="hljs-comment"># 委托 X 计算重启位置</span>
+            <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">dp[X][c]</span></code></pre></div>
+
+<h3 id="四、代码实现"><a href="#四、代码实现" class="headerlink" title="四、代码实现"></a>四、代码实现</h3><p>如果之前的内容你都能理解，恭喜你，现在就剩下一个问题：影子状态 <code>X</code> 是如何得到的呢？下面先直接看完整代码吧。</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">KMP</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span>[][] dp;
+    <span class="hljs-keyword">private</span> String pat;
+
+    <span class="hljs-keyword">public</span> KMP(String pat) {
+        <span class="hljs-keyword">this</span>.pat = pat;
+        <span class="hljs-built_in">int</span> M = pat.length();
+        <span class="hljs-comment">// dp[状态][字符] = 下个状态</span>
+        dp = new <span class="hljs-built_in">int</span>[M][<span class="hljs-number">256</span>];
+        <span class="hljs-comment">// base case</span>
+        dp[<span class="hljs-number">0</span>][pat.charAt(<span class="hljs-number">0</span>)] = <span class="hljs-number">1</span>;
+        <span class="hljs-comment">// 影子状态 X 初始为 0</span>
+        <span class="hljs-built_in">int</span> X = <span class="hljs-number">0</span>;
+        <span class="hljs-comment">// 当前状态 j 从 1 开始</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> j = <span class="hljs-number">1</span>; j &lt; M; j++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> c = <span class="hljs-number">0</span>; c &lt; <span class="hljs-number">256</span>; c++) {
+                <span class="hljs-keyword">if</span> (pat.charAt(j) == c) 
+                    dp[j][c] = j + <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">else</span> 
+                    dp[j][c] = dp[X][c];
+            }
+            <span class="hljs-comment">// 更新影子状态</span>
+            X = dp[X][pat.charAt(j)];
+        }
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> search(String txt) {...}
+}</code></pre></div>
+
+<p>先解释一下这一行代码：</p>
+<div class="hljs"><pre><code class="hljs markdown">// base case
+dp[<span class="hljs-string">0</span>][<span class="hljs-symbol">pat.charAt(0)</span>] = 1;</code></pre></div>
+
+<p>这行代码是 base case，只有遇到 pat[0] 这个字符才能使状态从 0 转移到 1，遇到其它字符的话还是停留在状态 0（Java 默认初始化数组全为 0）。</p>
+<p>影子状态 <code>X</code> 是先初始化为 0，然后随着 <code>j</code> 的前进而不断更新的。下面看看到底应该<strong>如何更新影子状态 <code>X</code></strong>：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> X = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> j = <span class="hljs-number">1</span>; j &lt; M; j++) {
+    ...
+    <span class="hljs-comment">// 更新影子状态</span>
+    <span class="hljs-comment">// 当前是状态 X，遇到字符 pat[j]，</span>
+    <span class="hljs-comment">// pat 应该转移到哪个状态？</span>
+    X = dp[X][pat.charAt(j)];
+}</code></pre></div>
+
+<p>更新 <code>X</code> 其实和 <code>search</code> 函数中更新状态 <code>j</code> 的过程是非常相似的：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) {
+    <span class="hljs-comment">// 当前是状态 j，遇到字符 txt[i]，</span>
+    <span class="hljs-comment">// pat 应该转移到哪个状态？</span>
+    j = dp[j][txt.charAt(i)];
+    ...
+}</code></pre></div>
+
+<p><strong>其中的原理非常微妙</strong>，注意代码中 for 循环的变量初始值，可以这样理解：后者是在 <code>txt</code> 中匹配 <code>pat</code>，前者是在 <code>pat</code> 中匹配 <code>pat[1..end]</code>，状态 <code>X</code> 总是落后状态 <code>j</code> 一个状态，与 <code>j</code> 具有最长的相同前缀。所以我把 <code>X</code> 比喻为影子状态，似乎也有一点贴切。</p>
+<p>另外，构建 dp 数组是根据 base case <code>dp[0][..]</code> 向后推演。这就是我认为 KMP 算法就是一种动态规划算法的原因。</p>
+<p>下面来看一下状态转移图的完整构造过程，你就能理解状态 <code>X</code> 作用之精妙了：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/dfa.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/dfa.gif" srcset="/blog/img/loading.gif" alt="img"></a></p>
+<p>至此，KMP 算法的核心终于写完啦啦啦啦！看下 KMP 算法的完整代码吧：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">KMP</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span>[][] dp;
+    <span class="hljs-keyword">private</span> String pat;
+
+    <span class="hljs-keyword">public</span> KMP(String pat) {
+        <span class="hljs-keyword">this</span>.pat = pat;
+        <span class="hljs-built_in">int</span> M = pat.length();
+        <span class="hljs-comment">// dp[状态][字符] = 下个状态</span>
+        dp = new <span class="hljs-built_in">int</span>[M][<span class="hljs-number">256</span>];
+        <span class="hljs-comment">// base case</span>
+        dp[<span class="hljs-number">0</span>][pat.charAt(<span class="hljs-number">0</span>)] = <span class="hljs-number">1</span>;
+        <span class="hljs-comment">// 影子状态 X 初始为 0</span>
+        <span class="hljs-built_in">int</span> X = <span class="hljs-number">0</span>;
+        <span class="hljs-comment">// 构建状态转移图（稍改的更紧凑了）</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> j = <span class="hljs-number">1</span>; j &lt; M; j++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> c = <span class="hljs-number">0</span>; c &lt; <span class="hljs-number">256</span>; c++)
+                dp[j][c] = dp[X][c];
+            dp[j][pat.charAt(j)] = j + <span class="hljs-number">1</span>;
+            <span class="hljs-comment">// 更新影子状态</span>
+            X = dp[X][pat.charAt(j)];
+        }
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> search(String txt) {
+        <span class="hljs-built_in">int</span> M = pat.length();
+        <span class="hljs-built_in">int</span> N = txt.length();
+        <span class="hljs-comment">// pat 的初始态为 0</span>
+        <span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) {
+            <span class="hljs-comment">// 计算 pat 的下一个状态</span>
+            j = dp[j][txt.charAt(i)];
+            <span class="hljs-comment">// 到达终止态，返回结果</span>
+            <span class="hljs-keyword">if</span> (j == M) <span class="hljs-keyword">return</span> i - M + <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-comment">// 没到达终止态，匹配失败</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+}</code></pre></div>
+
+<p>经过之前的详细举例讲解，你应该可以理解这段代码的含义了，当然你也可以把 KMP 算法写成一个函数。核心代码也就是两个函数中 for 循环的部分，数一下有超过十行吗？</p>
+<h3 id="五、最后总结"><a href="#五、最后总结" class="headerlink" title="五、最后总结"></a>五、最后总结</h3><p>传统的 KMP 算法是使用一个一维数组 <code>next</code> 记录前缀信息，而本文是使用一个二维数组 <code>dp</code> 以状态转移的角度解决字符匹配问题，但是空间复杂度仍然是 O(256M) = O(M)。</p>
+<p>在 <code>pat</code> 匹配 <code>txt</code> 的过程中，只要明确了「当前处在哪个状态」和「遇到的字符是什么」这两个问题，就可以确定应该转移到哪个状态（推进或回退）。</p>
+<p>对于一个模式串 <code>pat</code>，其总共就有 M 个状态，对于 ASCII 字符，总共不会超过 256 种。所以我们就构造一个数组 <code>dp[M][256]</code> 来包含所有情况，并且明确 <code>dp</code> 数组的含义：</p>
+<p><code>dp[j][c] = next</code> 表示，当前是状态 <code>j</code>，遇到了字符 <code>c</code>，应该转移到状态 <code>next</code>。</p>
+<p>明确了其含义，就可以很容易写出 search 函数的代码。</p>
+<p>对于如何构建这个 <code>dp</code> 数组，需要一个辅助状态 <code>X</code>，它永远比当前状态 <code>j</code> 落后一个状态，拥有和 <code>j</code> 最长的相同前缀，我们给它起了个名字叫「影子状态」。</p>
+<p>在构建当前状态 <code>j</code> 的转移方向时，只有字符 <code>pat[j]</code> 才能使状态推进（<code>dp[j][pat[j]] = j+1</code>）；而对于其他字符只能进行状态回退，应该去请教影子状态 <code>X</code> 应该回退到哪里（<code>dp[j][other] = dp[X][other]</code>，其中 <code>other</code> 是除了 <code>pat[j]</code> 之外所有字符）。</p>
+<p>对于影子状态 <code>X</code>，我们把它初始化为 0，并且随着 <code>j</code> 的前进进行更新，更新的方式和 search 过程更新 <code>j</code> 的过程非常相似（<code>X = dp[X][pat[j]]</code>）。</p>
+<p>KMP 算法也就是动态规划那点事，我们的公众号文章目录有一系列专门讲动态规划的，而且都是按照一套框架来的，无非就是描述问题逻辑，明确 <code>dp</code> 数组含义，定义 base case 这点破事。希望这篇文章能让大家对动态规划有更深的理解。</p>
+<p><strong>致力于把算法讲清楚！欢迎关注我的微信公众号 labuladong，查看更多通俗易懂的文章</strong>：</p>
+<p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/labuladong.png" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/labuladong.png" srcset="/blog/img/loading.gif" alt="labuladong"></a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/07/16/%E6%B7%BB%E5%8A%A0GitHub%E7%9A%84starforkwatch%E6%8C%89%E9%92%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">添加GitHub的star/fork/watch按钮</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/07/16/%E9%9F%B3%E4%B9%90%E8%A7%A3%E6%9E%90/">
+                        <span class="hidden-mobile">音乐解析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+
+
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 天气挂件 -->
+<!-- <div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>-->
+  
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "disabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+
+
+
+
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_1278597820" style="display: none"></span>
+    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    
+  </div>
+  
+  
+  
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--宅音乐播放器 https://player.ilt.me/admin-->
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="992f0d81b6b74b93b6bbdb56f57a6c58"></script>
+
+<!--闲聊么http://www.xianliao.me/faq<script>var xlm_wid='15920';var xlm_url='https://www.xianliao.me/';</script><script type="text/javascript" charset="UTF-8" src="https://www.xianliao.me/embed.js"></script>--> 
+ 
+<center>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+
+
+
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle1">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+</div>
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle1", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("06/11/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script><div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&m=2&c=ff0000&cr1=ffffff&f=arial&l=33&z=17&rx=-40&lx=-540&ly=520&hi=60" async="async"></script>
+</center>
+
+<!--cnzz-->
+<center>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</center>
+
+
+  
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/blog/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2020/07/16/KMP-%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "[转]KMP 算法详解&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    var path = "/blog/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+  <script>(function (i, s, o, g, r, a, m) {
+      i['DaoVoiceObject'] = r;
+      i[r] = i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      a.charset = 'utf-8';
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/87b73b33.js", 'daovoice');
+    daovoice('init', {
+      app_id: "87b73b33",
+    });
+    daovoice('update');
+  </script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3ec76546d2bce23889863e13f01a5b5f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1278597820&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
