@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      422 字
+      528 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      7
        分钟
     </span>
   
@@ -216,12 +216,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 分钟前
+                  本文最后更新于：1 个月前
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="MyBatis入门程序"><a href="#MyBatis入门程序" class="headerlink" title="MyBatis入门程序"></a><a href="https://www.cnblogs.com/melodyjerry/p/13346153.html" target="_blank" rel="noopener">MyBatis入门程序</a></h1><h1 id="问题说明"><a href="#问题说明" class="headerlink" title="问题说明"></a>问题说明</h1><p>学习过程中遇到很多问题，记录一下。</p>
+<a id="more"></a>
+
 <h2 id="Maven静态资源过滤问题"><a href="#Maven静态资源过滤问题" class="headerlink" title="Maven静态资源过滤问题"></a>Maven静态资源过滤问题</h2><p><img src="https://s1.ax1x.com/2020/07/19/UWu9VU.png" srcset="/blog/img/loading.gif" alt="UWu9VU.png"></p>
 <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--在build中配置resource，来防止我们资源导出失败的问题--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
@@ -263,6 +265,20 @@
 <p>参考：<a href="https://blog.csdn.net/ziningyihao/article/details/90644295" target="_blank" rel="noopener">https://blog.csdn.net/ziningyihao/article/details/90644295</a></p>
 <h2 id="MySQL驱动-版本问题"><a href="#MySQL驱动-版本问题" class="headerlink" title="MySQL驱动/版本问题"></a>MySQL驱动/版本问题</h2><p>所有的代码都没有问题，但是就是连接不上数据库，经过排查，发现我的MySQL版本是8.0，驱动包是5.1.47，差距太大，不兼容。</p>
 <p>将MySQL降级到5.7.29，问题解决。</p>
+<h2 id="解决Mybatis报错Could-not-find-resource-mybatis-config-xml"><a href="#解决Mybatis报错Could-not-find-resource-mybatis-config-xml" class="headerlink" title="解决Mybatis报错Could not find resource mybatis-config.xml"></a>解决Mybatis报错Could not find resource mybatis-config.xml</h2><p>下午移植远程仓库项目的时候，控制台报错：</p>
+<p><code>java.io.IOException: Could not find resource mybatis-config.xml</code></p>
+<p><img src="https://s1.ax1x.com/2020/07/21/UIg1Yt.png" srcset="/blog/img/loading.gif" alt="UIg1Yt.png"></p>
+<p>经过排查，发现是我没有一直夫工程的<strong><em>pom.xml</em></strong>文件。</p>
+<p>Maven <code>clean</code>清除缓存，然后<code>build</code>，即可。</p>
+<blockquote>
+<p>-<a href="https://www.cnblogs.com/melodyjerry/p/13355190.html" target="_blank" rel="noopener">解决Mybatis报错Could not find resource mybatis-config.xml</a></p>
+</blockquote>
+<h2 id="MyBatis问题解决Error-building-SqlSession"><a href="#MyBatis问题解决Error-building-SqlSession" class="headerlink" title="MyBatis问题解决Error building SqlSession."></a>MyBatis问题解决Error building SqlSession.</h2><p><img src="https://s1.ax1x.com/2020/07/19/UWh0kq.png" srcset="/blog/img/loading.gif" alt="UWh0kq.png"></p>
+<p><strong>解决<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f424.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f424.png?v8">🐤</span></strong></p>
+<p>改为<strong>全类名</strong>：<code>com.melodyhub.pojo.User</code></p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/melodyjerry/p/13355168.html" target="_blank" rel="noopener">MyBatis问题解决Error building SqlSession.</a></p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -291,9 +307,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
-                    
                       <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
                     
                   </div>
                 

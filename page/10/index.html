@@ -171,50 +171,50 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/13/Java%E7%9A%84Collection%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Java集合小抄">
+        <a href="/blog/2020/05/31/Java%E9%98%9F%E5%88%97%E7%9A%84%E9%83%A8%E5%88%86%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Java队列的部分调用方法">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/13/Java%E7%9A%84Collection%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">Java集合小抄</a>
+      <a class="index-header" href="/blog/2020/05/31/Java%E9%98%9F%E5%88%97%E7%9A%84%E9%83%A8%E5%88%86%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">Java队列的部分调用方法</a>
 
-      <a href="/blog/2020/05/13/Java%E7%9A%84Collection%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="index-excerpt">
+      <a href="/blog/2020/05/31/Java%E9%98%9F%E5%88%97%E7%9A%84%E9%83%A8%E5%88%86%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/" class="index-excerpt">
         
         
           
         
-        <div>
-
-常用方法
-boolean add(E e)
+        <div>Java队列的部分调用方法
 
 
-添加元素到Collection集合中。
+方法
+作用
+说明
 
 
-boolean addAll(Collection&lt;? extends E&gt; c)
+
+add()
+增加一个元素
+如果队列已满，则抛出一个IIIegaISlabEepeplian异常
 
 
-将指定c中的所有元素都添加到此Collection集合中。
+remove()
+移除并返回队列头部的元素
+如果队列为空，则抛出一个NoSuchElementException异常
 
 
-void clear()
+element()
+返回队列头部的元素
+如果队列为空，则抛出一个NoSuchElementException异常
 
 
-移除此collection集合中的所有元素
-
-
-boolean contains(Object o)
-
-
-检查</div>
+of</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-13
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-31
           </div>
         
         
@@ -234,31 +234,85 @@ boolean contains(Object o)
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/13/Java%E9%9B%86%E5%90%88%E5%B0%8F%E6%8A%84/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Java集合小抄">
+        <a href="/blog/2020/05/31/%E3%80%90LeetCode%E3%80%91101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】101. 对称二叉树">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/13/Java%E9%9B%86%E5%90%88%E5%B0%8F%E6%8A%84/">Java集合小抄</a>
+      <a class="index-header" href="/blog/2020/05/31/%E3%80%90LeetCode%E3%80%91101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">【LeetCode】101. 对称二叉树</a>
 
-      <a href="/blog/2020/05/13/Java%E9%9B%86%E5%90%88%E5%B0%8F%E6%8A%84/" class="index-excerpt">
+      <a href="/blog/2020/05/31/%E3%80%90LeetCode%E3%80%91101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="index-excerpt">
         
         
           
         
-        <div>Java 集合
-Java集合类是我们在工作中运用最多的、最频繁的类。相比于数组(Array)来说，集合类的长度可变，更加适合于现代开发需求；
+        <div>题目描述给定一个二叉树，检查它是否是镜像对称的。
+例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
 
-Java集合就像一个容器，可以存储任何类型的数据，也可以结合泛型来存储具体的类型对象。
-在程序运行时，Java集合可以动态的进行扩展(动态增容)，随着元素的增加而扩大。在Java中，集合类通常存在于java.util包中。
-Java集合主要由2大体系构成，</div>
+但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
+  1
+ / \
+2   2
+ \   \
+ 3    3
+
+进阶：
+
+你可以运用递归和迭代两种方法解决这个问题吗？
+</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-13
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-31
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/31/Java%20%E9%98%9F%E5%88%97%E7%9A%84add()%E6%96%B9%E6%B3%95%E5%92%8Coffer()%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Java 队列的add()方法和offer()方法的区别">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/31/Java%20%E9%98%9F%E5%88%97%E7%9A%84add()%E6%96%B9%E6%B3%95%E5%92%8Coffer()%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/">Java 队列的add()方法和offer()方法的区别</a>
+
+      <a href="/blog/2020/05/31/Java%20%E9%98%9F%E5%88%97%E7%9A%84add()%E6%96%B9%E6%B3%95%E5%92%8Coffer()%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/" class="index-excerpt">
+        
+        
+          
+        
+        <div>查阅API文档，找到
+add()：增加一个元素。如果队列已满，则抛出一个IIIegaISlabEepeplian异常
+Inserts the specified element at the tail of this queue. As the queue is unbounded, this method will never throw IllegalStateException or ret</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-31
           </div>
         
         
@@ -278,36 +332,27 @@ Java集合主要由2大体系构成，</div>
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/12/%E3%80%90LeetCode%E3%80%91155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】155. 最小栈">
+        <a href="/blog/2020/05/30/%E8%BF%90%E8%A1%8CIDEA%E6%97%B6%E6%8A%A5%E9%94%99Internal%20error/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="运行IDEA时报错Internal error">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/12/%E3%80%90LeetCode%E3%80%91155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/">【LeetCode】155. 最小栈</a>
+      <a class="index-header" href="/blog/2020/05/30/%E8%BF%90%E8%A1%8CIDEA%E6%97%B6%E6%8A%A5%E9%94%99Internal%20error/">运行IDEA时报错Internal error</a>
 
-      <a href="/blog/2020/05/12/%E3%80%90LeetCode%E3%80%91155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/" class="index-excerpt">
+      <a href="/blog/2020/05/30/%E8%BF%90%E8%A1%8CIDEA%E6%97%B6%E6%8A%A5%E9%94%99Internal%20error/" class="index-excerpt">
         
         
           
         
-        <div>题目描述设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
-
-push(x) —— 将元素 x 推入栈中。
-pop() —— 删除栈顶的元素。
-top() —— 获取栈顶元素。
-getMin() —— 检索栈中的最小元素。
-
-示例:
-输入：
-
-[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMi</div>
+        <div>运行IDEA时，报错Internal error
+下面有两种解决办法，优先选择第①种，不行再第②种。我的电脑试了前面两种都不行，所以有了第③种。</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-12
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-30
           </div>
         
         
@@ -315,7 +360,7 @@ getMin() —— 检索栈中的最小元素。
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+              <a href="/blog/tags/IDEA/">IDEA</a>
             
           </div>
         
@@ -327,135 +372,31 @@ getMin() —— 检索栈中的最小元素。
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%87%A0%E7%A7%8Dreturn%E7%9A%84%E5%8C%BA%E5%88%86/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="C语言中几种return的区分">
+        <a href="/blog/2020/05/29/%E3%80%90LeetCode%E3%80%91198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】198. 打家劫舍">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%87%A0%E7%A7%8Dreturn%E7%9A%84%E5%8C%BA%E5%88%86/">C语言中几种return的区分</a>
+      <a class="index-header" href="/blog/2020/05/29/%E3%80%90LeetCode%E3%80%91198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">【LeetCode】198. 打家劫舍</a>
 
-      <a href="/blog/2020/05/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%87%A0%E7%A7%8Dreturn%E7%9A%84%E5%8C%BA%E5%88%86/" class="index-excerpt">
+      <a href="/blog/2020/05/29/%E3%80%90LeetCode%E3%80%91198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" class="index-excerpt">
         
         
           
         
-        <div>return 0;
-
-一般0代表的是正常结束
-
-return -1;
-
--1代表非正常结束
-
-return ;
-
-void 返回是空，void返回值可以什么也不写，可以写return；
-
-return NULL;
-
-如果数据类型是指针类型，那我们一般成功的时候返回相应的地址，失败的时候返回NULL
-
-关于NULL，我这就简单记成 描述地址时用NULL‘清零’，描述数据时 用 0 清零.</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-12
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/12/Stack%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%90%8E%E8%BF%9B%E5%85%88%E5%87%BA%E7%9A%84%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Stack，一个后进先出的集合容器">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/12/Stack%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%90%8E%E8%BF%9B%E5%85%88%E5%87%BA%E7%9A%84%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/">Stack，一个后进先出的集合容器</a>
-
-      <a href="/blog/2020/05/12/Stack%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%90%8E%E8%BF%9B%E5%85%88%E5%87%BA%E7%9A%84%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/" class="index-excerpt">
-        
-        
-          
-        
-        <div>今天刷LC的每日一题时，需要使用到“栈”这种数据结构。就顺便复习了有关“栈”的知识。本文就用C来复习(预习)“Stack”。
-特点Stack，本身就具有数据结构中栈的一般特性：后进先出。
-定义Stack#include&lt;stack&gt;
-stack&lt;typename&gt; name;
-
-栈中元素的访问
-top()
-只能访问其栈顶元素
-通过top()来获取（或遍历）
-
-常用的调用函数</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-12
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/10/%E3%80%90LeetCode%E3%80%91236.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】236. 二叉树的最近公共祖先">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/10/%E3%80%90LeetCode%E3%80%91236.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">【LeetCode】236. 二叉树的最近公共祖先</a>
-
-      <a href="/blog/2020/05/10/%E3%80%90LeetCode%E3%80%91236.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="index-excerpt">
-        
-        
-          
-        
-        <div>题目描述给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
-百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
-例如，给定如下二叉树:  root = [3,5,1,6,2,0,8,null,null,7,4]
+        <div>题目描述你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
 示例 1:
-
-输入: root = [3,5</div>
+输入: [1,2,3,1]
+输出: 4
+解释: 偷窃 1 号房屋 (金额 = 1) </div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-10
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-29
           </div>
         
         
@@ -475,37 +416,83 @@ top()
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="最长递增子序列（LIS）">
+        <a href="/blog/2020/05/29/%E8%A7%A3%E5%86%B3Win10%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E5%92%8C%E6%90%9C%E7%B4%A2%E6%A1%86%E6%8C%A1%E9%87%8D%E5%8F%A0%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】198. 打家劫舍">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/">最长递增子序列（LIS）</a>
+      <a class="index-header" href="/blog/2020/05/29/%E8%A7%A3%E5%86%B3Win10%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E5%92%8C%E6%90%9C%E7%B4%A2%E6%A1%86%E6%8C%A1%E9%87%8D%E5%8F%A0%E7%9A%84%E9%97%AE%E9%A2%98/">【LeetCode】198. 打家劫舍</a>
 
-      <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/" class="index-excerpt">
+      <a href="/blog/2020/05/29/%E8%A7%A3%E5%86%B3Win10%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E5%92%8C%E6%90%9C%E7%B4%A2%E6%A1%86%E6%8C%A1%E9%87%8D%E5%8F%A0%E7%9A%84%E9%97%AE%E9%A2%98/" class="index-excerpt">
+        
+        
+          
+        
+        <div>题目描述你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+示例 1:
+输入: [1,2,3,1]
+输出: 4
+解释: 偷窃 1 号房屋 (金额 = 1) </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-29
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/27/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E5%B0%8F%E7%81%AB%E7%AE%AD/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="自定义返回顶部小火箭">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/27/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E5%B0%8F%E7%81%AB%E7%AE%AD/">自定义返回顶部小火箭</a>
+
+      <a href="/blog/2020/05/27/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E5%B0%8F%E7%81%AB%E7%AE%AD/" class="index-excerpt">
         
         
           
         
         <div>
 
-代码/**
- * @Classname LIS
- * @Description 最长递增子序列（LIS）
- * @Date 2020/5/9 下午 9:09
- * @Created by jerry
- */
-public class LIS {
-    public static int LIS(int[] nums) {
-        if(nums.length &lt;= 1){
-  </div>
+&lt;!--自定义返回顶部小火箭--&gt;
+&lt;style&gt;
+#back-top {
+     position: fixed;
+     bottom: 10px;
+     right: 5px;
+     z-index: 99;
+}
+#back-top span {
+     width: 50px;
+     height: 64px;
+     display: bl</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-27
           </div>
         
         
@@ -513,155 +500,135 @@ public class LIS {
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】69. x 的平方根">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">【LeetCode】69. x 的平方根</a>
-
-      <a href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="index-excerpt">
-        
-        
-          
-        
-        <div>这是今天”每日一题”的题目，等级是简单。不过，确实耐人寻味。最简单的方法就是采用JAVA的Math类库的方法
-但是这样做，还有什么意义呢，是吧？
-
-# 题目描述
-
-实现 `int sqrt(int x)` 函数。
-
-计算并返回 x 的平方根，其中 x 是非负整数。
-
-由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
-
-示例 1:
-&gt; 输入: 4
-&gt; 输出: 2
-
-示例 2:</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="最长公共子序列（LCS）">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/">最长公共子序列（LCS）</a>
-
-      <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/" class="index-excerpt">
-        
-        
-          
-        
-        <div>
-
-代码#include&lt;stdio.h&gt;
-#include&lt;stdlib.h&gt; 
-#include&lt;math.h&gt;
-
-using namespace std;
-const int MAX = 100;
-const int  m = 7, n = 6;
-int C[MAX][MAX];    // C[i][j]：Xi和Yj的LCS长度 
-int X[m] = </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="博客园写随笔时用数学公式">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">博客园写随笔时用数学公式</a>
-
-      <a href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" class="index-excerpt">
-        
-        
-          
-        
-        <div>插入公式在开启后你就可以使用LATEX格式的公式了
-行内公式使用如下格式书写，公式使用$包裹：
-二元一次方程的判别式：$\Delta=b^2-4ac$
-编译结果为：二元一次方程的判别式：$\Delta=b^2-4ac$
-陈列(独立)公式使用如下格式书写，公式使用$$包裹：
-二元一次方程的判别式：$$\Delta=b^2-4ac$$
-编译结果为：二元一次方程的判别式：$$\Delta=b^2-4ac</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
+              <a href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
             
               <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+            
+              <a href="/blog/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/27/%5B%E8%BD%AC%5D%E5%9C%A8%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%A6%96%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="[转]在博客页首添加搜索功能">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/27/%5B%E8%BD%AC%5D%E5%9C%A8%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%A6%96%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">[转]在博客页首添加搜索功能</a>
+
+      <a href="/blog/2020/05/27/%5B%E8%BD%AC%5D%E5%9C%A8%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%A6%96%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/" class="index-excerpt">
+        
+        
+          
+        
+        <div>原文链接：https://www.cnblogs.com/hardrock/archive/2008/01/26/1054281.html</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-27
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+            
+              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/27/%E4%B8%BACSDN%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E6%A0%8F%E7%9B%AE/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="为CSDN博客添加站内搜索栏目">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/27/%E4%B8%BACSDN%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E6%A0%8F%E7%9B%AE/">为CSDN博客添加站内搜索栏目</a>
+
+      <a href="/blog/2020/05/27/%E4%B8%BACSDN%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E6%A0%8F%E7%9B%AE/" class="index-excerpt">
+        
+        
+          
+        
+        <div>栏目代码
+&lt;div id="panel_Search"&gt;
+        &lt;img src="http://img.blog.csdn.net/20170719024744725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva3hwOTU0NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA=</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-27
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+            
+              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/27/Win10%20%E6%B2%89%E6%B5%B8%E5%BC%8F%E6%90%9C%E7%B4%A2%E6%A1%86%E5%B1%85%E4%B8%AD%E6%98%BE%E7%A4%BA/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Win10 沉浸式搜索框居中显示">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/27/Win10%20%E6%B2%89%E6%B5%B8%E5%BC%8F%E6%90%9C%E7%B4%A2%E6%A1%86%E5%B1%85%E4%B8%AD%E6%98%BE%E7%A4%BA/">Win10 沉浸式搜索框居中显示</a>
+
+      <a href="/blog/2020/05/27/Win10%20%E6%B2%89%E6%B5%B8%E5%BC%8F%E6%90%9C%E7%B4%A2%E6%A1%86%E5%B1%85%E4%B8%AD%E6%98%BE%E7%A4%BA/" class="index-excerpt">
+        
+        
+          
+        
+        <div>Windows 10 沉浸式搜索栏居中显示设置，可直接对注册表进行修改从而实现。导入注册表，重启 Windows 资源管理器即可。然后使用 Win + S 快捷键即可看到沉浸式搜索栏已在屏幕中央进行居中显示，复制下方命令，粘贴在记事本中，另存为 修改.reg 后双击运行导入使用。
+</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-27
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
             
           </div>
         
@@ -673,7 +640,7 @@ int X[m] = </div>
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/page/9/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/blog/page/11/">11</a><a class="page-number" href="/blog/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/25/">25</a><a class="extend next" rel="next" href="/blog/page/11/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/blog/page/9/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/blog/page/11/">11</a><a class="page-number" href="/blog/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/28/">28</a><a class="extend next" rel="next" href="/blog/page/11/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

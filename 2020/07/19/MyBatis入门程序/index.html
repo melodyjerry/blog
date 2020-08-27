@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      3k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      28
+      41
        分钟
     </span>
   
@@ -216,12 +216,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：25 分钟前
+                  本文最后更新于：1 个月前
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="思路流程"><a href="#思路流程" class="headerlink" title="思路流程"></a>思路流程</h1><p><strong>搭建环境–&gt;导入Mybatis—&gt;编写代码—&gt;测试</strong></p>
+<a id="more"></a>
+
 <h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><h2 id="1、搭建实验数据库"><a href="#1、搭建实验数据库" class="headerlink" title="1、搭建实验数据库"></a>1、搭建实验数据库</h2><div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-string">`mybatis`</span>;
 
 <span class="hljs-keyword">USE</span> <span class="hljs-string">`mybatis`</span>;
@@ -551,7 +553,28 @@ PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</s
 <p>参考：<a href="https://blog.csdn.net/ziningyihao/article/details/90644295" target="_blank" rel="noopener">https://blog.csdn.net/ziningyihao/article/details/90644295</a></p>
 <h2 id="MySQL驱动-版本问题"><a href="#MySQL驱动-版本问题" class="headerlink" title="MySQL驱动/版本问题"></a>MySQL驱动/版本问题</h2><p>所有的代码都没有问题，但是就是连接不上数据库，经过排查，发现我的MySQL版本是8.0，驱动包是5.1.47，差距太大，不兼容。</p>
 <p>将MySQL降级到5.7.29，问题解决。</p>
-<script>
+<h1 id="特别要点"><a href="#特别要点" class="headerlink" title="特别要点"></a>特别要点</h1><h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p><strong>提示</strong> <strong>对命名空间的一点补充</strong></p>
+<p>在之前版本的 MyBatis 中，<strong>命名空间（Namespaces）</strong>的作用并不大，是可选的。 <strong><em>但现在，随着命名空间越发重要，<font size="5" color="red">你必须指定命名空间。</font></em></strong></p>
+<p>命名空间的作用有两个，<strong>一个是利用更长的全限定名来将不同的语句隔离开来，同时也实现了你上面见到的接口绑定。</strong>就算你觉得暂时用不到接口绑定，你也应该遵循这里的规定，以防哪天你改变了主意。 长远来看，只要将命名空间置于合适的 Java 包命名空间之中，你的代码会变得更加整洁，也有利于你更方便地使用 MyBatis。</p>
+<p><strong>命名解析：</strong>为了减少输入量，MyBatis 对所有具有名称的配置元素（包括语句，结果映射，缓存等）使用了如下的命名解析规则。</p>
+<h3 id="全限定名"><a href="#全限定名" class="headerlink" title="全限定名"></a>全限定名</h3><p><strong><em>（比如 “com.mypackage.MyMapper.selectAllThings）</em></strong>将被直接用于查找及使用。</p>
+<h3 id="短名称"><a href="#短名称" class="headerlink" title="短名称"></a>短名称</h3><p><strong><em>（比如 “selectAllThings”）</em></strong>如果全局唯一也可以作为一个单独的引用。 如果不唯一，有两个或两个以上的相同名称（比如 “com.foo.selectAllThings” 和 “com.bar.selectAllThings”），那么使用时就会产生“短名称不唯一”的错误，这种情况下就必须使用全限定名。</p>
+<h2 id="作用域（Scope）和生命周期"><a href="#作用域（Scope）和生命周期" class="headerlink" title="作用域（Scope）和生命周期"></a>作用域（Scope）和生命周期</h2><p>理解我们之前讨论过的不同作用域和生命周期类别是至关重要的，因为错误的使用会导致非常严重的并发问题。</p>
+<p><strong><em>作用域：SqlSessionFactoryBuilder –&gt;SqlSessionFactory –&gt;SqlSession</em></strong></p>
+<h3 id="提示-对象生命周期和依赖注入框架"><a href="#提示-对象生命周期和依赖注入框架" class="headerlink" title="提示 对象生命周期和依赖注入框架"></a>提示 对象生命周期和依赖注入框架</h3><p>依赖注入框架可以创建线程安全的、基于事务的 SqlSession 和映射器，并将它们直接注入到你的 bean 中，因此可以直接忽略它们的生命周期。 如果对如何通过依赖注入框架使用 MyBatis 感兴趣，可以研究一下 MyBatis-Spring 或 MyBatis-Guice 两个子项目。</p>
+<h3 id="SqlSessionFactoryBuilder"><a href="#SqlSessionFactoryBuilder" class="headerlink" title="SqlSessionFactoryBuilder"></a>SqlSessionFactoryBuilder</h3><p>这个类可以被实例化、使用和丢弃，<strong>一旦创建了 SqlSessionFactory，就不再需要它了（经常地就封装到工具类中）。</strong> 因此 SqlSessionFactoryBuilder 实例的最佳作用域是方法作用域（也就是局部方法变量）。 你可以重用 SqlSessionFactoryBuilder 来创建多个 SqlSessionFactory 实例，但最好还是不要一直保留着它，以保证所有的 XML 解析资源可以被释放给更重要的事情。</p>
+<h3 id="SqlSessionFactory"><a href="#SqlSessionFactory" class="headerlink" title="SqlSessionFactory"></a>SqlSessionFactory</h3><p><strong>SqlSessionFactory 一旦被创建就应该在应用的运行期间一直存在</strong>，没有任何理由丢弃它或重新创建另一个实例。 使用 SqlSessionFactory 的最佳实践是在应用运行期间不要重复创建多次，多次重建 SqlSessionFactory 被视为一种代码“坏习惯”。因此 SqlSessionFactory 的最佳作用域是应用作用域。 有很多方法可以做到，<strong>最简单的就是使用单例模式或者静态单例模式。</strong></p>
+<h3 id="SqlSession"><a href="#SqlSession" class="headerlink" title="SqlSession"></a>SqlSession</h3><p>每个线程都应该有它自己的 SqlSession 实例。<strong>SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。</strong> 绝对不能将 SqlSession 实例的引用放在一个类的静态域，甚至一个类的实例变量也不行。 也绝不能将 SqlSession 实例的引用放在任何类型的托管作用域中，比如 Servlet 框架中的 HttpSession。 如果你现在正在使用一种 Web 框架，考虑将 SqlSession 放在一个和 HTTP 请求相似的作用域中。 换句话说，<strong>每次收到 HTTP 请求，就可以打开一个 SqlSession，返回一个响应后，就关闭它。</strong> <font size="5" color="red">这个关闭操作很重要，为了确保每次都能执行关闭操作，你应该把这个关闭操作放到 finally 块中。</font> 下面的示例就是一个确保 SqlSession 关闭的标准模式：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (SqlSession session = sqlSessionFactory.openSession()) {
+  <span class="hljs-comment">// 你的应用逻辑代码</span>
+}</code></pre></div>
+
+<p>在所有代码中都遵循这种使用模式，可以保证所有数据库资源都能被正确地关闭。</p>
+<h3 id="映射器实例"><a href="#映射器实例" class="headerlink" title="映射器实例"></a>映射器实例</h3><p>映射器是一些绑定映射语句的接口。映射器接口的实例是从 SqlSession 中获得的。虽然从技术层面上来讲，任何映射器实例的最大作用域与请求它们的 SqlSession 相同。但方法作用域才是映射器实例的最合适的作用域。 也就是说，映射器实例应该在调用它们的方法中被获取，使用完毕之后即可丢弃。 映射器实例并不需要被显式地关闭。尽管在整个请求作用域保留映射器实例不会有什么问题，但是你很快会发现，在这个作用域上管理太多像 SqlSession 的资源会让你忙不过来。 因此，最好将映射器放在方法作用域内。就像下面的例子一样：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (SqlSession session = sqlSessionFactory.openSession()) {
+  BlogMapper mapper = session.getMapper(BlogMapper<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+  <span class="hljs-comment">// 你的应用逻辑代码</span>
+}</code></pre></div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -579,9 +602,9 @@ PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</s
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
-                    
                       <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
                     
                   </div>
                 

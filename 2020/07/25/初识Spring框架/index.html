@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#b9b9b9">
+  <meta name="description" content="">
+  <meta name="author" content="Melody Jerry">
+  <meta name="keywords" content="">
+  <title>初识Spring框架 - MelodyHub</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/blog/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/blog/atom.xml" title="MelodyHub" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>MelodyHub</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-25 00:00">
+      2020年7月25日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      84
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2 天前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p><font color="red" size="5"><strong>Spring是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器（框架）。</strong></font></p>
+<p><strong><em>Spring : 春天 —&gt; 给软件行业带来了春天</em></strong></p>
+<blockquote>
+<p>2002年，<code>Rod Jahnson</code>首次推出了<code>Spring</code>框架雏形<code>interface21</code>框架。</p>
+<p>2004年3月24日，Spring框架以interface21框架为基础，经过重新设计，发布了1.0正式版。</p>
+<p>很难想象Rod Johnson的学历 , 他是悉尼大学的博士，然而他的专业不是计算机，而是音乐学。</p>
+</blockquote>
+<h2 id="理念"><a href="#理念" class="headerlink" title="理念"></a>理念</h2><p>使现有技术更加实用 . 本身就是一个大杂烩 , 整合现有的框架技术</p>
+<h2 id="官网-amp-文档-amp-下载"><a href="#官网-amp-文档-amp-下载" class="headerlink" title="官网&amp;文档&amp;下载"></a>官网&amp;文档&amp;下载</h2><p>官网 : <a href="http://spring.io/" target="_blank" rel="noopener">http://spring.io/</a></p>
+<p>官方下载地址 : <a href="https://repo.spring.io/libs-release-local/org/springframework/spring/" target="_blank" rel="noopener">https://repo.spring.io/libs-release-local/org/springframework/spring/</a></p>
+<p>GitHub : <a href="https://github.com/spring-projects" target="_blank" rel="noopener">https://github.com/spring-projects</a></p>
+<p><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html" target="_blank" rel="noopener">Spring 官方文档</a></p>
+<p><a href="https://www.docs4dev.com/docs/zh/spring-framework/5.1.3.RELEASE/reference" target="_blank" rel="noopener">Spring 中文文档</a></p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.2.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre></div>
+
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p><font color="red"><strong>Spring是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器（框架）。</strong></font></p>
+<ul>
+<li>Spring是一个<strong><em>开源的免费的框架（容器）！！！</em></strong></li>
+<li>Spring是一个<strong><em>轻量级的、非侵入式的框架！！！</em></strong></li>
+<li><font color="red" size="5"><strong>控制反转 IoC  , 面向切面 Aop</strong></font><font color="red">（面试经常问到）</font></li>
+<li>支持对事务的处理 </li>
+<li>支持对框架的整合</li>
+</ul>
+<blockquote>
+<p>Spring框架是一种非侵入式的轻量级框架——摘自《Spring框架技术》</p>
+<ol>
+<li>非侵入式的技术体现</li>
+</ol>
+<ul>
+<li>允许在应用系统中自由选择和组装Spring框架的各个功能模块，并且不强制要求应用系统的类必须从Spring框架的系统API的某个类来继承或者实现某个接口。</li>
+</ul>
+<ol start="2">
+<li>如何实现非侵入式的设计目标的</li>
+</ol>
+<ul>
+<li>1）应用反射机制，通过动态调用的方式来提供各方面的功能，建立核心组间BeanFactory</li>
+<li>2）配合使用Spring框架中的BeanWrapper和BeanFactory组件类最终达到对象的实例创建和属性注入</li>
+<li>3）优点：允许所开发出来的应用系统能够在不用的环境中自由移植，不需要修改应用系统中的核心功能实现的代码</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><p><img src="https://s1.ax1x.com/2020/07/25/aSiH3R.png" srcset="/blog/img/loading.gif" alt="aSiH3R.png"></p>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul>
+<li><p>现代化的Java开发（即，基于Spring的开发）！！！</p>
+</li>
+<li><p>Spring Boot</p>
+</li>
+<li><p>Spring Cloud</p>
+</li>
+</ul>
+<blockquote>
+<p>现在大多数公司都在使用SpringBoot进行快速开发。</p>
+</blockquote>
+<blockquote>
+<p>承上启下：学习SpringBoot的前提，是完全掌握Spring以及SpringMVC！！！</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/25/aSFuCj.png" srcset="/blog/img/loading.gif" alt="aSFuCj.png"></p>
+<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><ul>
+<li>Spring Boot 是 Spring 的一套快速配置脚手架</li>
+<li>可以基于Spring Boot 快速开发单个微服务</li>
+<li>Spring Boot专注于快速、方便集成的单个微服务个体</li>
+<li>Spring Boot使用了约束优于配置的理念，很多集成方案已经帮你选择好了，能不配置就不配置</li>
+</ul>
+<h4 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h4><ul>
+<li><strong><em>发展太久了，违背了原来的理念！！！</em></strong></li>
+<li><strong><em>配置十分繁琐，人称“配置地狱”！！！</em></strong></li>
+</ul>
+<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><ul>
+<li>Spring Cloud是基于Spring Boot实现的</li>
+<li>Spring Cloud关注全局的服务治理框架</li>
+<li>Spring Cloud很大的一部分是基于Spring Boot来实现，Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系</li>
+<li>SpringBoot在SpringClound中起到了承上启下的作用，如果你要学习SpringCloud必须要学习SpringBoot</li>
+</ul>
+<h1 id="IoC-理论推导"><a href="#IoC-理论推导" class="headerlink" title="IoC 理论推导"></a>IoC 理论推导</h1><ol>
+<li>UserDao 接口</li>
+<li>UserDaoImpl 实现类</li>
+<li>UserService 业务接口</li>
+<li>UserServiceImpl 业务实现类</li>
+</ol>
+<h2 id="原来的实现"><a href="#原来的实现" class="headerlink" title="原来的实现"></a>原来的实现</h2><p>1、先写一个UserDao接口</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserDao</span> </span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span></span>;
+}</code></pre></div>
+
+<p>2、再去写Dao的实现类</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDao</span> </span>{
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
+       System.out.println(<span class="hljs-string">"获取用户数据"</span>);
+  }
+}</code></pre></div>
+
+<p>3、然后去写UserService的接口</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserService</span> </span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span></span>;
+}</code></pre></div>
+
+<p>4、最后写Service的实现类</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserService</span> </span>{
+   <span class="hljs-keyword">private</span> UserDao userDao = <span class="hljs-keyword">new</span> UserDaoImpl();
+
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
+       userDao.getUser();
+  }
+}</code></pre></div>
+
+<p>5、测试一下</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
+   UserService service = <span class="hljs-keyword">new</span> UserServiceImpl();
+   service.getUser();
+}</code></pre></div>
+
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>这是我们原来的方式 , 开始大家也都是这么去写的对吧 . 那我们现在修改一下 .</p>
+<p>把Userdao的实现类增加一个 .</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoMySqlImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDao</span> </span>{
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
+       System.out.println(<span class="hljs-string">"MySql获取用户数据"</span>);
+  }
+}</code></pre></div>
+
+<p>紧接着我们要去使用MySql的话 , 我们就需要去service实现类里面修改对应的实现</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserService</span> </span>{
+   <span class="hljs-keyword">private</span> UserDao userDao = <span class="hljs-keyword">new</span> UserDaoMySqlImpl();
+
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
+       userDao.getUser();
+  }
+}</code></pre></div>
+
+<p>在假设, 我们再增加一个Userdao的实现类 .</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoOracleImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDao</span> </span>{
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
+       System.out.println(<span class="hljs-string">"Oracle获取用户数据"</span>);
+  }
+}</code></pre></div>
+
+<p><strong>那么我们要使用Oracle , 又需要去service实现类里面修改对应的实现 .</strong> 假设我们的这种需求非常大 , 这种方式就根本不适用了, 甚至反人类吧 .</p>
+<p><strong><em>用户的需求可能会影响我们原来的代码</em></strong></p>
+<p><strong><em>我们需要根据用户的需求去修改原代码！</em></strong></p>
+<p><strong><em>如果程序代码量十分大，修改一次的成本代价十分昂贵！</em></strong></p>
+<p><strong><em>根据每次变动 , 都需要修改大量代码 !</em></strong></p>
+<p><strong><em>这种设计的耦合性太高了, 牵一发而动全身 !</em></strong></p>
+<h2 id="改进优化"><a href="#改进优化" class="headerlink" title="改进优化"></a>改进优化</h2><p>我们可以在需要用到他的地方 , 不去实现它 , 而是留出一个接口 , 利用一个set接口 , 我们去代码里修改下 :</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserService</span> </span>{
+   <span class="hljs-keyword">private</span> UserDao userDao;
+   <span class="hljs-comment">//利用set实现值的动态注入</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUserDao</span><span class="hljs-params">(UserDao userDao)</span> </span>{
+       <span class="hljs-keyword">this</span>.userDao = userDao;
+  }
+
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
+       userDao.getUser();
+  }
+}</code></pre></div>
+
+<p>现在去我们的测试类里 , 进行测试 ;</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
+   UserServiceImpl service = <span class="hljs-keyword">new</span> UserServiceImpl();
+   service.setUserDao( <span class="hljs-keyword">new</span> UserDaoMySqlImpl() );
+   service.getUser();
+    
+   <span class="hljs-comment">//那我们现在又想用Oracle去实现呢</span>
+   service.setUserDao( <span class="hljs-keyword">new</span> UserDaoOracleImpl() );
+   service.getUser();
+}</code></pre></div>
+
+<p>发现了区别没有？</p>
+<p>他们已经发生了根本性的变化 , 很多地方都不一样了。</p>
+<ul>
+<li>之前，所有东西都是由程序去进行控制创建，控制权在程序员手上！</li>
+<li>现在，使用set注入后，是由我们自行控制创建对象 , 把主动权交给了调用者。程序不再有主动性，而是变成了被动的接收对象。</li>
+<li>程序不用去管怎么创建，怎么实现了。它只负责提供一个接口。</li>
+</ul>
+<p><strong><em>这种思想 , 从本质上解决了问题 , 我们程序员不再去管理对象的创建了 , 更多的去关注业务的实现 . 耦合性大大降低 . 这也就是IOC的原型 !</em></strong></p>
+<h1 id="IoC本质"><a href="#IoC本质" class="headerlink" title="IoC本质"></a>IoC本质</h1><ul>
+<li><strong>控制反转IoC(Inversion of Control)</strong></li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/25/aSWk4A.png" srcset="/blog/img/loading.gif" alt="aSWk4A.png"></p>
+<ul>
+<li><strong>控制反转是一种通过描述（XML或注解）并通过第三方去生产或获取特定对象的方式。在Spring中实现控制反转的是IoC容器，其实现方法是依赖注入（Dependency Injection,DI）。</strong></li>
+<li><strong>是一种设计思想，DI(依赖注入)是实现IoC的一种方法</strong>，也有人认为DI只是IoC的另一种说法。</li>
+</ul>
+<blockquote>
+<p>没有IoC的程序中 , 我们使用面向对象编程 , 对象的创建与对象间的依赖关系完全硬编码在程序中，<strong>对象的创建由程序自己控制，控制反转后将对象的创建转移给第三方</strong>，个人认为<strong><em>所谓控制反转就是：获得依赖对象的方式反转了。</em></strong></p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/25/aSWNuT.png" srcset="/blog/img/loading.gif" alt="aSWNuT.png"></p>
+<h1 id="Spring和IoC的关系"><a href="#Spring和IoC的关系" class="headerlink" title="Spring和IoC的关系"></a>Spring和IoC的关系</h1><ul>
+<li><strong>IoC是Spring框架的核心内容</strong>，使用多种方式完美的实现了IoC：<ul>
+<li>①可以使用XML配置</li>
+<li>②也可以使用注解</li>
+<li>③新版本的Spring也可以零配置实现IoC（即自动装配）。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Spring容器在初始化时先读取配置文件，</p>
+<p>根据配置文件或元数据创建与组织对象存入容器中，</p>
+<p>程序使用时再从Ioc容器中取出需要的对象。</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/25/aShKYj.png" srcset="/blog/img/loading.gif" alt="aShKYj.png"></p>
+<ul>
+<li>采用XML方式配置Bean的时候，<strong>Bean的定义信息是和实现分离的</strong></li>
+<li>而采用注解的方式可以把两者合为一体，<strong>Bean的定义信息直接以注解的形式定义在实现类中</strong>，从而达到了<strong><em>零配置</em></strong>的目的。</li>
+</ul>
+<h1 id="HelloSpring入门程序"><a href="#HelloSpring入门程序" class="headerlink" title="HelloSpring入门程序"></a>HelloSpring入门程序</h1><h2 id="①基础环境"><a href="#①基础环境" class="headerlink" title="①基础环境"></a>①基础环境</h2><ul>
+<li>JDK ：12</li>
+<li>Spring：5.2.7</li>
+<li>Junit：4.12</li>
+<li>IDEA：2020.1.2</li>
+</ul>
+<h2 id="②导入jar包"><a href="#②导入jar包" class="headerlink" title="②导入jar包"></a>②导入jar包</h2><blockquote>
+<p>注 : spring 需要导入commons-logging进行日志记录 . 我们利用maven , 他会自动下载对应的依赖项 </p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.2.7.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre></div>
+
+<h2 id="③编写代码"><a href="#③编写代码" class="headerlink" title="③编写代码"></a>③编写代码</h2><p>1、编写一个Hello实体类</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melodyhub.pojo;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hello</span> </span>{
+    <span class="hljs-keyword">private</span> String name;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello{"</span> +
+                <span class="hljs-string">"name='"</span> + name + <span class="hljs-string">'\''</span> +
+                <span class="hljs-string">'}'</span>;
+    }
+}</code></pre></div>
+
+<p>2、编写我们的spring文件 , 这里我们命名为beans.xml</p>
+<div class="hljs"><pre><code class="hljs java">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;
+&lt;beans xmlns=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span>
+       xmlns:xsi=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       xsi:schemaLocation=<span class="hljs-string">"http://www.springframework.org/schema/beans</span>
+<span class="hljs-string">        https://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;
+
+    &lt;!--使用Spring来创建对象，在Spring中这些都成为bean
+    类型 变量名 = <span class="hljs-keyword">new</span> 类型();
+    Hello hello = <span class="hljs-keyword">new</span> Hello();
+
+    id = 变量名
+    <span class="hljs-class"><span class="hljs-keyword">class</span> </span>= <span class="hljs-keyword">new</span> 的对象
+    property 相当于给对象中的属性赋值
+        
+     注意: 这里的name并不是属性 , 而是set方法后面的那部分 , 首字母小写。
+     引用另外一个bean , 不是用value, 而是用 ref 。
+
+    &lt;bean id=<span class="hljs-string">"..."</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"..."</span>&gt;
+        &amp;lt;!&amp;ndash; collaborators and configuration <span class="hljs-keyword">for</span> <span class="hljs-keyword">this</span> bean go here &amp;ndash;&amp;gt;
+    &lt;/bean&gt;--&gt;
+
+    &lt;!--bean就是java对象, 在Spring中都成为Bean，由Spring创建和管理--&gt;
+    &lt;bean id=<span class="hljs-string">"hello"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"com.melodyhub.pojo.Hello"</span>&gt;
+        &lt;property name=<span class="hljs-string">"str"</span> value=<span class="hljs-string">"Spring"</span>/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--注意: 
+       这里的name并不是属性 , 而是set方法后面的那部分 , 首字母小写。
+       ref:引用Spring容器中创建好的对象。引用另外一个bean , 不是用value, 而是用ref。
+        value：具体的值，基本数据类型！
+     --&gt;
+        
+    &lt;!-- more bean definitions go here --&gt;
+
+&lt;/beans&gt;</code></pre></div>
+
+<p>3、我们可以去进行测试了</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.melodyhub.pojo.Hello;
+<span class="hljs-keyword">import</span> org.springframework.context.ApplicationContext;
+<span class="hljs-keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">//获取Spring的上下文对象</span>
+        <span class="hljs-comment">//解析beans.xml文件,生成管理相应的Bean对象</span>
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"beans.xml"</span>);
+        <span class="hljs-comment">//我们的对象现在在Spring中创建和管理了</span>
+        <span class="hljs-comment">//要使用对象，直接去Spring中取出来就可以了</span>
+        <span class="hljs-comment">//getBean:参数即为spring配置文件中bean的id</span>
+        Hello hello = (Hello) context.getBean(<span class="hljs-string">"hello"</span>);
+        System.out.println(hello.toString());
+    }
+}</code></pre></div>
+
+
+
+<h1 id="入门踩坑"><a href="#入门踩坑" class="headerlink" title="入门踩坑"></a>入门踩坑</h1><h2 id="JDK8不兼容Spring4-x以下版本"><a href="#JDK8不兼容Spring4-x以下版本" class="headerlink" title="JDK8不兼容Spring4.x以下版本"></a>JDK8不兼容Spring4.x以下版本</h2><p>入门三天，我一直被这控制台一片红苦恼着。</p>
+<p>在视频的评论区中没有解决，上论坛上也没有解决。</p>
+<p><img src="https://s1.ax1x.com/2020/07/28/ak2CAf.png" srcset="/blog/img/loading.gif" alt="ak2CAf.png"></p>
+<p>详细报错：</p>
+<div class="hljs"><pre><code class="hljs java">org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+信息: Loading XML bean definitions from class path resource [beans.xml]
+Exception in thread <span class="hljs-string">"main"</span> java.lang.NoSuchMethodError: org.springframework.core.annotation.AnnotationUtils.clearCache()V
+	at org.springframework.context.support.AbstractApplicationContext.resetCommonCaches(AbstractApplicationContext.java:<span class="hljs-number">924</span>)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:<span class="hljs-number">575</span>)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:<span class="hljs-number">144</span>)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:<span class="hljs-number">85</span>)
+	at MyTest.main(MyTest.java:<span class="hljs-number">13</span>)</code></pre></div>
+
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>知道我无意间看到这个！！！</p>
+<p><img src="https://s1.ax1x.com/2020/07/28/akWkOs.png" srcset="/blog/img/loading.gif" alt="akWkOs.png"></p>
+<p>Ctrl+Shift+Alt+S，进入项目设置，更换项目的JDK版本为8以上，我选择的是JDK12：</p>
+<p><img src="https://s1.ax1x.com/2020/07/28/akhxT1.png" srcset="/blog/img/loading.gif" alt="akhxT1.png"></p>
+<p>如果以上设置还法子解决，那可能还需要再修改<code>spring-study.iml</code>文件：</p>
+<p><img src="https://s1.ax1x.com/2020/07/28/akof3V.png" srcset="/blog/img/loading.gif" alt="akof3V.png"></p>
+<h2 id="不支持发行版本5-或-Compilation-failed-internal-java-compiler-error"><a href="#不支持发行版本5-或-Compilation-failed-internal-java-compiler-error" class="headerlink" title="不支持发行版本5 或 Compilation failed: internal java compiler error"></a>不支持发行版本5 或 Compilation failed: internal java compiler error</h2><p>提示</p>
+<p><code>Error: java: 错误: 不支持发行版本 5</code></p>
+<p>或</p>
+<p> ``Error: java: 错误: Compilation failed: internal java compiler error`</p>
+<p><img src="https://s1.ax1x.com/2020/07/28/akLyHU.png" srcset="/blog/img/loading.gif" alt="akLyHU.png"></p>
+<p><strong>分析：</strong></p>
+<p>导致这个错误的原因主要是因为JDK版本问题，此处有两个原因，一个是编译版本不匹配，一个是当前项目JDK版本不支持。我的是编译器版本的问题。</p>
+<p><strong>解决：</strong></p>
+<p>Ctrl+Alt+S，进入IDEA设置，Compiler中设置Java编译器的版本。</p>
+<blockquote>
+<p>解决来源：<a href="https://blog.csdn.net/wo541075754/article/details/82119860" target="_blank" rel="noopener">https://blog.csdn.net/wo541075754/article/details/82119860</a></p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/27/aFEbQO.png" srcset="/blog/img/loading.gif" alt="aFEbQO.png"></p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><h2 id="Hello对象是谁创建的？"><a href="#Hello对象是谁创建的？" class="headerlink" title="Hello对象是谁创建的？"></a>Hello对象是谁创建的？</h2><p>Hello<strong>对象是由<code>Spring</code>创建的</strong></p>
+<h2 id="Hello对象的属性是怎么设置的？"><a href="#Hello对象的属性是怎么设置的？" class="headerlink" title="Hello对象的属性是怎么设置的？"></a>Hello对象的属性是怎么设置的？</h2><p>Hello<strong>对象的属性是由<code>Spring</code>容器设置的</strong></p>
+<h2 id="这个过程就叫控制反转"><a href="#这个过程就叫控制反转" class="headerlink" title="这个过程就叫控制反转"></a>这个过程就叫控制反转</h2><ul>
+<li><p>控制 : 谁来控制对象的创建 , 传统应用程序的对象是由程序本身控制创建的 , 使用<code>Spring</code>后 , 对象是由<code>Spring</code>来创建的</p>
+</li>
+<li><p>反转 : 程序本身不创建对象 , 而变成被动的接收对象</p>
+</li>
+<li><p>依赖注入(DI) : 就是利用<code>set</code>方法来进行注入的</p>
+</li>
+</ul>
+<p><font color="red" size="5">IOC是一种编程思想，由主动的编程变成被动的接收</font></p>
+<p>可以通过<code>newClassPathXmlApplicationContext</code>去浏览一下底层源码</p>
+<p><strong>OK , 到了现在 , 我们彻底不用再程序中去改动了 , 要实现不同的操作 , 只需要在<code>xml</code>配置文件中进行修改 , 所谓的<code>IoC</code>,一句话搞定 : 对象由<code>Spring</code>来创建 , 管理 , 装配 !</strong></p>
+<h1 id="IoC创建对象的方式"><a href="#IoC创建对象的方式" class="headerlink" title="IoC创建对象的方式"></a>IoC创建对象的方式</h1><h2 id="一、默认：使用无参构造创建对象"><a href="#一、默认：使用无参构造创建对象" class="headerlink" title="一、默认：使用无参构造创建对象"></a>一、默认：使用无参构造创建对象</h2><p><font color="red">Spring中默认：使用无参构造创建对象</font> </p>
+<p><a href="#构造器注入">传送门：依赖注入-构造器</a></p>
+<h2 id="二、使用有参构造创建对象"><a href="#二、使用有参构造创建对象" class="headerlink" title="二、使用有参构造创建对象"></a>二、使用有参构造创建对象</h2><ol>
+<li>通过 <font color="red">下标</font> 赋值</li>
+<li>通过 <font color="red">类型</font> 赋值</li>
+<li>直接通过 <font color="red">属性名</font> 赋值</li>
+</ol>
+<h3 id="1-下标赋值"><a href="#1-下标赋值" class="headerlink" title="1.下标赋值"></a>1.下标赋值</h3><div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--第1种方式：下标赋值--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.User"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--&lt;property name="name" value="MelodyJerry"/&gt;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"下标赋值：MeloduHub-MelodyJerry"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+
+
+<h3 id="2-类型赋值"><a href="#2-类型赋值" class="headerlink" title="2.类型赋值"></a>2.类型赋值</h3><div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--第2种方式：类型赋值--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.User"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"java.lang.String"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"类型赋值：MeloduHub-MelodyJerry"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+
+
+<h3 id="3-直接通过属性名赋值"><a href="#3-直接通过属性名赋值" class="headerlink" title="3.直接通过属性名赋值"></a>3.直接通过属性名赋值</h3><div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--第3种方式：直接通过属性值实现赋值--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.User"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nmae"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"直接通过属性值实现赋值：MeloduHub-MelodyJerry"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+<h1 id="总结：在Spring配置文件加载-即创建Bean-时，容器中管理的对象就已经被初始化-实例化了，而且内存中只有1份实例！"><a href="#总结：在Spring配置文件加载-即创建Bean-时，容器中管理的对象就已经被初始化-实例化了，而且内存中只有1份实例！" class="headerlink" title="总结：在Spring配置文件加载(即创建Bean)时，容器中管理的对象就已经被初始化/实例化了，而且内存中只有1份实例！"></a>总结：在Spring配置文件加载(即创建Bean)时，容器中管理的对象就已经被初始化/实例化了，而且内存中只有1份实例！</h1><p>UserTwo.java中：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTwo</span> </span>{
+    <span class="hljs-keyword">private</span> String name;
+
+    <span class="hljs-comment">//必须要有无参构造子，没有就会报错！！！</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserTwo</span><span class="hljs-params">()</span></span>{
+        System.out.println(<span class="hljs-string">"UserTwo被创建了！！！"</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span>{
+        System.out.println(<span class="hljs-string">"name = "</span> + name);
+    }
+}</code></pre></div>
+
+<p>beans.xml文件中：</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Spring创建Bean的时候就实例化对象--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"userTwo"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.UserTwo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+<p>MyTest.java中：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"beans.xml"</span>);
+        User user = (User) context.getBean(<span class="hljs-string">"user"</span>);
+        User user2 = (User) context.getBean(<span class="hljs-string">"user"</span>);
+        <span class="hljs-comment">//user.show();</span>
+        System.out.println(user == user2);
+    }
+}</code></pre></div>
+
+<p>控制台输出：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">UserTwo被创建了！！！</span>
+<span class="hljs-literal">true</span></code></pre></div>
+
+<h1 id="Spring的xml配置文件说明"><a href="#Spring的xml配置文件说明" class="headerlink" title="Spring的xml配置文件说明"></a>Spring的xml配置文件说明</h1><h2 id="alias：别名"><a href="#alias：别名" class="headerlink" title="alias：别名"></a>alias：别名</h2><ul>
+<li>如果增加了别名，我们也可以通过别名获取到这个对象！</li>
+</ul>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>为user增加别名：woshibieming</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.User"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nmae"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"直接通过属性值实现赋值：MeloduHub-MelodyJerry"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--alias:别名.如果增加了别名,我们也可以通过别名获取到这个对象--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">alias</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">alias</span>=<span class="hljs-string">"woshibieming"</span>/&gt;</span></code></pre></div>
+<p>修改getBean中的参数：woshibieming</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"beans.xml"</span>);
+        User user = (User) context.getBean(<span class="hljs-string">"woshibieming"</span>);
+        user.show();
+    }
+}</code></pre></div>
+
+<h2 id="bean标签的配置"><a href="#bean标签的配置" class="headerlink" title="bean标签的配置"></a>bean标签的配置</h2><ul>
+<li><code>id</code>：<strong>bean的唯一标识符</strong>，也就是相当于我们学的对象名</li>
+<li><code>class</code>：bean对象所对应的<strong>全限定名：包名+类名</strong></li>
+<li><code>name</code>：<strong>也是别名，而且name可以同时取多个别名</strong><ul>
+<li>分隔符：<em>逗号、空格、分号</em></li>
+</ul>
+</li>
+<li><code>autowire</code>：自动导入</li>
+<li><code>scope</code>：作用域。默认singleton(单例模式)，可选prototype(原型模式)、request、session、globalsession。更多详见：<a href="https://www.jianshu.com/p/852eae3b08d4" target="_blank" rel="noopener">spring常用注解-@Scope</a>、<a href="https://blog.csdn.net/w_linux/article/details/80069039" target="_blank" rel="noopener">Spring Bean的scope(作用域)</a></li>
+</ul>
+<h3 id="Demo-1"><a href="#Demo-1" class="headerlink" title="Demo"></a>Demo</h3><p>测试bean标签的配置，并同时设置多个别名：two、u2、u3、u4</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"userTwo"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.UserTwo"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"two u2,u3;u4"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"测试bean标签的配置，并同时设置多个别名：two、u2、u3、u4"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+<p>修改getBean中的参数：u3</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"beans.xml"</span>);
+        UserTwo user = (UserTwo) context.getBean(<span class="hljs-string">"u3"</span>);
+        user.show();
+    }
+}</code></pre></div>
+
+<p>控制台输出：</p>
+<div class="hljs"><pre><code class="hljs makefile">UserTwo被创建了！！！
+name = 测试bean标签的配置，并同时设置多个别名：two、u2、u3、u4</code></pre></div>
+
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><ul>
+<li><strong>一般用于团队开发使用</strong>，<code>import</code>可以<strong>将多个配置文件，导入合并为一个。</strong></li>
+<li>而且，<strong><em>相同 <code>id</code>的对象的属性也会被合并到一起！！！</em></strong></li>
+</ul>
+<h3 id="Demo-2"><a href="#Demo-2" class="headerlink" title="Demo"></a>Demo</h3><p>假设现在项目中有多个人开发，张三（beans.xml）、李四（beans2.xml）、王五（beans3.xml），这三个人负责不同的类开发，不同的类需要注册在不同的bean中，我们可以利用import将所有人的beans.xml合并为一个总的applicationContext.xml！</p>
+<ul>
+<li><p>张三（beans.xml）</p>
+</li>
+<li><p>李四（beans2.xml）</p>
+</li>
+<li><p>王五（beans3.xml）</p>
+</li>
+<li><p>applicationContext.xml</p>
+</li>
+</ul>
+<blockquote>
+<p>新建applicationContext.xml文件，在IDEA的编辑区的右上角会看到蓝色的<font color="#4d84f5">Configure application contex</font>，单击并合并到原先的beans.xml中去</p>
+</blockquote>
+<p>但是现在要合并到applicationContext.xml，使用的时候，直接使用总的配置就可以了👇</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">"beans.xml"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">"beans2.xml"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">"beans3.xml"</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+
+<p><font size="6">当然</font> <strong>也可以在<code>ClassPathXmlApplicationContext</code>中直接获取多个配置文件</strong>👇</p>
+<div class="hljs"><pre><code class="hljs java">ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"beans.xml"</span>,<span class="hljs-string">"beans2.xml"</span>,<span class="hljs-string">"beans3.xml"</span>);
+<span class="hljs-comment">//ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");</span></code></pre></div>
+
+<p>现在来看看对象的属性的合并，修改Bean2.xml、bean3.xml中user的别名</p>
+<p><img src="https://s1.ax1x.com/2020/07/29/ae0btS.png" srcset="/blog/img/loading.gif" alt="ae0btS.png"></p>
+<p>MyTest中修改getBean的参数为：u8</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+<span class="hljs-comment">//        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml","beans2.xml","beans3.xml");</span>
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"applicationContext.xml"</span>);
+        UserTwo user = (UserTwo) context.getBean(<span class="hljs-string">"u8"</span>);
+        user.show();
+    }
+}</code></pre></div>
+
+<p>控制台输出：</p>
+<div class="hljs"><pre><code class="hljs makefile">UserTwo被创建了！！！
+name = 测试bean标签的配置，并同时设置多个别名：two、u2、u3、u8</code></pre></div>
+
+<p><font size="6" color="red">总结</font> </p>
+<ul>
+<li><p><code>import</code>可以<strong>将多个配置文件，导入合并为一个。</strong></p>
+</li>
+<li><p>而且，<strong><em>相同 <code>id</code>的对象的属性也会被合并到一起！！！</em></strong></p>
+</li>
+</ul>
+<h1 id="依赖注入（DI）"><a href="#依赖注入（DI）" class="headerlink" title="依赖注入（DI）"></a>依赖注入（DI）</h1><ul>
+<li><strong><em>依赖注入</em></strong>：<code>Dependency Injection</code>，简称<code>DI</code></li>
+<li><font color="red">依赖注入(DI)是控制反转(IoC)的一种方式。</font></li>
+<li>官方文档：<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-dependencies" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-dependencies</a></li>
+<li>拥有三种依赖注入的方式<ul>
+<li>构造器（构造方法）注入</li>
+<li><strong>Setter方式注入【重点】</strong></li>
+<li>接口注入</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>更多详见：<a href="https://www.cnblogs.com/levontor/p/11040029.html" target="_blank" rel="noopener">三种依赖注入的方式</a></p>
+</blockquote>
+<p><img src="https://img2018.cnblogs.com/blog/1415873/201906/1415873-20190617152335658-1740051719.png" srcset="/blog/img/loading.gif" alt="img"></p>
+<p><img src="https://img2018.cnblogs.com/blog/1415873/201906/1415873-20190617152621891-763019643.png" srcset="/blog/img/loading.gif" alt="img"></p>
+<h2 id="构造器注入"><a href="#构造器注入" class="headerlink" title="构造器注入"></a>构造器注入</h2><p><a href="#IoC创建对象的方式">传送门：IoC创建对象的方式</a></p>
+<h2 id="Setter方式注入【重点】"><a href="#Setter方式注入【重点】" class="headerlink" title="Setter方式注入【重点】"></a>Setter方式注入【重点】</h2><ul>
+<li>依赖注入：Set注入！<ul>
+<li>依赖：bean对象的创建依赖于容器！</li>
+<li>注入：bean对象中的所有属性，由容器来注入！</li>
+</ul>
+</li>
+</ul>
+<h3 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h3><ol>
+<li>复杂类型</li>
+</ol>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Address</span> </span>{
+    <span class="hljs-keyword">private</span> String address;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getAddress</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> address;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAddress</span><span class="hljs-params">(String address)</span> </span>{
+        <span class="hljs-keyword">this</span>.address = address;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"Address{"</span> +
+                <span class="hljs-string">"address='"</span> + address + <span class="hljs-string">'\''</span> +
+                <span class="hljs-string">'}'</span>;
+    }
+}</code></pre></div>
+
+<ol start="2">
+<li>真是测试对象</li>
+</ol>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melodyhub.pojo;
+
+<span class="hljs-keyword">import</span> java.util.*;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> Address address;
+    <span class="hljs-keyword">private</span> String[] books;
+    <span class="hljs-keyword">private</span> List&lt;String&gt; hobbys;
+    <span class="hljs-keyword">private</span> Map&lt;String, String &gt; card;
+    <span class="hljs-keyword">private</span> Set&lt;String&gt; games;
+    <span class="hljs-keyword">private</span> String wife;
+    <span class="hljs-keyword">private</span> Properties info;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Address <span class="hljs-title">getAddress</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> address;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAddress</span><span class="hljs-params">(Address address)</span> </span>{
+        <span class="hljs-keyword">this</span>.address = address;
+    }
+
+    <span class="hljs-keyword">public</span> String[] getBooks() {
+        <span class="hljs-keyword">return</span> books;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setBooks</span><span class="hljs-params">(String[] books)</span> </span>{
+        <span class="hljs-keyword">this</span>.books = books;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">getHobbys</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> hobbys;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setHobbys</span><span class="hljs-params">(List&lt;String&gt; hobbys)</span> </span>{
+        <span class="hljs-keyword">this</span>.hobbys = hobbys;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, String&gt; <span class="hljs-title">getCard</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> card;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCard</span><span class="hljs-params">(Map&lt;String, String&gt; card)</span> </span>{
+        <span class="hljs-keyword">this</span>.card = card;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Set&lt;String&gt; <span class="hljs-title">getGames</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> games;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setGames</span><span class="hljs-params">(Set&lt;String&gt; games)</span> </span>{
+        <span class="hljs-keyword">this</span>.games = games;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getWife</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> wife;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setWife</span><span class="hljs-params">(String wife)</span> </span>{
+        <span class="hljs-keyword">this</span>.wife = wife;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Properties <span class="hljs-title">getInfo</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> info;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setInfo</span><span class="hljs-params">(Properties info)</span> </span>{
+        <span class="hljs-keyword">this</span>.info = info;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"Student{"</span> +
+                <span class="hljs-string">"name='"</span> + name + <span class="hljs-string">'\''</span> +
+                <span class="hljs-string">", address="</span> + address.toString() +
+                <span class="hljs-string">", books="</span> + Arrays.toString(books) +
+                <span class="hljs-string">", hobbys="</span> + hobbys +
+                <span class="hljs-string">", card="</span> + card +
+                <span class="hljs-string">", games="</span> + games +
+                <span class="hljs-string">", wife='"</span> + wife + <span class="hljs-string">'\''</span> +
+                <span class="hljs-string">", info="</span> + info +
+                <span class="hljs-string">'}'</span>;
+    }
+}</code></pre></div>
+
+<ol start="3">
+<li>beans.xml</li>
+</ol>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"student"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.Student"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--第一种：普通值注入，value--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"MelodyJerry"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+
+<ol start="4">
+<li>测试类</li>
+</ol>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"beans.xml"</span>);
+        Student student = (Student) context.getBean(<span class="hljs-string">"student"</span>);
+        System.out.println(student.toString());
+    }
+}</code></pre></div>
+
+<ol start="5">
+<li>完善注入信息</li>
+</ol>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"address"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.Address"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"student"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.Student"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--第一种：普通值注入，value--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"MelodyJerry"</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--第二种：Bean注入，ref--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"address"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"address"</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--数组注入--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"books"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>西游记<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>三国演义<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>红楼梦<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>水浒传<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--List注入--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hobbys"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">list</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>听歌<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>打球<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>跑步<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>学习<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">list</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--Map注入--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"card"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">map</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"身份证"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1234567890"</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"银行卡"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2364101"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">map</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--Set注入--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"games"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">set</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>王者荣耀<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>LOL<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--NULL注入--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"wife"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">null</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--Property注入--&gt;</span>
+    <span class="hljs-comment">&lt;!--</span>
+<span class="hljs-comment">        &lt;prop key="键"&gt;值&lt;/prop&gt;</span>
+<span class="hljs-comment">    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"info"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">props</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"性别"</span>&gt;</span>男<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"年龄"</span>&gt;</span>21<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"身高"</span>&gt;</span>186cm<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">props</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+
+
+<h2 id="扩展方式注入"><a href="#扩展方式注入" class="headerlink" title="扩展方式注入"></a>扩展方式注入</h2><p>官方文档:<br><img src="https://s1.ax1x.com/2020/08/25/dcazwQ.png" srcset="/blog/img/loading.gif" alt="dcazwQ.png"></p>
+<h3 id="p-命名空间注入"><a href="#p-命名空间注入" class="headerlink" title="p-命名空间注入"></a>p-命名空间注入</h3><ul>
+<li><p><code>p</code>：<code>property</code></p>
+<blockquote>
+<p>The p-namespace lets you use the <code>bean</code>element’s attributes (instead of nested <code>&lt;property/&gt;</code> elements) to describe your property values collaborating beans, or both.</p>
+</blockquote>
+</li>
+<li><p>必须导入：</p>
+</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml">xmlns:p="http://www.springframework.org/schema/p"</code></pre></div>
+
+<h3 id="c-命名空间注入"><a href="#c-命名空间注入" class="headerlink" title="c-命名空间注入"></a>c-命名空间注入</h3><ul>
+<li><code>c</code>：<code>constructor-arg</code></li>
+<li><strong>类中必须存在  <em>有参构造器</em></strong></li>
+</ul>
+<blockquote>
+<p>Similar to the <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-p-namespace" target="_blank" rel="noopener">XML Shortcut with the p-namespace</a>, the c-namespace, introduced in Spring 3.1, allows inlined attributes for configuring the constructor arguments rather then nested <code>constructor-arg</code> elements.</p>
+</blockquote>
+<ul>
+<li>必须导入：</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml">xmlns:c="http://www.springframework.org/schema/c"</code></pre></div>
+
+<h3 id="Demo-3"><a href="#Demo-3" class="headerlink" title="Demo"></a>Demo</h3><ol>
+<li>User.java</li>
+</ol>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melodyhub.pojo;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">(String name, <span class="hljs-keyword">int</span> age)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.age = age;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">()</span> </span>{
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> age;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age)</span> </span>{
+        <span class="hljs-keyword">this</span>.age = age;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"User{"</span> +
+                <span class="hljs-string">"name='"</span> + name + <span class="hljs-string">'\''</span> +
+                <span class="hljs-string">", age="</span> + age +
+                <span class="hljs-string">'}'</span>;
+    }
+}</code></pre></div>
+
+<ol start="2">
+<li>userbeans.xml</li>
+</ol>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xmlns:p</span>=<span class="hljs-string">"http://www.springframework.org/schema/p"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xmlns:c</span>=<span class="hljs-string">"http://www.springframework.org/schema/c"</span></span>
+<span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--p命名空间注入，可以直接注入属性的值。property--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.User"</span> <span class="hljs-attr">p:age</span>=<span class="hljs-string">"21"</span> <span class="hljs-attr">p:name</span>=<span class="hljs-string">"MelodyJerry"</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!--c命名空间注入，可以通过构造器注入属性的值。constructor-arg--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.melodyhub.pojo.User"</span> <span class="hljs-attr">c:age</span>=<span class="hljs-string">"18"</span> <span class="hljs-attr">c:name</span>=<span class="hljs-string">"Jerry"</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+
+<ol start="3">
+<li>MyTest.java</li>
+</ol>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>{
+        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"userbeans.xml"</span>);
+        User user = context.getBean(<span class="hljs-string">"user"</span>,User<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+        User user2 = context.getBean(<span class="hljs-string">"user2"</span>,User<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+        System.out.println(user);
+        System.out.println(user2);
+    }</code></pre></div>
+
+<h3 id="重点注意"><a href="#重点注意" class="headerlink" title="重点注意"></a>重点注意</h3><ul>
+<li><p>使用前，必须导入对应的xml约束：<code>xmlns:p</code>或<code>xmlns:c</code></p>
+</li>
+<li><p>使用<strong>c-命名空间</strong>的前提：<strong>类中必须存在有参构造器</strong></p>
+</li>
+<li><p><strong>同时</strong>使用p命名空间、c命名空间<strong>：类中必须存在</strong> <font color="red">无参构造器、有参构造器</font></p>
+</li>
+</ul>
+<h1 id="Bean作用域"><a href="#Bean作用域" class="headerlink" title="Bean作用域"></a>Bean作用域</h1><p>官方文档：<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes" target="_blank" rel="noopener">Bean Scopes</a></p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"beanname"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.linjie.Bean"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"prototype"</span>/&gt;</span></code></pre></div>
+<ul>
+<li><strong>singleton（重点）</strong></li>
+<li><strong>prototype（重点）</strong></li>
+<li>request</li>
+<li>session</li>
+<li>application</li>
+<li>websocket</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Scope</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes-singleton" target="_blank" rel="noopener">singleton</a><br>单例模式</td>
+<td align="left">(Spring默认使用singleton)<br> 每一个Spring容器中，一个Bean定义只有一个对象实例<br><img src="https://s1.ax1x.com/2020/08/25/dcL4oD.png" srcset="/blog/img/loading.gif" alt="dcL4oD.png"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes-prototype" target="_blank" rel="noopener">prototype</a><br>原型模式</td>
+<td align="left">允许Bean的定义可以被实例化任意次<br>（每次调用都创建一个实例）<br><img src="https://s1.ax1x.com/2020/08/25/dcLHSA.png" srcset="/blog/img/loading.gif" alt="dcLHSA.png"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes-request" target="_blank" rel="noopener">request</a></td>
+<td align="left">一次HTTP请求中，每个Bean定义对应一个实例，该作用域仅在基于Web的Spring上下文（例如SpringMVC）中才有效</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes-session" target="_blank" rel="noopener">session</a></td>
+<td align="left">在一个HTTP Session中，每个Bean定义对应一个实例。该作用域仅在基于Web的Spring上下文（例如SpringMVC）中才有效</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes-application" target="_blank" rel="noopener">application</a></td>
+<td align="left">Scopes a single bean definition to the lifecycle of a <code>ServletContext</code>.该作用域仅在基于Web的Spring上下文（例如SpringMVC）中才有效</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#websocket-stomp-websocket-scope" target="_blank" rel="noopener">websocket</a></td>
+<td align="left">Scopes a single bean definition to the lifecycle of a <code>WebSocket</code>. 该作用域仅在基于Web的Spring上下文（例如SpringMVC）中才有效</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>更多参考：</p>
+<p><a href="https://www.jianshu.com/p/852eae3b08d4" target="_blank" rel="noopener">Spring Bean的scope(作用域)</a></p>
+<p><a href="https://www.jianshu.com/p/852eae3b08d4" target="_blank" rel="noopener">spring常用注解-@Scope</a></p>
+</blockquote>
+<h2 id="singleton-单例模式"><a href="#singleton-单例模式" class="headerlink" title="singleton 单例模式"></a>singleton 单例模式</h2><ul>
+<li>Spring模式机制</li>
+<li>并发开发中可能存在问题</li>
+<li>一般在单线程中会使用</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- the following is equivalent, though redundant (singleton scope is the default) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accountService"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.something.DefaultAccountService"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"singleton"</span>/&gt;</span></code></pre></div>
+
+<p><img src="https://s1.ax1x.com/2020/08/25/dcL4oD.png" srcset="/blog/img/loading.gif" alt="dcL4oD.png"></p>
+<h2 id="prototype-原型模式"><a href="#prototype-原型模式" class="headerlink" title="prototype 原型模式"></a>prototype 原型模式</h2><ul>
+<li>每次从容器中get的时候，都产生一个新对象！</li>
+<li>特别浪费资源</li>
+<li>一般在多线程中会使用</li>
+</ul>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accountService"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.something.DefaultAccountService"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"prototype"</span>/&gt;</span></code></pre></div>
+
+<p><img src="https://s1.ax1x.com/2020/08/25/dcLHSA.png" srcset="/blog/img/loading.gif" alt="dcLHSA.png"></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>其余的request、session、application这些只能在web开发中使用！</li>
+<li>一般，单线程使用singleton，多线程使用prototype</li>
+</ul>
+<h1 id="Spring其他一些细节"><a href="#Spring其他一些细节" class="headerlink" title="Spring其他一些细节"></a>Spring其他一些细节</h1><h2 id="bean标签的使用"><a href="#bean标签的使用" class="headerlink" title="bean标签的使用"></a>bean标签的使用</h2><h4 id="①"><a href="#①" class="headerlink" title="①"></a>①</h4><p>改进Spring的程序，加上beans.xml配置：<br><img src="https://s1.ax1x.com/2020/07/28/aEmroF.png" srcset="/blog/img/loading.gif" alt="aEmroF.png"><br><img src="https://s1.ax1x.com/2020/07/28/aEmRQ1.png" srcset="/blog/img/loading.gif" alt="aEmRQ1.png"></p>
+<h4 id="②"><a href="#②" class="headerlink" title="②"></a>②</h4><p>Spring创建Bean的时候就实例化对象</p>
+<h2 id="ApplicationContext-getBean"><a href="#ApplicationContext-getBean" class="headerlink" title="ApplicationContext.getBean()"></a>ApplicationContext.getBean()</h2><p><img src="https://s1.ax1x.com/2020/08/25/d2ZCDK.png" srcset="/blog/img/loading.gif" alt="d2ZCDK.png"></p>
+<ul>
+<li><code>getBean(String name)</code></li>
+<li><code>getBean(Class&lt;T&gt; type)</code></li>
+<li><code>getBean(String name,Class&lt;T&gt; type)</code></li>
+<li><code>getBean(String name,Object[] args)</code></li>
+</ul>
+<blockquote>
+<p>更多详见：<a href="https://www.cnblogs.com/jpfss/p/9453763.html" target="_blank" rel="noopener">ApplicationContext之getBean方法详解</a></p>
+</blockquote>
+<h3 id="直接获取所要的、某类型的对象"><a href="#直接获取所要的、某类型的对象" class="headerlink" title="直接获取所要的、某类型的对象"></a>直接获取所要的、某类型的对象</h3><ul>
+<li>调用 <code>getBean(String name,Class&lt;T&gt; type)</code></li>
+</ul>
+<div class="hljs"><pre><code class="hljs java">context.getBean(<span class="hljs-string">"people"</span>, People<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;</code></pre></div>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/JavaWeb/">JavaWeb</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/07/25/Java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AF%A6%E8%A7%A3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java动态代理详解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/07/24/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E9%9B%86%E5%90%88/">
+                        <span class="hidden-mobile">技术文档集合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+
+
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 天气挂件 -->
+<!-- <div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>-->
+  
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "disabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+
+
+
+
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_1278597820" style="display: none"></span>
+    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    
+  </div>
+  
+  
+  
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--宅音乐播放器 https://player.ilt.me/admin-->
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="992f0d81b6b74b93b6bbdb56f57a6c58"></script>
+
+<!--闲聊么http://www.xianliao.me/faq<script>var xlm_wid='15920';var xlm_url='https://www.xianliao.me/';</script><script type="text/javascript" charset="UTF-8" src="https://www.xianliao.me/embed.js"></script>--> 
+ 
+<center>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+
+
+
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle1">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+</div>
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle1", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("06/11/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script><div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&m=2&c=ff0000&cr1=ffffff&f=arial&l=33&z=17&rx=-40&lx=-540&ly=520&hi=60" async="async"></script>
+</center>
+
+<!--cnzz-->
+<center>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</center>
+
+
+  
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/blog/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2020/07/25/%E5%88%9D%E8%AF%86Spring%E6%A1%86%E6%9E%B6/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "初识Spring框架&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    var path = "/blog/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+  <script>(function (i, s, o, g, r, a, m) {
+      i['DaoVoiceObject'] = r;
+      i[r] = i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      a.charset = 'utf-8';
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/87b73b33.js", 'daovoice');
+    daovoice('init', {
+      app_id: "87b73b33",
+    });
+    daovoice('update');
+  </script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3ec76546d2bce23889863e13f01a5b5f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1278597820&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

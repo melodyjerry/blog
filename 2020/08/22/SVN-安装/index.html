@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>Mybatis-Java持久层框架 - MelodyHub</title>
+  <title>SVN 安装 - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -155,8 +155,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-07-11 15:55">
-      2020年7月11日 下午
+    <time datetime="2020-08-22 01:02">
+      2020年8月22日 凌晨
     </time>
   </div>
 
@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      597 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25
+      8
        分钟
     </span>
   
@@ -216,127 +216,77 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 天前
+                  本文最后更新于：5 天前
                 
               </p>
             
             <article class="markdown-body">
-              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><img src="https://s1.ax1x.com/2020/07/15/UwylTK.png" srcset="/blog/img/loading.gif" alt="UwylTK.png"></p>
-<p><code>mybatis</code>是一个优秀的基于<code>java</code>的<strong>持久层框架</strong>，它内部封装了<code>jdbc</code>，使开发者<strong>只需要关注<code>sql</code>语句本身</strong>，而不需要花费精力去处理加载驱动、创建连接、创建<code>statement</code>等繁杂的过程。 </p>
-<blockquote>
-<p><code>mybatis</code>通过<code>xml</code>或注解的方式将要执行的各种<code>statement</code>配置起来，并通过<code>java</code>对象和<code>statement</code>中<code>sql</code>的动态参数进行映射生成最终执行的<code>sql</code>语句，最后由<code>mybatis</code>框架执行<code>sql</code>并将结果映射为<code>java</code>对象并返回。 </p>
-</blockquote>
-<p><strong>采用<code>ORM(Object Relational Mapping)</code>思想解决了实体和数据库映射的问题</strong>，<em>对<code>jdbc</code>进行了封装，屏蔽了<code>jdbc api</code>底层访问细节</em>，使我们不用与<code>jdbc api</code>打交道，就可以完成对数据库的持久化操作。</p>
-<a id="more"></a>
-
-<h1 id="持久化？持久层？"><a href="#持久化？持久层？" class="headerlink" title="持久化？持久层？"></a>持久化？持久层？</h1><h4 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h4><blockquote>
-<p><strong>持久化是将程序数据在持久状态和瞬时状态间转换的机制。</strong></p>
-</blockquote>
-<ul>
-<li>即<strong>把数据（如内存中的对象）保存到可永久保存的存储设备中（如磁盘）。</strong>持久化的主要应用是将内存中的对象存储在数据库中，或者存储在磁盘文件中、XML数据文件中等等。</li>
-<li>闪存：<strong>断电即失</strong></li>
-<li><strong>JDBC就是一种持久化机制。文件IO也是一种持久化机制，但IO很浪费资源。</strong></li>
-<li>在生活中 : 将鲜肉冷藏，吃的时候再解冻的方法也是。将水果做成罐头的方法也是。</li>
-</ul>
-<blockquote>
-<p><strong>为什么需要持久化服务呢？那是由于内存本身的缺陷引起的</strong></p>
-</blockquote>
-<ul>
-<li><strong>内存断电后数据会丢失，但有一些对象是无论如何都不能丢失的，比如银行账号等，遗憾的是，人们还无法保证内存永不掉电。</strong></li>
-<li>内存过于昂贵，与硬盘、光盘等外存相比，内存的价格要高2~3个数量级，而且维持成本也高，至少需要一直供电吧。所以即使对象不需要永久保存，也会因为内存的容量限制不能一直呆在内存中，<strong>需要持久化来缓存到外存</strong>。</li>
-</ul>
-<h4 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h4><p><strong>什么是持久层？</strong></p>
-<ul>
-<li><p>完成持久化工作的代码块</p>
-<ul>
-<li><blockquote>
-<p>什么是层？联系dao层 【DAO (Data Access Object)  数据访问对象】</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>大多数情况下特别是企业级应用，数据持久化往往也就意味着将内存中的数据保存到磁盘上加以固化，而持久化的实现过程则大多通过各种<strong>关系数据库</strong>来完成。</p>
-</li>
-<li><p>不过这里有一个字需要特别强调，也就是所谓的“层”。对于应用系统而言，数据持久功能大多是必不可少的组成部分。也就是说，我们的系统中，已经天然的具备了“持久层”概念？也许是，但也许实际情况并非如此。之所以要独立出一个“持久层”的概念,而不是“持久模块”，“持久单元”，也就意味着，我们的系统架构中，应该有一个相对独立的逻辑层面，专注于数据持久化逻辑的实现.</p>
-</li>
-<li><p>与系统其他部分相对而言，这个层面应该具有一个较为清晰和严格的逻辑边界。【说白了就是用来操作数据库存在的！】</p>
-</li>
-</ul>
-<h1 id="为什么需要Mybatis"><a href="#为什么需要Mybatis" class="headerlink" title="为什么需要Mybatis"></a>为什么需要Mybatis</h1><ul>
-<li><p>Mybatis就是帮助程序猿将数据存入数据库中 , 和从数据库中取数据 .</p>
-</li>
-<li><p>传统的jdbc操作 , 有很多重复代码块。比如 : 数据取出时的封装 , 数据库的建立连接等等… , 通过框架可以减少重复代码,提高开发效率 .</p>
-</li>
-<li><p><font color="red" size="5">MyBatis 是一个半自动化的<strong>ORM框架 (Object Relationship Mapping对象关系映射)</strong></font></p>
-</li>
-<li><p>所有的事情，不用Mybatis依旧可以做到，只是用了它，所有实现会更加简单！<strong>技术没有高低之分，只有使用这个技术的人有高低之别</strong></p>
-</li>
-<li><p>MyBatis的优点</p>
-</li>
-<li><ul>
-<li>简单易学：本身就很小且简单。没有任何第三方依赖，最简单安装只要两个jar文件+配置几个sql映射文件就可以了，易于学习，易于使用，通过文档和源代码，可以比较完全的掌握它的设计思路和实现。<ul>
-<li>灵活：mybatis不会对应用程序或者数据库的现有设计强加任何影响。sql写在xml里，便于统一管理和优化。通过sql语句可以满足操作数据库的所有需求。</li>
-<li>解除sql与程序代码的耦合：通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。sql和代码的分离，提高了可维护性。</li>
-<li>提供xml标签，支持编写动态sql。</li>
-<li>…….</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>最重要的一点，使用的人多！公司需要！</strong></p>
-</li>
-</ul>
-<h1 id="什么是-MyBatis？"><a href="#什么是-MyBatis？" class="headerlink" title="什么是 MyBatis？"></a>什么是 MyBatis？</h1><p><img src="https://s1.ax1x.com/2020/07/15/UwsDz9.png" srcset="/blog/img/loading.gif" alt="UwsDz9.png"></p>
-<p>MyBatis 官网：<a href="https://mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/index.html</a></p>
-<blockquote>
-<p>MyBatis 是一款优秀的持久层框架，它<strong>支持自定义 SQL、存储过程以及高级映射。</strong>MyBatis <strong>免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。</strong>MyBatis <em>可以<strong>通过简单的 XML 或注解来配置和映射</strong>原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</em></p>
-</blockquote>
-<ul>
-<li>MyBatis 是一款优秀的<strong>持久层框架</strong></li>
-<li>MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集的过程</li>
-<li>MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 实体类 【Plain Old Java Objects,普通的 Java对象】映射成数据库中的记录。</li>
-<li>MyBatis 本是apache的一个开源项目ibatis, 2010年这个项目由apache 迁移到了google code，并且改名为MyBatis 。</li>
-<li>2013年11月迁移到<strong>Github</strong> .</li>
-<li>Mybatis官方文档 : <a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">http://www.mybatis.org/mybatis-3/zh/index.html</a></li>
-<li>GitHub : <a href="https://github.com/mybatis/mybatis-3" target="_blank" rel="noopener">https://github.com/mybatis/mybatis-3</a></li>
-</ul>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li>简单易学：本身就很小且简单。没有任何第三方依赖，最简单安装只要两个jar文件+配置几个sql映射文件易于学习，易于使用，通过文档和源代码，可以比较完全的掌握它的设计思路和实现。</li>
-<li><strong>灵活：mybatis不会对应用程序或者数据库的现有设计强加任何影响。 sql写在xml里，便于统一管理和优化。通过sql语句可以满足操作数据库的所有需求。</strong></li>
-<li><strong>解除sql与程序代码的耦合</strong>：通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。sql和代码的分离，提高了可维护性。</li>
-<li><strong>提供映射标签</strong>，支持对象与数据库的orm字段关系映射</li>
-<li><strong>提供对象关系映射标签</strong>，支持对象关系组建维护</li>
-<li><strong>提供xml标签</strong>，支持编写动态sql。</li>
-</ul>
-<h2 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h2><p>　　MyBatis 最强大的特性之一就是它的动态语句功能。如果您以前有使用JDBC或者类似框架的经历，您就会明白把SQL语句条件连接在一起是多么的痛苦，要确保不能忘记空格或者不要在columns列后面省略一个逗号等。动态语句能够完全解决掉这些痛苦。<br>　　尽管与动态SQL一起工作不是在开一个party，但是MyBatis确实能通过在任何映射SQL语句中使用强大的动态SQL来改进这些状况。动态SQL元素对于任何使用过JSTL或者类似于XML之类的文本处理器的人来说，都是非常熟悉的。在上一版本中，需要了解和学习非常多的元素，但在MyBatis 3 中有了许多的改进，现在只剩下差不多二分之一的元素。MyBatis使用了基于强大的OGNL表达式来消除了大部分元素。</p>
-<h1 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h1><p><img src="https://s1.ax1x.com/2020/07/15/Uw6K3Q.png" srcset="/blog/img/loading.gif" alt="Uw6K3Q.png"></p>
-<p>我们把Mybatis的功能架构分为三层：</p>
-<ol>
-<li><p>API接口层：提供给外部使用的接口API，开发人员通过这些本地API来操纵数据库。接口层一接收到调用请求就会调用数据处理层来完成具体的数据处理。</p>
-</li>
-<li><p>数据处理层：负责具体的SQL查找、SQL解析、SQL执行和执行结果映射处理等。它主要的目的是根据调用的请求完成一次数据库操作。</p>
-</li>
-<li><p>基础支撑层：负责最基础的功能支撑，包括连接管理、事务管理、配置加载和缓存处理，这些都是共用的东西，将他们抽取出来作为最基础的组件。为上层的数据处理层提供最基础的支撑</p>
-</li>
-</ol>
-<h1 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h1><p>文档入口：<a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/getting-started.html</a></p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
-<li><a href="https://mybatis.org/mybatis-3/zh/index.html#" target="_blank" rel="noopener">简介</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">入门</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/configuration.html" target="_blank" rel="noopener">XML 配置</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/sqlmap-xml.html" target="_blank" rel="noopener">XML 映射文件</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/dynamic-sql.html" target="_blank" rel="noopener">动态 SQL</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/java-api.html" target="_blank" rel="noopener">Java API</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/statement-builders.html" target="_blank" rel="noopener">SQL 语句构建器</a></li>
-</ul>
-<h2 id="项目文档"><a href="#项目文档" class="headerlink" title="项目文档"></a>项目文档</h2><ul>
-<li><a href="https://mybatis.org/mybatis-3/zh/project-info.html" target="_blank" rel="noopener">项目信息</a></li>
-<li><a href="https://mybatis.org/mybatis-3/zh/project-reports.html" target="_blank" rel="noopener">项目报表</a></li>
-</ul>
-<h1 id="MyBatis-入门程序"><a href="#MyBatis-入门程序" class="headerlink" title="MyBatis 入门程序"></a>MyBatis 入门程序</h1><p><strong>思路流程：搭建环境–&gt;导入Mybatis—&gt;编写代码—&gt;测试</strong></p>
-<p>第一个MyBatis程序：<a href="https://www.cnblogs.com/melodyjerry/p/13307057.html" target="_blank" rel="noopener">https://www.cnblogs.com/melodyjerry/p/13307057.html</a></p>
+              <hr>
+<h2 id="在windows下安装-SVN"><a href="#在windows下安装-SVN" class="headerlink" title="在windows下安装 SVN"></a>在windows下安装 SVN</h2><p>1、准备svn的安装文件</p>
+<p>下载地址：<a href="https://sourceforge.net/projects/win32svn/" target="_blank" rel="noopener">https://sourceforge.net/projects/win32svn/</a></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2016/08/svn-windows-install01a.png" srcset="/blog/img/loading.gif" alt="img"></p>
+<p>2、下载完成后，在相应的盘符中会有一个Setup-Subversion-1.8.16.msi的文件，目前最新的版本是1.8.16， 这里就使用这个版本。然后双击安装文件进行安装。我们指定安装在D:\Program Files (x86)\Subversion目录里。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2016/08/svn-windows-install02a.gif" srcset="/blog/img/loading.gif" alt="img"></p>
+<p>3、查看目录结构</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2016/08/windows-install03.png" srcset="/blog/img/loading.gif" alt="img"></p>
+<p>把svn安装目录里的bin目录添加到path路径中，在命令行窗口中输入 svnserve –help ,查看安装正常与否。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2016/08/windows-install02.png" srcset="/blog/img/loading.gif" alt="img"></p>
+<p>至此，windows下的SVN安装完成</p>
 <hr>
-<p>部分文字及图片来自<a href="https://baike.baidu.com/item/MyBatis" target="_blank" rel="noopener">百度百科</a></p>
+<h2 id="在CentOS下安装-SVN"><a href="#在CentOS下安装-SVN" class="headerlink" title="在CentOS下安装 SVN"></a>在CentOS下安装 SVN</h2><p>大多数 GNU/Linux 发行版系统自带了Subversion ，所以它很有可能已经安装在你的系统上了。可以使用下面命令检查是否安装了。</p>
+<div class="hljs"><pre><code class="hljs ada">svn <span class="hljs-comment">--version</span></code></pre></div>
+
+<p>如果 Subversion 客户端没有安装，命令将报告svn命令找不到的错误。</p>
+<div class="hljs"><pre><code class="hljs groovy">[runoob<span class="hljs-meta">@centos</span>6 ~]$ svn --version
+<span class="hljs-string">bash:</span> <span class="hljs-string">svn:</span> command not found</code></pre></div>
+
+<p>我们可以使用 yum install subversion 命令进行安装。</p>
+<div class="hljs"><pre><code class="hljs routeros">[runoob@centos6 root]$ su -
+密码：
+[root@centos6 ~]# yum install subversion
+已加载插件：fastestmirror, security
+设置安装进程
+Loading<span class="hljs-built_in"> mirror </span>speeds <span class="hljs-keyword">from</span> cached hostfile
+ * base: mirrors.aliyun.com
+ * epel: mirrors.neusoft.edu.cn
+ * extras: mirrors.zju.edu.cn
+ * updates: mirrors.aliyun.com
+解决依赖关系
+--&amp;gt; 执行事务检查
+<span class="hljs-built_in">..</span>.</code></pre></div>
+
+<p>安装成功之后，执行 svn –version 命令。</p>
+<div class="hljs"><pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>centos6 ~]# svn --version
+svn，版本 <span class="hljs-number">1.6</span><span class="hljs-number">.11</span> (r934486)
+   编译于 Aug <span class="hljs-number">17</span> <span class="hljs-number">2015</span>，<span class="hljs-number">08</span>:<span class="hljs-number">37</span>:<span class="hljs-number">43</span></code></pre></div>
+
+<p>至此，centos下的SVN安装完成。</p>
+<hr>
+<h2 id="在Ubuntu下安装-SVN"><a href="#在Ubuntu下安装-SVN" class="headerlink" title="在Ubuntu下安装 SVN"></a>在Ubuntu下安装 SVN</h2><p>如果 Subversion 客户端没有安装，命令将报告svn命令找不到的错误。</p>
+<div class="hljs"><pre><code class="hljs livescript">root@runoob:~<span class="hljs-comment"># svn --version</span>
+The program <span class="hljs-string">'svn'</span> <span class="hljs-keyword">is</span> currently <span class="hljs-keyword">not</span> installed. You can install <span class="hljs-literal">it</span> <span class="hljs-keyword">by</span> typing:
+apt-get install subversion</code></pre></div>
+
+<p>我们可以使用 apt-get 命令进行安装</p>
+<div class="hljs"><pre><code class="hljs vim">root@runoo<span class="hljs-variable">b:</span>~# apt-<span class="hljs-built_in">get</span> install subversion
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed <span class="hljs-built_in">and</span> are <span class="hljs-keyword">no</span> longer required:
+  augeas-lenses hiera libaugeas0 libxslt1.<span class="hljs-number">1</span> <span class="hljs-keyword">ruby</span>-augeas <span class="hljs-keyword">ruby</span>-deep-merge <span class="hljs-keyword">ruby</span>-json <span class="hljs-keyword">ruby</span>-nokogiri <span class="hljs-keyword">ruby</span>-rgen <span class="hljs-keyword">ruby</span>-safe-yaml <span class="hljs-keyword">ruby</span>-selinux <span class="hljs-keyword">ruby</span>-shadow
+Use <span class="hljs-string">'apt-get autoremove'</span> <span class="hljs-keyword">to</span> <span class="hljs-built_in">remove</span> them.
+The following extra packages will <span class="hljs-keyword">be</span> installed:
+  libserf-<span class="hljs-number">1</span>-<span class="hljs-number">1</span> libsvn1
+...</code></pre></div>
+
+<p>安装成功之后，执行 svn –version 命令。</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-symbol">root@</span>runoob:~# svn --version
+svn, version <span class="hljs-number">1.8</span><span class="hljs-number">.13</span> (r1667537)
+   compiled Sep  <span class="hljs-number">8</span> <span class="hljs-number">2015</span>, <span class="hljs-number">14</span>:<span class="hljs-number">59</span>:<span class="hljs-number">01</span> on x86_64-pc-linux-gnu</code></pre></div>
+
+<p>至此，Ubuntu下的SVN安装完成。</p>
+<hr>
+<p>来源：菜鸟教程（<a href="https://www.runoob.com/svn/svn-install.html）" target="_blank" rel="noopener">https://www.runoob.com/svn/svn-install.html）</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -365,9 +315,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
+                      <a class="hover-with-bg" href="/blog/tags/%E5%B7%A5%E5%85%B7/">工具</a>
                     
-                      <a class="hover-with-bg" href="/blog/tags/JavaWeb/">JavaWeb</a>
+                      <a class="hover-with-bg" href="/blog/tags/SVN/">SVN</a>
                     
                   </div>
                 
@@ -380,9 +330,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/blog/2020/07/11/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">
+                      <a href="/blog/2020/08/22/SVN%E4%B8%AD%E6%96%87%E7%BD%91%20-%20svn%E5%AE%89%E8%A3%85%E3%80%81svn%E9%83%A8%E7%BD%B2%E3%80%81svn%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Maven项目管理</span>
+                        <span class="hidden-mobile">SVN中文网 - svn安装、svn部署、svn操作手册</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -390,8 +340,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/blog/2020/07/11/Mybatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/">
-                        <span class="hidden-mobile">Mybatis框架概述</span>
+                      <a href="/blog/2020/08/22/SVN-%E7%AE%80%E4%BB%8B/">
+                        <span class="hidden-mobile">SVN 简介</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -836,7 +786,7 @@ setInterval("createtime()",250);
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/blog/2020/07/11/2020-07-11-Mybatis-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/');
+          var target = decodeURI('/blog/2020/08/22/SVN-%E5%AE%89%E8%A3%85/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -930,7 +880,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Mybatis-Java持久层框架&nbsp;",
+        "SVN 安装&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
