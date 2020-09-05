@@ -230,6 +230,25 @@
     
     
     <entry>
+      <title>网易云官方接口免费解析VIP音乐</title>
+      <link href="/blog/2020/08/22/%E7%BD%91%E6%98%93%E4%BA%91%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3%E5%85%8D%E8%B4%B9%E8%A7%A3%E6%9E%90VIP%E9%9F%B3%E4%B9%90/"/>
+      <url>/blog/2020/08/22/%E7%BD%91%E6%98%93%E4%BA%91%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3%E5%85%8D%E8%B4%B9%E8%A7%A3%E6%9E%90VIP%E9%9F%B3%E4%B9%90/</url>
+      
+        <content type="html"><![CDATA[<p>复制歌曲的链接：<a href="https://music.163.com/song?id=496869422&amp;userid=517240734（取song?id）" target="_blank" rel="noopener">https://music.163.com/song?id=496869422&amp;userid=517240734（取song?id）</a></p><p>把后缀ID加入接口访问即可：<a href="http://music.163.com/song/media/outer/url?id=496869422.mp3" target="_blank" rel="noopener">http://music.163.com/song/media/outer/url?id=496869422.mp3</a></p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 小技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>XPath教程</title>
       <link href="/blog/2020/08/21/XPath%E6%95%99%E7%A8%8B/"/>
       <url>/blog/2020/08/21/XPath%E6%95%99%E7%A8%8B/</url>
@@ -557,9 +576,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> Git </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -1308,6 +1327,29 @@
     
     
     <entry>
+      <title>Spring事务失效的 8 大原因</title>
+      <link href="/blog/2020/07/12/Spring%E4%BA%8B%E5%8A%A1%E5%A4%B1%E6%95%88%E7%9A%84-8-%E5%A4%A7%E5%8E%9F%E5%9B%A0/"/>
+      <url>/blog/2020/07/12/Spring%E4%BA%8B%E5%8A%A1%E5%A4%B1%E6%95%88%E7%9A%84-8-%E5%A4%A7%E5%8E%9F%E5%9B%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据库引擎不支持事务"><a href="#数据库引擎不支持事务" class="headerlink" title="数据库引擎不支持事务"></a>数据库引擎不支持事务</h2><p>这里以 <code>MySQL</code> 为例，其 <code>MyISAM</code> 引擎是不支持事务操作的，<code>InnoDB</code> 才是支持事务的引擎，一般要支持事务都会使用 <code>InnoDB</code>。<br>根据 MySQL 的官方文档：</p><blockquote><p><a href="https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html</a></p></blockquote><p>从 MySQL 5.5.5 开始的默认存储引擎是：InnoDB，之前默认的都是：MyISAM，所以这点要值得注意，底层引擎不支持事务再怎么搞都是白搭。</p><h2 id="没有被-Spring-管理"><a href="#没有被-Spring-管理" class="headerlink" title="没有被 Spring 管理"></a>没有被 Spring 管理</h2><p>如下面例子所示：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-comment">// @Service</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>{     <span class="hljs-meta">@Transactional</span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateOrder</span><span class="hljs-params">(Order order)</span> </span>{        <span class="hljs-comment">// update order</span>    } }</code></pre></div><p>如果此时把 <code>@Service</code> 注解注释掉，这个类就不会被加载成一个 Bean，那这个类就不会被 <code>Spring</code> 管理了，事务自然就失效了。</p><h2 id="方法不是-public-的"><a href="#方法不是-public-的" class="headerlink" title="方法不是 public 的"></a>方法不是 public 的</h2><p>以下来自 Spring 官方文档：</p><blockquote><p>When using proxies, you should apply the @Transactional annotation only to methods with public visibility. If you do annotate protected, private or package-visible methods with the @Transactional annotation, no error is raised, but the annotated method does not exhibit the configured transactional settings. Consider the use of AspectJ (see below) if you need to annotate non-public methods.</p></blockquote><p>大概意思就是 <code>@Transactional</code> 只能用于 <code>public</code> 的方法上，否则事务不会失效，如果要用在非 <code>public</code> 方法上，可以开启 <code>AspectJ</code> 代理模式。</p><h2 id="自身调用问题"><a href="#自身调用问题" class="headerlink" title="自身调用问题"></a>自身调用问题</h2><p>来看两个示例：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-meta">@Service</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>{     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Order order)</span> </span>{        updateOrder(order);    }     <span class="hljs-meta">@Transactional</span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateOrder</span><span class="hljs-params">(Order order)</span> </span>{        <span class="hljs-comment">// update order</span>    } }</code></pre></div><p><code>update</code>方法上面没有加 <code>@Transactional</code> 注解，调用有<code>@Transactional</code> 注解的 <code>updateOrder</code> 方法，<code>updateOrder</code> 方法上的事务管用吗？</p><p>再来看下面这个例子：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-meta">@Service</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>{     <span class="hljs-meta">@Transactional</span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Order order)</span> </span>{        updateOrder(order);    }     <span class="hljs-meta">@Transactional</span>(propagation = Propagation.REQUIRES_NEW)    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateOrder</span><span class="hljs-params">(Order order)</span> </span>{        <span class="hljs-comment">// update order</span>    } }</code></pre></div><p>这次在 update 方法上加了 <code>@Transactional</code>，<code>updateOrder</code> 加了 <code>REQUIRES_NEW</code> 新开启一个事务，那么新开的事务管用么？</p><p>这两个例子的答案是：不管用！</p><p>因为它们发生了自身调用，就调该类自己的方法，而没有经过 Spring 的代理类，默认只有在外部调用事务才会生效，这也是老生常谈的经典问题了。</p><p>这个的解决方案之一就是在的类中注入自己，用注入的对象再调用另外一个方法，这个不太优雅，另外一个可行的方案可以参考《Spring 如何在一个事务中开启另一个事务？》这篇文章。</p><h2 id="数据源没有配置事务管理器"><a href="#数据源没有配置事务管理器" class="headerlink" title="数据源没有配置事务管理器"></a>数据源没有配置事务管理器</h2><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-meta">@Bean</span><span class="hljs-function"><span class="hljs-keyword">public</span> PlatformTransactionManager <span class="hljs-title">transactionManager</span><span class="hljs-params">(DataSource dataSource)</span> </span>{    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DataSourceTransactionManager(dataSource);}</code></pre></div><p>如上面所示，当前数据源若没有配置事务管理器，那也是白搭！</p><h2 id="不支持事务"><a href="#不支持事务" class="headerlink" title="不支持事务"></a>不支持事务</h2><p>来看下面这个例子：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-meta">@Service</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>{     <span class="hljs-meta">@Transactional</span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Order order)</span> </span>{        updateOrder(order);    }     <span class="hljs-meta">@Transactional</span>(propagation = Propagation.NOT_SUPPORTED)    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateOrder</span><span class="hljs-params">(Order order)</span> </span>{        <span class="hljs-comment">// update order</span>    } }</code></pre></div><p><strong>Propagation.NOT_SUPPORTED</strong>： 表示不以事务运行，当前若存在事务则挂起，详细的可以参考《事务隔离级别和传播机制》这篇文章。</p><p>都主动不支持以事务方式运行了，那事务生效也是白搭！</p><h2 id="异常被吃了"><a href="#异常被吃了" class="headerlink" title="异常被吃了"></a>异常被吃了</h2><p>这个也是出现比较多的场景：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-comment">// @Service</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>{     <span class="hljs-meta">@Transactional</span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateOrder</span><span class="hljs-params">(Order order)</span> </span>{        <span class="hljs-keyword">try</span> {            <span class="hljs-comment">// update order</span>        } <span class="hljs-keyword">catch</span> {         }    } }</code></pre></div><p>把异常吃了，然后又不抛出来，事务怎么回滚吧！</p><h2 id="异常类型错误"><a href="#异常类型错误" class="headerlink" title="异常类型错误"></a>异常类型错误</h2><p>上面的例子再抛出一个异常：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-comment">// @Service</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>{     <span class="hljs-meta">@Transactional</span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateOrder</span><span class="hljs-params">(Order order)</span> </span>{        <span class="hljs-keyword">try</span> {            <span class="hljs-comment">// update order</span>        } <span class="hljs-keyword">catch</span> {            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">"更新错误"</span>);        }    } }</code></pre></div><p>这样事务也是不生效的，因为默认回滚的是：RuntimeException，如果你想触发其他异常的回滚，需要在注解上配置一下，如：</p><div class="hljs"><pre><code class="hljs JAVA"><span class="hljs-meta">@Transactional</span>(rollbackFor = Exception<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span></code></pre></div><p>这个配置仅限于 Throwable 异常类及其子类。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文总结了八种事务失效的场景，其实发生最多就是自身调用、异常被吃、异常抛出类型不对这三个了。</p><p>也像文章开头说的那样，本文不一定总结得全，只是总结常见的事务失效的场景</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JavaWeb </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> SSM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Maven项目管理</title>
       <link href="/blog/2020/07/11/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
       <url>/blog/2020/07/11/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
@@ -1337,11 +1379,11 @@
     
     
     <entry>
-      <title>Mybatis-Java持久层框架</title>
-      <link href="/blog/2020/07/11/Mybatis-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/"/>
-      <url>/blog/2020/07/11/Mybatis-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/</url>
+      <title>Mybatis框架概述</title>
+      <link href="/blog/2020/07/11/Mybatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/"/>
+      <url>/blog/2020/07/11/Mybatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><img src="https://s1.ax1x.com/2020/07/15/UwylTK.png" srcset="/blog/img/loading.gif" alt="UwylTK.png"></p><p><code>mybatis</code>是一个优秀的基于<code>java</code>的<strong>持久层框架</strong>，它内部封装了<code>jdbc</code>，使开发者<strong>只需要关注<code>sql</code>语句本身</strong>，而不需要花费精力去处理加载驱动、创建连接、创建<code>statement</code>等繁杂的过程。 </p><blockquote><p><code>mybatis</code>通过<code>xml</code>或注解的方式将要执行的各种<code>statement</code>配置起来，并通过<code>java</code>对象和<code>statement</code>中<code>sql</code>的动态参数进行映射生成最终执行的<code>sql</code>语句，最后由<code>mybatis</code>框架执行<code>sql</code>并将结果映射为<code>java</code>对象并返回。 </p></blockquote><p><strong>采用<code>ORM(Object Relational Mapping)</code>思想解决了实体和数据库映射的问题</strong>，<em>对<code>jdbc</code>进行了封装，屏蔽了<code>jdbc api</code>底层访问细节</em>，使我们不用与<code>jdbc api</code>打交道，就可以完成对数据库的持久化操作。</p><a id="more"></a><h1 id="持久化？持久层？"><a href="#持久化？持久层？" class="headerlink" title="持久化？持久层？"></a>持久化？持久层？</h1><h4 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h4><blockquote><p><strong>持久化是将程序数据在持久状态和瞬时状态间转换的机制。</strong></p></blockquote><ul><li>即<strong>把数据（如内存中的对象）保存到可永久保存的存储设备中（如磁盘）。</strong>持久化的主要应用是将内存中的对象存储在数据库中，或者存储在磁盘文件中、XML数据文件中等等。</li><li>闪存：<strong>断电即失</strong></li><li><strong>JDBC就是一种持久化机制。文件IO也是一种持久化机制，但IO很浪费资源。</strong></li><li>在生活中 : 将鲜肉冷藏，吃的时候再解冻的方法也是。将水果做成罐头的方法也是。</li></ul><blockquote><p><strong>为什么需要持久化服务呢？那是由于内存本身的缺陷引起的</strong></p></blockquote><ul><li><strong>内存断电后数据会丢失，但有一些对象是无论如何都不能丢失的，比如银行账号等，遗憾的是，人们还无法保证内存永不掉电。</strong></li><li>内存过于昂贵，与硬盘、光盘等外存相比，内存的价格要高2~3个数量级，而且维持成本也高，至少需要一直供电吧。所以即使对象不需要永久保存，也会因为内存的容量限制不能一直呆在内存中，<strong>需要持久化来缓存到外存</strong>。</li></ul><h4 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h4><p><strong>什么是持久层？</strong></p><ul><li><p>完成持久化工作的代码块</p><ul><li><blockquote><p>什么是层？联系dao层 【DAO (Data Access Object)  数据访问对象】</p></blockquote></li></ul></li><li><p>大多数情况下特别是企业级应用，数据持久化往往也就意味着将内存中的数据保存到磁盘上加以固化，而持久化的实现过程则大多通过各种<strong>关系数据库</strong>来完成。</p></li><li><p>不过这里有一个字需要特别强调，也就是所谓的“层”。对于应用系统而言，数据持久功能大多是必不可少的组成部分。也就是说，我们的系统中，已经天然的具备了“持久层”概念？也许是，但也许实际情况并非如此。之所以要独立出一个“持久层”的概念,而不是“持久模块”，“持久单元”，也就意味着，我们的系统架构中，应该有一个相对独立的逻辑层面，专注于数据持久化逻辑的实现.</p></li><li><p>与系统其他部分相对而言，这个层面应该具有一个较为清晰和严格的逻辑边界。【说白了就是用来操作数据库存在的！】</p></li></ul><h1 id="为什么需要Mybatis"><a href="#为什么需要Mybatis" class="headerlink" title="为什么需要Mybatis"></a>为什么需要Mybatis</h1><ul><li><p>Mybatis就是帮助程序猿将数据存入数据库中 , 和从数据库中取数据 .</p></li><li><p>传统的jdbc操作 , 有很多重复代码块。比如 : 数据取出时的封装 , 数据库的建立连接等等… , 通过框架可以减少重复代码,提高开发效率 .</p></li><li><p><font color="red" size="5">MyBatis 是一个半自动化的<strong>ORM框架 (Object Relationship Mapping对象关系映射)</strong></font></p></li><li><p>所有的事情，不用Mybatis依旧可以做到，只是用了它，所有实现会更加简单！<strong>技术没有高低之分，只有使用这个技术的人有高低之别</strong></p></li><li><p>MyBatis的优点</p></li><li><ul><li>简单易学：本身就很小且简单。没有任何第三方依赖，最简单安装只要两个jar文件+配置几个sql映射文件就可以了，易于学习，易于使用，通过文档和源代码，可以比较完全的掌握它的设计思路和实现。<ul><li>灵活：mybatis不会对应用程序或者数据库的现有设计强加任何影响。sql写在xml里，便于统一管理和优化。通过sql语句可以满足操作数据库的所有需求。</li><li>解除sql与程序代码的耦合：通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。sql和代码的分离，提高了可维护性。</li><li>提供xml标签，支持编写动态sql。</li><li>…….</li></ul></li></ul></li><li><p><strong>最重要的一点，使用的人多！公司需要！</strong></p></li></ul><h1 id="什么是-MyBatis？"><a href="#什么是-MyBatis？" class="headerlink" title="什么是 MyBatis？"></a>什么是 MyBatis？</h1><p><img src="https://s1.ax1x.com/2020/07/15/UwsDz9.png" srcset="/blog/img/loading.gif" alt="UwsDz9.png"></p><p>MyBatis 官网：<a href="https://mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/index.html</a></p><blockquote><p>MyBatis 是一款优秀的持久层框架，它<strong>支持自定义 SQL、存储过程以及高级映射。</strong>MyBatis <strong>免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。</strong>MyBatis <em>可以<strong>通过简单的 XML 或注解来配置和映射</strong>原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</em></p></blockquote><ul><li>MyBatis 是一款优秀的<strong>持久层框架</strong></li><li>MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集的过程</li><li>MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 实体类 【Plain Old Java Objects,普通的 Java对象】映射成数据库中的记录。</li><li>MyBatis 本是apache的一个开源项目ibatis, 2010年这个项目由apache 迁移到了google code，并且改名为MyBatis 。</li><li>2013年11月迁移到<strong>Github</strong> .</li><li>Mybatis官方文档 : <a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">http://www.mybatis.org/mybatis-3/zh/index.html</a></li><li>GitHub : <a href="https://github.com/mybatis/mybatis-3" target="_blank" rel="noopener">https://github.com/mybatis/mybatis-3</a></li></ul><h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul><li>简单易学：本身就很小且简单。没有任何第三方依赖，最简单安装只要两个jar文件+配置几个sql映射文件易于学习，易于使用，通过文档和源代码，可以比较完全的掌握它的设计思路和实现。</li><li><strong>灵活：mybatis不会对应用程序或者数据库的现有设计强加任何影响。 sql写在xml里，便于统一管理和优化。通过sql语句可以满足操作数据库的所有需求。</strong></li><li><strong>解除sql与程序代码的耦合</strong>：通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。sql和代码的分离，提高了可维护性。</li><li><strong>提供映射标签</strong>，支持对象与数据库的orm字段关系映射</li><li><strong>提供对象关系映射标签</strong>，支持对象关系组建维护</li><li><strong>提供xml标签</strong>，支持编写动态sql。</li></ul><h2 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h2><p>　　MyBatis 最强大的特性之一就是它的动态语句功能。如果您以前有使用JDBC或者类似框架的经历，您就会明白把SQL语句条件连接在一起是多么的痛苦，要确保不能忘记空格或者不要在columns列后面省略一个逗号等。动态语句能够完全解决掉这些痛苦。<br>　　尽管与动态SQL一起工作不是在开一个party，但是MyBatis确实能通过在任何映射SQL语句中使用强大的动态SQL来改进这些状况。动态SQL元素对于任何使用过JSTL或者类似于XML之类的文本处理器的人来说，都是非常熟悉的。在上一版本中，需要了解和学习非常多的元素，但在MyBatis 3 中有了许多的改进，现在只剩下差不多二分之一的元素。MyBatis使用了基于强大的OGNL表达式来消除了大部分元素。</p><h1 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h1><p><img src="https://s1.ax1x.com/2020/07/15/Uw6K3Q.png" srcset="/blog/img/loading.gif" alt="Uw6K3Q.png"></p><p>我们把Mybatis的功能架构分为三层：</p><ol><li><p>API接口层：提供给外部使用的接口API，开发人员通过这些本地API来操纵数据库。接口层一接收到调用请求就会调用数据处理层来完成具体的数据处理。</p></li><li><p>数据处理层：负责具体的SQL查找、SQL解析、SQL执行和执行结果映射处理等。它主要的目的是根据调用的请求完成一次数据库操作。</p></li><li><p>基础支撑层：负责最基础的功能支撑，包括连接管理、事务管理、配置加载和缓存处理，这些都是共用的东西，将他们抽取出来作为最基础的组件。为上层的数据处理层提供最基础的支撑</p></li></ol><h1 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h1><p>文档入口：<a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/getting-started.html</a></p><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul><li><a href="https://mybatis.org/mybatis-3/zh/index.html#" target="_blank" rel="noopener">简介</a></li><li><a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">入门</a></li><li><a href="https://mybatis.org/mybatis-3/zh/configuration.html" target="_blank" rel="noopener">XML 配置</a></li><li><a href="https://mybatis.org/mybatis-3/zh/sqlmap-xml.html" target="_blank" rel="noopener">XML 映射文件</a></li><li><a href="https://mybatis.org/mybatis-3/zh/dynamic-sql.html" target="_blank" rel="noopener">动态 SQL</a></li><li><a href="https://mybatis.org/mybatis-3/zh/java-api.html" target="_blank" rel="noopener">Java API</a></li><li><a href="https://mybatis.org/mybatis-3/zh/statement-builders.html" target="_blank" rel="noopener">SQL 语句构建器</a></li></ul><h2 id="项目文档"><a href="#项目文档" class="headerlink" title="项目文档"></a>项目文档</h2><ul><li><a href="https://mybatis.org/mybatis-3/zh/project-info.html" target="_blank" rel="noopener">项目信息</a></li><li><a href="https://mybatis.org/mybatis-3/zh/project-reports.html" target="_blank" rel="noopener">项目报表</a></li></ul><h1 id="MyBatis-入门程序"><a href="#MyBatis-入门程序" class="headerlink" title="MyBatis 入门程序"></a>MyBatis 入门程序</h1><p><strong>思路流程：搭建环境–&gt;导入Mybatis—&gt;编写代码—&gt;测试</strong></p><p>第一个MyBatis程序：<a href="https://www.cnblogs.com/melodyjerry/p/13307057.html" target="_blank" rel="noopener">https://www.cnblogs.com/melodyjerry/p/13307057.html</a></p><hr><p>部分文字及图片来自<a href="https://baike.baidu.com/item/MyBatis" target="_blank" rel="noopener">百度百科</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p><code>mybatis</code>是一个优秀的基于<code>java</code>的<strong>持久层框架</strong>，它内部封装了<code>jdbc</code>，使开发者<strong>只需要关注<code>sql</code>语句本身</strong>，而不需要花费精力去处理加载驱动、创建连接、创建<code>statement</code>等繁杂的过程。 </p><blockquote><p><code>mybatis</code>通过<code>xml</code>或注解的方式将要执行的各种<code>statement</code>配置起来，并通过<code>java</code>对象和<code>statement</code>中<code>sql</code>的动态参数进行映射生成最终执行的<code>sql</code>语句，最后由<code>mybatis</code>框架执行<code>sql</code>并将结果映射为<code>java</code>对象并返回。 </p></blockquote><p><strong>采用<code>ORM(Object Relational Mapping)</code>思想解决了实体和数据库映射的问题</strong>，<em>对<code>jdbc</code>进行了封装，屏蔽了<code>jdbc api</code>底层访问细节</em>，使我们不用与<code>jdbc api</code>打交道，就可以完成对数据库的持久化操作。</p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -1364,11 +1406,11 @@
     
     
     <entry>
-      <title>Mybatis框架概述</title>
-      <link href="/blog/2020/07/11/Mybatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/"/>
-      <url>/blog/2020/07/11/Mybatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/</url>
+      <title>Mybatis-Java持久层框架</title>
+      <link href="/blog/2020/07/11/Mybatis-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/"/>
+      <url>/blog/2020/07/11/Mybatis-Java%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/</url>
       
-        <content type="html"><![CDATA[<p><code>mybatis</code>是一个优秀的基于<code>java</code>的<strong>持久层框架</strong>，它内部封装了<code>jdbc</code>，使开发者<strong>只需要关注<code>sql</code>语句本身</strong>，而不需要花费精力去处理加载驱动、创建连接、创建<code>statement</code>等繁杂的过程。 </p><blockquote><p><code>mybatis</code>通过<code>xml</code>或注解的方式将要执行的各种<code>statement</code>配置起来，并通过<code>java</code>对象和<code>statement</code>中<code>sql</code>的动态参数进行映射生成最终执行的<code>sql</code>语句，最后由<code>mybatis</code>框架执行<code>sql</code>并将结果映射为<code>java</code>对象并返回。 </p></blockquote><p><strong>采用<code>ORM(Object Relational Mapping)</code>思想解决了实体和数据库映射的问题</strong>，<em>对<code>jdbc</code>进行了封装，屏蔽了<code>jdbc api</code>底层访问细节</em>，使我们不用与<code>jdbc api</code>打交道，就可以完成对数据库的持久化操作。</p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><img src="https://s1.ax1x.com/2020/07/15/UwylTK.png" srcset="/blog/img/loading.gif" alt="UwylTK.png"></p><p><code>mybatis</code>是一个优秀的基于<code>java</code>的<strong>持久层框架</strong>，它内部封装了<code>jdbc</code>，使开发者<strong>只需要关注<code>sql</code>语句本身</strong>，而不需要花费精力去处理加载驱动、创建连接、创建<code>statement</code>等繁杂的过程。 </p><blockquote><p><code>mybatis</code>通过<code>xml</code>或注解的方式将要执行的各种<code>statement</code>配置起来，并通过<code>java</code>对象和<code>statement</code>中<code>sql</code>的动态参数进行映射生成最终执行的<code>sql</code>语句，最后由<code>mybatis</code>框架执行<code>sql</code>并将结果映射为<code>java</code>对象并返回。 </p></blockquote><p><strong>采用<code>ORM(Object Relational Mapping)</code>思想解决了实体和数据库映射的问题</strong>，<em>对<code>jdbc</code>进行了封装，屏蔽了<code>jdbc api</code>底层访问细节</em>，使我们不用与<code>jdbc api</code>打交道，就可以完成对数据库的持久化操作。</p><a id="more"></a><h1 id="持久化？持久层？"><a href="#持久化？持久层？" class="headerlink" title="持久化？持久层？"></a>持久化？持久层？</h1><h4 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h4><blockquote><p><strong>持久化是将程序数据在持久状态和瞬时状态间转换的机制。</strong></p></blockquote><ul><li>即<strong>把数据（如内存中的对象）保存到可永久保存的存储设备中（如磁盘）。</strong>持久化的主要应用是将内存中的对象存储在数据库中，或者存储在磁盘文件中、XML数据文件中等等。</li><li>闪存：<strong>断电即失</strong></li><li><strong>JDBC就是一种持久化机制。文件IO也是一种持久化机制，但IO很浪费资源。</strong></li><li>在生活中 : 将鲜肉冷藏，吃的时候再解冻的方法也是。将水果做成罐头的方法也是。</li></ul><blockquote><p><strong>为什么需要持久化服务呢？那是由于内存本身的缺陷引起的</strong></p></blockquote><ul><li><strong>内存断电后数据会丢失，但有一些对象是无论如何都不能丢失的，比如银行账号等，遗憾的是，人们还无法保证内存永不掉电。</strong></li><li>内存过于昂贵，与硬盘、光盘等外存相比，内存的价格要高2~3个数量级，而且维持成本也高，至少需要一直供电吧。所以即使对象不需要永久保存，也会因为内存的容量限制不能一直呆在内存中，<strong>需要持久化来缓存到外存</strong>。</li></ul><h4 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h4><p><strong>什么是持久层？</strong></p><ul><li><p>完成持久化工作的代码块</p><ul><li><blockquote><p>什么是层？联系dao层 【DAO (Data Access Object)  数据访问对象】</p></blockquote></li></ul></li><li><p>大多数情况下特别是企业级应用，数据持久化往往也就意味着将内存中的数据保存到磁盘上加以固化，而持久化的实现过程则大多通过各种<strong>关系数据库</strong>来完成。</p></li><li><p>不过这里有一个字需要特别强调，也就是所谓的“层”。对于应用系统而言，数据持久功能大多是必不可少的组成部分。也就是说，我们的系统中，已经天然的具备了“持久层”概念？也许是，但也许实际情况并非如此。之所以要独立出一个“持久层”的概念,而不是“持久模块”，“持久单元”，也就意味着，我们的系统架构中，应该有一个相对独立的逻辑层面，专注于数据持久化逻辑的实现.</p></li><li><p>与系统其他部分相对而言，这个层面应该具有一个较为清晰和严格的逻辑边界。【说白了就是用来操作数据库存在的！】</p></li></ul><h1 id="为什么需要Mybatis"><a href="#为什么需要Mybatis" class="headerlink" title="为什么需要Mybatis"></a>为什么需要Mybatis</h1><ul><li><p>Mybatis就是帮助程序猿将数据存入数据库中 , 和从数据库中取数据 .</p></li><li><p>传统的jdbc操作 , 有很多重复代码块。比如 : 数据取出时的封装 , 数据库的建立连接等等… , 通过框架可以减少重复代码,提高开发效率 .</p></li><li><p><font color="red" size="5">MyBatis 是一个半自动化的<strong>ORM框架 (Object Relationship Mapping对象关系映射)</strong></font></p></li><li><p>所有的事情，不用Mybatis依旧可以做到，只是用了它，所有实现会更加简单！<strong>技术没有高低之分，只有使用这个技术的人有高低之别</strong></p></li><li><p>MyBatis的优点</p></li><li><ul><li>简单易学：本身就很小且简单。没有任何第三方依赖，最简单安装只要两个jar文件+配置几个sql映射文件就可以了，易于学习，易于使用，通过文档和源代码，可以比较完全的掌握它的设计思路和实现。<ul><li>灵活：mybatis不会对应用程序或者数据库的现有设计强加任何影响。sql写在xml里，便于统一管理和优化。通过sql语句可以满足操作数据库的所有需求。</li><li>解除sql与程序代码的耦合：通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。sql和代码的分离，提高了可维护性。</li><li>提供xml标签，支持编写动态sql。</li><li>…….</li></ul></li></ul></li><li><p><strong>最重要的一点，使用的人多！公司需要！</strong></p></li></ul><h1 id="什么是-MyBatis？"><a href="#什么是-MyBatis？" class="headerlink" title="什么是 MyBatis？"></a>什么是 MyBatis？</h1><p><img src="https://s1.ax1x.com/2020/07/15/UwsDz9.png" srcset="/blog/img/loading.gif" alt="UwsDz9.png"></p><p>MyBatis 官网：<a href="https://mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/index.html</a></p><blockquote><p>MyBatis 是一款优秀的持久层框架，它<strong>支持自定义 SQL、存储过程以及高级映射。</strong>MyBatis <strong>免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。</strong>MyBatis <em>可以<strong>通过简单的 XML 或注解来配置和映射</strong>原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</em></p></blockquote><ul><li>MyBatis 是一款优秀的<strong>持久层框架</strong></li><li>MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集的过程</li><li>MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 实体类 【Plain Old Java Objects,普通的 Java对象】映射成数据库中的记录。</li><li>MyBatis 本是apache的一个开源项目ibatis, 2010年这个项目由apache 迁移到了google code，并且改名为MyBatis 。</li><li>2013年11月迁移到<strong>Github</strong> .</li><li>Mybatis官方文档 : <a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">http://www.mybatis.org/mybatis-3/zh/index.html</a></li><li>GitHub : <a href="https://github.com/mybatis/mybatis-3" target="_blank" rel="noopener">https://github.com/mybatis/mybatis-3</a></li></ul><h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul><li>简单易学：本身就很小且简单。没有任何第三方依赖，最简单安装只要两个jar文件+配置几个sql映射文件易于学习，易于使用，通过文档和源代码，可以比较完全的掌握它的设计思路和实现。</li><li><strong>灵活：mybatis不会对应用程序或者数据库的现有设计强加任何影响。 sql写在xml里，便于统一管理和优化。通过sql语句可以满足操作数据库的所有需求。</strong></li><li><strong>解除sql与程序代码的耦合</strong>：通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。sql和代码的分离，提高了可维护性。</li><li><strong>提供映射标签</strong>，支持对象与数据库的orm字段关系映射</li><li><strong>提供对象关系映射标签</strong>，支持对象关系组建维护</li><li><strong>提供xml标签</strong>，支持编写动态sql。</li></ul><h2 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h2><p>　　MyBatis 最强大的特性之一就是它的动态语句功能。如果您以前有使用JDBC或者类似框架的经历，您就会明白把SQL语句条件连接在一起是多么的痛苦，要确保不能忘记空格或者不要在columns列后面省略一个逗号等。动态语句能够完全解决掉这些痛苦。<br>　　尽管与动态SQL一起工作不是在开一个party，但是MyBatis确实能通过在任何映射SQL语句中使用强大的动态SQL来改进这些状况。动态SQL元素对于任何使用过JSTL或者类似于XML之类的文本处理器的人来说，都是非常熟悉的。在上一版本中，需要了解和学习非常多的元素，但在MyBatis 3 中有了许多的改进，现在只剩下差不多二分之一的元素。MyBatis使用了基于强大的OGNL表达式来消除了大部分元素。</p><h1 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h1><p><img src="https://s1.ax1x.com/2020/07/15/Uw6K3Q.png" srcset="/blog/img/loading.gif" alt="Uw6K3Q.png"></p><p>我们把Mybatis的功能架构分为三层：</p><ol><li><p>API接口层：提供给外部使用的接口API，开发人员通过这些本地API来操纵数据库。接口层一接收到调用请求就会调用数据处理层来完成具体的数据处理。</p></li><li><p>数据处理层：负责具体的SQL查找、SQL解析、SQL执行和执行结果映射处理等。它主要的目的是根据调用的请求完成一次数据库操作。</p></li><li><p>基础支撑层：负责最基础的功能支撑，包括连接管理、事务管理、配置加载和缓存处理，这些都是共用的东西，将他们抽取出来作为最基础的组件。为上层的数据处理层提供最基础的支撑</p></li></ol><h1 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h1><p>文档入口：<a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/getting-started.html</a></p><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul><li><a href="https://mybatis.org/mybatis-3/zh/index.html#" target="_blank" rel="noopener">简介</a></li><li><a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">入门</a></li><li><a href="https://mybatis.org/mybatis-3/zh/configuration.html" target="_blank" rel="noopener">XML 配置</a></li><li><a href="https://mybatis.org/mybatis-3/zh/sqlmap-xml.html" target="_blank" rel="noopener">XML 映射文件</a></li><li><a href="https://mybatis.org/mybatis-3/zh/dynamic-sql.html" target="_blank" rel="noopener">动态 SQL</a></li><li><a href="https://mybatis.org/mybatis-3/zh/java-api.html" target="_blank" rel="noopener">Java API</a></li><li><a href="https://mybatis.org/mybatis-3/zh/statement-builders.html" target="_blank" rel="noopener">SQL 语句构建器</a></li></ul><h2 id="项目文档"><a href="#项目文档" class="headerlink" title="项目文档"></a>项目文档</h2><ul><li><a href="https://mybatis.org/mybatis-3/zh/project-info.html" target="_blank" rel="noopener">项目信息</a></li><li><a href="https://mybatis.org/mybatis-3/zh/project-reports.html" target="_blank" rel="noopener">项目报表</a></li></ul><h1 id="MyBatis-入门程序"><a href="#MyBatis-入门程序" class="headerlink" title="MyBatis 入门程序"></a>MyBatis 入门程序</h1><p><strong>思路流程：搭建环境–&gt;导入Mybatis—&gt;编写代码—&gt;测试</strong></p><p>第一个MyBatis程序：<a href="https://www.cnblogs.com/melodyjerry/p/13307057.html" target="_blank" rel="noopener">https://www.cnblogs.com/melodyjerry/p/13307057.html</a></p><hr><p>部分文字及图片来自<a href="https://baike.baidu.com/item/MyBatis" target="_blank" rel="noopener">百度百科</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -3337,9 +3379,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> JAVA </tag>
             
@@ -3698,9 +3740,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> JavaWeb </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> Druid </tag>
             
@@ -3744,13 +3786,13 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> JavaWeb </tag>
             
             <tag> HTTP </tag>
             
             <tag> HTML </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -3769,9 +3811,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> JavaWeb </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -3813,13 +3855,13 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> JavaWeb </tag>
             
-            <tag> Druid </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> IDEA </tag>
+            
+            <tag> Druid </tag>
             
         </tags>
       
@@ -4025,9 +4067,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> JavaWeb </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> Tomcat </tag>
             
@@ -4573,9 +4615,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> JavaWeb </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       

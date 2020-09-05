@@ -280,6 +280,28 @@
   </entry>
   
   <entry>
+    <title>网易云官方接口免费解析VIP音乐</title>
+    <link href="https://melodyjerry.github.io/blog/2020/08/22/%E7%BD%91%E6%98%93%E4%BA%91%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3%E5%85%8D%E8%B4%B9%E8%A7%A3%E6%9E%90VIP%E9%9F%B3%E4%B9%90/"/>
+    <id>https://melodyjerry.github.io/blog/2020/08/22/%E7%BD%91%E6%98%93%E4%BA%91%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3%E5%85%8D%E8%B4%B9%E8%A7%A3%E6%9E%90VIP%E9%9F%B3%E4%B9%90/</id>
+    <published>2020-08-21T16:00:00.000Z</published>
+    <updated>2020-08-28T11:51:25.946Z</updated>
+    
+    <content type="html"><![CDATA[<p>复制歌曲的链接：<a href="https://music.163.com/song?id=496869422&amp;userid=517240734（取song?id）" target="_blank" rel="noopener">https://music.163.com/song?id=496869422&amp;userid=517240734（取song?id）</a></p><p>把后缀ID加入接口访问即可：<a href="http://music.163.com/song/media/outer/url?id=496869422.mp3" target="_blank" rel="noopener">http://music.163.com/song/media/outer/url?id=496869422.mp3</a></p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;复制歌曲的链接：&lt;a href=&quot;https://music.163.com/song?id=496869422&amp;amp;userid=517240734（取song?id）&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://music.163.com/song?id=496869422&amp;amp;userid=517240734（取song?id）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;把后缀ID加入接口访问即可：&lt;a href=&quot;http://music.163.com/song/media/outer/url?id=496869422.mp3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://music.163.com/song/media/outer/url?id=496869422.mp3&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="小技巧" scheme="https://melodyjerry.github.io/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>XPath教程</title>
     <link href="https://melodyjerry.github.io/blog/2020/08/21/XPath%E6%95%99%E7%A8%8B/"/>
     <id>https://melodyjerry.github.io/blog/2020/08/21/XPath%E6%95%99%E7%A8%8B/</id>
@@ -698,37 +720,6 @@
       <category term="HTML" scheme="https://melodyjerry.github.io/blog/tags/HTML/"/>
     
       <category term="博客" scheme="https://melodyjerry.github.io/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA中使用Git</title>
-    <link href="https://melodyjerry.github.io/blog/2020/07/21/IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8Git/"/>
-    <id>https://melodyjerry.github.io/blog/2020/07/21/IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8Git/</id>
-    <published>2020-07-21T05:00:00.000Z</published>
-    <updated>2020-08-27T05:55:24.103Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol><li><p>在IDEA中设置Git，在<strong><em>File–&gt;Setting-&gt;Version Control–&gt;Git–&gt;Path to Git executable</em></strong>选择你的git安装后的<strong><em>git.exe</em></strong>文件，然后点击<strong><em>Test</em></strong>，测试是否设置成功<br><img src="https://s1.ax1x.com/2020/07/21/UItGtJ.png" srcset="/blog/img/loading.gif" alt="UItGtJ.png"></p></li><li><p>可以设置<strong><em>不被git追踪</em></strong>的文件</p></li></ol><ul><li>参考：<a href="https://blog.csdn.net/fengchao2016/article/details/72957945/" target="_blank" rel="noopener">IDEA忽略文件，防止git提交不想提交的文件的探索</a></li><li>参考：<a href="https://www.cnblogs.com/leiblog/p/11458171.html" target="_blank" rel="noopener">【Git版本控制】Idea中设置Git忽略对某些文件的版本追踪</a></li></ul><ol start="3"><li>在IDEA中设置<strong><em>GitHub，File–&gt;Setting-&gt;Version Control–&gt;GibHub</em></strong></li></ol><ul><li>连接GitHub成功后，会显示出用户头像、用户名等信息<br><img src="https://s1.ax1x.com/2020/07/21/UIUJQ1.png" srcset="/blog/img/loading.gif" alt="UIUJQ1.png"></li></ul><ol start="4"><li>创建本地仓库，<strong><em>VCS–&gt;Import into Version Control–&gt;Create Git Repository…</em></strong></li></ol><ul><li>在弹出对话框中，<strong><em>选择所在项目的位置，即创建本地仓库</em></strong>，点击OK<br><img src="https://s1.ax1x.com/2020/07/21/UIdVbV.png" srcset="/blog/img/loading.gif" alt="UIdVbV.png"></li><li>创建完本地仓库后，<strong>工作区当前项目都会变成 <font color="#d05c52">红色字体</font></strong></li></ul><p><img src="https://s1.ax1x.com/2020/07/21/UIdM8J.png" srcset="/blog/img/loading.gif" alt="UIdM8J.png"></p><ol start="5"><li>上传项目到本地仓库，<strong><em>项目右键选择Git–&gt;add</em></strong></li></ol><ul><li>此时<strong><em>项目文件变成 <font color="#618952">绿色字体</font></em></strong></li><li>此时文件<strong><em>只是处于暂存区，并没有真正进入到版本库中</em></strong></li></ul><p><img src="https://s1.ax1x.com/2020/07/21/UIwJQs.png" srcset="/blog/img/loading.gif" alt="UIwJQs.png"></p><ol start="6"><li>添加提交信息，下方<strong><em>Git</em></strong>选项卡，<strong><em>右键Default Changelist –&gt;Commit Files… –&gt;Commit Message –&gt; Commit（或Commit and Push…）</em></strong></li></ol><p><img src="https://s1.ax1x.com/2020/07/21/UIRmad.png" srcset="/blog/img/loading.gif" alt="UIRmad.png"></p><p><img src="https://s1.ax1x.com/2020/07/21/UIWGSx.png" srcset="/blog/img/loading.gif" alt="UIWGSx.png"></p><p><img src="https://s1.ax1x.com/2020/07/21/UIWopq.png" srcset="/blog/img/loading.gif" alt="UIWopq.png"></p><ol start="7"><li>等待 <strong><em>Pushing…</em></strong> 完成，前往远程仓库查看</li></ol><p><img src="C:%5CUsers%5C%E4%B8%B6Melody%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200721144058416.png" srcset="/blog/img/loading.gif" alt="image-20200721144058416"></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://blog.csdn.net/fengchao2016/article/details/72957945/" target="_blank" rel="noopener">IDEA忽略文件，防止git提交不想提交的文件的探索</a></li><li><a href="https://www.cnblogs.com/leiblog/p/11458171.html" target="_blank" rel="noopener">【Git版本控制】Idea中设置Git忽略对某些文件的版本追踪</a></li><li><a href="https://www.jianshu.com/p/382b5497d90b" target="_blank" rel="noopener">IDEA中Git的使用</a></li><li><a href="https://www.cnblogs.com/qingmuchuanqi48/p/12052295.html" target="_blank" rel="noopener">IDEA配置GIT</a></li><li><a href="https://www.cnblogs.com/pejsidney/p/9199115.html" target="_blank" rel="noopener">IntelliJ IDEA下的使用git</a></li><li><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">☆【精选】Dit教程-廖雪峰老师</a></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h1 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;在IDEA中设置Git，在&lt;strong&gt;&lt;em&gt;File–&amp;gt;Setting-
-      
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="IDEA" scheme="https://melodyjerry.github.io/blog/tags/IDEA/"/>
-    
-      <category term="Git" scheme="https://melodyjerry.github.io/blog/tags/Git/"/>
     
   </entry>
   
