@@ -19,10 +19,19 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>分类 - uncategorized - MelodyHub</title>
+  <title>关于Java的反射机制，4篇优选参考文章 - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -45,7 +54,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -143,6 +152,48 @@
             </span>
 
             
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-18 09:10">
+      2020年9月18日 上午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      87 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
           
@@ -153,103 +204,184 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 82 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/blog/2020/07/01/Java%E6%99%AE%E9%80%9A%E7%B1%BB%E4%B8%AD%E8%8E%B7%E5%8F%96Spring%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%9E%E4%BE%8B-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E6%96%B9%E5%BC%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Java普通类中获取Spring管理的实例 几种简单方式</span>
-      <span style="float: right;">07-01</span>
-    </a>
-  
-    
-    <a href="/blog/2020/06/21/Git-%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%87%B3GitHub%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Git-将本地文件上传至GitHub远程仓库</span>
-      <span style="float: right;">06-21</span>
-    </a>
-  
-    
-    <a href="/blog/2020/06/15/%5B%E8%BD%AC%5D%E7%8F%8D%E6%83%9C%E6%97%B6%E9%97%B4%EF%BC%8C%E5%81%9A%E5%A5%BD%E8%A7%84%E5%88%92%E2%80%94%E2%80%94%E8%87%B4%E5%A4%A7%E5%AD%A6%E8%BF%87%E5%8D%8A%E7%9A%84%E4%BD%A0%E4%BB%AC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[转]珍惜时间，做好规划——致大学过半的你们</span>
-      <span style="float: right;">06-15</span>
-    </a>
-  
-    
-    <a href="/blog/2020/06/08/%5B%E8%BD%AC%5D%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E5%AE%9E%E7%94%A8%E8%80%8C%E4%B8%94%E7%B2%BE%E5%A6%99%E7%9A%84%E7%AE%97%E6%B3%95-%E5%B9%B6%E6%9F%A5%E9%9B%86%EF%BC%88java%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%89/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[转]一个非常实用而且精妙的算法-并查集（java语言实现）</span>
-      <span style="float: right;">06-08</span>
-    </a>
-  
-    
-    <a href="/blog/2020/06/04/%5B%E8%BD%AC%5D%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88Dynamic%20Programming%EF%BC%89%EF%BC%9F%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[转]什么是动态规划（Dynamic Programming）？动态规划的意义是什么？</span>
-      <span style="float: right;">06-04</span>
-    </a>
-  
-    
-    <a href="/blog/2020/06/02/%5B%E8%BD%AC%5D%E5%89%91%E6%8C%87offer%E7%AC%AC%E4%BA%8C%E7%89%88%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E7%89%9B%E5%AE%A2%E7%BD%91/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[转]剑指offer第二版总结——基于牛客网</span>
-      <span style="float: right;">06-02</span>
-    </a>
-  
-    
-    <a href="/blog/2020/05/27/%5B%E8%BD%AC%5D%E5%9C%A8%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%A6%96%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[转]在博客页首添加搜索功能</span>
-      <span style="float: right;">05-27</span>
-    </a>
-  
-    
-    <a href="/blog/2020/05/11/%5B%E8%BD%AC%5D%E5%AD%A6%E4%B9%A0B%E7%AB%99%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91%E6%8A%BD%E5%A5%96%E8%84%9A%E6%9C%AC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[转]学习B站动态转发抽奖脚本</span>
-      <span style="float: right;">05-11</span>
-    </a>
-  
-    
-    <a href="/blog/2020/04/23/%E5%AE%9E%E7%8E%B0%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9%E6%8A%98%E5%8F%A0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">实现博客内容折叠</span>
-      <span style="float: right;">04-23</span>
-    </a>
-  
-    
-    <a href="/blog/2020/04/22/%E4%B8%80%E6%AC%BE%E7%82%AB%E4%B8%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E6%92%AD%E6%94%BE%E5%99%A8%E6%8F%92%E4%BB%B6/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">一款炫丽的网页播放器插件</span>
-      <span style="float: right;">04-22</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/categories/uncategorized/page/7/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/categories/uncategorized/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/categories/uncategorized/page/6/">6</a><a class="page-number" href="/blog/categories/uncategorized/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/blog/categories/uncategorized/page/9/">9</a><a class="extend next" rel="next" href="/blog/categories/uncategorized/page/9/"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 天前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <ol>
+<li><a href="https://www.jianshu.com/p/9be58ee20dee" target="_blank" rel="noopener">Java高级特性——反射</a></li>
+<li><a href="https://blog.csdn.net/qq_36226453/article/details/82790375" target="_blank" rel="noopener">Java基础之—反射（非常重要）</a></li>
+<li><a href="https://www.cnblogs.com/adamjwh/p/9683705.html" target="_blank" rel="noopener">Java高级篇（四）——反射</a></li>
+<li><a href="https://www.zhihu.com/question/24304289" target="_blank" rel="noopener">学习java应该如何理解反射？</a></li>
+</ol>
+<a id="more"></a><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/JavaWeb/">JavaWeb</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/09/28/AspectJ%E7%9A%84%E5%88%87%E5%85%A5%E7%82%B9%E8%A1%A8%E8%BE%BE%E5%BC%8F---execution%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">AspectJ的切入点表达式---execution表达式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/09/08/Java+Spring+MyBatis%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2/">
+                        <span class="hidden-mobile">[转]Java+Spring+MyBatis实现多数据源的动态切换</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
     }
+    createObserver(loadValine, 'vcomments');
   </script>
-
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
 
 
               </div>
-            </div>
+            
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
     
   </main>
 
@@ -595,10 +727,10 @@ setInterval("createtime()",250);
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/blog/categories/uncategorized/page/8/index.html');
+          var target = decodeURI('/blog/2020/09/18/%E5%85%B3%E4%BA%8EJava%E7%9A%84%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%8C4%E7%AF%87%E4%BC%98%E9%80%89%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -660,6 +792,31 @@ setInterval("createtime()",250);
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -667,7 +824,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类 - uncategorized&nbsp;",
+        "关于Java的反射机制，4篇优选参考文章&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -681,6 +838,23 @@ setInterval("createtime()",250);
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
 
 
 
@@ -696,9 +870,62 @@ setInterval("createtime()",250);
 
 
 
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
 
 
 
@@ -778,6 +1005,13 @@ setInterval("createtime()",250);
 
 
 
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

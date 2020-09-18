@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#b9b9b9">
+  <meta name="description" content="">
+  <meta name="author" content="Melody Jerry">
+  <meta name="keywords" content="">
+  <title>[转]Java+Spring+MyBatis实现多数据源的动态切换 - MelodyHub</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/blog/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/blog/atom.xml" title="MelodyHub" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>MelodyHub</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-08 14:22">
+      2020年9月8日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      34
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：10 天前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <p>原文链接：<a href="https://www.cnblogs.com/zt2710/p/11116637.html" target="_blank" rel="noopener">https://www.cnblogs.com/zt2710/p/11116637.html</a></p>
+<p>群聊天记录截图👇</p>
+<img src="https://s1.ax1x.com/2020/09/08/wQE7DO.jpg" srcset="/blog/img/loading.gif" alt="wQE7DO.jpg" style="zoom:30%;">
+
+<a id="more"></a>
+
+<hr>
+<h1 id="固定多数据源切换"><a href="#固定多数据源切换" class="headerlink" title="固定多数据源切换"></a>固定多数据源切换</h1><p>  固定多数据源的动态切换，通过自定义注解实现切换，这样在切换数据源时比较灵活，具体的实现方式如下：</p>
+<p>  1、配置多数据源</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义数据源1--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"oracledataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">"close"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driverClassName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"oracle.jdbc.driver.OracleDriver"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:oracle:thin:@127.0.0.1:1522:neworcl"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"emspdadev"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"emspdadev"</span> /&gt;</span>
+    <span class="hljs-comment">&lt;!-- 初始化连接大小 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"initialSize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最大数量 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxActive"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最大空闲 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxIdle"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最小空闲 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"minIdle"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 获取连接最大等待时间 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxWait"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"60000"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ 
+<span class="hljs-comment">&lt;!--定义数据源2--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mysqldataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">"close"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driverClassName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.mysql.jdbc.Driver"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:mysql://127.0.0.1:3306/jbpmdb"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"root"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span> /&gt;</span>
+    <span class="hljs-comment">&lt;!-- 初始化连接大小 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"initialSize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最大数量 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxActive"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最大空闲 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxIdle"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最小空闲 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"minIdle"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 获取连接最大等待时间 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxWait"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"60000"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ 
+<span class="hljs-comment">&lt;!--动态数据源配置--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.ssm.datasource.DynamicDataSource"</span>&gt;</span>
+<span class="hljs-comment">&lt;!--引入定义好的数据源--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>  <span class="hljs-attr">name</span>=<span class="hljs-string">"targetDataSources"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">map</span>  <span class="hljs-attr">key-type</span>=<span class="hljs-string">"java.lang.String"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"oracle"</span> <span class="hljs-attr">value-ref</span>=<span class="hljs-string">"oracledataSource"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"mysql"</span> <span class="hljs-attr">value-ref</span>=<span class="hljs-string">"mysqldataSource"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">map</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-comment">&lt;!--定义默认数据源--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"defaultTargetDataSource"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"oracledataSource"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ 
+<span class="hljs-comment">&lt;!--spring和mybatis整合--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sqlSessionFactory"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dataSource"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"dataSource"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mapperLocations"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"classpath:mapping/*.xml"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"basePackage"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.ssm.dao"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sqlSessionFactoryBeanName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"sqlSessionFactory"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+<p> 2、定义注解(注解名为DataSource)，用于切换数据源，注解的值只能为上述配置中定义的key(对应于上面配置中定义的oracle、mysql)</p>
+<div class="hljs"><pre><code class="hljs less"><span class="hljs-variable">@Retention</span>(RetentionPolicy.RUNTIME)
+<span class="hljs-variable">@Target</span>(ElementType.METHOD)
+pub lic <span class="hljs-variable">@interface</span> DataSource {
+    <span class="hljs-selector-tag">String</span> <span class="hljs-selector-tag">value</span>();
+}</code></pre></div>
+
+
+
+<p>  3、根据Sping切面编程，当调用指定的切面类时，解释注解，并根据注解的定义使用对应的数据库</p>
+<div class="hljs"><pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> DataSourceAspect {
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment">    * 定义切面，当调用com.ssm.service下的所有类的所有方法前都会执行beforeInvoke方法</span>
+<span class="hljs-comment">    */</span>
+    @<span class="hljs-constructor">Pointcut(<span class="hljs-string">"execution(* com.ssm.service.*.*(..))"</span>)</span>
+    public void point<span class="hljs-constructor">Cut()</span>{};
+ 
+    @<span class="hljs-constructor">Before(<span class="hljs-params">value</span> = <span class="hljs-string">"pointCut()"</span>)</span>
+    public void before<span class="hljs-constructor">Invoke(JoinPoint <span class="hljs-params">joinpoint</span>)</span> {
+        <span class="hljs-keyword">try</span> {
+            String clazzName = joinpoint.get<span class="hljs-constructor">Target()</span>.get<span class="hljs-constructor">Class()</span>.get<span class="hljs-constructor">Name()</span>;
+            String methodName = joinpoint.get<span class="hljs-constructor">Signature()</span>.get<span class="hljs-constructor">Name()</span>;
+            Class targetClazz = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Class</span>.</span></span>for<span class="hljs-constructor">Name(<span class="hljs-params">clazzName</span>)</span>;
+            Method<span class="hljs-literal">[]</span> methods = targetClazz.get<span class="hljs-constructor">Methods()</span>;
+            for(Method <span class="hljs-keyword">method</span> : methods) {
+                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">method</span>.get<span class="hljs-constructor">Name()</span>.equals(methodName)) {
+                    <span class="hljs-comment">// 首先查看方法是否使用注解</span>
+                    <span class="hljs-comment">// 如果使用注解，则获取注解定义的值，并根据注解的值设置访问数据库的key</span>
+                    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">method</span>.is<span class="hljs-constructor">AnnotationPresent(DataSource.<span class="hljs-params">class</span>)</span>) {
+                        DataSource dataSource = <span class="hljs-keyword">method</span>.get<span class="hljs-constructor">Annotation(DataSource.<span class="hljs-params">class</span>)</span>;
+                        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>set<span class="hljs-constructor">DataType(<span class="hljs-params">dataSource</span>.<span class="hljs-params">value</span>()</span>);
+                    }
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.print<span class="hljs-constructor">StackTrace()</span>;
+        }
+ 
+    }
+}</code></pre></div>
+
+
+
+<p>  4、定义动态切换数据源(继承Spring的AbstractRoutingDataSource)</p>
+<div class="hljs"><pre><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicDataSource</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractRoutingDataSource</span> </span>{
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">    * 根据DatasourceHolder中DataType的值获取具体的数据源</span>
+<span class="hljs-comment">    */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">Object</span> determineCurrentLookupKey() {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">DatasourceHolder</span>.getDataType();
+    }
+}</code></pre></div>
+
+
+
+<p>  5、数据源切换的使用</p>
+<div class="hljs"><pre><code class="hljs dart"><span class="hljs-meta">@Service</span>
+public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IdxServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IIdxSevice</span> </span>{
+ 
+    <span class="hljs-meta">@Autowired</span>
+    private IdxMapper idxMapper;
+ 
+    <span class="hljs-meta">@Override</span>
+    public <span class="hljs-built_in">List</span>&lt;Idx&gt; listIdxInfo() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+ 
+    <span class="hljs-comment"><span class="markdown">/**</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet">    * </span>根据注解的配置，会访问oracle对应的数据源</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-code">    */</span></span></span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-meta">@DataSource</span>(<span class="hljs-string">"oracle"</span>)
+    public <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>,<span class="hljs-built_in">Object</span>&gt; getIdxById(<span class="hljs-built_in">int</span> idxId) {
+        <span class="hljs-keyword">return</span> idxMapper.getIdxById(idxId);
+    }
+ 
+    <span class="hljs-comment"><span class="markdown">/**</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet">    * </span>根据注解的配置，会访问mysql对应的数据源</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-code">    */</span></span></span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-meta">@DataSource</span>(<span class="hljs-string">"mysql"</span>)
+    public <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Object</span>&gt; getJobInfo(<span class="hljs-built_in">int</span> dbId) {
+        <span class="hljs-keyword">return</span> idxMapper.getJobInfo(dbId);
+    }
+}</code></pre></div>
+
+
+
+<p>通过以上的步骤即实现了数据源的动态切换</p>
+<h1 id="动态多数据源切换"><a href="#动态多数据源切换" class="headerlink" title="动态多数据源切换"></a>动态多数据源切换</h1><p>  对于动态的多数据源，数据源的配置一般不放在配置文件中，因为如果放在配置文件中，每次新增或删除数据源，都需要重启项目，这样的实现方式非常不友好；通常情况向数据源的配置放在数据库中。实现方式如下：**<br>**</p>
+<p>  1、配置数据源，这里配置的数据源用于保存其他数据源的配置信息，今后数据的新增、删除、修改均在该数据库中操作，配置如下：</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义数据源--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"oracledataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">"close"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driverClassName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"oracle.jdbc.driver.OracleDriver"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:oracle:thin:@127.0.0.1:1522:neworcl"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"cfgmanage"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"cfgmanage"</span> /&gt;</span>
+    <span class="hljs-comment">&lt;!-- 初始化连接大小 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"initialSize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最大数量 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxActive"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最大空闲 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxIdle"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 连接池最小空闲 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"minIdle"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 获取连接最大等待时间 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxWait"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"60000"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ 
+<span class="hljs-comment">&lt;!--查询动态配置的数据库连接信息--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jdbcTemplate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.jdbc.core.JdbcTemplate"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dataSource"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"oracledataSource"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dbConfigService"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.teamsun.datasource.DBConfigService"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"jdbcTemplate"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"jdbcTemplate"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ 
+<span class="hljs-comment">&lt;!--定义动态数据源--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.teamsun.datasource.DynamicDataSource"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"masterDataSource"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"oracledataSource"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dbConfigService"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"dbConfigService"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ 
+<span class="hljs-comment">&lt;!--spring和mybatis整合--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sqlSessionFactory"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dataSource"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"dataSource"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mapperLocations"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"classpath:mapper/*.xml"</span> /&gt;</span>
+    <span class="hljs-comment">&lt;!--&lt;property name="mapperLocations" value="classpath:mapping/*.xml" /&gt;--&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"basePackage"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.teamsun.mapper"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sqlSessionFactoryBeanName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"sqlSessionFactory"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+
+
+
+<p>2、实现查询数据源配置信息的类</p>
+<div class="hljs"><pre><code class="hljs lsl">public class DBConfigService {
+ 
+    private JdbcTemplate jdbcTemplate;
+ 
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 查询数据库配置信息</span>
+<span class="hljs-comment">     * @param dbName  数据库名称</span>
+<span class="hljs-comment">     * @return 数据库配置信息</span>
+<span class="hljs-comment">     */</span>
+    public DBCfg getDBCfg(String dbName) throws Exception {
+        String querySql = <span class="hljs-string">"select<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"          t.db_type as <span class="hljs-subst">\"</span>dbType<span class="hljs-subst">\"</span>,<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"           t.db_name as <span class="hljs-subst">\"</span>dbName<span class="hljs-subst">\"</span>,<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"           t.db_comment as <span class="hljs-subst">\"</span>dbCommment<span class="hljs-subst">\"</span>,<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"           t.db_driver as <span class="hljs-subst">\"</span>driverClass<span class="hljs-subst">\"</span>,<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"           t.db_username as <span class="hljs-subst">\"</span>userName<span class="hljs-subst">\"</span>,<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"           t.db_password as <span class="hljs-subst">\"</span>passworld<span class="hljs-subst">\"</span>,<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"           t.db_url as <span class="hljs-subst">\"</span>jdbcURL<span class="hljs-subst">\"</span>"</span> +
+                <span class="hljs-string">"          from TB_RPT_DBCFG t<span class="hljs-subst">\n</span>"</span> +
+                <span class="hljs-string">"          where t.db_name = '"</span> + dbName + <span class="hljs-string">"'"</span>;
+ 
+        RowMapper&lt;DBCfg&gt; rowMapper = ParameterizedBeanPropertyRowMapper.newInstance(DBCfg.class);
+        DBCfg dbCfg = (DBCfg) jdbcTemplate.queryForObject(querySql, rowMapper);
+        return dbCfg;
+    }
+ 
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+ 
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+}</code></pre></div>
+
+
+
+<p>3、实现动态切换数据源</p>
+<div class="hljs"><pre><code class="hljs reasonml"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * &lt;p&gt;动态创建及访问多数据源&lt;/p&gt;</span>
+<span class="hljs-comment"> */</span>
+public <span class="hljs-keyword">class</span> DynamicDataSource extends AbstractRoutingDataSource{
+ 
+    <span class="hljs-keyword">private</span> DBConfigService dbConfigService;
+ 
+    <span class="hljs-keyword">private</span> DataSource masterDataSource;
+ 
+    <span class="hljs-keyword">private</span> Map&lt;Object, Object&gt; targetDataSource = <span class="hljs-keyword">new</span> HashMap&lt;Object, Object&gt;<span class="hljs-literal">()</span>;
+ 
+    <span class="hljs-keyword">private</span> static final String DEFAULT_DB_NAME = <span class="hljs-string">"dataSource"</span>;  <span class="hljs-comment">// 默认数据库名</span>
+ 
+    <span class="hljs-keyword">private</span> static final Logger LOGGER = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>get<span class="hljs-constructor">Logger(DynamicDataSource.<span class="hljs-params">class</span>)</span>;
+ 
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 创建并获取数据源</span>
+<span class="hljs-comment">     * @return</span>
+<span class="hljs-comment">     */</span>
+    @Override
+    protected DataSource determine<span class="hljs-constructor">TargetDataSource()</span> {
+        <span class="hljs-comment">// 获取数据源名称</span>
+        String dbName = (String) determine<span class="hljs-constructor">CurrentLookupKey()</span>;
+ 
+        <span class="hljs-comment">// 获取默认数据源</span>
+        <span class="hljs-keyword">if</span>(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DEFAULT_DB_NAME</span>.</span></span>equals(dbName)) {
+            return masterDataSource;
+        }
+ 
+        <span class="hljs-comment">// 创建数据源</span>
+        DataSource dataSource = (DataSource) targetDataSource.get(dbName);
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span> (dataSource<span class="hljs-operator"> == </span>null) {
+                dataSource = get<span class="hljs-constructor">DataSourceByName(<span class="hljs-params">dbName</span>)</span>;
+            }
+        } catch (Exception e) {
+            e.print<span class="hljs-constructor">StackTrace()</span>;
+        }
+        return dataSource;
+    }
+ 
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 获取数据库名称，可根据获取的数据库名称查询数据库配置信息，</span>
+<span class="hljs-comment">     * 通过配置信息动态创建数据源</span>
+<span class="hljs-comment">     * @return</span>
+<span class="hljs-comment">     */</span>
+    @Override
+    protected Object determine<span class="hljs-constructor">CurrentLookupKey()</span> {
+        String dbName = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>get<span class="hljs-constructor">DBName()</span>;
+        <span class="hljs-keyword">if</span>(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">StringUtils</span>.</span></span>is<span class="hljs-constructor">Empty(<span class="hljs-params">dbName</span>)</span>) {
+            dbName = DEFAULT_DB_NAME;
+        }
+ 
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>remove<span class="hljs-literal">()</span>;
+        return dbName;
+    }
+ 
+    @Override
+    public void after<span class="hljs-constructor">PropertiesSet()</span> {
+ 
+    }
+ 
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 通过数据库的配置信息获取数据源</span>
+<span class="hljs-comment">     * @param dbName 数据库名称</span>
+<span class="hljs-comment">     * @return</span>
+<span class="hljs-comment">     */</span>
+    public synchronized DataSource get<span class="hljs-constructor">DataSourceByName(String <span class="hljs-params">dbName</span>)</span> throws Exception {
+         
+        <span class="hljs-comment">// 创建数据源</span>
+        BasicDataSource dataSource = create<span class="hljs-constructor">DataSource(<span class="hljs-params">dbName</span>)</span>;
+         
+        <span class="hljs-comment">// 如果创建数据源成功则缓存数据源，避免重复创建相同的数据源</span>
+        <span class="hljs-keyword">if</span>(dataSource != null) {
+            targetDataSource.put(dbName, dataSource);
+        }
+        return  dataSource;
+    }
+ 
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 通过数据库的配置创建数据源</span>
+<span class="hljs-comment">     * @param dbName 数据库名称</span>
+<span class="hljs-comment">     * @return</span>
+<span class="hljs-comment">     */</span>
+    public BasicDataSource create<span class="hljs-constructor">DataSource(String <span class="hljs-params">dbName</span>)</span> throws Exception {
+         
+        <span class="hljs-comment">// 查询动态数据源配置信息</span>
+        String oriDBName = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>get<span class="hljs-constructor">DBName()</span>;
+ 
+        <span class="hljs-keyword">if</span>(dbConfigService<span class="hljs-operator"> == </span>null) {
+            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"创建数据源失败[dbCfgService is null......]"</span>);
+            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">LOGGER</span>.</span></span>debug(<span class="hljs-string">"创建数据源失败[dbCfgService is null......]"</span>);
+        }
+ 
+        <span class="hljs-comment">// 通过数据库名称查询相关的数据库配置信息</span>
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>set<span class="hljs-constructor">DBName(DEFAULT_DB_NAME)</span>;
+        DBCfg dbCfg = dbConfigService.get<span class="hljs-constructor">DBCfg(<span class="hljs-params">dbName</span>)</span>;
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>set<span class="hljs-constructor">DBName(<span class="hljs-params">oriDBName</span>)</span>;
+ 
+        String driver = dbCfg.get<span class="hljs-constructor">DriverClass()</span>;  <span class="hljs-comment">// 数据库驱动</span>
+        String url = dbCfg.get<span class="hljs-constructor">JdbcURL()</span>;  <span class="hljs-comment">// 数据库连接地址</span>
+        String username = dbCfg.get<span class="hljs-constructor">UserName()</span>;  <span class="hljs-comment">// 数据库用户名</span>
+        String password = dbCfg.get<span class="hljs-constructor">Passworld()</span>;  <span class="hljs-comment">// 数据库密码</span>
+ 
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">LOGGER</span>.</span></span>debug(<span class="hljs-string">"动态连接的数据库为["</span> + url + <span class="hljs-string">"|"</span> + username + <span class="hljs-string">"]"</span>);
+ 
+        <span class="hljs-comment">// 创建数据源</span>
+        BasicDataSource basicDataSource = <span class="hljs-keyword">new</span> <span class="hljs-constructor">BasicDataSource()</span>;
+        basicDataSource.set<span class="hljs-constructor">DriverClassName(<span class="hljs-params">driver</span>)</span>;
+        basicDataSource.set<span class="hljs-constructor">Url(<span class="hljs-params">url</span>)</span>;
+        basicDataSource.set<span class="hljs-constructor">Username(<span class="hljs-params">username</span>)</span>;
+        basicDataSource.set<span class="hljs-constructor">Password(<span class="hljs-params">password</span>)</span>;
+        basicDataSource.set<span class="hljs-constructor">TestWhileIdle(<span class="hljs-params">true</span>)</span>;
+ 
+        return basicDataSource;
+    }
+ 
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 如果修改或删除数据源的配置，则需要同步删除缓存的数据源</span>
+<span class="hljs-comment">     * @param dbName</span>
+<span class="hljs-comment">     */</span>
+    public void remove<span class="hljs-constructor">DataSource(String <span class="hljs-params">dbName</span>)</span> {
+        this.targetDataSource.remove(dbName);
+    }
+ 
+    public DataSource get<span class="hljs-constructor">MasterDataSource()</span> {
+        return masterDataSource;
+    }
+ 
+    public void set<span class="hljs-constructor">MasterDataSource(DataSource <span class="hljs-params">masterDataSource</span>)</span> {
+        this.masterDataSource = masterDataSource;
+    }
+ 
+    public DBConfigService get<span class="hljs-constructor">DbConfigService()</span> {
+        return dbConfigService;
+    }
+ 
+    public void set<span class="hljs-constructor">DbConfigService(DBConfigService <span class="hljs-params">dbConfigService</span>)</span> {
+        this.dbConfigService = dbConfigService;
+    }
+}</code></pre></div>
+
+
+
+<p>4、使用动态切换数据源</p>
+<div class="hljs"><pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> ShowRptServiceImpl implements IShowRptService {
+ 
+    <span class="hljs-keyword">private</span> static final Logger LOGGER = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>get<span class="hljs-constructor">Logger(ShowRptServiceImpl.<span class="hljs-params">class</span>)</span>;
+ 
+    @Autowired
+    <span class="hljs-keyword">private</span> DBCfgMapper dbCfgMapper;
+ 
+    @Autowired
+    <span class="hljs-keyword">private</span> ShowRptInfoMapper showRptInfoMapper;
+ 
+    @Override
+    public RptResult query<span class="hljs-constructor">RptInfo(BaseRpt <span class="hljs-params">baseRpt</span>, Map&lt;String, String&gt; <span class="hljs-params">params</span>)</span> {
+        <span class="hljs-comment">// 在调用Mybatis执行数据库之前先选择数据源</span>
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>set<span class="hljs-constructor">DBName(<span class="hljs-params">dbCfg</span>.<span class="hljs-params">getDbName</span>()</span>);
+        <span class="hljs-comment">// 查询报表数据</span>
+        List&lt;Map&lt;String,Object&gt;&gt; resultList = showRptInfoMapper.query<span class="hljs-constructor">RptData(<span class="hljs-params">querySQL</span>)</span>;
+ 
+ 
+        <span class="hljs-comment">// 选择数据源</span>
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatasourceHolder</span>.</span></span>set<span class="hljs-constructor">DBName(<span class="hljs-params">dbCfg</span>.<span class="hljs-params">getDbName</span>()</span>);
+        <span class="hljs-comment">// 查询数据数据量</span>
+        <span class="hljs-built_in">int</span> totalCount = showRptInfoMapper.query<span class="hljs-constructor">TotalCount(<span class="hljs-params">countSQL</span>)</span>;
+ 
+        RptResult rptResult = <span class="hljs-keyword">new</span> <span class="hljs-constructor">RptResult()</span>;
+        return rptResult;
+    }
+ }</code></pre></div>
+
+
+
+<p>通过以上步骤即可实现动态多数据源的动态切换</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/SSM/">SSM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/09/18/%E5%85%B3%E4%BA%8EJava%E7%9A%84%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%8C4%E7%AF%87%E4%BC%98%E9%80%89%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于Java的反射机制，4篇优选参考文章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/09/07/%E4%BC%98%E5%8C%96IDEA%E5%8D%A1%E9%A1%BF%E7%8E%B0%E8%B1%A1/">
+                        <span class="hidden-mobile">优化IDEA卡顿现象</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+
+
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 天气挂件 -->
+<!-- <div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>-->
+  
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "disabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+
+
+
+
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_1278597820" style="display: none"></span>
+    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    
+  </div>
+  
+  
+  
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--宅音乐播放器 https://player.ilt.me/admin-->
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="992f0d81b6b74b93b6bbdb56f57a6c58"></script>
+
+<!--闲聊么http://www.xianliao.me/faq<script>var xlm_wid='15920';var xlm_url='https://www.xianliao.me/';</script><script type="text/javascript" charset="UTF-8" src="https://www.xianliao.me/embed.js"></script>--> 
+ 
+<center>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+
+
+
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle1">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+</div>
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle1", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("06/11/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script><div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&m=2&c=ff0000&cr1=ffffff&f=arial&l=33&z=17&rx=-40&lx=-540&ly=520&hi=60" async="async"></script>
+</center>
+
+<!--cnzz-->
+<center>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</center>
+
+
+  
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/blog/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2020/09/08/Java+Spring+MyBatis%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "[转]Java+Spring+MyBatis实现多数据源的动态切换&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    var path = "/blog/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+  <script>(function (i, s, o, g, r, a, m) {
+      i['DaoVoiceObject'] = r;
+      i[r] = i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      a.charset = 'utf-8';
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/87b73b33.js", 'daovoice');
+    daovoice('init', {
+      app_id: "87b73b33",
+    });
+    daovoice('update');
+  </script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3ec76546d2bce23889863e13f01a5b5f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1278597820&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

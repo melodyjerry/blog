@@ -171,33 +171,148 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/04/08/win10%E5%BF%AB%E9%80%9F%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E5%BC%80cmd/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="win10快速在当前文件夹打开cmd">
+        <a href="/blog/2020/05/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%87%A0%E7%A7%8Dreturn%E7%9A%84%E5%8C%BA%E5%88%86/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="C语言中几种return的区分">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/04/08/win10%E5%BF%AB%E9%80%9F%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E5%BC%80cmd/">win10快速在当前文件夹打开cmd</a>
+      <a class="index-header" href="/blog/2020/05/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%87%A0%E7%A7%8Dreturn%E7%9A%84%E5%8C%BA%E5%88%86/">C语言中几种return的区分</a>
 
-      <a href="/blog/2020/04/08/win10%E5%BF%AB%E9%80%9F%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E5%BC%80cmd/" class="index-excerpt">
+      <a href="/blog/2020/05/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%87%A0%E7%A7%8Dreturn%E7%9A%84%E5%8C%BA%E5%88%86/" class="index-excerpt">
         
         
           
         
-        <div>一般有两种简单、直接的方法：
+        <div>return 0;
 
-在路径栏输入cmd，回车 即可在当前位置打开命令窗口
-按住Shift键+鼠标右键，可见在“在此处打开cmd”
+一般0代表的是正常结束
+
+return -1;
+
+-1代表非正常结束
+
+return ;
+
+void 返回是空，void返回值可以什么也不写，可以写return；
+
+return NULL;
+
+如果数据类型是指针类型，那我们一般成功的时候返回相应的地址，失败的时候返回NULL
+
+关于NULL，我这就简单记成 描述地址时用NULL‘清零’，描述数据时 用 0 清零.</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-12
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/12/Stack%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%90%8E%E8%BF%9B%E5%85%88%E5%87%BA%E7%9A%84%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Stack，一个后进先出的集合容器">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/12/Stack%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%90%8E%E8%BF%9B%E5%85%88%E5%87%BA%E7%9A%84%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/">Stack，一个后进先出的集合容器</a>
+
+      <a href="/blog/2020/05/12/Stack%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%90%8E%E8%BF%9B%E5%85%88%E5%87%BA%E7%9A%84%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/" class="index-excerpt">
+        
+        
+          
+        
+        <div>今天刷LC的每日一题时，需要使用到“栈”这种数据结构。就顺便复习了有关“栈”的知识。本文就用C来复习(预习)“Stack”。
+特点Stack，本身就具有数据结构中栈的一般特性：后进先出。
+定义Stack#include&lt;stack&gt;
+stack&lt;typename&gt; name;
+
+栈中元素的访问
+top()
+只能访问其栈顶元素
+通过top()来获取（或遍历）
+
+常用的调用函数</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-12
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2020/05/11/%5B%E8%BD%AC%5D%E5%AD%A6%E4%B9%A0B%E7%AB%99%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91%E6%8A%BD%E5%A5%96%E8%84%9A%E6%9C%AC/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="[转]学习B站动态转发抽奖脚本">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/blog/2020/05/11/%5B%E8%BD%AC%5D%E5%AD%A6%E4%B9%A0B%E7%AB%99%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91%E6%8A%BD%E5%A5%96%E8%84%9A%E6%9C%AC/">[转]学习B站动态转发抽奖脚本</a>
+
+      <a href="/blog/2020/05/11/%5B%E8%BD%AC%5D%E5%AD%A6%E4%B9%A0B%E7%AB%99%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91%E6%8A%BD%E5%A5%96%E8%84%9A%E6%9C%AC/" class="index-excerpt">
+        
+        
+          
+        
+        <div>作者博客原文链接：https://www.hackinn.com/index.php/archives/112/
 </div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-08
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-11
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/blog/categories/uncategorized/">uncategorized</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+            
+          </div>
         
       </div>
     </div>
@@ -207,27 +322,31 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/04/08/%E5%B0%86idea%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85%E6%88%90jar%E6%96%87%E4%BB%B6%E7%9A%84%E5%85%A8%E6%AD%A5%E9%AA%A4/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="将idea工程打包成jar文件的全步骤">
+        <a href="/blog/2020/05/10/%E3%80%90LeetCode%E3%80%91236.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】236. 二叉树的最近公共祖先">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/04/08/%E5%B0%86idea%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85%E6%88%90jar%E6%96%87%E4%BB%B6%E7%9A%84%E5%85%A8%E6%AD%A5%E9%AA%A4/">将idea工程打包成jar文件的全步骤</a>
+      <a class="index-header" href="/blog/2020/05/10/%E3%80%90LeetCode%E3%80%91236.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">【LeetCode】236. 二叉树的最近公共祖先</a>
 
-      <a href="/blog/2020/04/08/%E5%B0%86idea%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85%E6%88%90jar%E6%96%87%E4%BB%B6%E7%9A%84%E5%85%A8%E6%AD%A5%E9%AA%A4/" class="index-excerpt">
+      <a href="/blog/2020/05/10/%E3%80%90LeetCode%E3%80%91236.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="index-excerpt">
         
         
           
         
-        <div>前言
-近日在工作中遇到了一个问题，需要把本地的java文件打成jar包，传到云服务器上运行。于是学习了一下如何在intellijidea中将java工程打成jar包。</div>
+        <div>题目描述给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+例如，给定如下二叉树:  root = [3,5,1,6,2,0,8,null,null,7,4]
+示例 1:
+
+输入: root = [3,5</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-08
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-10
           </div>
         
         
@@ -235,11 +354,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-              <a href="/blog/tags/IDEA/">IDEA</a>
-            
-              <a href="/blog/tags/JAVA/">JAVA</a>
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -251,124 +366,37 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/04/07/virtualbox%E5%AE%89%E8%A3%85ubuntu16-LTS%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="virtualbox安装ubuntu16 LTS及其配置">
+        <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="最长递增子序列（LIS）">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/04/07/virtualbox%E5%AE%89%E8%A3%85ubuntu16-LTS%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/">virtualbox安装ubuntu16 LTS及其配置</a>
+      <a class="index-header" href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/">最长递增子序列（LIS）</a>
 
-      <a href="/blog/2020/04/07/virtualbox%E5%AE%89%E8%A3%85ubuntu16-LTS%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" class="index-excerpt">
-        
-        
-          
-        
-        <div>virtualbox安装ubuntu16 LTS及其配置
-https://www.cnblogs.com/luengmingbiao/p/10859905.html</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-07
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/Linux/">Linux</a>
-            
-              <a href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/31/Java-%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%88%B0%E7%A1%AC%E7%9B%98/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Java-生成验证码并保存到硬盘">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/31/Java-%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%88%B0%E7%A1%AC%E7%9B%98/">Java-生成验证码并保存到硬盘</a>
-
-      <a href="/blog/2020/03/31/Java-%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%88%B0%E7%A1%AC%E7%9B%98/" class="index-excerpt">
-        
-        
-          
-        
-        <div>做课设时候，选择是做“图书借阅管理系统”。
-在写登陆界面时候，想把前段时间学的web中生成验证码的知识用上。
-于是，就写了这个。
-分为两个文件：&lt;CheckCode.java&gt; 和 &lt;CheckCodeRead.java&gt; ，前者是生成，后者是读取，均可以在控制台打印验证码值 checkValue 。</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-31
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-              <a href="/blog/tags/Java/">Java</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/28/Java.sql%E7%9A%84%E6%8E%A5%E5%8F%A3PreparedStatement%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="Java.sql的接口PreparedStatement使用">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/28/Java.sql%E7%9A%84%E6%8E%A5%E5%8F%A3PreparedStatement%E4%BD%BF%E7%94%A8/">Java.sql的接口PreparedStatement使用</a>
-
-      <a href="/blog/2020/03/28/Java.sql%E7%9A%84%E6%8E%A5%E5%8F%A3PreparedStatement%E4%BD%BF%E7%94%A8/" class="index-excerpt">
+      <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89/" class="index-excerpt">
         
         
           
         
         <div>
 
-package utils;
-
-import java.sql.*;
-
-/**
- * @Classname JdbcUtils
- * @Description JDBC的工具类。(尽量用单例模式)
- * @Created by melodyjerry
+代码/**
+ * @Classname LIS
+ * @Description 最长递增子序列（LIS）
+ * @Date 2020/5/9 下午 9:09
+ * @Created by jerry
  */
-public class JdbcUtil {
-    private static final String driverName =</div>
+public class LIS {
+    public static int LIS(int[] nums) {
+        if(nums.length &lt;= 1){
+  </div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-28
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
           </div>
         
         
@@ -376,11 +404,7 @@ public class JdbcUtil {
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-              <a href="/blog/tags/Java/">Java</a>
-            
-              <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -392,27 +416,41 @@ public class JdbcUtil {
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/25/%E5%85%A8%E8%83%BD%E7%BB%88%E7%AB%AF%E7%A5%9E%E5%99%A8MobaXterm/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="全能终端神器——MobaXterm">
+        <a href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】69. x 的平方根">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/25/%E5%85%A8%E8%83%BD%E7%BB%88%E7%AB%AF%E7%A5%9E%E5%99%A8MobaXterm/">全能终端神器——MobaXterm</a>
+      <a class="index-header" href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">【LeetCode】69. x 的平方根</a>
 
-      <a href="/blog/2020/03/25/%E5%85%A8%E8%83%BD%E7%BB%88%E7%AB%AF%E7%A5%9E%E5%99%A8MobaXterm/" class="index-excerpt">
+      <a href="/blog/2020/05/09/%E3%80%90LeetCode%E3%80%9169.%20x%20%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="index-excerpt">
         
         
           
         
-        <div>现今软件市场上有很多终端工具，比如：secureCRT、Putty、telnet，等等。secureCRT其实也是一款很强大的终端工具，良许也使用过它很长时间，但是，它毕竟是收费软件，在公司里不允许使用。而且在良许自己的电脑里一量输入大写，整个界面就乱了（原因未知，未深究），这是直接导致良许放弃它的原因。
-而Putty，它非常小巧，而且免费，在我们公司大量使用。但是良许不喜欢它的原因是它真的不好用</div>
+        <div>这是今天”每日一题”的题目，等级是简单。不过，确实耐人寻味。最简单的方法就是采用JAVA的Math类库的方法
+但是这样做，还有什么意义呢，是吧？
+
+# 题目描述
+
+实现 `int sqrt(int x)` 函数。
+
+计算并返回 x 的平方根，其中 x 是非负整数。
+
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+
+示例 1:
+&gt; 输入: 4
+&gt; 输出: 2
+
+示例 2:</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-25
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
           </div>
         
         
@@ -420,7 +458,7 @@ public class JdbcUtil {
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -432,46 +470,36 @@ public class JdbcUtil {
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/21/VS%20Code%20%E9%85%8D%E7%BD%AEC%E3%80%81C++%E7%8E%AF%E5%A2%83/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="VS Code配置C/C++环境">
+        <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="最长公共子序列（LCS）">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/21/VS%20Code%20%E9%85%8D%E7%BD%AEC%E3%80%81C++%E7%8E%AF%E5%A2%83/">VS Code配置C/C++环境</a>
+      <a class="index-header" href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/">最长公共子序列（LCS）</a>
 
-      <a href="/blog/2020/03/21/VS%20Code%20%E9%85%8D%E7%BD%AEC%E3%80%81C++%E7%8E%AF%E5%A2%83/" class="index-excerpt">
+      <a href="/blog/2020/05/09/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89/" class="index-excerpt">
         
         
           
         
         <div>
 
-1、安装 VS Code官网下载安装包直接安装即可 
-https://code.visualstudio.com/
-2、VS Code 插件
-C/C++
+代码#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt; 
+#include&lt;math.h&gt;
 
-
-
-彩虹括号
-
-
-
-汉化
-
-
-
-Include Autocorrelete
-
-
-3、安装mingw-w64在mingw-w64官网下载64位的mingw-w64离线包 https://sourceforge.net/projects/min</div>
+using namespace std;
+const int MAX = 100;
+const int  m = 7, n = 6;
+int C[MAX][MAX];    // C[i][j]：Xi和Yj的LCS长度 
+int X[m] = </div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-21
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
           </div>
         
         
@@ -479,7 +507,7 @@ Include Autocorrelete
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/C-C/">C/C++</a>
+              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -491,26 +519,32 @@ Include Autocorrelete
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E6%AD%A3%E6%95%B4%E6%95%B0%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E9%87%8F/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="蓝桥杯-模拟正整数序列的数量">
+        <a href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="博客园写随笔时用数学公式">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E6%AD%A3%E6%95%B4%E6%95%B0%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E9%87%8F/">蓝桥杯-模拟正整数序列的数量</a>
+      <a class="index-header" href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">博客园写随笔时用数学公式</a>
 
-      <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E6%AD%A3%E6%95%B4%E6%95%B0%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E9%87%8F/" class="index-excerpt">
+      <a href="/blog/2020/05/09/Java%E4%B8%AD%E6%9C%89%E4%B8%89%E7%A7%8D%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" class="index-excerpt">
         
         
           
         
-        <div>问题描述　小明想知道，满足以下条件的正整数序列的数量： 　1. 第一项为 n； 　2. 第二项不超过 n； 　3. 从第三项开始，每一项小于前两项的差的绝对值。 　请计算，对于给定的 n，有多少种满足条件的序列。</div>
+        <div>插入公式在开启后你就可以使用LATEX格式的公式了
+行内公式使用如下格式书写，公式使用$包裹：
+二元一次方程的判别式：$\Delta=b^2-4ac$
+编译结果为：二元一次方程的判别式：$\Delta=b^2-4ac$
+陈列(独立)公式使用如下格式书写，公式使用$$包裹：
+二元一次方程的判别式：$$\Delta=b^2-4ac$$
+编译结果为：二元一次方程的判别式：$$\Delta=b^2-4ac</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-15
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
           </div>
         
         
@@ -518,9 +552,7 @@ Include Autocorrelete
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-              <a href="/blog/tags/Java/">Java</a>
+              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
             
           </div>
         
@@ -532,26 +564,32 @@ Include Autocorrelete
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E7%BB%84%E7%BB%87%E6%99%9A%E4%BC%9A/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="蓝桥杯-模拟组织晚会">
+        <a href="/blog/2020/05/09/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%86%99%E9%9A%8F%E7%AC%94%E6%97%B6%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="【LeetCode】69. x 的平方根">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E7%BB%84%E7%BB%87%E6%99%9A%E4%BC%9A/">蓝桥杯-模拟组织晚会</a>
+      <a class="index-header" href="/blog/2020/05/09/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%86%99%E9%9A%8F%E7%AC%94%E6%97%B6%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">【LeetCode】69. x 的平方根</a>
 
-      <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E7%BB%84%E7%BB%87%E6%99%9A%E4%BC%9A/" class="index-excerpt">
+      <a href="/blog/2020/05/09/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%86%99%E9%9A%8F%E7%AC%94%E6%97%B6%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="index-excerpt">
         
         
           
         
-        <div>问题描述　　小明要组织一台晚会，总共准备了 n 个节目。然后晚会的时间有限，他只能最终选择其中的 m 个节目。 　这 n 个节目是按照小明设想的顺序给定的，顺序不能改变。 　小明发现，观众对于晚上的喜欢程度与前几个节目的好看程度有非常大的关系，他希望选出的第一个节目尽可能好看，在此前提下希望第二个节目尽可能好看，依次类推。 　小明给每个节目定义了一个好看值，请你帮助小明选择出 m 个节目，满足他的</div>
+        <div>插入公式在开启后你就可以使用LATEX格式的公式了
+行内公式使用如下格式书写，公式使用$包裹：
+二元一次方程的判别式：$\Delta=b^2-4ac$
+编译结果为：二元一次方程的判别式：$\Delta=b^2-4ac$
+陈列(独立)公式使用如下格式书写，公式使用$$包裹：
+二元一次方程的判别式：$$\Delta=b^2-4ac$$
+编译结果为：二元一次方程的判别式：$$\Delta=b^2-4ac</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-15
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-09
           </div>
         
         
@@ -559,9 +597,7 @@ Include Autocorrelete
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-              <a href="/blog/tags/Java/">Java</a>
+              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
             
           </div>
         
@@ -573,26 +609,26 @@ Include Autocorrelete
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E5%B8%A6%E4%B9%9D9%E7%9A%84%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/" target="_self">
-          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="蓝桥杯-模拟带九9的数的个数">
+        <a href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/" target="_self">
+          <img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="/blog/img/loading.gif" alt="正式开通博客园">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E5%B8%A6%E4%B9%9D9%E7%9A%84%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/">蓝桥杯-模拟带九9的数的个数</a>
+      <a class="index-header" href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/">正式开通博客园</a>
 
-      <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E5%B8%A6%E4%B9%9D9%E7%9A%84%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/" class="index-excerpt">
+      <a href="/blog/2020/04/23/%E6%AD%A3%E5%BC%8F%E5%BC%80%E9%80%9A%E5%8D%9A%E5%AE%A2%E5%9B%AD/" class="index-excerpt">
         
         
           
         
-        <div>问题描述　　在1至2019中，有多少个数的数位中包含数字9？ 　注意，有的数中的数位中包含多个9，这个数只算一次。例如，1999这个数包含数字9，在计算只是算一个数。</div>
+        <div>现在正式开通【博客园】：https://www.cnblogs.com/melodyjerry/</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-15
+            <i class="iconfont icon-date"></i>&nbsp;2020-04-23
           </div>
         
         
@@ -600,9 +636,7 @@ Include Autocorrelete
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-              <a href="/blog/tags/Java/">Java</a>
+              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
             
           </div>
         
@@ -614,7 +648,7 @@ Include Autocorrelete
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/page/14/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/13/">13</a><a class="page-number" href="/blog/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/blog/page/16/">16</a><a class="page-number" href="/blog/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/29/">29</a><a class="extend next" rel="next" href="/blog/page/16/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/blog/page/14/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/13/">13</a><a class="page-number" href="/blog/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/blog/page/16/">16</a><a class="page-number" href="/blog/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/30/">30</a><a class="extend next" rel="next" href="/blog/page/16/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

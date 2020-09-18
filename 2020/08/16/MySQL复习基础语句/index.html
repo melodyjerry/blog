@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#b9b9b9">
+  <meta name="description" content="">
+  <meta name="author" content="Melody Jerry">
+  <meta name="keywords" content="">
+  <title>MySQL复习基础语句 - MelodyHub</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/blog/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/blog/atom.xml" title="MelodyHub" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>MelodyHub</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-08-16 17:24">
+      2020年8月16日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      35
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：5 小时前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h2 id="什么是约束"><a href="#什么是约束" class="headerlink" title="什么是约束"></a>什么是约束</h2><blockquote>
+<p>约束：constraint<br>MySQL中的约束，实则是对数据表中数据的限制条件</p>
+</blockquote>
+<h2 id="约束的作用"><a href="#约束的作用" class="headerlink" title="约束的作用"></a>约束的作用</h2><blockquote>
+<p>约束保证数据的完整性和一致性</p>
+</blockquote>
+<ul>
+<li>比如：设计数据表时，要求username字段不允许重复，这时候就需要在CREATE数据表时加入相应的约束。再比如注册时候必须填写邮箱、性别等。</li>
+</ul>
+<h2 id="约束的分类"><a href="#约束的分类" class="headerlink" title="约束的分类"></a>约束的分类</h2><h3 id="按约束定义的位置可分"><a href="#按约束定义的位置可分" class="headerlink" title="按约束定义的位置可分"></a>按约束定义的位置可分</h3><ul>
+<li>列级约束</li>
+<li>表级约束</li>
+</ul>
+<h3 id="按约束的作用可分"><a href="#按约束的作用可分" class="headerlink" title="按约束的作用可分"></a>按约束的作用可分</h3><table>
+<thead>
+<tr>
+<th>主键 约束</th>
+<th>PRIMARY KEY</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>外键 约束</td>
+<td>FOREIGN KEY</td>
+<td></td>
+</tr>
+<tr>
+<td>非空 约束</td>
+<td>NOT NULL</td>
+<td></td>
+</tr>
+<tr>
+<td>唯一 约束</td>
+<td>UNIQUE KEY</td>
+<td></td>
+</tr>
+<tr>
+<td>默认 约束</td>
+<td>DEFAULT</td>
+<td></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<h2 id="列级约束、表级约束"><a href="#列级约束、表级约束" class="headerlink" title="列级约束、表级约束"></a>列级约束、表级约束</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
+<li><p>列级约束：只能应用于一列上。<br> 表级约束：可以应用于一列上，也可以应用在一个表中的多个列上。</p>
+<blockquote>
+<p>即：如果你创建的约束涉及到该表的多个属性列，则必须创建的是表级约束（必须定义在表级上）；否则既可以定义在列级上也可以定义在表级上此时只是SQL语句格式不同而已。</p>
+</blockquote>
+</li>
+<li><p>列级约束：包含在列定义中，直接跟在该列的其它定义之后 ，用空格分隔；不必指定列名。<br> 表级约束：与列定义相互独立，不包含在列定义中；与定义用‘，’分隔；必须指出要约束的列的名称。</p>
+<blockquote>
+<p>注：因为在创建列级约束时，只需将创建列约束的语句添加到该字段（列）的定义子句后面；而在创建表级约束时，需要将创建表级约束的语句添加到各个字段（列）定义语句的后面，因为并不是每个定义的字段都要创建约束，所以必须指明需要创建的约束的列名。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">Create</span> <span class="hljs-keyword">Table</span> <span class="hljs-keyword">project</span>(
+项目编号 <span class="hljs-built_in">INT</span> <span class="hljs-keyword">CONSTRAINT</span> pk_pno PRIMARY <span class="hljs-keyword">kEY</span>，
+项目名称 <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">20</span>)，
+项目负责人 <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">20</span>)，
+<span class="hljs-keyword">CONSTRAINT</span> un_pname_pm <span class="hljs-keyword">UNIQUE</span>(项目名称，项目负责人)
+);</code></pre></div>
+<blockquote>
+<p>分析：“项目编号”字段设置为主键，主键约束名为pk_pno，此主键约束为列主键约束。“项目名称”和“项目负责人”的组合字段设置唯一性约束，此约束为表级约束）</p>
+</blockquote>
+<h3 id="具体说明"><a href="#具体说明" class="headerlink" title="具体说明"></a>具体说明</h3><p>一：既可以创建列级约束又可以创建表级约束的：</p>
+<p> 1、主键约束（primary key constraint）：<br>    （1）定义列约束：CONSTRAINT &lt;约束名&gt; PRIMARY KEY<br>    （2）定义表约束：[CONSTRAINT &lt;约束名&gt;] PRIMARY KEY( &lt;列名&gt; [{&lt;列名&gt;}])     </p>
+<p> 2、唯一性约束（unique key constraint）：<br>    （1）定义列约束：[CONSTRAINT &lt;约束名&gt;] UNIQUE [KEY]<br>    （2）定义表约束：CONSTRAINT &lt;约束名&gt; UNIQUE [KEY] ( &lt;列名&gt; [{&lt;列名&gt;}])    </p>
+<p> 3、外键约束（foreign key constraint）：<br>      定义 列级约束：[CONSTRAINT &lt;约束名&gt;] FOREIGN KEY REFERENCES &lt;外表名&gt;<br>      定义表级约束：[CONSTRAINT &lt;约束名&gt;] FOREIGN KEY REFERENCES &lt;外表名&gt;( &lt;列名&gt; [{&lt;列名&gt;}])    </p>
+<p>二：只能创建列级约束的：</p>
+<p>1，缺省约束（default constraint）：<br>        [CONSTRAINT &lt;约束名&gt;] DEFAULT 约束条件</p>
+<p> 2，NULL 约束：<br>        [CONSTRAINT &lt;约束名&gt;] [NULL | NOT NULL]</p>
+<h2 id="主键约束-PRIMARY-KEY"><a href="#主键约束-PRIMARY-KEY" class="headerlink" title="主键约束 PRIMARY KEY"></a>主键约束 PRIMARY KEY</h2><p>“主键（PRIMARY KEY）”的完整称呼是“主键约束”。<a href="http://c.biancheng.net/mysql/" target="_blank" rel="noopener">MySQL</a> 主键约束是一个列或者列的组合，其值<strong>能唯一地标识表中的每一行</strong>。这样的一列或多列称为表的主键，通过它可以强制表的实体完整性。</p>
+<h3 id="涉及术语"><a href="#涉及术语" class="headerlink" title="涉及术语"></a>涉及术语</h3><ul>
+<li>主键约束</li>
+<li>主键字段</li>
+<li>主键值</li>
+</ul>
+<p>三种术语的关系：</p>
+<blockquote>
+<p>表中的某个字段添加主键约束后，该字段为主键字段，主键字段中出现的每一个数据都称为主键值</p>
+</blockquote>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>保证数据的实体完整性</li>
+</ul>
+<h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><blockquote>
+<p>一张表应该有主键字段，如果没有，表示该表无效</p>
+</blockquote>
+<ul>
+<li>主键值：是当前行数据的唯一标识、是当前行数据的身份证号</li>
+<li>即使表中两行记录相关数据相同，但由于主键值不同，所以也认为是两行不同的记录</li>
+</ul>
+<h3 id="按主键约束的字段数量分类"><a href="#按主键约束的字段数量分类" class="headerlink" title="按主键约束的字段数量分类"></a>按主键约束的字段数量分类</h3><blockquote>
+<p>在MySQL的一个表中只有唯一的一个主键，不能有多列主键，但可以有复合主键。一个表中可以：单列做主键、多列做主键（复合主键）。</p>
+</blockquote>
+<ul>
+<li>单一主键：给一个字段添加主键约束</li>
+<li>复合主键：给多个字段联合添加一个主键约束(只能用表级定义)</li>
+</ul>
+<h4 id="单一主键（列级定义）"><a href="#单一主键（列级定义）" class="headerlink" title="单一主键（列级定义）"></a>单一主键（列级定义）</h4><div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+    -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">primary key</span>,
+    -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>)
+    -&gt; );
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.07</span> sec)</code></pre></div>
+
+<h4 id="单一主键（表级定义）"><a href="#单一主键（表级定义）" class="headerlink" title="单一主键（表级定义）"></a>单一主键（表级定义）</h4><div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+    -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>),
+    -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,
+    -&gt; <span class="hljs-keyword">constraint</span> t_user_id_pk <span class="hljs-keyword">primary key</span>(id)
+    -&gt; );
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.01</span> sec)</code></pre></div>
+
+<h4 id="复合主键（表级定义）"><a href="#复合主键（表级定义）" class="headerlink" title="复合主键（表级定义）"></a>复合主键（表级定义）</h4><blockquote>
+<p><strong>一定要在表级定义。</strong></p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+    -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>),
+    -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,
+    -&gt; email <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>) <span class="hljs-keyword">unique</span>,
+    -&gt; <span class="hljs-keyword">primary key</span>(id,<span class="hljs-type">name</span>)
+    -&gt; );
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.05</span> sec)</code></pre></div>
+
+<h3 id="配合AUTO-INCREMENT"><a href="#配合AUTO-INCREMENT" class="headerlink" title="配合AUTO_INCREMENT"></a>配合AUTO_INCREMENT</h3><blockquote>
+<p>在MySQL数据库提供了一个自增的数字，专门用来自动生成主键值，主键值不用用户维护，自动生成，自增数从1开始，以1递增(auto_increment)</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs asciidoc">mysql&gt; create table t<span class="hljs-emphasis">_user(</span>
+<span class="hljs-emphasis">    -&gt; id int(10) primary key auto_</span>increment,
+<span class="hljs-code">    -&gt; name varchar(32) not null</span>
+<span class="hljs-code">    -&gt; );</span>
+Query OK, 0 rows affected (0.03 sec)
+
+/<span class="hljs-strong">*插入两行记录，id主键值会自动增加*</span>/
+mysql&gt; insert into t<span class="hljs-emphasis">_user(name) values('jay');</span>
+<span class="hljs-emphasis">Query OK, 1 row affected (0.04 sec)</span>
+<span class="hljs-emphasis">mysql&gt; insert into t_</span>user(name) values(<span class="hljs-emphasis">'man'</span>);
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; select * from t<span class="hljs-emphasis">_user;</span>
+<span class="hljs-emphasis">+----+------+</span>
+<span class="hljs-emphasis">| id | name |</span>
+<span class="hljs-emphasis">+----+------+</span>
+<span class="hljs-emphasis">|  1 | jay  |</span>
+<span class="hljs-emphasis">|  2 | man  |</span>
+<span class="hljs-emphasis">+----+------+</span>
+<span class="hljs-emphasis">2 rows in set (0.00 sec)</span></code></pre></div>
+
+<h2 id="外键约束-FOREIGN-KEY"><a href="#外键约束-FOREIGN-KEY" class="headerlink" title="外键约束 FOREIGN KEY"></a>外键约束 FOREIGN KEY</h2><p>外键约束（FOREIGN KEY）用来在两个表的数据之间建立链接，它可以是一列或者多列。一个表可以有一个或多个外键。</p>
+<p>外键的主要作用是保持数据的一致性、完整性。例如，部门表 tb_dept 的主键是 id，在员工表 tb_emp5 中有一个键 deptId 与这个 id 关联。</p>
+<ul>
+<li>主表（父表）：对于两个具有关联关系的表而言，相关联字段中主键所在的表就是主表。</li>
+<li>从表（子表）：对于两个具有关联关系的表而言，相关联字段中外键所在的表就是从表。</li>
+</ul>
+<h3 id="快速理解"><a href="#快速理解" class="headerlink" title="快速理解"></a>快速理解</h3><p>之前创建表的时候都是在一张表中添加记录，比如如下表：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1394649/201909/1394649-20190901140225715-1856514382.png" srcset="/blog/img/loading.gif" alt=""></p>
+<p>公司有3个部门，但是有1个亿的员工，那意味着部门这个字段需要重复存储，部门名字越长，越浪费。这个时候，解决方法：我们完全可以定义一个部门表，然后让员工信息表关联该表，如何关联，即foreign key。</p>
+<p>我们可以将上表改为如下结构：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1394649/201909/1394649-20190901143741414-1716929402.png" srcset="/blog/img/loading.gif" alt=""></p>
+<h3 id="涉及到的术语"><a href="#涉及到的术语" class="headerlink" title="涉及到的术语"></a>涉及到的术语</h3><ul>
+<li>外键约束</li>
+<li>外键字段</li>
+<li>外键值</li>
+</ul>
+<p>三种术语的关系：</p>
+<blockquote>
+<p>某个字段添加外键约束之后，该字段称为外键字段，外键字段中每个数据都是外键值</p>
+</blockquote>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>保持数据的一致性</li>
+<li>完整性</li>
+<li>实现一对一或者一对多关系</li>
+</ul>
+<blockquote>
+<p>这也是为什么称为M<strong>ySQL关系型数据库</strong>的原因</p>
+</blockquote>
+<h3 id="要求-1"><a href="#要求-1" class="headerlink" title="要求"></a>要求</h3><ol>
+<li>★父表（子表所参照的表）和子表（具有外键列的表）必须使用使用相同的存储引擎，而且禁止使用临时表。</li>
+<li>★外键对应的是<strong>参照完整性</strong>，<strong><em>一个表的外键可以为NULL，若不为空值，则每一个外键的值必须等于另一个表中主键的某个值。</em></strong></li>
+<li>★定义外键时，<strong>创建先创建父表</strong>。定义外键后，<strong>插入先插入父表数据，</strong>同理，<strong>删除先删除子表数据</strong>。</li>
+<li>数据表的存储引擎只能为InnoDB。（编辑数据库的默认存储引擎，修改完需要重启MySQL服务）</li>
+<li>外键列（加FOREIGN KEY关键词的一列）和参照列（外键列参照的一列）必须具有相似的数据类型,如果是数字数据类型，则数字长度或者是否有符号位必须相同；如果为字符数据类型长度可以不同。</li>
+<li>★外键列和参照列（主键在创建的同时，会自动创建索引seq_in_index）必须创建索引。如果外键列不存在索引的话，MySQL将自动创建。</li>
+</ol>
+<h3 id="与主键的区别"><a href="#与主键的区别" class="headerlink" title="与主键的区别"></a>与主键的区别</h3><blockquote>
+<p>一张表可以有多个外键，但是主键最多只有一个。</p>
+</blockquote>
+<h3 id="按外键约束的字段数量分类"><a href="#按外键约束的字段数量分类" class="headerlink" title="按外键约束的字段数量分类"></a>按外键约束的字段数量分类</h3><ul>
+<li><p>单一外键：给一个字段添加外键约束</p>
+</li>
+<li><p>复合外键：给多个字段联合添加一个外键约束</p>
+</li>
+</ul>
+<h4 id="表复合外键（表级定义）"><a href="#表复合外键（表级定义）" class="headerlink" title="表复合外键（表级定义）"></a>表复合外键（表级定义）</h4><div class="hljs"><pre><code class="hljs lisp">FOREIGN KEY(<span class="hljs-name">classno</span>) REFERENCES t_class(<span class="hljs-name">cno</span>)<span class="hljs-comment">;</span></code></pre></div>
+<h2 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h2><p>用NOT NULL约束的字段不能为NULL值，<strong>必须给定具体的数据</strong>。</p>
+<p>注意的是</p>
+<blockquote>
+<p>NULL，表示空，并不是字符串中的空。两者需要区分开。</p>
+</blockquote>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="hljs"><pre><code class="hljs asciidoc">mysql&gt; CREATE TABLE t12(id INT NOT NULL);  #设置字段id不为空
+Query OK, 0 rows affected (0.03 sec)
+
+mysql&gt; DESC t12;
+<span class="hljs-code">+-------+</span>---------<span class="hljs-code">+------+</span>-----<span class="hljs-code">+---------+</span>-------+
+| Field | Type    | Null | Key | Default | Extra |
+<span class="hljs-code">+-------+</span>---------<span class="hljs-code">+------+</span>-----<span class="hljs-code">+---------+</span>-------+
+| id    | int(11) | NO   |     | NULL    |       |
+<span class="hljs-code">+-------+</span>---------<span class="hljs-code">+------+</span>-----<span class="hljs-code">+---------+</span>-------+
+row in set (0.01 sec)</code></pre></div>
+<p>验证</p>
+<div class="hljs"><pre><code class="hljs subunit">mysql&gt; INSERT INTO t12 VALUES();  #不能插入空
+<span class="hljs-keyword">ERROR </span>1364 (HY000): Field 'id' doesn't have a default value</code></pre></div>
+
+<h2 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h2><p>UNIQUE约束的字段，<strong>具有唯一性，不可重复</strong>，但可以为NULL。</p>
+<h3 id="列级约束"><a href="#列级约束" class="headerlink" title="列级约束"></a>列级约束</h3><div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+    -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>),
+    -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,
+    -&gt; email <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>) <span class="hljs-keyword">unique</span>
+    -&gt; );
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.03</span> sec)</code></pre></div>
+
+<h3 id="表级约束"><a href="#表级约束" class="headerlink" title="表级约束"></a>表级约束</h3><div class="hljs"><pre><code class="hljs livescript">mysql&gt; create table t_user(
+<span class="hljs-function">    -&gt;</span> id int(<span class="hljs-number">10</span>),
+<span class="hljs-function">    -&gt;</span> name varchar(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+<span class="hljs-function">    -&gt;</span> email varchar(<span class="hljs-number">128</span>），
+<span class="hljs-function">    -&gt;</span> unique(email)
+<span class="hljs-function">    -&gt;</span> );</code></pre></div>
+
+<p>如果插入相同email会报错</p>
+<div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_user(id,<span class="hljs-type">name</span>,email) <span class="hljs-keyword">values</span>(<span class="hljs-number">1</span>,<span class="hljs-string">'xlj'</span>,<span class="hljs-string">'932834897@qq.com'</span>);
+Query OK, <span class="hljs-number">1</span> <span class="hljs-keyword">row</span> affected (<span class="hljs-number">0.00</span> sec)
+
+mysql&gt; <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_user(id,<span class="hljs-type">name</span>,email) <span class="hljs-keyword">values</span>(<span class="hljs-number">2</span>,<span class="hljs-string">'jay'</span>,<span class="hljs-string">'932834897@qq.com'</span>);
+ERROR <span class="hljs-number">1062</span> (<span class="hljs-number">23000</span>): Duplicate entry <span class="hljs-string">'932834897@qq.com'</span> <span class="hljs-keyword">for key</span> <span class="hljs-string">'email'</span></code></pre></div>
+
+<h3 id="扩展：联合唯一约束"><a href="#扩展：联合唯一约束" class="headerlink" title="扩展：联合唯一约束"></a>扩展：联合唯一约束</h3><div class="hljs"><pre><code class="hljs routeros"><span class="hljs-comment"># 创建services表</span>
+mysql&gt; create table services(
+        id int,
+       <span class="hljs-built_in"> ip </span>char(15),
+       <span class="hljs-built_in"> port </span>int,
+        unique(id),
+        unique(ip,port)
+       );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql&gt; desc services;
++-------+----------+------+-----+---------+-------+
+| Field |<span class="hljs-built_in"> Type </span>     | <span class="hljs-literal">Null</span> | Key |<span class="hljs-built_in"> Default </span>| Extra |
++-------+----------+------+-----+---------+-------+
+| id        | int(11)   | <span class="hljs-literal">YES</span>   | UNI  | <span class="hljs-literal">NULL</span>       |             |
+|<span class="hljs-built_in"> ip </span>       | char(15) | <span class="hljs-literal">YES</span>   | MUL  | <span class="hljs-literal">NULL</span>       |             |
+|<span class="hljs-built_in"> port </span>   | int(11) | <span class="hljs-literal">YES</span>   |          | <span class="hljs-literal">NULL</span>       |             |
++-------+----------+------+-----+---------+-------+
+rows <span class="hljs-keyword">in</span> <span class="hljs-builtin-name">set</span> (0.01 sec)
+
+<span class="hljs-comment">#联合唯一，只要两列记录，有一列不同，既符合联合唯一的约束</span>
+mysql&gt; insert into services values
+       (1,<span class="hljs-string">'192,168,11,23'</span>,80),
+       (2,<span class="hljs-string">'192,168,11,23'</span>,81),
+       (3,<span class="hljs-string">'192,168,11,25'</span>,80);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; select * <span class="hljs-keyword">from</span> services;
++------+---------------+------+
+| id   |<span class="hljs-built_in"> ip </span>           |<span class="hljs-built_in"> port </span>|
++------+---------------+------+
+|    1 | 192,168,11,23 |   80 |
+|    2 | 192,168,11,23 |   81 |
+|    3 | 192,168,11,25 |   80 |
++------+---------------+------+
+rows <span class="hljs-keyword">in</span> <span class="hljs-builtin-name">set</span> (0.00 sec)
+
+mysql&gt; insert into services values (4,<span class="hljs-string">'192,168,11,23'</span>,80);
+<span class="hljs-builtin-name">ERROR</span> 1062 (23000): Duplicate entry <span class="hljs-string">'192,168,11,23-80'</span> <span class="hljs-keyword">for</span> key <span class="hljs-string">'ip'</span></code></pre></div>
+
+<p>更多可参考 <a href="https://blog.csdn.net/arkblue/article/details/9070797" target="_blank" rel="noopener">mysql 给表添加唯一约束、联合唯一约束，指定唯一约束的名字</a></p>
+<h2 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h2><p><strong>为某一字段提供默认值。</strong></p>
+<blockquote>
+<p>创建列时可以指定默认值，当插入数据时如果未主动设置，则自动添加默认值</p>
+</blockquote>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> tb1(
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+    sex <span class="hljs-built_in">char</span> defalut <span class="hljs-string">'b'</span>
+);</code></pre></div>
+
+<p>验证</p>
+<div class="hljs"><pre><code class="hljs asciidoc">mysql&gt; insert into tb1(id) values(1); #给t11表插一个空的值
+Query OK, 1 row affected (0.00 sec)
+
+#查询结果如下
+mysql&gt; select * from t11;
+<span class="hljs-code">+------+</span>------+
+|  id  |  sex |
+<span class="hljs-code">+------+</span>------+
+|  1   |   b  |
+<span class="hljs-code">+------+</span>------+
+row in set (0.00 sec)</code></pre></div>
+
+<hr>
+<p>主要文献：<br>[部分概念来自C语言中文网] <a href="http://c.biancheng.net/view/2440.html" target="_blank" rel="noopener">http://c.biancheng.net/view/2440.html</a><br>[大部分案例的代码块来自CSDN] <a href="https://blog.csdn.net/w_linux/article/details/79655073" target="_blank" rel="noopener">https://blog.csdn.net/w_linux/article/details/79655073</a></p>
+<hr>
+<p>注：案例中的SQL语句并非作者写的，存在规范问题，但不影响阅读。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/MySQL/">MySQL</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/08/17/SpringMVC%EF%BC%9A%E5%9B%9E%E9%A1%BEMVC/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SpringMVC：回顾MVC</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/08/16/%5B%E8%BD%AC%5D%E4%BA%8B%E5%8A%A1%E7%9A%84ACID%E7%90%86%E8%A7%A3/">
+                        <span class="hidden-mobile">[转]事务的ACID理解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+
+
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 天气挂件 -->
+<!-- <div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>-->
+  
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "disabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+
+
+
+
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_1278597820" style="display: none"></span>
+    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    
+  </div>
+  
+  
+  
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--宅音乐播放器 https://player.ilt.me/admin-->
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="992f0d81b6b74b93b6bbdb56f57a6c58"></script>
+
+<!--闲聊么http://www.xianliao.me/faq<script>var xlm_wid='15920';var xlm_url='https://www.xianliao.me/';</script><script type="text/javascript" charset="UTF-8" src="https://www.xianliao.me/embed.js"></script>--> 
+ 
+<center>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+
+
+
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle1">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+</div>
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle1", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("06/11/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script><div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&m=2&c=ff0000&cr1=ffffff&f=arial&l=33&z=17&rx=-40&lx=-540&ly=520&hi=60" async="async"></script>
+</center>
+
+<!--cnzz-->
+<center>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</center>
+
+
+  
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/blog/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2020/08/16/MySQL%E5%A4%8D%E4%B9%A0%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "MySQL复习基础语句&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    var path = "/blog/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+  <script>(function (i, s, o, g, r, a, m) {
+      i['DaoVoiceObject'] = r;
+      i[r] = i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      a.charset = 'utf-8';
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/87b73b33.js", 'daovoice');
+    daovoice('init', {
+      app_id: "87b73b33",
+    });
+    daovoice('update');
+  </script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3ec76546d2bce23889863e13f01a5b5f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1278597820&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
