@@ -19,19 +19,10 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>Java—转置数组 - MelodyHub</title>
+  <title>归档 - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
-
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
-
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-  
-
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -54,7 +45,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -142,7 +133,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRJHJ.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -150,48 +141,6 @@
             <span class="h2" id="subtitle">
               
             </span>
-
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-12-07 21:43">
-      2019年12月7日 晚上
-    </time>
-  </div>
-
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      339 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      5
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
-      </span>
-    
-  
-</div>
 
             
           </div>
@@ -204,242 +153,49 @@
 
   <main>
     
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 299 篇文章</p>
+  <hr>
+  
+    
       
+      <p class="h5">2020</p>
+    
+    <a href="/blog/2020/01/01/%E5%86%8D%E8%A7%81%EF%BC%8C2019%EF%BC%9B%E4%BD%A0%E5%A5%BD%EF%BC%8C2020/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">再见2019，你好2020</span>
+      <span style="float: right;">01-01</span>
+    </a>
+  
+</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：9 个月前
-                
-              </p>
-            
-            <article class="markdown-body">
-              <p>🔺需求 👇</p>
-<p>编写一个程序，其功能是能随机生成一个数组、同时完成对该数组的转置并打印输出转置后的数组。</p>
-<a id="more"></a>
-
-<p>🔺代码 👇</p>
-<div class="hljs"><pre><code class="hljs Java">
-<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.out;
-<span class="hljs-keyword">import</span> java.util.Random;
-
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Reverse2dArray</span> </span>{   
-    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>[][] a; <span class="hljs-comment">// 存放两位随机整数的int二维数组a      </span>
-    
-    <span class="hljs-comment">/**    </span>
-<span class="hljs-comment">    * 构造方法，初始化数组a，r和c分别是行数和列数row column    </span>
-<span class="hljs-comment">    */</span>   
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Reverse2dArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> c)</span></span>{       
-        a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[r][c];   
-        buildRandArray();   
-    }     
-    
-    <span class="hljs-comment">/**    </span>
-<span class="hljs-comment">    * 构造随机数组   </span>
-<span class="hljs-comment">    */</span>   
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildRandArray</span><span class="hljs-params">()</span></span>{   
-        Random random = <span class="hljs-keyword">new</span> Random();     
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++)      
-            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; a[i].length; j++)         
-                a[i][j] = random.nextInt(<span class="hljs-number">100</span>); 
-    }     
-    
-    <span class="hljs-comment">/**    </span>
-<span class="hljs-comment">    * 转置本类成员的二维数组a，并返回一个新的二维数组   </span>
-<span class="hljs-comment">    * <span class="hljs-doctag">@return</span>   </span>
-<span class="hljs-comment">    */</span>   
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[][] reverse2dArray(){        
-        <span class="hljs-keyword">int</span> [][] b = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span> [a[<span class="hljs-number">0</span>].length] [a.length] ;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) {      
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; a[<span class="hljs-number">0</span>].length; j++) {   
-                b[j][i] = a[i][j] ;     
-            }    
-        }     
-        <span class="hljs-keyword">return</span> b ; 
-    }           
-    
-    <span class="hljs-comment">/* 显示二维数组 */</span>  
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] c)</span></span>{    
-        out.printf(<span class="hljs-string">"=========%2d×%-2d=========%n"</span>, c.length, c[<span class="hljs-number">0</span>].length);       
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span>[] cr : c){        
-            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> cc : cr){      
-                out.printf(<span class="hljs-string">"%5d "</span>, cc); 
-            }         
-            out.println();    
-        }        
-        out.println(<span class="hljs-string">"======================="</span>);   
-    }     
-    
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{ 
-        <span class="hljs-keyword">int</span> row = <span class="hljs-number">3</span>, col = <span class="hljs-number">4</span>;    
-        Reverse2dArray me = <span class="hljs-keyword">new</span> Reverse2dArray(row, col);  
-        
-        me.showArray(a); <span class="hljs-comment">// 显示原数组   </span>
-        <span class="hljs-keyword">int</span>[][] r = me.reverse2dArray();     
-        me.showArray(r); <span class="hljs-comment">// 显示转置的数组      </span>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/blog/archives/2020/page/26/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/archives/2020/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/archives/2020/page/25/">25</a><a class="page-number" href="/blog/archives/2020/page/26/">26</a><span class="page-number current">27</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
     }
-}</code></pre></div>
-
-<p>🔺截图 👇</p>
-<p><img src="https://i.loli.net/2019/12/08/AwSDly38f4UPkMY.png" srcset="/blog/img/loading.gif" alt=""></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-            </article>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/tags/Java/">Java</a>
-                    
-                      <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
-                    
-                    
-                      <a href="/blog/2019/12/08/%E6%96%87%E7%AB%A0%E8%A7%86%E9%A2%91/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">文章视频（B站）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </div>
-                  <div class="post-next col-6">
-                    
-                    
-                      <a href="/blog/2019/12/07/%E3%80%90%E7%BA%AA%E5%BF%B5%E3%80%91%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%B8%8A%E7%BA%BF%E4%B8%80%E4%B8%AA%E6%9C%88/">
-                        <span class="hidden-mobile">【纪念】我的博客上线一个月</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </div>
-                </div>
-              
-            </div>
-
-            
-              <!-- Comments -->
-              <div class="comments" id="comments">
-                
-                
-  <div id="vcomments"></div>
-  <script type="text/javascript">
-    function loadValine() {
-      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
-        new Valine({
-          el: "#vcomments",
-          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
-          app_key: "HjUUcTY42RErTnIt7O58GhvH",
-          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
-          path: window.location.pathname,
-          avatar: "retro",
-          meta: ["nick","mail","link"],
-          pageSize: "10",
-          lang: "zh-CN",
-          highlight: true,
-          recordIP: true,
-          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
-          
-           // 设置Bilibili表情包地址
-    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
-    // 表情title和图片映射
-    emojiMaps: {
-        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
-        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
-        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
-        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
-        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
-        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
-        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
-        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
-        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
-        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
-        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
-        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
-        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
-        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
-        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
-        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
-        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
-        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
-        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
-        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
-        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
-        // ... 更多表情
-    } 
-          
-        });
-      });
-    }
-    createObserver(loadValine, 'vcomments');
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
+
 
 
               </div>
-            
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-md">
-    <div class="container custom post-content mx-auto">
-      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
-
-
     
   </main>
 
@@ -785,10 +541,10 @@ setInterval("createtime()",250);
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
+      if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/blog/2019/12/07/Java%E2%80%94%E8%BD%AC%E7%BD%AE%E6%95%B0%E7%BB%84/');
+          var target = decodeURI('/blog/archives/2020/page/27/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -850,31 +606,6 @@ setInterval("createtime()",250);
 
 
 
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 2,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -882,7 +613,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Java—转置数组&nbsp;",
+        "你用走 可是我用跑&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -896,23 +627,6 @@ setInterval("createtime()",250);
   </script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-      icon: "§"
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
 
 
 
@@ -928,62 +642,9 @@ setInterval("createtime()",250);
 
 
 
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
-
-  
 
 
 
@@ -1063,13 +724,6 @@ setInterval("createtime()",250);
 
 
 
-
-  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({"theme":"default"});
-    }
-  </script>
 
 
 

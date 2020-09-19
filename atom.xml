@@ -37,11 +37,68 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
     
       <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Hexo+GitHub建站</title>
+    <link href="https://melodyjerry.github.io/blog/2020/09/19/Hexo+GitHub/"/>
+    <id>https://melodyjerry.github.io/blog/2020/09/19/Hexo+GitHub/</id>
+    <published>2020-09-19T11:24:01.000Z</published>
+    <updated>2020-09-19T14:41:21.776Z</updated>
+    
+    <content type="html"><![CDATA[<p>前言： 使用<a href="https://blog.csdn.net/weixin_43438052" target="_blank" rel="noopener">CSDN</a>或<strong>简书</strong>撰写博客似乎是一件美事，只不过个人觉得太过于依赖他人平台，不如就自己搭建一个属于自己的博客。</p><p>最终，个人选择了<strong>Hexo+GitHub（Pages）</strong>的方式。</p><blockquote><p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 是开源协作社区 GitHub 的一个服务，将博客部署到它上面再合适不过了。</p></blockquote><table><thead><tr><th>Q</th><th>W</th></tr></thead><tbody><tr><td>为什么要部署到 GitHub Pages 上？</td><td>首先免费，其次省心，最后可以学习使用 GitHub。</td></tr><tr><td>GitHub Pages 有容量限制吗？</td><td>有，由 <a href="https://help.github.com/articles/what-is-github-pages/" target="_blank" rel="noopener">What is GitHub Pages?</a> 可知：大小限制为 1GB，一个月 100GB 流量。</td></tr><tr><td>超出限制的容量怎么办？</td><td>讲真，如果图片音乐视频等大文件都放在<a href="https://www.qiniu.com/" target="_blank" rel="noopener">七牛云 KODO</a>、<a href="https://www.aliyun.com/product/oss" target="_blank" rel="noopener">阿里云 OSS</a> 或其它云存储上。<br>图片我更多是存放在图床上，比如<a href="https://imgchr.com/" target="_blank" rel="noopener">路过图床</a>或<a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a>。</td></tr><tr><td>国内访问速度行不行，有必要同时部署在 <a href="https://coding.net/" target="_blank" rel="noopener">Coding</a> 上吗？</td><td>个人感觉可有可无吧，自己不用梯子时，感觉访问速度可以，毕竟站点的大文件都是放在了云存储上，图片都是国内图床，加载较快。</td></tr><tr><td>我可以用自己的域名吗？</td><td>可以，并且原生支持 https。</td></tr></tbody></table><a id="more"></a> <hr><h1 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a>安装篇</h1><hr><h2 id="一、安装-Hexo前的准备"><a href="#一、安装-Hexo前的准备" class="headerlink" title="一、安装 Hexo前的准备"></a>一、安装 Hexo前的准备</h2><h3 id="1、安装Hexo前的必要工作"><a href="#1、安装Hexo前的必要工作" class="headerlink" title="1、安装Hexo前的必要工作"></a>1、安装Hexo前的必要工作</h3><p>安装以下两个程序：</p><p>程序 | 下载地址 | 说明|<br>–|–|–|–<br>Git|<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git - Downloads</a>| 网速的同学，可以自行百度移步到国内镜像 |<br>Node.js|<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js - Downloads</a>| 有LTS和Current两个版本，安装 LTS 版即可。 |由于新版的nodejs已经集成了npm，所以之前npm也一并安装好了。同样可以通过输入 <strong>“npm -v”</strong> 来测试是否成功安装。</p><p>注意：关于Git和Node.js的安装可能会有问题，尤其是Git的安装。这里贴上几张安装界面的截图。</p><p><img src="https://s1.ax1x.com/2020/09/19/wI2wcT.png" srcset="/blog/img/loading.gif" alt="wI2wcT.png"></p><p><img src="https://s1.ax1x.com/2020/09/19/wI2R9x.png" srcset="/blog/img/loading.gif" alt="wI2R9x.png"></p><p><img src="https://s1.ax1x.com/2020/09/19/wI2oHH.png" srcset="/blog/img/loading.gif" alt="wI2oHH.png"></p><p>安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！<br><img src="https://i.loli.net/2019/11/07/pFcNrU8QYBVROGw.png" srcset="/blog/img/loading.gif" alt="image.png"></p><h3 id="2、新建GitHub仓库"><a href="#2、新建GitHub仓库" class="headerlink" title="2、新建GitHub仓库"></a>2、新建GitHub仓库</h3><ol><li>按照下图来新建一个Repo：</li></ol><ul><li>最好勾选``Initialize this repository with a README`，图中忘记勾选了。</li></ul><p><img src="https://s1.ax1x.com/2020/09/19/wIov7T.png" srcset="/blog/img/loading.gif" alt="wIov7T.png"></p><ol start="2"><li>访问GitHub Pages</li></ol><p>在建好的仓库右侧有个<code>settings</code>按钮，点击它</p><p><img src="https://s1.ax1x.com/2020/09/19/wITtUS.png" srcset="/blog/img/loading.gif" alt="wITtUS.png"></p><p>向下拉到<code>GitHub Pages</code>，提示的链接便是博客的首页了，可以点击浏览。（后期可以在这里绑定域名）</p><p><img src="https://s1.ax1x.com/2020/09/19/wIT5K1.png" srcset="/blog/img/loading.gif" alt="wIT5K1.png"></p><h2 id="二、正式安装Hexo"><a href="#二、正式安装Hexo" class="headerlink" title="二、正式安装Hexo"></a>二、正式安装Hexo</h2><blockquote><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。——官方</p></blockquote><p>准备工作完成后，来安装hexo框架吧！<br> <strong>主要根据hexo官方的<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档</a>来安装Hexo。</strong></p><ul><li><p>在本地电脑上新建一个文件夹，用来存放整个Hexo博客项目。这里默认路径是<strong>D:\blog</strong>。</p></li><li><p>使用 npm 安装 Hexo：</p></li></ul><div class="hljs"><pre><code class="hljs bash">$ npm install -g hexo-cli</code></pre></div><p><img src="https://i.loli.net/2019/11/07/BZIuA2XzYeaDQ8k.png" srcset="/blog/img/loading.gif" alt="image.png"></p><p>这样，Hexo就安装完成了。</p><blockquote><p>可使用输入<code>hexo -v</code>，检查<code>Hexo</code>是否安装成功</p></blockquote><h2 id="三、初始化Hexo"><a href="#三、初始化Hexo" class="headerlink" title="三、初始化Hexo"></a>三、初始化Hexo</h2><p><code>hexo init</code>，就会自动构建一个 <code>hexo</code> 项目，看到后面的<code>Start blogging with Hexo！</code>就说明初始化好了。</p><div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 初始化Hexo</span>$ hexo init</code></pre></div><h2 id="四、安装npm必需组件"><a href="#四、安装npm必需组件" class="headerlink" title="四、安装npm必需组件"></a>四、安装npm必需组件</h2><div class="hljs"><pre><code class="hljs bash">$ npm install</code></pre></div><h2 id="五、生成并预览"><a href="#五、生成并预览" class="headerlink" title="五、生成并预览"></a>五、生成并预览</h2><p>执行 <code>hexo s</code>，浏览器访问 <code>localhost:4000</code> 就可以看到效果啦！</p><div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 本地预览</span>$ hexo s</code></pre></div><p>初始化的默认博客页面：</p><p><img src="https://s1.ax1x.com/2020/09/19/wII0iQ.png" srcset="/blog/img/loading.gif" alt="wII0iQ.png"></p><h1 id="配置篇"><a href="#配置篇" class="headerlink" title="配置篇"></a>配置篇</h1><h2 id="一、配置git"><a href="#一、配置git" class="headerlink" title="一、配置git"></a>一、配置git</h2><h3 id="1、-全局变量name、email"><a href="#1、-全局变量name、email" class="headerlink" title="1、 全局变量name、email"></a>1、 全局变量name、email</h3><ul><li><em>可以在未来部署，并非一定现在</em></li></ul><blockquote><p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。注意<code>git config</code>命令的<code>--global</code>参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p></blockquote><div class="hljs"><pre><code>$ git config --global user.name  "your name"`$ git config --global user.email "your Email"</code></pre></div><h3 id="2、生成私钥和公钥"><a href="#2、生成私钥和公钥" class="headerlink" title="2、生成私钥和公钥"></a>2、生成私钥和公钥</h3><div class="hljs"><pre><code class="hljs ba">$ ssh-keygen -t rsa</code></pre></div><p><img src="https://s1.ax1x.com/2020/09/18/wh8K6e.png" srcset="/blog/img/loading.gif" alt="wh8K6e.png"></p><h3 id="3、绑定SSH公钥"><a href="#3、绑定SSH公钥" class="headerlink" title="3、绑定SSH公钥"></a>3、绑定SSH公钥</h3><p>登录Github，点击头像下的<code>settings</code></p><p><img src="https://s1.ax1x.com/2020/09/19/wI7FPg.png" srcset="/blog/img/loading.gif" alt="wI7FPg.png"></p><p>左侧点击<code>SSH and GPG keys</code>，添加ssh，新建一个<code>New SSH key</code>，将<code>id_rsa.pub</code>文件里的内容复制上去</p><p><img src="https://s1.ax1x.com/2020/09/18/wh810A.png" srcset="/blog/img/loading.gif" alt="wh810A.png"></p><ul><li>Title可以直接不填，Key粘贴<code>id_rsa.pub</code>文件里的内容</li></ul><p><img src="https://s1.ax1x.com/2020/09/18/wh8oA1.png" srcset="/blog/img/loading.gif" alt="wh8oA1.png"></p><h3 id="4、修改-config-yml中的Deployment"><a href="#4、修改-config-yml中的Deployment" class="headerlink" title="4、修改_config.yml中的Deployment"></a>4、修改_config.yml中的Deployment</h3><p>配置<code>Deployment</code>，在其文件夹中，找到<code>_config.yml</code>文件，修改<code>repo</code>值（在末尾），<code>repo</code>值是<code>github</code>项目里的<code>ssh</code></p><p><img src="https://s1.ax1x.com/2020/09/19/wIbQgJ.png" srcset="/blog/img/loading.gif" alt="wIbQgJ.png"></p><h2 id="二、安装hexo-deployer-git插件"><a href="#二、安装hexo-deployer-git插件" class="headerlink" title="二、安装hexo-deployer-git插件"></a>二、安装hexo-deployer-git插件</h2><ul><li>HexoBlog部署到<code>git</code>我们需要安装<code>hexo-deployer-git</code>插件，在blog目录下运行一下命令进行安装</li></ul><div class="hljs"><pre><code class="hljs bash">$ npm install hexo-deployer-git --save</code></pre></div><h2 id="三、写作"><a href="#三、写作" class="headerlink" title="三、写作"></a>三、写作</h2><div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 创建文章，默认layout布局为：post</span>$ hexo new [layout] &lt;title&gt;<span class="hljs-comment"># 例如</span>$ hexo new post HelloHexo</code></pre></div><blockquote><p>关于这块，最好看官方文档：<a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/writing</a></p></blockquote><p>之后会在<code>source</code>文件夹的<code>_post</code>文件夹中看到你新建的文件<code>HelloHexo.md</code></p><h2 id="四、生成并部署博客"><a href="#四、生成并部署博客" class="headerlink" title="四、生成并部署博客"></a>四、生成并部署博客</h2><div class="hljs"><pre><code class="hljs bash">$ hexo d -g</code></pre></div><p>生成以及部署了，在打开你的博客主页（melodyjerry.github.io）就可以看到你创建的文章了。</p><h1 id="高阶篇"><a href="#高阶篇" class="headerlink" title="高阶篇"></a>高阶篇</h1><h2 id="一、主题"><a href="#一、主题" class="headerlink" title="一、主题"></a>一、主题</h2><h3 id="1、选取喜欢的主题"><a href="#1、选取喜欢的主题" class="headerlink" title="1、选取喜欢的主题"></a>1、选取喜欢的主题</h3><p>在Hexo官方，有许多现成的主题了。当然，你想自己原创设计或二次开发也可以的<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f47c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47c.png?v8">👼</span></p><p>大量主题：<a href="https://hexo.io/zh-cn/docs/themes.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/themes.html</a></p><p>找到合适的就按要求下载即可。</p><p>以主题<code>fluid</code>为例，<code>fluid</code>的配置文档在<a href="https://hexo.fluid-dev.com/docs/guide/#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B" target="_blank" rel="noopener">这里</a>。</p><div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 下载到themes文件夹下</span>$ git <span class="hljs-built_in">clone</span> https://github.com/fluid-dev/hexo-theme-fluid fluid</code></pre></div><h3 id="2、-配置主题"><a href="#2、-配置主题" class="headerlink" title="2、 配置主题"></a>2、 配置主题</h3><p>找到<code>_config.yml</code>文件，修改<code>theme</code>值：</p><div class="hljs"><pre><code class="hljs bash">theme: fluid</code></pre></div><h3 id="3、重新生成并预览"><a href="#3、重新生成并预览" class="headerlink" title="3、重新生成并预览"></a>3、重新生成并预览</h3><div class="hljs"><pre><code class="hljs bash">$ hexo clean$ hexo g$ hexo s</code></pre></div><h2 id="二、接入评论系统-valine"><a href="#二、接入评论系统-valine" class="headerlink" title="二、接入评论系统 - valine"></a>二、接入评论系统 - valine</h2><p>上Valine官方文档：<a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">https://valine.js.org/quickstart.html</a></p><h2 id="三、部署优化"><a href="#三、部署优化" class="headerlink" title="三、部署优化"></a>三、部署优化</h2><p>每次都要执行 <code>hexo clean</code> 、<code>hexo generate</code>、 <code>hexo deploy</code>，不如写个新的脚本：</p><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">// package.json</span><span class="hljs-string">"dev"</span>: <span class="hljs-string">"hexo s"</span>,<span class="hljs-string">"build"</span>: <span class="hljs-string">"hexo clean &amp; hexo deploy"</span></code></pre></div><p>部署命令：</p><div class="hljs"><pre><code class="hljs javascript">$ npm run build</code></pre></div><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="站点文件和主题文件的区别"><a href="#站点文件和主题文件的区别" class="headerlink" title="站点文件和主题文件的区别"></a>站点文件和主题文件的区别</h2><p><img src="https://s1.ax1x.com/2020/09/19/wIOAud.png" srcset="/blog/img/loading.gif" alt="wIOAud.png"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言： 使用&lt;a href=&quot;https://blog.csdn.net/weixin_43438052&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CSDN&lt;/a&gt;或&lt;strong&gt;简书&lt;/strong&gt;撰写博客似乎是一件美事，只不过个人觉得太过于依赖他人平台，不如就自己搭建一个属于自己的博客。&lt;/p&gt;
+&lt;p&gt;最终，个人选择了&lt;strong&gt;Hexo+GitHub（Pages）&lt;/strong&gt;的方式。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub Pages&lt;/a&gt; 是开源协作社区 GitHub 的一个服务，将博客部署到它上面再合适不过了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Q&lt;/th&gt;
+&lt;th&gt;W&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;为什么要部署到 GitHub Pages 上？&lt;/td&gt;
+&lt;td&gt;首先免费，其次省心，最后可以学习使用 GitHub。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GitHub Pages 有容量限制吗？&lt;/td&gt;
+&lt;td&gt;有，由 &lt;a href=&quot;https://help.github.com/articles/what-is-github-pages/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;What is GitHub Pages?&lt;/a&gt; 可知：大小限制为 1GB，一个月 100GB 流量。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;超出限制的容量怎么办？&lt;/td&gt;
+&lt;td&gt;讲真，如果图片音乐视频等大文件都放在&lt;a href=&quot;https://www.qiniu.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;七牛云 KODO&lt;/a&gt;、&lt;a href=&quot;https://www.aliyun.com/product/oss&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;阿里云 OSS&lt;/a&gt; 或其它云存储上。&lt;br&gt;图片我更多是存放在图床上，比如&lt;a href=&quot;https://imgchr.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;路过图床&lt;/a&gt;或&lt;a href=&quot;https://sm.ms/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SM.MS&lt;/a&gt;。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;国内访问速度行不行，有必要同时部署在 &lt;a href=&quot;https://coding.net/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Coding&lt;/a&gt; 上吗？&lt;/td&gt;
+&lt;td&gt;个人感觉可有可无吧，自己不用梯子时，感觉访问速度可以，毕竟站点的大文件都是放在了云存储上，图片都是国内图床，加载较快。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;我可以用自己的域名吗？&lt;/td&gt;
+&lt;td&gt;可以，并且原生支持 https。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+    
+    </summary>
+    
+    
+      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
+    
+    
+      <category term="Hexo" scheme="https://melodyjerry.github.io/blog/tags/Hexo/"/>
+    
+      <category term="GitHub" scheme="https://melodyjerry.github.io/blog/tags/GitHub/"/>
     
   </entry>
   
@@ -99,13 +156,13 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
-    
       <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
     
       <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
     
   </entry>
   
@@ -130,11 +187,11 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
     
       <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -272,9 +329,9 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="Maven" scheme="https://melodyjerry.github.io/blog/tags/Maven/"/>
     
@@ -356,9 +413,9 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
+    
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -426,11 +483,11 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
     
   </entry>
   
@@ -456,11 +513,11 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
     
   </entry>
   
@@ -483,11 +540,11 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
     
   </entry>
   
@@ -663,38 +720,6 @@
       <category term="工具" scheme="https://melodyjerry.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="SVN" scheme="https://melodyjerry.github.io/blog/tags/SVN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>两个简单的导航网页</title>
-    <link href="https://melodyjerry.github.io/blog/2020/08/22/%E4%B8%A4%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%BC%E8%88%AA%E7%BD%91%E9%A1%B5/"/>
-    <id>https://melodyjerry.github.io/blog/2020/08/22/%E4%B8%A4%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%BC%E8%88%AA%E7%BD%91%E9%A1%B5/</id>
-    <published>2020-08-21T16:00:00.000Z</published>
-    <updated>2020-09-18T04:43:03.050Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="极简、拟物风格"><a href="#极简、拟物风格" class="headerlink" title="极简、拟物风格"></a>极简、拟物风格</h1><p><img src="https://s1.ax1x.com/2020/08/21/dNjTxJ.png" srcset="/blog/img/loading.gif" alt=""></p><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>Gitee：<a href="https://gitee.com/melodyjerry/SimpleIndex" target="_blank" rel="noopener">https://gitee.com/melodyjerry/SimpleIndex</a></p><h1 id="简单的、聚合式"><a href="#简单的、聚合式" class="headerlink" title="简单的、聚合式"></a>简单的、聚合式</h1><p><img src="https://s1.ax1x.com/2020/08/22/dakdWn.png" srcset="/blog/img/loading.gif" alt=""></p><h2 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h2><p>Gitee：<a href="https://gitee.com/melodyjerry/MyIndex" target="_blank" rel="noopener">https://gitee.com/melodyjerry/MyIndex</a></p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;极简、拟物风格&quot;&gt;&lt;a href=&quot;#极简、拟物风格&quot; class=&quot;headerlink&quot; title=&quot;极简、拟物风格&quot;&gt;&lt;/a&gt;极简、拟物风格&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/08/21/dNjTxJ.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;Gitee：&lt;a href=&quot;https://gitee.com/melodyjerry/SimpleIndex&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gitee.com/melodyjerry/SimpleIndex&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;简单的、聚合式&quot;&gt;&lt;a href=&quot;#简单的、聚合式&quot; class=&quot;headerlink&quot; title=&quot;简单的、聚合式&quot;&gt;&lt;/a&gt;简单的、聚合式&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/08/22/dakdWn.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;源码-1&quot;&gt;&lt;a href=&quot;#源码-1&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;Gitee：&lt;a href=&quot;https://gitee.com/melodyjerry/MyIndex&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gitee.com/melodyjerry/MyIndex&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="CSS" scheme="https://melodyjerry.github.io/blog/tags/CSS/"/>
-    
-      <category term="HTML" scheme="https://melodyjerry.github.io/blog/tags/HTML/"/>
-    
-      <category term="JavaScript" scheme="https://melodyjerry.github.io/blog/tags/JavaScript/"/>
-    
-      <category term="JQuery" scheme="https://melodyjerry.github.io/blog/tags/JQuery/"/>
     
   </entry>
   
