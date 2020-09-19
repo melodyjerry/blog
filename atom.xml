@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://melodyjerry.github.io/blog/"/>
-  <updated>2020-09-19T04:24:28.823Z</updated>
+  <updated>2020-09-19T14:41:21.776Z</updated>
   <id>https://melodyjerry.github.io/blog/</id>
   
   <author>
@@ -15,35 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>AspectJ的切入点表达式---execution表达式</title>
-    <link href="https://melodyjerry.github.io/blog/2020/09/28/AspectJ%E7%9A%84%E5%88%87%E5%85%A5%E7%82%B9%E8%A1%A8%E8%BE%BE%E5%BC%8F---execution%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>https://melodyjerry.github.io/blog/2020/09/28/AspectJ%E7%9A%84%E5%88%87%E5%85%A5%E7%82%B9%E8%A1%A8%E8%BE%BE%E5%BC%8F---execution%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
-    <published>2020-09-28T09:24:41.000Z</published>
-    <updated>2020-09-19T04:24:28.823Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>execution(&lt;修饰符模式&gt;?&lt;返回类型模式&gt;&lt;方法名模式&gt;(&lt;参数模式&gt;)&lt;异常模式&gt;?) </p></blockquote> <a id="more"></a><p>除了返回类型模式、方法名模式和参数模式外，其它项都是可选的。</p><p>一、通过方法签名定义切点</p><blockquote><p> execution(public * *(..))</p></blockquote><p>　　匹配所有目标类的public方法，但不匹配SmartSeller和protected voidshowGoods()方法。第一个<em>代表返回类型，第二个</em>代表方法名，而..代表任意入参的方法；</p><blockquote><p> execution(* *To(..))</p></blockquote><p>　　匹配目标类所有以To为后缀的方法。它匹配NaiveWaiter和NaughtyWaiter的greetTo()和serveTo()方法。第一个<em>代表返回类型，而</em>To代表任意以To为后缀的方法；</p><p>二、通过类定义切点</p><blockquote><p> execution(<em>com.baobaotao.Waiter.</em>(..))</p></blockquote><p>　　匹配Waiter接口的所有方法，它匹配NaiveWaiter和NaughtyWaiter类的greetTo()和serveTo()方法。第一个<em>代表返回任意类型，com.baobaotao.Waiter.</em>代表Waiter接口中的所有方法；</p><blockquote><p> execution(<em>com.baobaotao.Waiter+.</em>(..))</p></blockquote><p>　　匹配Waiter接口及其所有实现类的方法，它不但匹配NaiveWaiter和NaughtyWaiter类的greetTo()和serveTo()这两个Waiter接口定义的方法，同时还匹配NaiveWaiter#smile()和NaughtyWaiter#joke()这两个不在Waiter接口中定义的方法。</p><p>三、通过类包定义切点</p><p>　　在类名模式串中，”.*”表示包下的所有类，而”..*”表示包、子孙包下的所有类。</p><blockquote><p> execution(* com.baobaotao.*(..))l</p></blockquote><p>　　匹配com.baobaotao包下所有类的所有方法；</p><blockquote><p> execution(* com.baobaotao..*(..))l</p></blockquote><p>　　匹配com.baobaotao包、子孙包下所有类的所有方法，如com.baobaotao.dao，com.baobaotao.servier以及com.baobaotao.dao.user包下的所有类的所有方法都匹配。”..”出现在类名中时，后面必须跟”*”，表示包、子孙包下的所有类；  </p><blockquote><p> execution(* com..<em>.</em>Dao.find*(..))</p></blockquote><p>　　匹配包名前缀为com的任何包下类名后缀为Dao的方法，方法名必须以find为前缀。如com.baobaotao.UserDao#findByUserId()、com.baobaotao.dao.ForumDao#findById()的方法都匹配切点。</p><p>四、通过方法入参定义切点</p><p>　　切点表达式中方法入参部分比较复杂，可以使用”*”和”..”通配符，其中”*”表示任意类型的参数，而”..”表示任意类型参数且参数个数不限。 </p><blockquote><p> execution(* joke(String,int)))</p></blockquote><p>　　匹配joke(String,int)方法，且joke()方法的第一个入参是String，第二个入参是int。它匹配NaughtyWaiter#joke(String,int)方法。如果方法中的入参类型是<a href="http://lib.csdn.net/base/java" target="_blank" rel="noopener">Java</a>.lang包下的类，可以直接使用类名，否则必须使用全限定类名，如joke(java.util.List,int)；</p><blockquote><p> execution(* joke(String,*)))</p></blockquote><p>　　匹配目标类中的joke()方法，该方法第一个入参为String，第二个入参可以是任意类型，如joke(Strings1,String s2)和joke(String s1,double d2)都匹配，但joke(String s1,doubled2,String s3)则不匹配；</p><blockquote><p> execution(* joke(String,..)))</p></blockquote><p>　　匹配目标类中的joke()方法，该方法第 一个入参为String，后面可以有任意个入参且入参类型不限，如joke(Strings1)、joke(String s1,String s2)和joke(String s1,double d2,Strings3)都匹配。</p><blockquote><p> execution(* joke(Object+)))</p></blockquote><p>　　匹配目标类中的joke()方法，方法拥有一个入参，且入参是Object类型或该类的子类。它匹配joke(Strings1)和joke(Client c)。如果我们定义的切点是execution(*joke(Object))，则只匹配joke(Object object)而不匹配joke(Stringcc)或joke(Client c)。</p><p>五、args()和@args()</p><p>　　args()函数的入参是类名，@args()函数的入参必须是注解类的类名。虽然args()允许在类名后使用+通配符后缀，但该通配符在此处没有意义：添加和不添加效果都一样。</p><p>1、args()</p><p>　　该函数接受一个类名，表示目标类方法入参对象按类型匹配于指定类时，切点匹配，如下面的例子：</p><blockquote><p>args(com.baobaotao.Waiter)</p></blockquote><p>　　表示运行时入参是Waiter类型的方法，它和execution(**(com.baobaotao.Waiter))区别在于后者是针对类方法的签名而言的，而前者则针对运行时的入参类型而言。如args(com.baobaotao.Waiter)既匹配于addWaiter(Waiterwaiter)，也匹配于addNaiveWaiter(NaiveWaiter naiveWaiter)，而execution(**(com.baobaotao.Waiter))只匹配addWaiter(Waiterwaiter)方法；实际上，args(com.baobaotao.Waiter)等价于execution(**(com.baobaotao.Waiter+))，当然也等价于args(com.baobaotao.Waiter+)。</p><p>2、@args()</p><p>　　该函数接受一个注解类的类名，当方法的运行时入参对象标注发指定的注解时，方法匹配切点。</p><h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><p>通过类包定义切点</p><p>在类名模式串中，“.*”表示包下的所有类，而“..*”表示包、子孙包下的所有类。</p><p>execution(* com.baobaotao.*(..))</p><p>匹配com.baobaotao包下所有类的所有方法；</p><p>execution(* com.baobaotao..*(..))</p><p>匹 配com.baobaotao包、子孙包下所有类的所有方法，如com.baobaotao.dao，com.baobaotao.servier以及 com.baobaotao.dao.user包下的所有类的所有方法都匹配。“..”出现在类名中时，后面必须跟“*”，表示包、子孙包下的所有类</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;execution(&amp;lt;修饰符模式&amp;gt;?&amp;lt;返回类型模式&amp;gt;&amp;lt;方法名模式&amp;gt;(&amp;lt;参数模式&amp;gt;)&amp;lt;异常模式&amp;gt;?) &lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
   
   <entry>
     <title>使用Hexo+GitHub建站</title>
@@ -129,6 +100,33 @@
     
     
       <category term="博客" scheme="https://melodyjerry.github.io/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AspectJ的切入点表达式---execution表达式</title>
+    <link href="https://melodyjerry.github.io/blog/2020/09/18/AspectJ%E7%9A%84%E5%88%87%E5%85%A5%E7%82%B9%E8%A1%A8%E8%BE%BE%E5%BC%8F---execution%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://melodyjerry.github.io/blog/2020/09/18/AspectJ%E7%9A%84%E5%88%87%E5%85%A5%E7%82%B9%E8%A1%A8%E8%BE%BE%E5%BC%8F---execution%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2020-09-18T09:24:41.000Z</published>
+    <updated>2020-09-19T14:47:43.828Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>execution(&lt;修饰符模式&gt;?&lt;返回类型模式&gt;&lt;方法名模式&gt;(&lt;参数模式&gt;)&lt;异常模式&gt;?) </p></blockquote> <a id="more"></a><p>除了返回类型模式、方法名模式和参数模式外，其它项都是可选的。</p><p>一、通过方法签名定义切点</p><blockquote><p> execution(public * *(..))</p></blockquote><p>　　匹配所有目标类的public方法，但不匹配SmartSeller和protected voidshowGoods()方法。第一个<em>代表返回类型，第二个</em>代表方法名，而..代表任意入参的方法；</p><blockquote><p> execution(* *To(..))</p></blockquote><p>　　匹配目标类所有以To为后缀的方法。它匹配NaiveWaiter和NaughtyWaiter的greetTo()和serveTo()方法。第一个<em>代表返回类型，而</em>To代表任意以To为后缀的方法；</p><p>二、通过类定义切点</p><blockquote><p> execution(<em>com.baobaotao.Waiter.</em>(..))</p></blockquote><p>　　匹配Waiter接口的所有方法，它匹配NaiveWaiter和NaughtyWaiter类的greetTo()和serveTo()方法。第一个<em>代表返回任意类型，com.baobaotao.Waiter.</em>代表Waiter接口中的所有方法；</p><blockquote><p> execution(<em>com.baobaotao.Waiter+.</em>(..))</p></blockquote><p>　　匹配Waiter接口及其所有实现类的方法，它不但匹配NaiveWaiter和NaughtyWaiter类的greetTo()和serveTo()这两个Waiter接口定义的方法，同时还匹配NaiveWaiter#smile()和NaughtyWaiter#joke()这两个不在Waiter接口中定义的方法。</p><p>三、通过类包定义切点</p><p>　　在类名模式串中，”.*”表示包下的所有类，而”..*”表示包、子孙包下的所有类。</p><blockquote><p> execution(* com.baobaotao.*(..))l</p></blockquote><p>　　匹配com.baobaotao包下所有类的所有方法；</p><blockquote><p> execution(* com.baobaotao..*(..))l</p></blockquote><p>　　匹配com.baobaotao包、子孙包下所有类的所有方法，如com.baobaotao.dao，com.baobaotao.servier以及com.baobaotao.dao.user包下的所有类的所有方法都匹配。”..”出现在类名中时，后面必须跟”*”，表示包、子孙包下的所有类；  </p><blockquote><p> execution(* com..<em>.</em>Dao.find*(..))</p></blockquote><p>　　匹配包名前缀为com的任何包下类名后缀为Dao的方法，方法名必须以find为前缀。如com.baobaotao.UserDao#findByUserId()、com.baobaotao.dao.ForumDao#findById()的方法都匹配切点。</p><p>四、通过方法入参定义切点</p><p>　　切点表达式中方法入参部分比较复杂，可以使用”*”和”..”通配符，其中”*”表示任意类型的参数，而”..”表示任意类型参数且参数个数不限。 </p><blockquote><p> execution(* joke(String,int)))</p></blockquote><p>　　匹配joke(String,int)方法，且joke()方法的第一个入参是String，第二个入参是int。它匹配NaughtyWaiter#joke(String,int)方法。如果方法中的入参类型是<a href="http://lib.csdn.net/base/java" target="_blank" rel="noopener">Java</a>.lang包下的类，可以直接使用类名，否则必须使用全限定类名，如joke(java.util.List,int)；</p><blockquote><p> execution(* joke(String,*)))</p></blockquote><p>　　匹配目标类中的joke()方法，该方法第一个入参为String，第二个入参可以是任意类型，如joke(Strings1,String s2)和joke(String s1,double d2)都匹配，但joke(String s1,doubled2,String s3)则不匹配；</p><blockquote><p> execution(* joke(String,..)))</p></blockquote><p>　　匹配目标类中的joke()方法，该方法第 一个入参为String，后面可以有任意个入参且入参类型不限，如joke(Strings1)、joke(String s1,String s2)和joke(String s1,double d2,Strings3)都匹配。</p><blockquote><p> execution(* joke(Object+)))</p></blockquote><p>　　匹配目标类中的joke()方法，方法拥有一个入参，且入参是Object类型或该类的子类。它匹配joke(Strings1)和joke(Client c)。如果我们定义的切点是execution(*joke(Object))，则只匹配joke(Object object)而不匹配joke(Stringcc)或joke(Client c)。</p><p>五、args()和@args()</p><p>　　args()函数的入参是类名，@args()函数的入参必须是注解类的类名。虽然args()允许在类名后使用+通配符后缀，但该通配符在此处没有意义：添加和不添加效果都一样。</p><p>1、args()</p><p>　　该函数接受一个类名，表示目标类方法入参对象按类型匹配于指定类时，切点匹配，如下面的例子：</p><blockquote><p>args(com.baobaotao.Waiter)</p></blockquote><p>　　表示运行时入参是Waiter类型的方法，它和execution(**(com.baobaotao.Waiter))区别在于后者是针对类方法的签名而言的，而前者则针对运行时的入参类型而言。如args(com.baobaotao.Waiter)既匹配于addWaiter(Waiterwaiter)，也匹配于addNaiveWaiter(NaiveWaiter naiveWaiter)，而execution(**(com.baobaotao.Waiter))只匹配addWaiter(Waiterwaiter)方法；实际上，args(com.baobaotao.Waiter)等价于execution(**(com.baobaotao.Waiter+))，当然也等价于args(com.baobaotao.Waiter+)。</p><p>2、@args()</p><p>　　该函数接受一个注解类的类名，当方法的运行时入参对象标注发指定的注解时，方法匹配切点。</p><h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><p>通过类包定义切点</p><p>在类名模式串中，“.*”表示包下的所有类，而“..*”表示包、子孙包下的所有类。</p><p>execution(* com.baobaotao.*(..))</p><p>匹配com.baobaotao包下所有类的所有方法；</p><p>execution(* com.baobaotao..*(..))</p><p>匹 配com.baobaotao包、子孙包下所有类的所有方法，如com.baobaotao.dao，com.baobaotao.servier以及 com.baobaotao.dao.user包下的所有类的所有方法都匹配。“..”出现在类名中时，后面必须跟“*”，表示包、子孙包下的所有类</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;execution(&amp;lt;修饰符模式&amp;gt;?&amp;lt;返回类型模式&amp;gt;&amp;lt;方法名模式&amp;gt;(&amp;lt;参数模式&amp;gt;)&amp;lt;异常模式&amp;gt;?) &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
+    
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
+    
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
