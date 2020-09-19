@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      18
        分钟
     </span>
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：8 分钟前
                 
               </p>
             
@@ -359,7 +359,8 @@ $ git <span class="hljs-built_in">clone</span> https://github.com/fluid-dev/hexo
 $ hexo g
 $ hexo s</code></pre></div>
 
-<h2 id="二、接入评论系统-valine"><a href="#二、接入评论系统-valine" class="headerlink" title="二、接入评论系统 - valine"></a>二、接入评论系统 - valine</h2><h2 id="部署优化"><a href="#部署优化" class="headerlink" title="部署优化"></a>部署优化</h2><p>每次都要执行 <code>hexo clean</code> 、<code>hexo generate</code>、 <code>hexo deploy</code>，不如写个新的脚本：</p>
+<h2 id="二、接入评论系统-valine"><a href="#二、接入评论系统-valine" class="headerlink" title="二、接入评论系统 - valine"></a>二、接入评论系统 - valine</h2><p>上Valine官方文档：<a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">https://valine.js.org/quickstart.html</a></p>
+<h2 id="三、部署优化"><a href="#三、部署优化" class="headerlink" title="三、部署优化"></a>三、部署优化</h2><p>每次都要执行 <code>hexo clean</code> 、<code>hexo generate</code>、 <code>hexo deploy</code>，不如写个新的脚本：</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">// package.json</span>
 <span class="hljs-string">"dev"</span>: <span class="hljs-string">"hexo s"</span>,
 <span class="hljs-string">"build"</span>: <span class="hljs-string">"hexo clean &amp; hexo deploy"</span></code></pre></div>
