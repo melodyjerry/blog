@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      962 字
+      1.2k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      16
        分钟
     </span>
   
@@ -216,12 +216,15 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 分钟前
+                  本文最后更新于：4 分钟前
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+              <blockquote>
+<p>参考文章：<a href="https://zhuanlan.zhihu.com/p/94297858" target="_blank" rel="noopener">内网搭建yapi接口管理平台</a></p>
+</blockquote>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
 <li><p><strong>操作系统：</strong>centos 7</p>
 </li>
 <li><p>环境要求：</p>
@@ -308,32 +311,55 @@ SyntaxError: Unexpected token <span class="hljs-keyword">function</span>
 <p>  <img src="https://s1.ax1x.com/2020/09/22/wXMJrq.png" srcset="/blog/img/loading.gif" alt="wXMJrq.png"></p>
 </li>
 </ul>
-<ol>
+<blockquote>
+<p><code>yapi server</code>后提示：</p>
+<div class="hljs"><pre><code class="hljs bash">Accessing non-existent property <span class="hljs-string">'cat'</span> of module exports inside circular dependency</code></pre></div>
+
+<p>产生这个的原因是node的版本太高了<br>解决的办法很简单，卸载最新版的node v14，重新安装稳定版的node v12，这个问题就解决了</p>
+</blockquote>
+<blockquote>
+<p>有使用宝塔的话，还需要到<strong>宝塔防火墙里放行9090端口</strong>。</p>
+</blockquote>
+<h2 id="部署YApi"><a href="#部署YApi" class="headerlink" title="部署YApi"></a>部署YApi</h2><ol>
 <li>执行 yapi server 启动可视化部署程序，浏览器打开提示窗口上的地址，非本地服务器，将0.0.0.0替换指定的域名或IP，进入部署页面。</li>
 </ol>
 <ul>
-<li>实例截图</li>
+<li>实例截图<br><img src="https://s1.ax1x.com/2020/09/23/wjZPfA.png" srcset="/blog/img/loading.gif" alt="wjZPfA.png"></li>
 </ul>
-<ol>
+<ol start="2">
 <li>根据项目实际需要可以修改部署信息，点击【开始部署】，完成部署任务</li>
 </ol>
 <ul>
-<li>部署成功截图</li>
+<li><p>部署成功截图<br><img src="https://s1.ax1x.com/2020/09/23/wj66rn.png" srcset="/blog/img/loading.gif" alt="wj66rn.png"></p>
+</li>
+<li><p>MongoDB数据库连接失败，检查是不是配置文件的ip、port出错。或者，直接<code>shutdown -r now</code>重启一下服务器，反正我就是hh。<br><img src="https://s1.ax1x.com/2020/09/23/wjKeiD.png" srcset="/blog/img/loading.gif" alt="wjKeiD.png"></p>
+</li>
 </ul>
-<p><strong>4.根据部署日志截图上的提示信息，启动服务</strong><br>启动服务：<code>node vendors/server/app.js</code><br>浏览器打开部署日志上的访问地址<a href="http://127.0.0.1:3000就可以访问搭建的YApi工具了（非本地服务器，将127.0.0.1替换指定的域名或IP），此时YApi本地环境搭建完成">http://127.0.0.1:3000就可以访问搭建的YApi工具了（非本地服务器，将127.0.0.1替换指定的域名或IP），此时YApi本地环境搭建完成</a></p>
+<p><strong>3.根据部署日志截图上的提示信息，启动服务</strong><br>启动服务：<code>node vendors/server/app.js</code><br>浏览器打开部署日志上的访问地址<a href="http://127.0.0.1:3000就可以访问搭建的YApi工具了（非本地服务器，将127.0.0.1替换指定的域名或IP），此时YApi本地环境搭建完成">http://127.0.0.1:3000就可以访问搭建的YApi工具了（非本地服务器，将127.0.0.1替换指定的域名或IP），此时YApi本地环境搭建完成</a></p>
 <p>如果是阿里云ecs服务器，端口需要在安全组里开放，不然访问不了</p>
-<p><strong>5.pm2方式管理进程</strong></p>
-<p>要保证后台保持进程，需要安装pm2。<br>全局安装：<br>npm install -g pm2</p>
-<p>启动：<br>cd vendors<br>pm2 start server/app.js –watch</p>
+<p><strong>4.pm2方式管理进程</strong></p>
+<p>要保证后台保持进程，需要安装pm2。<br>全局安装：</p>
+<div class="hljs"><pre><code class="hljs bash">npm install -g pm2`</code></pre></div>
+<p>启动：</p>
+<div class="hljs"><pre><code class="hljs bash">pm2 start /root/my-yapi/vendors/server/app.js --watch -i 1</code></pre></div>
+<blockquote>
+<p>这样以后就可以很方便的用<strong>pm2</strong>就行启动关闭啦~</p>
+</blockquote>
+<ol start="5">
+<li>通过<code>pm2 save</code>保存当前进程状态。</li>
+</ol>
+<p>查看：</p>
+<div class="hljs"><pre><code class="hljs bash">pm2 list</code></pre></div>
 <p>重启：</p>
-<p>pm2 restart service/app.js</p>
+<div class="hljs"><pre><code class="hljs bash">pm2 restart service/app.js</code></pre></div>
 <p>停止：</p>
 <p>可以先通过<code>pm2 list</code>获取应用的名字（–name指定的）或者进程id。</p>
-<div class="hljs"><pre><code class="hljs 1c">pm2 stop app_name<span class="hljs-string">|app_id</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># pm2 stop app_name|app_id</span>
+pm2 stop /root/my-yapi/vendors/server/app.js</code></pre></div>
 
-
-
+<blockquote>
 <p>pm2使用参考文档：<br><a href="http://imweb.io/topic/57c8cbb27f226f687b365636" target="_blank" rel="noopener">http://imweb.io/topic/57c8cbb27f226f687b365636</a></p>
+</blockquote>
 <p><strong>6.升级</strong></p>
 <p>升级项目版本是非常容易的，并且不会影响已有的项目数据，只会同步 vendors 目录下的源码文件。</p>
 <div class="hljs"><pre><code class="hljs stata"><span class="hljs-keyword">cd</span> {项目目录}

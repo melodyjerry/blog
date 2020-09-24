@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 小时前
+                  本文最后更新于：1 天前
                 
               </p>
             
@@ -230,7 +230,7 @@
 <p>  <strong>设置为什么颜色，可以自己根据显示效果调，很灵活。</strong></p>
 <a id="more"></a>
 
-<h1 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h1><p>如果要写入shell配置文件，建议写到<code>~/.bash_profile</code>，而不要写入<code>~/.bashrc</code>，否则借助ssh类的工具都将因为trap DEBUG信号的特殊性而无限等待，比如scp/rsync等。</p>
+<h1 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h1><p>如果要写入shell配置文件，建议写到<strong>环境变量文件</strong><code>~/.bash_profile</code>，而不要写入<code>~/.bashrc</code>，否则借助ssh类的工具都将因为trap DEBUG信号的特殊性而无限等待，比如scp/rsync等。</p>
 <p>或者，直接判断是否是交互式登录，是的话就设置，否则不设置：</p>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">${-#*i}</span>"</span> != <span class="hljs-string">"$-"</span> ];<span class="hljs-keyword">then</span>
     <span class="hljs-comment"># interactively shell</span>
@@ -372,7 +372,7 @@ vim ~/.bash_profile
                     
                       <a class="hover-with-bg" href="/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
                     
-                      <a class="hover-with-bg" href="/blog/tags/Linxu/">Linxu</a>
+                      <a class="hover-with-bg" href="/blog/tags/Linux/">Linux</a>
                     
                   </div>
                 

@@ -19,10 +19,19 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>标签 - Linxu - MelodyHub</title>
+  <title>yum常见命令-安装与卸载软件 - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -45,7 +54,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -133,7 +142,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://s1.ax1x.com/2020/07/16/UDRJHJ.jpg') no-repeat center center;
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -141,6 +150,48 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-23 12:21">
+      2020年9月23日 中午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      965 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -153,37 +204,231 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/blog/2020/09/21/Xshell-%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Xshell-配色方案</span>
-      <span style="float: right;">09-21</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 天前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <a id="more"></a>
+
+<h2 id="1-使用yum安装和卸载软件"><a href="#1-使用yum安装和卸载软件" class="headerlink" title="1.使用yum安装和卸载软件"></a>1.使用yum安装和卸载软件</h2><ul>
+<li>有个前提是yum安装的软件包都是rpm格式的</li>
+</ul>
+<p>安装的命令是，<code>yum install ~</code>，yum会查询数据库，有无这一软件包，如果有，则检查其依赖冲突关系，如果没有依赖冲突，那么最好，下载安装;如果有，则会给出提示，询问是否要同时安装依赖，或删除冲突的包，你可以自己作出判断；</p>
+<p>删除的命令是，<code>yum remove ~</code>，同安装一样，yum也会查询数据库，给出解决依赖关系的提示。</p>
+<p>其中<code>~</code>代表软件名</p>
+<p>1) 用YUM安装软件包命令：<code>yum install ~</code></p>
+<p>2) 用YUM删除软件包命令：<code>yum remove ~</code></p>
+<h2 id="2-用yum查询想安装的软件"><a href="#2-用yum查询想安装的软件" class="headerlink" title="2.用yum查询想安装的软件"></a>2.用yum查询想安装的软件</h2><p>​    我们常会碰到这样的情况，想安装一个软件，只知道它和某方面有关，但又不能确切知道它的名字。这时yum的查询功能就起作用了。我们可以用<code>yum search keyword</code>这样的命令来进行搜索，比如我们要则安装一个InstantMessenger，但又不知到底有哪些，这时不妨用<code>yum search messenger</code>这样的指令进行搜索，yum会搜索所有可用rpm的描述，列出所有描述中和messeger有关的rpm包，于是我们可能得到 gaim，kopete等等，并从中选择。</p>
+<p>有时我们还会碰到安装了一个包，但又不知道其用途，我们可以用<code>yuminfo packagename</code>这个指令来获取信息。</p>
+<ol>
+<li><p>使用YUM查找软件包</p>
+<p>命令：<code>yum search ~</code></p>
+<p>2.列出所有可安装的软件包</p>
+<p>命令：<code>yum list</code></p>
+<p>3.列出所有可更新的软件包</p>
+<p>命令：<code>yum list updates</code></p>
+<p>4.列出所有已安装的软件包</p>
+<p>命令：<code>yum list installed</code></p>
+<p>5.列出所有已安装但不在Yum Repository內的软件包</p>
+<p>命令：<code>yum list extras</code></p>
+<p>6.列出所指定软件包</p>
+<p>命令：<code>yum list ~</code></p>
+<p>7.使用YUM获取软件包信息</p>
+<p>命令：<code>yum info ~</code></p>
+<p>8.列出所有软件包的信息</p>
+<p>命令：<code>yum info</code></p>
+<p>9.列出所有可更新的软件包信息</p>
+<p>命令：<code>yum info updates</code></p>
+<p>10.列出所有已安裝的软件包信息</p>
+<p>命令：<code>yum info installed</code></p>
+<p>11.列出所有已安裝但不在Yum Repository內的软件包信息</p>
+<p>命令：<code>yum info extras</code></p>
+<p>12.列出软件包提供哪些文件</p>
+<p>命令：<code>yum provides ~</code></p>
+</li>
+</ol>
+<h2 id="3-清除yum缓存"><a href="#3-清除yum缓存" class="headerlink" title="3.清除yum缓存"></a>3.清除yum缓存</h2><p>yum会把下载的软件包和header存储在cache中，而不会自动删除。如果我们觉得它们占用了磁盘空间，可以使用<code>yum clean</code>指令进行清除，更精确的用法是<code>yumclean headers</code>清除header，<code>yum clean packages</code>清除下载的rpm包，<code>yum clean all</code> 清除所有。</p>
+<p>1.清除缓存目录(/var/cache/yum)下的软件包</p>
+<p>命令：<code>yum clean packages</code></p>
+<p>2.清除缓存目录(/var/cache/yum)下的 headers</p>
+<p>命令：<code>yum clean headers</code></p>
+<p>3.清除缓存目录(/var/cache/yum)下旧的 headers</p>
+<p>命令：<code>yum clean oldheaders</code></p>
+<p>4.清除缓存目录(/var/cache/yum)下的软件包及旧的headers</p>
+<p>命令：<code>yum clean, yum clean all (= yum clean packages; yum clean oldheaders)</code></p>
+<h2 id="4-yum命令工具使用举例"><a href="#4-yum命令工具使用举例" class="headerlink" title="4.yum命令工具使用举例"></a>4.yum命令工具使用举例</h2><p><code>yum update</code> 升级系统</p>
+<p><code>yum install  ~</code> 安装指定软件包</p>
+<p><code>yum update ~</code> 升级指定软件包</p>
+<p><code>yum remove ~</code> 卸载指定软件</p>
+<p><code>yum grouplist</code> 查看系统中已经安装的和可用的软件组，可用的可以安装</p>
+<p><code>yum groupinstall ~</code> 安装上一个命令显示的可用的软件组中的一个</p>
+<p><code>yum groupupdate ~</code> 更新指定软件组的软件包</p>
+<p><code>yum groupremove ~</code> 卸载指定软件组中的软件包</p>
+<p><code>yum deplist ~</code> 查询指定软件包的依赖关系</p>
+<p><code>yum list yum\*</code> 列出所有以yum开头的软件包</p>
+<p><code>yum localinstall ~</code> 从硬盘安装rpm包并使用yum解决依赖</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Linux/">Linux</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/09/23/Linux%E4%B8%8B%E5%AE%89%E8%A3%85node-v12.16.3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux下安装node v12.16.3</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/09/22/Linux%E4%B8%8B%E6%9B%B4%E6%96%B0Node%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/">
+                        <span class="hidden-mobile">Linux下更新Node到最新版本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
 
 
               </div>
-            </div>
+            
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
     
   </main>
 
@@ -529,10 +774,10 @@ setInterval("createtime()",250);
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/blog/tags/Linxu/index.html');
+          var target = decodeURI('/blog/2020/09/23/yum%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -594,6 +839,31 @@ setInterval("createtime()",250);
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -601,7 +871,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - Linxu&nbsp;",
+        "yum常见命令-安装与卸载软件&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -615,6 +885,23 @@ setInterval("createtime()",250);
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
 
 
 
@@ -630,9 +917,62 @@ setInterval("createtime()",250);
 
 
 
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
 
 
 
@@ -712,6 +1052,13 @@ setInterval("createtime()",250);
 
 
 
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
