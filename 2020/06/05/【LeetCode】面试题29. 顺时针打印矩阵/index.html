@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,11 +223,11 @@
             <article class="markdown-body">
               <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
 <p>示例 1：</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入：matrix = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]]
-输出：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span>,<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]</code></pre></div>
+<pre><code class="hljs angelscript">输入：matrix = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]]
+输出：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span>,<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]</code></pre>
 <p>示例 2：</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入：matrix = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>],[<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>]]
-输出：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">12</span>,<span class="hljs-number">11</span>,<span class="hljs-number">10</span>,<span class="hljs-number">9</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]</code></pre></div>
+<pre><code class="hljs angelscript">输入：matrix = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>],[<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>]]
+输出：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">12</span>,<span class="hljs-number">11</span>,<span class="hljs-number">10</span>,<span class="hljs-number">9</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]</code></pre>
 
 <p>限制：</p>
 <ul>
@@ -238,7 +238,7 @@
 
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>顺时针方向打印无非就是按着“右下左上”的方向进行遍历并打印，碰到边界就拐弯，然后再缩小边界。</p>
 <p>源码有<code>Java</code>、<code>C</code>、<code>C++</code>两种，思路基本差不多。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] spiralOrder(<span class="hljs-keyword">int</span>[][] matrix) {
         <span class="hljs-keyword">if</span>(matrix.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">0</span>];
         <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>, r = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span>, t = <span class="hljs-number">0</span>, b = matrix.length - <span class="hljs-number">1</span>, x = <span class="hljs-number">0</span>;
@@ -262,9 +262,9 @@
         }
         <span class="hljs-keyword">return</span> res;
     }
-}</code></pre></div>
+}</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200605120720952-968301446.png" srcset="/blog/img/loading.gif" alt=""></p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/**</span>
+<pre><code class="hljs c"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * Note: The returned array must be malloced, assume caller calls free().</span>
 <span class="hljs-comment"> */</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span>* <span class="hljs-title">spiralOrder</span><span class="hljs-params">(<span class="hljs-keyword">int</span>** matrix, <span class="hljs-keyword">int</span> matrixSize, <span class="hljs-keyword">int</span>* matrixColSize, <span class="hljs-keyword">int</span>* returnSize)</span></span>{
@@ -318,9 +318,9 @@
     }
 
     <span class="hljs-keyword">return</span> res;
-}</code></pre></div>
+}</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200605120804908-1179189610.png" srcset="/blog/img/loading.gif" alt=""></p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> {</span>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> {</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; spiralOrder(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; matrix) {
         <span class="hljs-comment">// 边界情况</span>
@@ -355,7 +355,7 @@
         }
         <span class="hljs-keyword">return</span> ans;
     }
-};</code></pre></div>
+};</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200605120353543-1048641385.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>极力推荐两个我喜欢的算法公众号的文章：</p>
 <ol>

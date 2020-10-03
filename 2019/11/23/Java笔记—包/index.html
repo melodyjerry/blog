@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -252,14 +252,14 @@
 <ol start="3">
 <li><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3></li>
 </ol>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">package</span>	包名
+<pre><code class="hljs Java"><span class="hljs-keyword">package</span>	包名
 或
-<span class="hljs-keyword">package</span> 父包名[.子包名][.孙包名][.层次下去]</code></pre></div>
+<span class="hljs-keyword">package</span> 父包名[.子包名][.孙包名][.层次下去]</code></pre>
 
 <p>🔸<strong>包名符合标识符命名规范</strong>，一般由<u><font color="rorange">小写字母</font></u>组成<br>🔹必须出现在源文件的<u><font color="rorange">第一行</font></u>(忽略注释语句)<br>🔸每个源文件<font color="rorange"><u><strong>至多只能出现一个</strong></u>package语句</font><br>🔹如果没有package语句，那就使用<u><font color="orange">无名包</font>(或称默认包:所在的当前目录)<br>🔸包的背后对应着操作系统的路径名称</u></p><u>
 <ul>
 <li><p>示例：</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> ch08.web.sample; 
+  <pre><code class="hljs java"><span class="hljs-keyword">package</span> ch08.web.sample; 
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{ 
     String name; 
@@ -271,7 +271,7 @@
     String name; 
     <span class="hljs-keyword">int</span> age; 
     <span class="hljs-comment">//省略部分代码</span>
-}</code></pre></div>
+}</code></pre>
 
 <p>  🔺<code>package ch08.web.sample;</code> 这个层级的文件夹必须先存在：即ch08/web/sample</p>
 <p>  <img src="https://i.loli.net/2019/11/23/e3XLTSaWmiuhEvR.png" srcset="/blog/img/loading.gif" alt="来自课件《8.类的更多探讨》.png"></p>
@@ -289,14 +289,14 @@
 </blockquote>
 <ul>
 <li><p>语法格式：</p>
-  <div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">import</span> package1[.package2…].(classname|*);</code></pre></div>
+  <pre><code class="hljs Java"><span class="hljs-keyword">import</span> package1[.package2…].(classname|*);</code></pre>
 </li>
 <li><p>注意：</p>
 <ol>
 <li><p>必须紧跟在package语句之后(若有的话，若无package，则import出现在源文件头部)。</p>
 </li>
 <li><p>可以使用 <strong><code>*</code></strong> 来表示导入当前一层包中的所有类。但是<strong><code>*</code></strong> 不可以连续使用。</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.*.*; <span class="hljs-comment">// Error!</span></code></pre></div>
+ <pre><code class="hljs java"><span class="hljs-keyword">import</span> java.*.*; <span class="hljs-comment">// Error!</span></code></pre>
 </li>
 <li><p><strong>不表示可以继续导入当前包的子包</strong>。如果在一个包中，一个类想要使用本包中的另一个类，那么该包名可以省略。 </p>
 </li>

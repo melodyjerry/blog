@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
@@ -289,20 +289,20 @@
 <li><p>使用 npm 安装 Hexo：</p>
 </li>
 </ul>
-<div class="hljs"><pre><code class="hljs bash">$ npm install -g hexo-cli</code></pre></div>
+<pre><code class="hljs bash">$ npm install -g hexo-cli</code></pre>
 <p><img src="https://i.loli.net/2019/11/07/BZIuA2XzYeaDQ8k.png" srcset="/blog/img/loading.gif" alt="image.png"></p>
 <p>这样，Hexo就安装完成了。</p>
 <blockquote>
 <p>可使用输入<code>hexo -v</code>，检查<code>Hexo</code>是否安装成功</p>
 </blockquote>
 <h2 id="三、初始化Hexo"><a href="#三、初始化Hexo" class="headerlink" title="三、初始化Hexo"></a>三、初始化Hexo</h2><p><code>hexo init</code>，就会自动构建一个 <code>hexo</code> 项目，看到后面的<code>Start blogging with Hexo！</code>就说明初始化好了。</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 初始化Hexo</span>
-$ hexo init</code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-comment"># 初始化Hexo</span>
+$ hexo init</code></pre>
 
-<h2 id="四、安装npm必需组件"><a href="#四、安装npm必需组件" class="headerlink" title="四、安装npm必需组件"></a>四、安装npm必需组件</h2><div class="hljs"><pre><code class="hljs bash">$ npm install</code></pre></div>
+<h2 id="四、安装npm必需组件"><a href="#四、安装npm必需组件" class="headerlink" title="四、安装npm必需组件"></a>四、安装npm必需组件</h2><pre><code class="hljs bash">$ npm install</code></pre>
 <h2 id="五、生成并预览"><a href="#五、生成并预览" class="headerlink" title="五、生成并预览"></a>五、生成并预览</h2><p>执行 <code>hexo s</code>，浏览器访问 <code>localhost:4000</code> 就可以看到效果啦！</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 本地预览</span>
-$ hexo s</code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-comment"># 本地预览</span>
+$ hexo s</code></pre>
 
 <p>初始化的默认博客页面：</p>
 <p><img src="https://s1.ax1x.com/2020/09/19/wII0iQ.png" srcset="/blog/img/loading.gif" alt="wII0iQ.png"></p>
@@ -312,9 +312,9 @@ $ hexo s</code></pre></div>
 <blockquote>
 <p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。注意<code>git config</code>命令的<code>--global</code>参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
 </blockquote>
-<div class="hljs"><pre><code>$ git config --global user.name  "your name"`
+<pre><code>$ git config --global user.name  "your name"`
 
-$ git config --global user.email "your Email"</code></pre></div><h3 id="2、生成私钥和公钥"><a href="#2、生成私钥和公钥" class="headerlink" title="2、生成私钥和公钥"></a>2、生成私钥和公钥</h3><div class="hljs"><pre><code class="hljs ba">$ ssh-keygen -t rsa</code></pre></div>
+$ git config --global user.email "your Email"</code></pre><h3 id="2、生成私钥和公钥"><a href="#2、生成私钥和公钥" class="headerlink" title="2、生成私钥和公钥"></a>2、生成私钥和公钥</h3><pre><code class="hljs ba">$ ssh-keygen -t rsa</code></pre>
 
 <p><img src="https://s1.ax1x.com/2020/09/18/wh8K6e.png" srcset="/blog/img/loading.gif" alt="wh8K6e.png"></p>
 <h3 id="3、绑定SSH公钥"><a href="#3、绑定SSH公钥" class="headerlink" title="3、绑定SSH公钥"></a>3、绑定SSH公钥</h3><p>登录Github，点击头像下的<code>settings</code></p>
@@ -330,44 +330,44 @@ $ git config --global user.email "your Email"</code></pre></div><h3 id="2、生�
 <h2 id="二、安装hexo-deployer-git插件"><a href="#二、安装hexo-deployer-git插件" class="headerlink" title="二、安装hexo-deployer-git插件"></a>二、安装hexo-deployer-git插件</h2><ul>
 <li>HexoBlog部署到<code>git</code>我们需要安装<code>hexo-deployer-git</code>插件，在blog目录下运行一下命令进行安装</li>
 </ul>
-<div class="hljs"><pre><code class="hljs bash">$ npm install hexo-deployer-git --save</code></pre></div>
+<pre><code class="hljs bash">$ npm install hexo-deployer-git --save</code></pre>
 
-<h2 id="三、写作"><a href="#三、写作" class="headerlink" title="三、写作"></a>三、写作</h2><div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 创建文章，默认layout布局为：post</span>
+<h2 id="三、写作"><a href="#三、写作" class="headerlink" title="三、写作"></a>三、写作</h2><pre><code class="hljs bash"><span class="hljs-comment"># 创建文章，默认layout布局为：post</span>
 $ hexo new [layout] &lt;title&gt;
 
 <span class="hljs-comment"># 例如</span>
-$ hexo new post HelloHexo</code></pre></div>
+$ hexo new post HelloHexo</code></pre>
 
 <blockquote>
 <p>关于这块，最好看官方文档：<a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/writing</a></p>
 </blockquote>
 <p>之后会在<code>source</code>文件夹的<code>_post</code>文件夹中看到你新建的文件<code>HelloHexo.md</code></p>
-<h2 id="四、生成并部署博客"><a href="#四、生成并部署博客" class="headerlink" title="四、生成并部署博客"></a>四、生成并部署博客</h2><div class="hljs"><pre><code class="hljs bash">$ hexo d -g</code></pre></div>
+<h2 id="四、生成并部署博客"><a href="#四、生成并部署博客" class="headerlink" title="四、生成并部署博客"></a>四、生成并部署博客</h2><pre><code class="hljs bash">$ hexo d -g</code></pre>
 
 <p>生成以及部署了，在打开你的博客主页（melodyjerry.github.io）就可以看到你创建的文章了。</p>
-<h1 id="高阶篇"><a href="#高阶篇" class="headerlink" title="高阶篇"></a>高阶篇</h1><h2 id="一、主题"><a href="#一、主题" class="headerlink" title="一、主题"></a>一、主题</h2><h3 id="1、选取喜欢的主题"><a href="#1、选取喜欢的主题" class="headerlink" title="1、选取喜欢的主题"></a>1、选取喜欢的主题</h3><p>在Hexo官方，有许多现成的主题了。当然，你想自己原创设计或二次开发也可以的<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f47c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47c.png?v8">👼</span></p>
+<h1 id="高阶篇"><a href="#高阶篇" class="headerlink" title="高阶篇"></a>高阶篇</h1><h2 id="一、主题"><a href="#一、主题" class="headerlink" title="一、主题"></a>一、主题</h2><h3 id="1、选取喜欢的主题"><a href="#1、选取喜欢的主题" class="headerlink" title="1、选取喜欢的主题"></a>1、选取喜欢的主题</h3><p>在Hexo官方，有许多现成的主题了。当然，你想自己原创设计或二次开发也可以的:angel:</p>
 <p>大量主题：<a href="https://hexo.io/zh-cn/docs/themes.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/themes.html</a></p>
 <p>找到合适的就按要求下载即可。</p>
 <p>以主题<code>fluid</code>为例，<code>fluid</code>的配置文档在<a href="https://hexo.fluid-dev.com/docs/guide/#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B" target="_blank" rel="noopener">这里</a>。</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 下载到themes文件夹下</span>
-$ git <span class="hljs-built_in">clone</span> https://github.com/fluid-dev/hexo-theme-fluid fluid</code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-comment"># 下载到themes文件夹下</span>
+$ git <span class="hljs-built_in">clone</span> https://github.com/fluid-dev/hexo-theme-fluid fluid</code></pre>
 
 <h3 id="2、-配置主题"><a href="#2、-配置主题" class="headerlink" title="2、 配置主题"></a>2、 配置主题</h3><p>找到<code>_config.yml</code>文件，修改<code>theme</code>值：</p>
-<div class="hljs"><pre><code class="hljs bash">theme: fluid</code></pre></div>
+<pre><code class="hljs bash">theme: fluid</code></pre>
 
-<h3 id="3、重新生成并预览"><a href="#3、重新生成并预览" class="headerlink" title="3、重新生成并预览"></a>3、重新生成并预览</h3><div class="hljs"><pre><code class="hljs bash">$ hexo clean
+<h3 id="3、重新生成并预览"><a href="#3、重新生成并预览" class="headerlink" title="3、重新生成并预览"></a>3、重新生成并预览</h3><pre><code class="hljs bash">$ hexo clean
 $ hexo g
-$ hexo s</code></pre></div>
+$ hexo s</code></pre>
 
 
 
 <h2 id="部署优化"><a href="#部署优化" class="headerlink" title="部署优化"></a>部署优化</h2><p>每次都要执行 <code>hexo clean</code> 、<code>hexo generate</code>、 <code>hexo deploy</code>，不如写个新的脚本：</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">// package.json</span>
+<pre><code class="hljs javascript"><span class="hljs-comment">// package.json</span>
 <span class="hljs-string">"dev"</span>: <span class="hljs-string">"hexo s"</span>,
-<span class="hljs-string">"build"</span>: <span class="hljs-string">"hexo clean &amp; hexo deploy"</span></code></pre></div>
+<span class="hljs-string">"build"</span>: <span class="hljs-string">"hexo clean &amp; hexo deploy"</span></code></pre>
 
 <p>部署命令：</p>
-<div class="hljs"><pre><code class="hljs javascript">$ npm run build</code></pre></div>
+<pre><code class="hljs javascript">$ npm run build</code></pre>
 
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="站点文件和主题文件的区别"><a href="#站点文件和主题文件的区别" class="headerlink" title="站点文件和主题文件的区别"></a>站点文件和主题文件的区别</h2><p><img src="https://s1.ax1x.com/2020/09/19/wIOAud.png" srcset="/blog/img/loading.gif" alt="wIOAud.png"></p>
 <script>

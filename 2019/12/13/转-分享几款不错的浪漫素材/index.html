@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -231,23 +231,23 @@
 
 <h1 id="hexo-跳过渲染"><a href="#hexo-跳过渲染" class="headerlink" title="hexo 跳过渲染"></a>hexo 跳过渲染</h1><p>Hexo 默认会对根目录 <code>/source/</code> 下所有页面应用主题模板渲染，但有一些前端作品或 demo 页我们不希望经过渲染，而是能保持完全自定义的样子，那该怎么用 Hexo 添加自定义的 web 页面呢？下面介绍两种方法</p>
 <h2 id="skip-render"><a href="#skip-render" class="headerlink" title="skip_render"></a>skip_render</h2><p>使用 Hexo 提供的跳过渲染配置。在站点 _config.yml 中找到 skip_render，这项是用来配置 /source/ 下需要跳过渲染的文件或目录，例如希望跳过 /source/love/ 里的所有文件，可以配置为</p>
-<div class="hljs"><pre><code class="hljs avrasm"><span class="hljs-symbol">skip_render:</span> love<span class="hljs-comment">/**</span></code></pre></div>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">skip_render:</span> love<span class="hljs-comment">/**</span></code></pre>
 
 <p>如果有多项，可以这样配置</p>
-<div class="hljs"><pre><code class="hljs markdown">skip_render:
+<pre><code class="hljs markdown">skip_render:
 <span class="hljs-bullet">  - </span>README.md
 <span class="hljs-bullet">  - </span>love/**
-<span class="hljs-bullet">  - </span>test1/*.html</code></pre></div>
+<span class="hljs-bullet">  - </span>test1/*.html</code></pre>
 
 <p>或者</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">skip_render</span>:<span class="hljs-meta"> [README.md, love/**, test1/*.html]</span></code></pre></div>
+<pre><code class="hljs apache"><span class="hljs-attribute">skip_render</span>:<span class="hljs-meta"> [README.md, love/**, test1/*.html]</span></code></pre>
 
 <p>可参考</p>
 <p><a href="https://github.com/hexojs/hexo/issues/1146" target="_blank" rel="noopener">如何不处理 source 目录下某个子目录的所有文件</a></p>
 <h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p>使用 layout 给单个文件添加不应用模板的标记。适用于个别需特殊处理的文件，可在文件头部添加</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">layout:</span> <span class="hljs-literal">false</span>
-<span class="hljs-meta">---</span></code></pre></div>
+<span class="hljs-meta">---</span></code></pre>
 
 <p>这个文件就不会经过模板渲染，最终发布到 /public/ 里的文件就是去掉标记后的文件的样子。本站使用的是第一种配置方式，源码目录截图如下</p>
 <p><a href="https://s2.ax1x.com/2019/12/22/QxWNwT.jpg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/22/QxWNwT.jpg" srcset="/blog/img/loading.gif" alt="QxWNwT.jpg"></a></p>

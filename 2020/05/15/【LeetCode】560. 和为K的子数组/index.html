@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -235,7 +235,7 @@
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>看到这题，我唯一能想到的解决方法就是<strong>暴力法（或枚举法）</strong>。</p>
 <p>定下两个下表start、end，使用两次for循环，外层关于end并依次从0开始向后移动，内层关于start并从end开始向前移动。<br>因为题目中要求的是“连续的子数组”，因此就直接<strong>构造了[start,end]的数组，并对其求和sum。</strong><br>只要sum值等于k值，那我们用计数count记录。<br>最后函数返回count即可。</p>
 <p>方法很简单，这样分析的话，不需要用到什么额外的空间，所以<strong>空间复杂度为O(1)</strong>；时间复杂度方面，由于使用两次for循环对数组进行遍历为O(n^2)，再加上求和时间为O(1)，因此总体的<strong>时间复杂度为O(n^2)</strong>。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">//注意题中说的是“连续的子数组”</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">subarraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> k)</span> </span>{
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
@@ -255,7 +255,7 @@
 <span class="hljs-comment">        时间复杂度：O(n^2)，n为数组的长度；两层循环O(n^2)+求和时间为O(1)</span>
 <span class="hljs-comment">        空间复杂度：O(1)，无需其他存储空间的使用</span>
 <span class="hljs-comment">    */</span>
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h1><p><img src="https://s1.ax1x.com/2020/05/15/Yr1lhq.png" srcset="/blog/img/loading.gif" alt="Yr1lhq.png"></p>
 <h1 id="题后心得"><a href="#题后心得" class="headerlink" title="题后心得"></a>题后心得</h1><p>刚看到这题的时候，注意到难度为“中等”，我想肯定不止有这种方法，而且这种方法过于简单，肯定有更高效的、更有技术含量的算法。<br>于是，去看了他人的算法，发现使用了<font color="red" size="4">哈希表</font>。<br><del>可是，我还不会哈希表啊</del><br>接下来这段时间，得找时间把哈希表这块学一点。</p>

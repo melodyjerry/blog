@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -251,7 +251,7 @@
 <p>输入gcc -v的最后一行输出。版本要和你自己下的对应，例如64位要有x86_64和seh</p>
 <p><img src="https://s1.ax1x.com/2020/03/21/8fJnC6.png" srcset="/blog/img/loading.gif" alt="8fJnC6.png"></p>
 <h1 id="6、VS-Code-配置运行环境"><a href="#6、VS-Code-配置运行环境" class="headerlink" title="6、VS Code 配置运行环境"></a>6、VS Code 配置运行环境</h1><p>打开vscode，选择或新建一个空文件夹目录打开作为项目目录。<br>点击“文件”按钮，再点击“新建文件夹”按钮，并重命名为”<code>.vscode</code>”。<br>在该文件夹内，在点击“新建文件”按钮，建<code>launch.json</code>，<code>settings.json</code>，<code>tasks.json</code>三个.json文件。</p>
-<h2 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h2><div class="hljs"><pre><code class="hljs json">{
+<h2 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h2><pre><code class="hljs json">{
     <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,
     <span class="hljs-attr">"configurations"</span>: [
         {
@@ -275,9 +275,9 @@
                 }
             ]
         }]
-}</code></pre></div>
+}</code></pre>
 
-<h2 id="tasks-json"><a href="#tasks-json" class="headerlink" title="tasks.json"></a>tasks.json</h2><div class="hljs"><pre><code class="hljs json">{
+<h2 id="tasks-json"><a href="#tasks-json" class="headerlink" title="tasks.json"></a>tasks.json</h2><pre><code class="hljs json">{
     <span class="hljs-attr">"version"</span>: <span class="hljs-string">"2.0.0"</span>,
     <span class="hljs-attr">"tasks"</span>: [
         {
@@ -307,9 +307,9 @@
             }
         }
     ]
-}</code></pre></div>
+}</code></pre>
 
-<h2 id="settings-json"><a href="#settings-json" class="headerlink" title="settings.json"></a>settings.json</h2><div class="hljs"><pre><code class="hljs json"><span class="hljs-comment">// Configuring tasks.json for C/C++ debugging </span>
+<h2 id="settings-json"><a href="#settings-json" class="headerlink" title="settings.json"></a>settings.json</h2><pre><code class="hljs json"><span class="hljs-comment">// Configuring tasks.json for C/C++ debugging </span>
 <span class="hljs-comment">// author: huihut</span>
 <span class="hljs-comment">// repo: https://gist.github.com/huihut/887d3c28db92617bd5148c20a5ff112a</span>
 
@@ -359,24 +359,24 @@
     <span class="hljs-attr">"explorer.confirmDragAndDrop"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"workbench.colorTheme"</span>: <span class="hljs-string">"Visual Studio Dark"</span>,
     <span class="hljs-attr">"team.showWelcomeMessage"</span>: <span class="hljs-literal">false</span>
-}</code></pre></div>
+}</code></pre>
 
-<h2 id="工作区设置（可选）"><a href="#工作区设置（可选）" class="headerlink" title="工作区设置（可选）"></a>工作区设置（可选）</h2><div class="hljs"><pre><code class="hljs json">{
+<h2 id="工作区设置（可选）"><a href="#工作区设置（可选）" class="headerlink" title="工作区设置（可选）"></a>工作区设置（可选）</h2><pre><code class="hljs json">{
     <span class="hljs-attr">"C_Cpp.errorSquiggles"</span>: <span class="hljs-string">"Disabled"</span>,
     <span class="hljs-attr">"files.associations"</span>: {
         <span class="hljs-attr">"stdlib.h"</span>: <span class="hljs-string">"c"</span>,
         <span class="hljs-attr">"time.h"</span>: <span class="hljs-string">"c"</span>
     }
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="7、运行测试代码"><a href="#7、运行测试代码" class="headerlink" title="7、运行测试代码"></a>7、运行测试代码</h1><p>新建一个文件，run试试</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>{
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Hello World!\n"</span>;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}</code></pre></div>
+}</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

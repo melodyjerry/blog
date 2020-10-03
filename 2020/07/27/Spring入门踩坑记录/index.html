@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -228,14 +228,14 @@
 <p>在视频的评论区中没有解决，上论坛上也没有解决。</p>
 <p><img src="https://s1.ax1x.com/2020/07/28/ak2CAf.png" srcset="/blog/img/loading.gif" alt="ak2CAf.png"></p>
 <p>详细报错：</p>
-<div class="hljs"><pre><code class="hljs java">org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+<pre><code class="hljs java">org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
 信息: Loading XML bean definitions from class path resource [beans.xml]
 Exception in thread <span class="hljs-string">"main"</span> java.lang.NoSuchMethodError: org.springframework.core.annotation.AnnotationUtils.clearCache()V
 	at org.springframework.context.support.AbstractApplicationContext.resetCommonCaches(AbstractApplicationContext.java:<span class="hljs-number">924</span>)
 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:<span class="hljs-number">575</span>)
 	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:<span class="hljs-number">144</span>)
 	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:<span class="hljs-number">85</span>)
-	at MyTest.main(MyTest.java:<span class="hljs-number">13</span>)</code></pre></div>
+	at MyTest.main(MyTest.java:<span class="hljs-number">13</span>)</code></pre>
 
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>知道我无意间看到这个！！！</p>
 <p><img src="https://s1.ax1x.com/2020/07/28/akWkOs.png" srcset="/blog/img/loading.gif" alt="akWkOs.png"></p>
@@ -257,27 +257,27 @@ Exception in thread <span class="hljs-string">"main"</span> java.lang.NoSuchMeth
 </blockquote>
 <p><img src="https://s1.ax1x.com/2020/07/27/aFEbQO.png" srcset="/blog/img/loading.gif" alt="aFEbQO.png"></p>
 <h1 id="NoSuchBeanDefinitionException-No-bean-named-‘user’-available"><a href="#NoSuchBeanDefinitionException-No-bean-named-‘user’-available" class="headerlink" title="NoSuchBeanDefinitionException: No bean named ‘user’ available"></a>NoSuchBeanDefinitionException: No bean named ‘user’ available</h1><p><strong>控制台提示以下错误:</strong></p>
-<div class="hljs"><pre><code class="hljs java">org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named <span class="hljs-string">'user'</span> available</code></pre></div>
+<pre><code class="hljs java">org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named <span class="hljs-string">'user'</span> available</code></pre>
 <p><strong>解决:</strong><br>检查XML文件中Bean对象的id是否有问题？检查绑定的class是否有问题？等等……<br>结果，我发现是绑定的XML文件，userbeans.xml绑定成了beans.xml。。。</p>
-<div class="hljs"><pre><code class="hljs java">ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"userbeans.xml"</span>);</code></pre></div>
+<pre><code class="hljs java">ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"userbeans.xml"</span>);</code></pre>
 
 <h1 id="同时使用p命名空间、c命名空间"><a href="#同时使用p命名空间、c命名空间" class="headerlink" title="同时使用p命名空间、c命名空间"></a>同时使用p命名空间、c命名空间</h1><p>同时使用p命名空间、c命名空间，因为类中缺少无参构造器，控制台会报错：</p>
-<div class="hljs"><pre><code class="hljs java">org.springframework.context.support.AbstractApplicationContext refresh
+<pre><code class="hljs java">org.springframework.context.support.AbstractApplicationContext refresh
 警告: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'user' defined in class path resource [userbeans.xml]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.melodyhub.pojo.User]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.melodyhub.pojo.User.&lt;init&gt;()
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'user' defined in class path resource [userbeans.xml]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.melodyhub.pojo.User]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.melodyhub.pojo.User.&lt;init&gt;()</code></pre></div>
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'user' defined in class path resource [userbeans.xml]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.melodyhub.pojo.User]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.melodyhub.pojo.User.&lt;init&gt;()</code></pre>
 
 <p><strong>解决：</strong></p>
 <p>类中加上<strong><em>无参构造器</em></strong>，即可。</p>
 <h1 id="NullPointerException"><a href="#NullPointerException" class="headerlink" title="NullPointerException"></a>NullPointerException</h1><p>控制台报错：出现空指针</p>
-<div class="hljs"><pre><code class="hljs java">java.lang.NullPointerException</code></pre></div>
+<pre><code class="hljs java">java.lang.NullPointerException</code></pre>
 
 <h2 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h2><p>上述问题存在多种情况。</p>
 <ol>
 <li>可能是使用了注解，但是<code>applicationContext.xml</code>中没有该语句</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xm">&lt;!--开启对注解的支持--&gt;
-&lt;context:annotation-config/&gt;</code></pre></div>
+<pre><code class="hljs xm">&lt;!--开启对注解的支持--&gt;
+&lt;context:annotation-config/&gt;</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

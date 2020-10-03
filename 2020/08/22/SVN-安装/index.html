@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -234,14 +234,14 @@
 <p>至此，windows下的SVN安装完成</p>
 <hr>
 <h2 id="在CentOS下安装-SVN"><a href="#在CentOS下安装-SVN" class="headerlink" title="在CentOS下安装 SVN"></a>在CentOS下安装 SVN</h2><p>大多数 GNU/Linux 发行版系统自带了Subversion ，所以它很有可能已经安装在你的系统上了。可以使用下面命令检查是否安装了。</p>
-<div class="hljs"><pre><code class="hljs ada">svn <span class="hljs-comment">--version</span></code></pre></div>
+<pre><code class="hljs ada">svn <span class="hljs-comment">--version</span></code></pre>
 
 <p>如果 Subversion 客户端没有安装，命令将报告svn命令找不到的错误。</p>
-<div class="hljs"><pre><code class="hljs groovy">[runoob<span class="hljs-meta">@centos</span>6 ~]$ svn --version
-<span class="hljs-string">bash:</span> <span class="hljs-string">svn:</span> command not found</code></pre></div>
+<pre><code class="hljs groovy">[runoob<span class="hljs-meta">@centos</span>6 ~]$ svn --version
+<span class="hljs-string">bash:</span> <span class="hljs-string">svn:</span> command not found</code></pre>
 
 <p>我们可以使用 yum install subversion 命令进行安装。</p>
-<div class="hljs"><pre><code class="hljs routeros">[runoob@centos6 root]$ su -
+<pre><code class="hljs routeros">[runoob@centos6 root]$ su -
 密码：
 [root@centos6 ~]# yum install subversion
 已加载插件：fastestmirror, security
@@ -253,22 +253,22 @@ Loading<span class="hljs-built_in"> mirror </span>speeds <span class="hljs-keywo
  * updates: mirrors.aliyun.com
 解决依赖关系
 --&amp;gt; 执行事务检查
-<span class="hljs-built_in">..</span>.</code></pre></div>
+<span class="hljs-built_in">..</span>.</code></pre>
 
 <p>安装成功之后，执行 svn –version 命令。</p>
-<div class="hljs"><pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>centos6 ~]# svn --version
+<pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>centos6 ~]# svn --version
 svn，版本 <span class="hljs-number">1.6</span><span class="hljs-number">.11</span> (r934486)
-   编译于 Aug <span class="hljs-number">17</span> <span class="hljs-number">2015</span>，<span class="hljs-number">08</span>:<span class="hljs-number">37</span>:<span class="hljs-number">43</span></code></pre></div>
+   编译于 Aug <span class="hljs-number">17</span> <span class="hljs-number">2015</span>，<span class="hljs-number">08</span>:<span class="hljs-number">37</span>:<span class="hljs-number">43</span></code></pre>
 
 <p>至此，centos下的SVN安装完成。</p>
 <hr>
 <h2 id="在Ubuntu下安装-SVN"><a href="#在Ubuntu下安装-SVN" class="headerlink" title="在Ubuntu下安装 SVN"></a>在Ubuntu下安装 SVN</h2><p>如果 Subversion 客户端没有安装，命令将报告svn命令找不到的错误。</p>
-<div class="hljs"><pre><code class="hljs livescript">root@runoob:~<span class="hljs-comment"># svn --version</span>
+<pre><code class="hljs livescript">root@runoob:~<span class="hljs-comment"># svn --version</span>
 The program <span class="hljs-string">'svn'</span> <span class="hljs-keyword">is</span> currently <span class="hljs-keyword">not</span> installed. You can install <span class="hljs-literal">it</span> <span class="hljs-keyword">by</span> typing:
-apt-get install subversion</code></pre></div>
+apt-get install subversion</code></pre>
 
 <p>我们可以使用 apt-get 命令进行安装</p>
-<div class="hljs"><pre><code class="hljs vim">root@runoo<span class="hljs-variable">b:</span>~# apt-<span class="hljs-built_in">get</span> install subversion
+<pre><code class="hljs vim">root@runoo<span class="hljs-variable">b:</span>~# apt-<span class="hljs-built_in">get</span> install subversion
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -277,12 +277,12 @@ The following packages were automatically installed <span class="hljs-built_in">
 Use <span class="hljs-string">'apt-get autoremove'</span> <span class="hljs-keyword">to</span> <span class="hljs-built_in">remove</span> them.
 The following extra packages will <span class="hljs-keyword">be</span> installed:
   libserf-<span class="hljs-number">1</span>-<span class="hljs-number">1</span> libsvn1
-...</code></pre></div>
+...</code></pre>
 
 <p>安装成功之后，执行 svn –version 命令。</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-symbol">root@</span>runoob:~# svn --version
+<pre><code class="hljs angelscript"><span class="hljs-symbol">root@</span>runoob:~# svn --version
 svn, version <span class="hljs-number">1.8</span><span class="hljs-number">.13</span> (r1667537)
-   compiled Sep  <span class="hljs-number">8</span> <span class="hljs-number">2015</span>, <span class="hljs-number">14</span>:<span class="hljs-number">59</span>:<span class="hljs-number">01</span> on x86_64-pc-linux-gnu</code></pre></div>
+   compiled Sep  <span class="hljs-number">8</span> <span class="hljs-number">2015</span>, <span class="hljs-number">14</span>:<span class="hljs-number">59</span>:<span class="hljs-number">01</span> on x86_64-pc-linux-gnu</code></pre>
 
 <p>至此，Ubuntu下的SVN安装完成。</p>
 <hr>

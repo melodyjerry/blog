@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -229,7 +229,7 @@
 <p>替换为下面这些代码 记得填写手机号和密码</p>
 <p>代码有两个版本，第一个是以前在用的，第二个未测试。</p>
 <p>现在两个版本已经有段实践没有去运行测试了，难以保证可行性。（日后有再补新的API）</p>
-<h1 id="版本①"><a href="#版本①" class="headerlink" title="版本①"></a>版本①</h1><div class="hljs"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span>
+<h1 id="版本①"><a href="#版本①" class="headerlink" title="版本①"></a>版本①</h1><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span>
 
 $localurl = <span class="hljs-string">"http://neteasecloudmusicapi.zhaoboy.com"</span>;
 $username = <span class="hljs-string">"手机号"</span>;
@@ -342,9 +342,9 @@ $SCKEY = <span class="hljs-string">""</span>;<span class="hljs-comment">//可选
     <span class="hljs-keyword">return</span> <span class="hljs-string">" 任务完成 "</span>;
 }
 
-<span class="hljs-meta">?&gt;</span></code></pre></div>
+<span class="hljs-meta">?&gt;</span></code></pre>
 
-<h1 id="版本②"><a href="#版本②" class="headerlink" title="版本②"></a>版本②</h1><div class="hljs"><pre><code class="hljs php">
+<h1 id="版本②"><a href="#版本②" class="headerlink" title="版本②"></a>版本②</h1><pre><code class="hljs php">
  <span class="hljs-meta">&lt;?php</span>
 
 $localurl = <span class="hljs-string">"http://wyyapi.aar0n.cn"</span>;
@@ -431,13 +431,13 @@ sleep(<span class="hljs-number">10</span>);
 run($username,$password);
 <span class="hljs-keyword">return</span> <span class="hljs-string">"ok"</span>; }
 
-<span class="hljs-meta">?&gt;</span></code></pre></div>
+<span class="hljs-meta">?&gt;</span></code></pre>
 
 <p>记得修改手机号和密码哦～<br><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200611224557622-1878214118.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>点击编辑 超时时间 改为900 点击保存<br><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200611224604699-862559156.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>找到触发方式 添加触发方式<br><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200611224610131-418280037.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>定时触发 corn 表达式  每天八点自动打卡</p>
-<div class="hljs"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span><span class="hljs-number">0</span> <span class="hljs-number">8</span> */<span class="hljs-number">1</span> * * *</code></pre></div>
+<pre><code class="hljs basic"><span class="hljs-symbol">0 </span><span class="hljs-number">0</span> <span class="hljs-number">8</span> */<span class="hljs-number">1</span> * * *</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200611224639901-265684028.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>点击保存 这样就可以了  就可以享受每天纯自动打卡了 美滋滋啊<br><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200611224645798-221117936.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>你过你对它感兴趣 还可以去研究研究其他的 API<br>他是个开源项目<br>地址：<a href="https://binaryify.github.io/NeteaseCloudMusicApi/#/" target="_blank" rel="noopener">https://binaryify.github.io/NeteaseCloudMusicApi/#/</a><br><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200611224907876-862017044.png" srcset="/blog/img/loading.gif" alt=""></p>

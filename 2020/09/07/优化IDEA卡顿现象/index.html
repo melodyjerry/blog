@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,13 +216,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <h2 id="修改-vmoptions-文件"><a href="#修改-vmoptions-文件" class="headerlink" title="修改 vmoptions 文件"></a>修改 vmoptions 文件</h2><p>首先是找到 IDEA 的安装目录，之后到安装目录的 bin 目录下，找到如下两个文件：<br><code>idea.exe.vmoptions</code>和<code>idea64.exe.vmoptions</code><br>看你是多少位系统的你就该对应的就可以了，编辑这个配置文件。<br>修改前：</p>
-<div class="hljs"><pre><code class="hljs haml">-<span class="ruby">Xms128m</span>
+<pre><code class="hljs haml">-<span class="ruby">Xms128m</span>
 <span class="ruby">-Xmx750m</span>
 <span class="ruby">-<span class="hljs-symbol">XX:</span>ReservedCodeCacheSize=<span class="hljs-number">240</span>m</span>
 <span class="ruby">-<span class="hljs-symbol">XX:</span>+UseConcMarkSweepGC</span>
@@ -235,7 +235,7 @@
 <span class="ruby">-<span class="hljs-symbol">XX:</span>-OmitStackTraceInFastThrow</span>
 <span class="ruby">-Djdk.attach.allowAttachSelf=<span class="hljs-literal">true</span></span>
 <span class="ruby">-Dkotlinx.coroutines.debug=off</span>
-<span class="ruby">-Djdk<span class="hljs-class">.<span class="hljs-keyword">module</span>.<span class="hljs-title">illegalAccess</span>.<span class="hljs-title">silent</span>=<span class="hljs-title">true</span></span></span></code></pre></div>
+<span class="ruby">-Djdk<span class="hljs-class">.<span class="hljs-keyword">module</span>.<span class="hljs-title">illegalAccess</span>.<span class="hljs-title">silent</span>=<span class="hljs-title">true</span></span></span></code></pre>
 <p>修改后：<br>分别把<strong>内存</strong>的参数 <strong>128m</strong> 和 <strong>750m</strong> 改成你想要改的就可以了，我是分别改成了 <strong>1024m</strong> 和 <strong>2048m</strong>，之后如果还卡，再往大了调，可以根据自己电脑的实际内存设置。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/evane1890/article/details/78941968" target="_blank" rel="noopener">JVM调优常用参数</a></p>
 <a id="more"></a>

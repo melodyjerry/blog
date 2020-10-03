@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,7 +223,7 @@
             <article class="markdown-body">
               <a id="more"></a>
 
-<h1 id="脚本①"><a href="#脚本①" class="headerlink" title="脚本①"></a>脚本①</h1><div class="hljs"><pre><code class="hljs js"><span class="hljs-comment">// ==UserScript==</span>
+<h1 id="脚本①"><a href="#脚本①" class="headerlink" title="脚本①"></a>脚本①</h1><pre><code class="hljs js"><span class="hljs-comment">// ==UserScript==</span>
 <span class="hljs-comment">// @name         熊猫超星网课助手</span>
 <span class="hljs-comment">// @namespace    xiongmao</span>
 <span class="hljs-comment">// @version      9.0.1</span>
@@ -870,9 +870,9 @@ setting.tip = !setting.queue || top != _self &amp;&amp; jobSort($ || Ext.query);
     }).end().find(<span class="hljs-string">'iframe[src]'</span>).replaceWith(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">return</span> $(<span class="hljs-string">'&lt;p&gt;&lt;/p&gt;'</span>).text(<span class="hljs-string">''</span>);
     }).end().text().trim();
-}</code></pre></div>
+}</code></pre>
 
-<h1 id="脚本②"><a href="#脚本②" class="headerlink" title="脚本②"></a>脚本②</h1><div class="hljs"><pre><code class="hljs js">超星学习通油猴脚本
+<h1 id="脚本②"><a href="#脚本②" class="headerlink" title="脚本②"></a>脚本②</h1><pre><code class="hljs js">超星学习通油猴脚本
 <span class="hljs-comment">// ==UserScript==</span>
 <span class="hljs-comment">// @name         超星网课助手(改)(查题可用)</span>
 <span class="hljs-comment">// @version      4.5.7</span>
@@ -1319,7 +1319,7 @@ setting.tip = !setting.queue || top != _self &amp;&amp; jobSort($ || Ext.query);
                         <span class="hljs-keyword">if</span> (obj.code) {
                             setting.div.children(<span class="hljs-string">'div:eq(0)'</span>).text(<span class="hljs-string">'正在搜索答案...'</span>);
                             <span class="hljs-keyword">var</span> td = <span class="hljs-string">'&lt;td style="border: 1px solid;'</span>,
-                                answer = S</code></pre></div><script>
+                                answer = S</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -228,12 +228,12 @@
 <p>返回的下标值（index1 和 index2）不是从零开始的。<br>你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。</p>
 </blockquote>
 <p>示例:</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: numbers = [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">15</span>], target = <span class="hljs-number">9</span>
+<pre><code class="hljs angelscript">输入: numbers = [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">15</span>], target = <span class="hljs-number">9</span>
 输出: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]
-解释: <span class="hljs-number">2</span> 与 <span class="hljs-number">7</span> 之和等于目标数 <span class="hljs-number">9</span> 。因此 index1 = <span class="hljs-number">1</span>, index2 = <span class="hljs-number">2</span> 。</code></pre></div>
+解释: <span class="hljs-number">2</span> 与 <span class="hljs-number">7</span> 之和等于目标数 <span class="hljs-number">9</span> 。因此 index1 = <span class="hljs-number">1</span>, index2 = <span class="hljs-number">2</span> 。</code></pre>
 
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h2><p>时间复杂度：O(n2)</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] numbers, <span class="hljs-keyword">int</span> target) {
         <span class="hljs-keyword">int</span>[] ans = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
         <span class="hljs-keyword">int</span> len = numbers.length;
@@ -249,10 +249,10 @@
         }
         <span class="hljs-keyword">return</span> ans;
     }
-}</code></pre></div>
+}</code></pre>
 
 <h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>时间复杂度：O(n)</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] numbers, <span class="hljs-keyword">int</span> target) {
         <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = numbers.length - <span class="hljs-number">1</span>, mid;
         <span class="hljs-keyword">while</span>(left &lt; right){
@@ -266,9 +266,9 @@
         }
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
-}</code></pre></div>
+}</code></pre>
 <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>时间复杂度：O(nlogn)</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] num, <span class="hljs-keyword">int</span> target) {
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; num.length; i++) {
             <span class="hljs-keyword">int</span> low = i + <span class="hljs-number">1</span>, high = num.length - <span class="hljs-number">1</span>;
@@ -285,9 +285,9 @@
         }
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
-}</code></pre></div>
+}</code></pre>
 <h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] num, <span class="hljs-keyword">int</span> target) {
         Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;(num.length);
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; num.length; i++) {
@@ -317,7 +317,7 @@
 <span class="hljs-comment">    }</span>
 <span class="hljs-comment">    return ans;</span>
 <span class="hljs-comment">}</span>
-<span class="hljs-comment">*/</span></code></pre></div>
+<span class="hljs-comment">*/</span></code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

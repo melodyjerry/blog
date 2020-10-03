@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,12 +216,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
-              <div class="hljs"><pre><code class="hljs java">org.apache.ibatis.exceptions.PersistenceException: 
+              <pre><code class="hljs java">org.apache.ibatis.exceptions.PersistenceException: 
 ### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
 
 The last packet successfully received from the server was <span class="hljs-number">2</span>,<span class="hljs-number">431</span> milliseconds ago.  The last packet sent successfully to the server was <span class="hljs-number">2</span>,<span class="hljs-number">417</span> milliseconds ago.
@@ -234,11 +234,11 @@ The last packet successfully received from the server was <span class="hljs-numb
 
 	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:<span class="hljs-number">30</span>)
 	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:<span class="hljs-number">149</span>)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:<span class="hljs-number">140</span>)</code></pre></div>
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:<span class="hljs-number">140</span>)</code></pre>
 
 <p><strong>解决：</strong><br>是<strong>mysql</strong>超时设置的问题<br>如果连接<strong>闲置8小时</strong> (8小时内没有进行<strong>数据库</strong>操作), mysql就会自动断开连接。</p>
 <p>在<code>connection url</code>中加参数: <code>autoReconnect=true</code></p>
-<div class="hljs"><pre><code class="hljs xml">jdbc.url=jdbc:mysql://localhost:3306/database?autoReconnect=true&amp;amp;autoReconnectForPools=true</code></pre></div>
+<pre><code class="hljs xml">jdbc.url=jdbc:mysql://localhost:3306/database?autoReconnect=true&amp;amp;autoReconnectForPools=true</code></pre>
 <a id="more"></a><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {

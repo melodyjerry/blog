@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -258,7 +258,7 @@
 <ul>
 <li>Java中的类<br>  类可以看成是创建Java对象的模板。<br>  通过下面一个简单的类来理解下Java中类的定义：</li>
 </ul>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
     <span class="hljs-keyword">int</span> id; 
     String name; 
     <span class="hljs-keyword">double</span> score1, score2, score3; 
@@ -269,7 +269,7 @@
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getAverageScore</span><span class="hljs-params">()</span> </span>{ 
         <span class="hljs-keyword">return</span> (score1 ＋ score2 + score3) / <span class="hljs-number">3</span>; 
     } 
-}</code></pre></div>
+}</code></pre>
 
 <p>一个类可以包含以下类型变量：</p>
 <blockquote>
@@ -281,7 +281,7 @@
 <p><strong><em>软件对象也有状态和行为。软件对象的状态就是属性，行为通过方法体现。<br>在软件开发中，方法操作对象内部状态的改变，对象的相互调用也是通过方法来完成。</em></strong></p>
 <ul>
 <li><p>创建对象——&gt;</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">/*有两种基本形式*/</span>
+<pre><code class="hljs java"><span class="hljs-comment">/*有两种基本形式*/</span>
 
 <span class="hljs-comment">/*1.对象声明和创建*/</span>
 类名 对象名 = <span class="hljs-keyword">new</span> 类名();
@@ -291,7 +291,7 @@ Student xiaoming = <span class="hljs-keyword">new</span> Student ();
 类名 对象名; <span class="hljs-comment">// 类(对象)变量</span>
 对象名 = <span class="hljs-keyword">new</span> 类名(); <span class="hljs-comment">//实例化</span>
 Student xiaobai ;
-xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
+xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre>
 </li>
 <li><p><img src="https://i.loli.net/2019/11/16/ZPBq1pyImXLnwvV.png" srcset="/blog/img/loading.gif" alt="java对象内存映射像示意.png"></p>
 </li>
@@ -314,7 +314,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <li><p>这些描述在Java当中是用类的形式来体现的。而对象是通过Java的new操作符所产生的一个实体，这个的实体存在于==堆内存==当中。</p>
   <img src="https://i.loli.net/2019/11/13/znyBu9gp1jtdEFs.png" srcset="/blog/img/loading.gif" alt="image.png" style="zoom:80%;">
 
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//定义类，就是描述事物，就是在定义属性和行为。属性和行为共同成为类中的成员（成员变量和成员方法）。</span>
+  <pre><code class="hljs java"><span class="hljs-comment">//定义类，就是描述事物，就是在定义属性和行为。属性和行为共同成为类中的成员（成员变量和成员方法）。</span>
 <span class="hljs-comment">//需求：描述车汽车（颜色，轮胎数）。</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span>	<span class="hljs-title">Car</span> </span>{
     <span class="hljs-comment">//描述颜色</span>
@@ -338,7 +338,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
         <span class="hljs-comment">//需求：想要车运行起来。</span>
         c.run();
     }
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
@@ -350,7 +350,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <img src="https://i.loli.net/2019/11/13/9TSkMDwUR2z4ILe.png" srcset="/blog/img/loading.gif" alt="image.png" style="zoom:80%;">
 
 <p>(2)若main的代码块改为：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span>	<span class="hljs-title">CarDemo</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span>	<span class="hljs-title">CarDemo</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
 		Car c = <span class="hljs-keyword">new</span> Car();
 		c.num = <span class="hljs-number">5</span>;
@@ -358,7 +358,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 		c1.color = <span class="hljs-string">"green"</span>;
 		c.run();
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>在内存中的示意图——&gt;</p>
 <img src="C:\Users\丶Melody\AppData\Roaming\Typora\typora-user-images\image-20191113105054592.png" srcset="/blog/img/loading.gif" alt="image-20191113105054592" style="zoom:80%;">
@@ -381,10 +381,10 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <li><p>使用 “类名.方法” 或 “对象.方法” 的形式调用。</p>
 </li>
 <li><p>语法格式：</p>
-<div class="hljs"><pre><code class="hljs java">权限修饰符　返回值类型　方法名（参数类型　参数名<span class="hljs-number">1</span>,参数类型　参数名<span class="hljs-number">2</span>,...） {
+<pre><code class="hljs java">权限修饰符　返回值类型　方法名（参数类型　参数名<span class="hljs-number">1</span>,参数类型　参数名<span class="hljs-number">2</span>,...） {
 	<span class="hljs-comment">// 方法体</span>
 	方法语句序列<span class="hljs-comment">//当返回类型非void时,最后一条被执行语句必须是return语句,返回对应类型的值</span>
-}</code></pre></div>
+}</code></pre>
 
 <p>访问权限/权限修饰符（4P权限）：</p>
 <table>
@@ -451,7 +451,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <li><p>无参数有返回值</p>
 </li>
 <li><p>有参数有返回值</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Method</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Method</span> </span>{
     
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">aMethod</span><span class="hljs-params">()</span> </span>{
         System.out.println(<span class="hljs-string">"无参数无返回值的方法"</span>);
@@ -480,7 +480,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
        ret = md.dMethod(<span class="hljs-number">10</span>);
         System.out.println(ret);
    }
-}</code></pre></div>
+}</code></pre>
 
 <p>方法的参数：</p>
 </li>
@@ -493,7 +493,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <p>参数为简单数据类型时：</p>
 </li>
 <li><p>传递的是参数的副本，为值传递，接受参数的方法中不会改变参数的值。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodParam</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodParam</span> </span>{
     
     <span class="hljs-comment">/** </span>
 <span class="hljs-comment">     * 方法的参数为基本数据类型时，传递的是值的副本（值拷贝）</span>
@@ -531,7 +531,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
         System.out.println(<span class="hljs-string">"交换后：x = "</span>+mp.x+<span class="hljs-string">",y = "</span>+mp.y);
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <p>普通方法调用——&gt;</p>
 <p><img src="https://i.loli.net/2019/11/16/28HpyTLnKOVsFQY.png" srcset="/blog/img/loading.gif" alt="image.png"></p>
@@ -547,11 +547,11 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <p> 【成员方法】</p>
 </li>
 </ol>
-<div class="hljs"><pre><code>——————————————————————————— 我 是 分 割 线 ————————————————————————————
+<pre><code>——————————————————————————— 我 是 分 割 线 ————————————————————————————
 
 【构造方法】
 
-构造方法需满足以下三个条件 ：</code></pre></div><ul>
+构造方法需满足以下三个条件 ：</code></pre><ul>
 <li><p>1、方法名与类名<strong>同名</strong></p>
 </li>
 <li><p>2、在方法中不能使用  <strong><code>return</code></strong>  语句，即无返回值 </p>
@@ -565,7 +565,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 </blockquote>
 </li>
 </ul>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> me;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> me;
 <span class="hljs-keyword">public</span>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Me</span> </span>{
     <span class="hljs-keyword">private</span>  String name; <span class="hljs-comment">//成员变量</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Me</span><span class="hljs-params">(String name)</span></span>{ <span class="hljs-comment">//构造方法</span>
@@ -577,10 +577,10 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{<span class="hljs-comment">//成员方法</span>
         <span class="hljs-keyword">this</span>.name = name;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p> 我如果我在添加一age 如下 添加方法依然是成员方法 , </p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> me;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> me;
 <span class="hljs-keyword">public</span>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Me</span> </span>{
     <span class="hljs-keyword">private</span>  String name; <span class="hljs-comment">//成员变量</span>
     <span class="hljs-keyword">private</span> String age; <span class="hljs-comment">//成员变量</span>
@@ -599,7 +599,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(String age)</span> </span>{<span class="hljs-comment">//成员方法</span>
         <span class="hljs-keyword">this</span>.age = age;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>个人理解：无论多少方法，==除了构造方法外，其余都是成员方法==，当然这样理解可能有点偏见..</p>
 <p>它们的区别：</p>
@@ -610,7 +610,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 </li>
 </ul>
 <p>成员方法与构造方法调用的区别</p>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">package</span> me;
+<pre><code class="hljs Java"><span class="hljs-keyword">package</span> me;
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span> </span>{    
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{        
         Me me = <span class="hljs-keyword">new</span> Me(<span class="hljs-string">"张三"</span>);<span class="hljs-comment">//构造方法调用    </span>
@@ -618,7 +618,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
         me.setName(<span class="hljs-string">"李四"</span>);<span class="hljs-comment">//成员方法调用       </span>
         System.out.println(me.getName());     
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>从上面的demo中可以看出，<strong>==构造方法通过new运算符调用==</strong>，<strong>==成员方法通过对象调用==</strong>。</p>
 <p><strong>注意：类中除了构造方法以外的方法都是成员方法。原因是在类中，除了变量外的基本都是成员方法。</strong></p>
@@ -643,7 +643,7 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
 <li><strong>初始化</strong>：使用new创建对象时，会调用构造方法初始化对象。</li>
 </ul>
 <p>下面是一个创建对象的例子：</p>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Puppy</span></span>{   
+<pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Puppy</span></span>{   
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Puppy</span><span class="hljs-params">(String name)</span></span>{      
         <span class="hljs-comment">//这个构造器仅有一个参数：name      </span>
         System.out.println(<span class="hljs-string">"小狗的名字是 : "</span> + name );    
@@ -652,24 +652,24 @@ xiaobai = <span class="hljs-keyword">new</span> Student();</code></pre></div>
         <span class="hljs-comment">// 下面的语句将创建一个Puppy对象      </span>
         Puppy myPuppy = <span class="hljs-keyword">new</span> Puppy( <span class="hljs-string">"tommy"</span> );   
     } 
-}</code></pre></div>
+}</code></pre>
 
 <p>编译并运行上面的程序，会打印出下面的结果：</p>
-<div class="hljs"><pre><code class="hljs Java">小狗的名字是 : tommy</code></pre></div>
+<pre><code class="hljs Java">小狗的名字是 : tommy</code></pre>
 
 <p>——————————————————————————— 我 是 分 割 线 ————————————————————————————</p>
 <p>【访问实例变量和方法】</p>
 <p>通过已创建的对象来访问成员变量和成员方法，如下所示：</p>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-comment">/* 实例化对象 */</span> 
+<pre><code class="hljs Java"><span class="hljs-comment">/* 实例化对象 */</span> 
 Object referenceVariable = <span class="hljs-keyword">new</span> Constructor(); 
 <span class="hljs-comment">/* 访问类中的变量 */</span> 
 referenceVariable.variableName; 
 <span class="hljs-comment">/* 访问类中的方法 */</span> 
-referenceVariable.methodName();</code></pre></div>
+referenceVariable.methodName();</code></pre>
 
 <p>——————————————————————————— 我 是 分 割 线 ————————————————————————————</p>
 <p>【访问实例变量】和【调用成员方法】：</p>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Puppy</span></span>{   
+<pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Puppy</span></span>{   
     <span class="hljs-keyword">int</span> puppyAge;   
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Puppy</span><span class="hljs-params">(String name)</span></span>{      
         <span class="hljs-comment">// 这个构造器仅有一个参数：name      </span>
@@ -691,12 +691,12 @@ referenceVariable.methodName();</code></pre></div>
         <span class="hljs-comment">/*你也可以像下面这样访问成员变量 */</span>   
         System.out.println(<span class="hljs-string">"变量值 : "</span> + myPuppy.puppyAge );   
     } 
-}</code></pre></div>
+}</code></pre>
 
 <p>编译并运行上面的程序，产生如下结果：</p>
-<div class="hljs"><pre><code class="hljs java">小狗的名字是 : tommy
+<pre><code class="hljs java">小狗的名字是 : tommy
 小狗的年龄为 : <span class="hljs-number">2</span>
-变量值 : <span class="hljs-number">2</span></code></pre></div>
+变量值 : <span class="hljs-number">2</span></code></pre>
 
 <hr>
 <ol start="8">
@@ -704,7 +704,7 @@ referenceVariable.methodName();</code></pre></div>
 <p><strong>方法重载</strong>还是比较好理解的，就是<strong>在类的内部</strong>，定义多个方法，这些方法的方法名字相同，参数类型、参数顺序、参数个数不同，注意，返回值类型并不能区分重载 。</p>
 </li>
 </ol>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">double</span> b)</span></span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">double</span> b)</span></span>{
 
 }
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">double</span> c)</span></span>{
@@ -712,7 +712,7 @@ referenceVariable.methodName();</code></pre></div>
 } 
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d)</span></span>{
     <span class="hljs-keyword">return</span>  <span class="hljs-number">1</span>;
-}   <span class="hljs-comment">//报错，方法已经定义了</span></code></pre></div>
+}   <span class="hljs-comment">//报错，方法已经定义了</span></code></pre>
 
 <p> <strong>方法重写（<code>override</code>)</strong><br>方法重写和方法覆盖都是一个道理，发生在子类继承父类或者实现接口的类，要求的是：</p>
 <blockquote>
@@ -775,7 +775,7 @@ referenceVariable.methodName();</code></pre></div>
 </ol>
 <blockquote>
 <p> 只要不是私有的构造函数，在其他类中就可以调用。 传对应的参数就行了 。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span>` `<span class="hljs-title">A</span></span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span>` `<span class="hljs-title">A</span></span>{
   ``<span class="hljs-keyword">public</span>` `A(String s){}
   ``<span class="hljs-keyword">public</span>` `A(``<span class="hljs-keyword">int</span>` `n){}
   ``<span class="hljs-keyword">public</span>` `A(String s, ``<span class="hljs-keyword">int</span>` `n){}
@@ -784,7 +784,7 @@ referenceVariable.methodName();</code></pre></div>
   ``A a1 = ``<span class="hljs-keyword">new</span>` `A(``<span class="hljs-string">"abc"</span>``);
   ``A a2 = ``<span class="hljs-keyword">new</span>` `A(``<span class="hljs-number">1</span>``);
   ``A a3 = ``<span class="hljs-keyword">new</span>` `A(``<span class="hljs-string">"aaa"</span>``,``<span class="hljs-number">2</span>``);
-}</code></pre></div>
+}</code></pre>
 </blockquote>
 <hr>
 <ol start="13">
@@ -869,7 +869,7 @@ referenceVariable.methodName();</code></pre></div>
 <ol start="21">
 <li>问： 下面这个类有几个构造方法？ </li>
 </ol>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">class</span>	<span class="hljs-symbol">A</span>{}</code></pre></div>
+<pre><code class="hljs angelscript"><span class="hljs-keyword">class</span>	<span class="hljs-symbol">A</span>{}</code></pre>
 
 <blockquote>
 <p>1个。（待补充……）</p>
@@ -887,7 +887,7 @@ referenceVariable.methodName();</code></pre></div>
 </ol>
 <hr>
 <ol start="24">
-<li>题目：下列说法错误的有（ CD ）<br>　　A． 在类方法中可用this来调用本类的类方法<div class="hljs"><pre><code>B． 在类方法中调用本类的类方法时可直接调用</code></pre></div>　　C． 在类方法中只能调用本类中的类方法<br>　　D． 在类方法中绝对不能调用实例方法 </li>
+<li>题目：下列说法错误的有（ CD ）<br>　　A． 在类方法中可用this来调用本类的类方法<pre><code>B． 在类方法中调用本类的类方法时可直接调用</code></pre>　　C． 在类方法中只能调用本类中的类方法<br>　　D． 在类方法中绝对不能调用实例方法 </li>
 </ol>
 <blockquote>
 <p> C：类方法可以调用外部其他类的方法。<br>D：只要实力化对象，也是可以调用实例方法的。</p>

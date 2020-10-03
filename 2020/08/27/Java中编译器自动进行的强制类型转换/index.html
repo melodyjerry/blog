@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,41 +216,41 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <h2 id="关于类型转换"><a href="#关于类型转换" class="headerlink" title="关于类型转换"></a>关于类型转换</h2><p>一般规律：<strong>小类型向大类型可以自动类型转换，而大类型向小类型转换，需要手动的强制类型转换。</strong></p>
 <p><strong>注意：<br>1.类型的大小不是按字节大小区分的</strong>，而是按照它的范围来定的，比如</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">long</span> long1 = <span class="hljs-number">300F</span>;<span class="hljs-comment">//报错，编译无法通过</span>
+<pre><code class="hljs java"><span class="hljs-keyword">long</span> long1 = <span class="hljs-number">300F</span>;<span class="hljs-comment">//报错，编译无法通过</span>
 
-<span class="hljs-keyword">float</span> float1 = <span class="hljs-number">300L</span>;<span class="hljs-comment">//编译可以通过，并且可以正常运行</span></code></pre></div>
+<span class="hljs-keyword">float</span> float1 = <span class="hljs-number">300L</span>;<span class="hljs-comment">//编译可以通过，并且可以正常运行</span></code></pre>
 
 <p>long占八个字节，float占四个字节，但实际上float表示的范围要比long更大，（这主要是底层采用存储方式不同造成的）所以long类型的常量可以赋值给float类型的变量，而反过来却不行。<br><strong>2.这个规则也可以用在引用数据类型上</strong>，如果是引用类型，类型的大小则由他们的继承或实现关系来决定。</p>
-<h2 id="关于自动java中编译器做的自动强制类型转换"><a href="#关于自动java中编译器做的自动强制类型转换" class="headerlink" title="关于自动java中编译器做的自动强制类型转换"></a>关于自动java中编译器做的自动强制类型转换</h2><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">byte</span> byte1 = <span class="hljs-number">1</span>;
+<h2 id="关于自动java中编译器做的自动强制类型转换"><a href="#关于自动java中编译器做的自动强制类型转换" class="headerlink" title="关于自动java中编译器做的自动强制类型转换"></a>关于自动java中编译器做的自动强制类型转换</h2><pre><code class="hljs java"><span class="hljs-keyword">byte</span> byte1 = <span class="hljs-number">1</span>;
 <span class="hljs-keyword">short</span> short1 = <span class="hljs-number">2</span>;
-<span class="hljs-keyword">char</span> char1 = <span class="hljs-number">3</span>;</code></pre></div>
+<span class="hljs-keyword">char</span> char1 = <span class="hljs-number">3</span>;</code></pre>
 
 <p>类似上面的代码，相信大家都写过，实际上，也能编译通过，并且正常运行。但是，如果作为初学者，不应该有疑惑吗？<strong>java中的整型常量是int类型的</strong>，将一个int类型的常量，赋值给byte、short或char类型的变量，却不会报错？？不是小类型才可以进行自动类型转换转为大类型的吗？大类型的转小类型需要进行强制类型转换，并且可能会损失精度的。这里是为什么呢？</p>
 <p>其实是java中有一种机制：<strong>只要一个int类型的常量，在byte、short或char类型的范围之类的，就可以直接赋值给byte、short或char的变量</strong>，检查工作是java的编译器自动进行的。</p>
 <p><strong>注意：</strong><br><strong>1.只能是常量，不能是变量或变量参与运算的表达式</strong>。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">byte</span> byte1 = <span class="hljs-number">1</span>;
+<pre><code class="hljs java"><span class="hljs-keyword">byte</span> byte1 = <span class="hljs-number">1</span>;
 <span class="hljs-keyword">short</span> short1 = <span class="hljs-number">2</span>;
 <span class="hljs-keyword">char</span> char1 = <span class="hljs-number">3</span>;
 <span class="hljs-keyword">int</span> int1 = <span class="hljs-number">3</span>；
 
 <span class="hljs-keyword">short</span> short2 = byte1 + <span class="hljs-number">1</span>;<span class="hljs-comment">//报错，编译无法通过</span>
 <span class="hljs-keyword">short</span> short3 = int1;<span class="hljs-comment">//报错，编译无法通过</span>
-<span class="hljs-keyword">short</span> short4 = <span class="hljs-number">3</span>;<span class="hljs-comment">//编译通过，并且可以正常运行</span></code></pre></div>
+<span class="hljs-keyword">short</span> short4 = <span class="hljs-number">3</span>;<span class="hljs-comment">//编译通过，并且可以正常运行</span></code></pre>
 
 <p>因为java编译器只会自动检测字面常量是否超出了类型的范围，而不会对变量的值或有变量参与的运算结果进行检测。<br>“short short2 = byte1 + 1;”在做运算的时候，会自动上升为int类型，然后编译器就会检测到结果是一个int类型的值，而前面的变量是一个short类型的。不是小类型转大类型，所以直接编译报错。<br>“short short3 = int1;” 直接通过变量的类型就有问题，而不会通过上下文来判断值是否超出了范围。</p>
 <p><strong>2.对于纯常量的表达式，也是可以的</strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">short</span> short4 = <span class="hljs-number">1</span> + <span class="hljs-number">2</span>;<span class="hljs-comment">//编译通过，并且可以正常运行</span></code></pre></div>
+<pre><code class="hljs java"><span class="hljs-keyword">short</span> short4 = <span class="hljs-number">1</span> + <span class="hljs-number">2</span>;<span class="hljs-comment">//编译通过，并且可以正常运行</span></code></pre>
 
 <p>因为简单的常量表达式，java的编译器可以直接就运算出结果，然后再进一步检测是否超出了范围。</p>
 <p><strong>3.这个机制只是针对int转byte、short或char</strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">float</span> float1 = <span class="hljs-number">3.14</span>;<span class="hljs-comment">//报错，编译无法通过</span></code></pre></div>
+<pre><code class="hljs java"><span class="hljs-keyword">float</span> float1 = <span class="hljs-number">3.14</span>;<span class="hljs-comment">//报错，编译无法通过</span></code></pre>
 
 <p>对于其它的基本数据类型或引用数据类型，是没有这个机制的，只能使用文章开头说的一般规律。<br>其它一些简单的测试，比如超出范围就会编译报错.</p>
 <a id="more"></a>

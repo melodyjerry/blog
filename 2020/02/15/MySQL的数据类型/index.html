@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -768,7 +768,7 @@
 <li>LONGTEXT 表示长度为 4294967295 或 4GB（232-1）字符的 TEXT 列。</li>
 </ul>
 <h4 id="ENUM-类型"><a href="#ENUM-类型" class="headerlink" title="ENUM 类型"></a>ENUM 类型</h4><p>ENUM 是一个字符串对象，值为表创建时列规定中枚举的一列值。其语法格式如下：</p>
-<div class="hljs"><pre><code class="hljs autoit">&lt;字段名&gt; <span class="hljs-keyword">ENUM</span>( <span class="hljs-string">'值1'</span>, <span class="hljs-string">'值1'</span>, …, <span class="hljs-string">'值n'</span> )</code></pre></div>
+<pre><code class="hljs autoit">&lt;字段名&gt; <span class="hljs-keyword">ENUM</span>( <span class="hljs-string">'值1'</span>, <span class="hljs-string">'值1'</span>, …, <span class="hljs-string">'值n'</span> )</code></pre>
 
 <p>字段名指将要定义的字段，值 n 指枚举列表中第 n 个值。</p>
 <p>ENUM 类型的字段在取值时，能在指定的枚举列表中获取，而且一次只能取一个。如果创建的成员中有空格，尾部的空格将自动被删除。</p>
@@ -807,7 +807,7 @@
 <p>提示：ENUM 列总有一个默认值。如果将 ENUM 列声明为 NULL，NULL 值则为该列的一个有效值，并且默认值为 NULL。如果 ENUM 列被声明为 NOT NULL，其默认值为允许的值列表的第 1 个元素。</p>
 </blockquote>
 <h4 id="SET-类型"><a href="#SET-类型" class="headerlink" title="SET 类型"></a>SET 类型</h4><p>SET 是一个字符串的对象，可以有零或多个值，SET 列最多可以有 64 个成员，值为表创建时规定的一列值。指定包括多个 SET 成员的 SET 列值时，各成员之间用逗号<code>,</code>隔开，语法格式如下：</p>
-<div class="hljs"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">SET</span><span class="hljs-params">( <span class="hljs-string">'值1'</span>, <span class="hljs-string">'值2'</span>, …, <span class="hljs-string">'值n'</span> )</span></span></code></pre></div>
+<pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">SET</span><span class="hljs-params">( <span class="hljs-string">'值1'</span>, <span class="hljs-string">'值2'</span>, …, <span class="hljs-string">'值n'</span> )</span></span></code></pre>
 
 <p>与 ENUM 类型相同，SET 值在内部用整数表示，列表中每个值都有一个索引编号。当创建表时，SET 成员值的尾部空格将自动删除。</p>
 <p>但与 ENUM 类型不同的是，ENUM 类型的字段只能从定义的列值中选择一个值插入，而 SET 类型的列可从定义的列值中选择多个字符的联合。</p>

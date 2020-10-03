@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -222,22 +222,22 @@
             
             <article class="markdown-body">
               <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>提示<code>YAMLException: end of the stream or a document separator is expected at line 2, column 5:</code><br><img src="https://s1.ax1x.com/2020/07/16/UDn9KA.png" srcset="/blog/img/loading.gif" alt="UDn9KA.png"></p>
-<div class="hljs"><pre><code class="hljs subunit">$ hexo g
+<pre><code class="hljs subunit">$ hexo g
 INFO  Start processing
 <span class="hljs-keyword">ERROR </span>Process failed: _posts/Druid的配置及连接.md
 YAMLException: end of the stream or a document separator is expected at line 2, column 5:
     date: 2020<span class="hljs-string">-02</span><span class="hljs-string">-23</span> 17:36:53
-        ^</code></pre></div>
+        ^</code></pre>
 
 <p><strong>解决</strong></p>
 <p>出现这种情况，一般都是缺少空格，在 <code>:</code> 冒号之后要有<strong>空格</strong>！</p>
 <p>检查x行y列附近的冒号，其之后是否跟了空格。</p>
 <h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>提示<code>YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 2, column 5:</code></p>
 <p><img src="https://s1.ax1x.com/2020/07/16/UD3Ql8.png" srcset="/blog/img/loading.gif" alt="UD3Ql8.png"></p>
-<div class="hljs"><pre><code class="hljs subunit"><span class="hljs-keyword">ERROR </span>Process failed: _posts/随机动漫图片api.md
+<pre><code class="hljs subunit"><span class="hljs-keyword">ERROR </span>Process failed: _posts/随机动漫图片api.md
 YAMLException: end of the stream or a document separator is expected at line 2, column 5:
     tags:
-        ^</code></pre></div>
+        ^</code></pre>
 
 <p><strong>解决</strong></p>
 <p>可能是缺少了必要的<strong>空格</strong>，和上面的解决一样</p>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,19 +225,19 @@
 <p>请你找出这两个正序数组的中位数，并且要求<strong>算法的时间复杂度为 O(log(m + n))。</strong></p>
 <p>你可以假设 nums1 和 nums2 不会同时为空。</p>
 <p>示例 1:</p>
-<div class="hljs"><pre><code class="hljs angelscript">nums1 = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]
+<pre><code class="hljs angelscript">nums1 = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]
 nums2 = [<span class="hljs-number">2</span>]
 
-则中位数是 <span class="hljs-number">2.0</span></code></pre></div>
+则中位数是 <span class="hljs-number">2.0</span></code></pre>
 <p>示例 2:</p>
-<div class="hljs"><pre><code class="hljs angelscript">nums1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+<pre><code class="hljs angelscript">nums1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
 nums2 = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
 
-则中位数是 (<span class="hljs-number">2</span> + <span class="hljs-number">3</span>)/<span class="hljs-number">2</span> = <span class="hljs-number">2.5</span></code></pre></div>
+则中位数是 (<span class="hljs-number">2</span> + <span class="hljs-number">3</span>)/<span class="hljs-number">2</span> = <span class="hljs-number">2.5</span></code></pre>
 
 <a id="more"></a>
 
-<h1 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<h1 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h1><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">findMedianSortedArrays</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums1, <span class="hljs-keyword">int</span>[] nums2)</span> </span>{
          <span class="hljs-comment">// 若仅当nums1为空</span>
         <span class="hljs-keyword">if</span> (nums1 == <span class="hljs-keyword">null</span> || nums1.length == <span class="hljs-number">0</span>) {
@@ -309,7 +309,7 @@ nums2 = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
         }
 
     }
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><p><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200524105737241-1489148430.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="更多题解"><a href="#更多题解" class="headerlink" title="更多题解"></a>更多题解</h1><p><a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/" target="_blank" rel="noopener">详细通俗的思路分析，多解法</a><br><a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/4-xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-shu/" target="_blank" rel="noopener">寻找两个有序数组的中位数 C / C++</a><br><a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/shuang-zhi-zhen-by-powcai/" target="_blank" rel="noopener">中位数的小技巧</a></p>

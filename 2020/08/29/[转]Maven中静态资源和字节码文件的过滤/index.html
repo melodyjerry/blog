@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -227,7 +227,7 @@
 <a id="more"></a>
 
 <h2 id="静态资源的过滤"><a href="#静态资源的过滤" class="headerlink" title="静态资源的过滤"></a>静态资源的过滤</h2><p>在maven中，静态资源的过滤使用基本上大家都知道，只需要在<code>&lt;build&gt;&lt;/build&gt;</code>中使用<code>resources</code>标签即可，示例如下：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span>
@@ -237,7 +237,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>1234567891011</code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>1234567891011</code></pre>
 
 <p>在静态资源的过滤中，基本的元素有三种：</p>
 <ul>
@@ -251,7 +251,7 @@
 <li>当includes和excludes冲突的时候，优先采取excludes中的设定，<a href="http://blog.csdn.net/bluishglc/article/details/6640889" target="_blank" rel="noopener">这篇文章</a>中详细的说明了，<a href="http://bylijinnan.iteye.com/blog/2298100" target="_blank" rel="noopener">这篇文章</a>从源码角度进行了分析；</li>
 </ul>
 <h2 id="字节码文件的过滤"><a href="#字节码文件的过滤" class="headerlink" title="字节码文件的过滤"></a>字节码文件的过滤</h2><p>相对于静态资源的过滤，针对字节码文件的过滤则比较生僻，尤其是在配置文件基本上都是<code>xml</code>或者<code>properties</code>的时候，如果你的工程的配置是Java Config风格的，那么就会遇到在不同的环境下加载不同的配置类的问题。不同于静态的配置文件直接使用<code>&lt;resources&gt;</code>标签（其实背后还是通过resource插件完成的），字节码的过滤需要直接使用<code>maven-war-plugin</code> ，实例如下：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-war-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
@@ -262,7 +262,7 @@
          WEB-INF/lib/log4j-*.jar
       <span class="hljs-tag">&lt;/<span class="hljs-name">packagingExcludes</span>&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>123456789101112</code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>123456789101112</code></pre>
 
 <p>从上面可以看到，该插件是通过<code>packagingExcludes</code>元素完成过滤的，这个元素的作用是在工程package之前， 通过一些模式来排除掉一些文件或者文件夹，如果有多个可以通过逗号“,”来分割，上述使用的例子：</p>
 <ul>

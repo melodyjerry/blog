@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,12 +223,12 @@
             <article class="markdown-body">
               <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。</p>
 <p>示例 1:</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]
-输出: <span class="hljs-number">2</span></code></pre></div>
+<pre><code class="hljs angelscript">输入: [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]
+输出: <span class="hljs-number">2</span></code></pre>
 
 <p>示例 2:</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>]
-输出: <span class="hljs-number">3</span></code></pre></div>
+<pre><code class="hljs angelscript">输入: [<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>]
+输出: <span class="hljs-number">3</span></code></pre>
 
 <p>说明：</p>
 <blockquote>
@@ -238,14 +238,14 @@
 
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>本题目限定了元素的取值范围”其数字都在 1 到 n 之间（包括 1 和 n）”。</p>
 <p>另外，“说明”里的也特别重要~</p>
-<div class="hljs"><pre><code class="hljs markdown">说明：
+<pre><code class="hljs markdown">说明：
 <span class="hljs-quote">&gt; 不能更改原数组（假设数组是只读的）。</span>
 <span class="hljs-quote">&gt; 只能使用额外的 O(1) 的空间。</span>
 <span class="hljs-quote">&gt; 时间复杂度小于 O(n^2) 。</span>
-<span class="hljs-quote">&gt; 数组中只有一个重复的数字，但它可能不止重复出现一次。</span></code></pre></div>
+<span class="hljs-quote">&gt; 数组中只有一个重复的数字，但它可能不止重复出现一次。</span></code></pre>
 
 <p>最后解决的思路很简单，就是使用双指针，直接看代码注释即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findDuplicate</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
         <span class="hljs-comment">// 如果数组就只有两个元素，直接返回即可</span>
         <span class="hljs-keyword">if</span>(nums.length &lt;= <span class="hljs-number">2</span>) { <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>]; }
@@ -290,7 +290,7 @@
 
         <span class="hljs-keyword">return</span> s;
     }
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><p><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200527104448669-1146765142.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="题后"><a href="#题后" class="headerlink" title="题后"></a>题后</h1><p>今天这“每日一题”和《<a href="https://www.cnblogs.com/melodyjerry/p/12944851.html" target="_blank" rel="noopener">【LeetCode】面试题03. 数组中重复的数字</a>》有些类似。<br>不同的是，今天这题限定了一些特别的条件，比如：</p>

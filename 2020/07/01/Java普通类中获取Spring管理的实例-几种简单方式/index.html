@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,31 +216,31 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <p>第一种方式依赖于ServletContext，所以要先获取Request</p>
 <p>在web.xml中配置springRequest监听器</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">listener</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">listener</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">listener-class</span>&gt;</span>
         org.springframework.web.context.request.RequestContextListener
     <span class="hljs-tag">&lt;/<span class="hljs-name">listener-class</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">listener</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">listener</span>&gt;</span></code></pre>
 
 <p>定义个静态方法调用工具类方便调用</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">getBean</span><span class="hljs-params">(String name)</span> </span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">getBean</span><span class="hljs-params">(String name)</span> </span>{
         ServletContext servletContext = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getServletContext();
         ApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(servletContext);
         <span class="hljs-keyword">return</span> ac.getBean(name);
-    }</code></pre></div>
+    }</code></pre>
 
 <p>第二种方法不依赖于servlet,不需要注入的方式 注意一点，在服务器启动时，Spring容器初始化时，不能通过以下方法获取Spring 容器</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">getBean2</span><span class="hljs-params">(String name)</span> </span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">getBean2</span><span class="hljs-params">(String name)</span> </span>{
         WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
         <span class="hljs-keyword">return</span> wac.getBean(name);
-    }</code></pre></div><script>
+    }</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

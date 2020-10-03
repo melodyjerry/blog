@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -226,7 +226,7 @@
 
 <hr>
 <p>IDEA run之后，控制台输出一堆问题：</p>
-<div class="hljs"><pre><code class="hljs routeros">二月 23, 2020 1:30:34 下午 com.alibaba.druid.pool.DruidDataSource error
+<pre><code class="hljs routeros">二月 23, 2020 1:30:34 下午 com.alibaba.druid.pool.DruidDataSource error
 严重: init datasource error
 com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could <span class="hljs-keyword">not</span> create<span class="hljs-built_in"> connection </span><span class="hljs-keyword">to</span> database server.
 
@@ -234,12 +234,12 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could <spa
 严重: dataSource init error
 
 二月 23, 2020 1:30:34 下午 com.alibaba.druid.pool.DruidDataSource info
-信息: {dataSource-1} inited</code></pre></div>
+信息: {dataSource-1} inited</code></pre>
 
 <p>我估计是<strong>MySQL版本的问题</strong>，因为从我开始学习MySQL来安装的是8.0，学习期间就遇到很多问题，不过都能逐一解决。</p>
 <p>但是这次我果断<strong>直接降级到5.7</strong>。</p>
 <p>不过，降级后还是被提示错误</p>
-<div class="hljs"><pre><code class="hljs stylus">二月 <span class="hljs-number">23</span>, <span class="hljs-number">2020</span> <span class="hljs-number">2</span>:<span class="hljs-number">41</span>:<span class="hljs-number">58</span> 下午 com<span class="hljs-selector-class">.alibaba</span><span class="hljs-selector-class">.druid</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.DruidDataSource</span> info
+<pre><code class="hljs stylus">二月 <span class="hljs-number">23</span>, <span class="hljs-number">2020</span> <span class="hljs-number">2</span>:<span class="hljs-number">41</span>:<span class="hljs-number">58</span> 下午 com<span class="hljs-selector-class">.alibaba</span><span class="hljs-selector-class">.druid</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.DruidDataSource</span> info
 信息: {dataSource-<span class="hljs-number">1</span>} inited
 二月 <span class="hljs-number">23</span>, <span class="hljs-number">2020</span> <span class="hljs-number">2</span>:<span class="hljs-number">41</span>:<span class="hljs-number">58</span> 下午 org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.beans</span><span class="hljs-selector-class">.factory</span><span class="hljs-selector-class">.xml</span><span class="hljs-selector-class">.XmlBeanDefinitionReader</span> loadBeanDefinitions
 信息: Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
@@ -278,7 +278,7 @@ org<span class="hljs-selector-class">.springframework</span><span class="hljs-se
 	at com<span class="hljs-selector-class">.intellij</span><span class="hljs-selector-class">.rt</span><span class="hljs-selector-class">.execution</span><span class="hljs-selector-class">.junit</span><span class="hljs-selector-class">.JUnitStarter</span>.main(JUnitStarter<span class="hljs-selector-class">.java</span>:<span class="hljs-number">70</span>)
 
 
-Process finished with exit <span class="hljs-selector-tag">code</span> -<span class="hljs-number">1</span></code></pre></div>
+Process finished with exit <span class="hljs-selector-tag">code</span> -<span class="hljs-number">1</span></code></pre>
 
 
 
@@ -287,10 +287,10 @@ Process finished with exit <span class="hljs-selector-tag">code</span> -<span cl
 <p>仔细检查一下sql语句，单纯的去 cmd 中用自己的sql语句执行一下检查问题。</p>
 <p>果然是sql语句的问题。</p>
 <p>剩下的错误提示，是<strong>数据库的字段的问题</strong>。</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-comment">//正确</span>
+<pre><code class="hljs less"><span class="hljs-comment">//正确</span>
 <span class="hljs-selector-tag">loginuser</span><span class="hljs-selector-class">.setUsername</span>(<span class="hljs-string">"superbaby"</span>);
 <span class="hljs-comment">//错误，字段少了个y</span>
-<span class="hljs-selector-tag">loginuser</span><span class="hljs-selector-class">.setUsername</span>(<span class="hljs-string">"superbab"</span>);</code></pre></div>
+<span class="hljs-selector-tag">loginuser</span><span class="hljs-selector-class">.setUsername</span>(<span class="hljs-string">"superbab"</span>);</code></pre>
 
 <p>再次run，这次得到如期的结果。</p>
 <p><img src="https://s2.ax1x.com/2020/02/23/31pw3n.png" srcset="/blog/img/loading.gif" alt="31pw3n.png"></p>

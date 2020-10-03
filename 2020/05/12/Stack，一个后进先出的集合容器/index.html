@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,8 +223,8 @@
             <article class="markdown-body">
               <p>今天刷LC的每日一题时，需要使用到“栈”这种数据结构。就顺便复习了有关“栈”的知识。<br>本文就用C来复习<del>(预习)</del>“Stack”。</p>
 <h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><p>Stack，本身就具有数据结构中栈的一般特性：<strong>后进先出</strong>。</p>
-<h1 id="定义Stack"><a href="#定义Stack" class="headerlink" title="定义Stack"></a>定义Stack</h1><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stack&gt;</span></span>
-<span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">typename</span>&gt; name;</code></pre></div>
+<h1 id="定义Stack"><a href="#定义Stack" class="headerlink" title="定义Stack"></a>定义Stack</h1><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stack&gt;</span></span>
+<span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">typename</span>&gt; name;</code></pre>
 
 <h1 id="栈中元素的访问"><a href="#栈中元素的访问" class="headerlink" title="栈中元素的访问"></a>栈中元素的访问</h1><ul>
 <li>top()</li>
@@ -240,7 +240,7 @@
 </ul>
 <a id="more"></a>
 
-<h1 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h1><div class="hljs"><pre><code class="hljs xl">#include &lt;stdio.h&gt;
+<h1 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h1><pre><code class="hljs xl">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
  
 typedef struct node {
@@ -318,7 +318,7 @@ int main(void)
 	traverse(&amp;s);
 	system(<span class="hljs-string">"pause"</span>);
 	return <span class="hljs-number">0</span>;
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
 <li><a href="https://blog.csdn.net/qq_42232118/article/details/82080776" target="_blank" rel="noopener">stack的常见用法</a></li>

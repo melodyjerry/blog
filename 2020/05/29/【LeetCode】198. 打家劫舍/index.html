@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -224,30 +224,30 @@
               <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是<strong>相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</strong></p>
 <p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
 <p>示例 1:</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>]
+<pre><code class="hljs angelscript">输入: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>]
 输出: <span class="hljs-number">4</span>
 解释: 偷窃 <span class="hljs-number">1</span> 号房屋 (金额 = <span class="hljs-number">1</span>) ，然后偷窃 <span class="hljs-number">3</span> 号房屋 (金额 = <span class="hljs-number">3</span>)。
-     偷窃到的最高金额 = <span class="hljs-number">1</span> + <span class="hljs-number">3</span> = <span class="hljs-number">4</span> 。</code></pre></div>
+     偷窃到的最高金额 = <span class="hljs-number">1</span> + <span class="hljs-number">3</span> = <span class="hljs-number">4</span> 。</code></pre>
 <p>示例 2:</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>]
+<pre><code class="hljs angelscript">输入: [<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>]
 输出: <span class="hljs-number">12</span>
 解释: 偷窃 <span class="hljs-number">1</span> 号房屋 (金额 = <span class="hljs-number">2</span>), 偷窃 <span class="hljs-number">3</span> 号房屋 (金额 = <span class="hljs-number">9</span>)，接着偷窃 <span class="hljs-number">5</span> 号房屋 (金额 = <span class="hljs-number">1</span>)。
-     偷窃到的最高金额 = <span class="hljs-number">2</span> + <span class="hljs-number">9</span> + <span class="hljs-number">1</span> = <span class="hljs-number">12</span> 。</code></pre></div>
+     偷窃到的最高金额 = <span class="hljs-number">2</span> + <span class="hljs-number">9</span> + <span class="hljs-number">1</span> = <span class="hljs-number">12</span> 。</code></pre>
 
 <a id="more"></a>
 
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="优化奇偶求和"><a href="#优化奇偶求和" class="headerlink" title="优化奇偶求和"></a>优化奇偶求和</h2><p>阅读完题目，刚冒出的想法就是“这不就是奇偶数求和吗？”<br>但是第一次提交代码后，提示报错，来看看用例：</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入:
+<pre><code class="hljs angelscript">输入:
 [<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]
 输出
 <span class="hljs-number">3</span>
 预期结果
-<span class="hljs-number">4</span></code></pre></div>
+<span class="hljs-number">4</span></code></pre>
 <p>为什么会这样呢？<br>因为不是<strong>最优解</strong>。</p>
 <p>以为是奇偶数求和，但是这个用例中，最大值是下标0、3的求和。</p>
 <p>因此必须优化一下，每次奇偶数求和时，除了奇数/偶数下标的求和，还要更新另一边偶数/奇数的求和的值。</p>
 <p>多说不好理解，来看看这个对比：</p>
-<div class="hljs"><pre><code class="hljs angelscript">indexx  <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>
+<pre><code class="hljs angelscript">indexx  <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>
 nums   [<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>] → <span class="hljs-number">4</span>
 
 优化前：
@@ -256,10 +256,10 @@ sumOdd  <span class="hljs-number">2</span> <span class="hljs-number">2</span> <s
 
 优化后：
 sumEven <span class="hljs-number">0</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span>
-sumOdd  <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span></code></pre></div>
+sumOdd  <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span></code></pre>
 <p>这一比较，应该就好理解了。</p>
 <p>以下为Java代码：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
         <span class="hljs-keyword">int</span> sumEven = <span class="hljs-number">0</span>; <span class="hljs-comment">// 偶数 </span>
         <span class="hljs-keyword">int</span> sumOdd = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 奇数</span>
@@ -278,13 +278,13 @@ sumOdd  <span class="hljs-number">2</span> <span class="hljs-number">2</span> <s
         <span class="hljs-keyword">return</span> Math.max(sumEven, sumOdd);
 
     }
-}</code></pre></div>
+}</code></pre>
 <p>提交后：<br><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200529160306290-829235992.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>成功解决后，突然想到“能不能用别的办法？比如dp动态规划？”</p>
 <p>我试着找了动态规划方程，还真找到了。</p>
 <p>动态规划方程：<code>dp[n] = max(dp[n-2] + nums[n], dp[n-1])</code></p>
 <p>使用上边的用例<code>[2,1,1,2] → 4</code>来验证</p>
-<div class="hljs"><pre><code class="hljs angelscript">n 为数组 nums 的长度
+<pre><code class="hljs angelscript">n 为数组 nums 的长度
 
 初始：
 dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span> <span class="hljs-comment">//必须初始化为0</span>
@@ -293,10 +293,10 @@ dp[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>
 n&gt;=<span class="hljs-number">2</span>时：
 dp[<span class="hljs-number">2</span>] = max(dp[<span class="hljs-number">0</span>]+nums[<span class="hljs-number">1</span>], dp[<span class="hljs-number">1</span>]) = max(<span class="hljs-number">0</span>+<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = <span class="hljs-number">2</span>
 dp[<span class="hljs-number">3</span>] = max(dp[<span class="hljs-number">1</span>]+nums[<span class="hljs-number">2</span>], dp[<span class="hljs-number">2</span>]) = max(<span class="hljs-number">2</span>+<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = <span class="hljs-number">3</span>
-dp[<span class="hljs-number">4</span>] = max(dp[<span class="hljs-number">2</span>]+nums[<span class="hljs-number">3</span>], dp[<span class="hljs-number">3</span>]) = max(<span class="hljs-number">2</span>+<span class="hljs-number">2</span>, <span class="hljs-number">3</span>) = <span class="hljs-number">4</span></code></pre></div>
+dp[<span class="hljs-number">4</span>] = max(dp[<span class="hljs-number">2</span>]+nums[<span class="hljs-number">3</span>], dp[<span class="hljs-number">3</span>]) = max(<span class="hljs-number">2</span>+<span class="hljs-number">2</span>, <span class="hljs-number">3</span>) = <span class="hljs-number">4</span></code></pre>
 
 <p>代码：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
         <span class="hljs-keyword">int</span> len = nums.length;
         <span class="hljs-keyword">if</span>(len == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
@@ -309,7 +309,7 @@ dp[<span class="hljs-number">4</span>] = max(dp[<span class="hljs-number">2</spa
         }
         <span class="hljs-keyword">return</span> dp[len];
     }
-}</code></pre></div>
+}</code></pre>
 <p>提交：<br><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200529163908973-1319090454.png" srcset="/blog/img/loading.gif" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')

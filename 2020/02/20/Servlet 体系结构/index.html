@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -240,7 +240,7 @@
 <li>将来定义 <code>Servlet</code> 类时候，可以继承 <code>GenericServlet</code>，实现 <code>service()</code> 方法即可</li>
 <li><em>其余四种方法， 若有需要，手动重写即可。</em></li>
 </ul>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-meta">@WebServlet</span>(<span class="hljs-string">"/demo2"</span>)
+<pre><code class="hljs scala"><span class="hljs-meta">@WebServlet</span>(<span class="hljs-string">"/demo2"</span>)
 public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ServletDemo2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">GenericServlet</span> </span>{
 
     <span class="hljs-meta">@Override</span>
@@ -248,7 +248,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"demo2...."</span>);
     }
     
-}</code></pre></div>
+}</code></pre>
 
 
 
@@ -282,7 +282,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <li>定义 class <strong>继承 <code>HttpServlet</code></strong></li>
 <li><strong>重写<code>doGet()</code> 和 <code>doPost()</code></strong> 两个方法</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-comment">/* ServletDemo3.java  */</span>
+<pre><code class="hljs scala"><span class="hljs-comment">/* ServletDemo3.java  */</span>
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
@@ -308,7 +308,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-keyword">protected</span> void doPost(<span class="hljs-type">HttpServletRequest</span> req, <span class="hljs-type">HttpServletResponse</span> resp) <span class="hljs-keyword">throws</span> <span class="hljs-type">ServletException</span>, <span class="hljs-type">IOException</span> {
         <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"doPost......"</span>);
     }
-}</code></pre></div>
+}</code></pre>
 
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
 <li><strong>通过浏览器直接请求，是GET方式</strong></li>
@@ -317,7 +317,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h2 id="简单案例"><a href="#简单案例" class="headerlink" title="简单案例"></a>简单案例</h2><ol>
 <li>新建login.html文件</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -329,7 +329,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <ol start="2">
 <li>重启服务，访问页面</li>

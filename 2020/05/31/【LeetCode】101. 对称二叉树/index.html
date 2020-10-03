@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,18 +223,18 @@
             <article class="markdown-body">
               <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个二叉树，检查它是否是镜像对称的。</p>
 <p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
-<div class="hljs"><pre><code class="hljs angelscript">    <span class="hljs-number">1</span>
+<pre><code class="hljs angelscript">    <span class="hljs-number">1</span>
    / \
   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>
  / \ / \
-<span class="hljs-number">3</span>  <span class="hljs-number">4</span> <span class="hljs-number">4</span>  <span class="hljs-number">3</span></code></pre></div>
+<span class="hljs-number">3</span>  <span class="hljs-number">4</span> <span class="hljs-number">4</span>  <span class="hljs-number">3</span></code></pre>
 
 <p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
-<div class="hljs"><pre><code class="hljs angelscript">  <span class="hljs-number">1</span>
+<pre><code class="hljs angelscript">  <span class="hljs-number">1</span>
  / \
 <span class="hljs-number">2</span>   <span class="hljs-number">2</span>
  \   \
- <span class="hljs-number">3</span>    <span class="hljs-number">3</span></code></pre></div>
+ <span class="hljs-number">3</span>    <span class="hljs-number">3</span></code></pre>
 
 <p>进阶：</p>
 <ul>
@@ -249,7 +249,7 @@
 <p>但是迭代地话，用队列更容易理解。</p>
 <p><strong>队列的一个特性：先进先出，后进后出。</strong></p>
 <p>这题比较容易，直接看代码和注释即可。</p>
-<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSymmetric</span><span class="hljs-params">(TreeNode root)</span> </span>{
         <span class="hljs-comment">// 两树都为null，肯定对称</span>
         <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>; }
@@ -273,9 +273,9 @@
         <span class="hljs-comment">// 再递归比较 node1 的左子树与 node2 的右子树是否对称，node1 的右子树与 node2 的左子树是否对称</span>
         <span class="hljs-keyword">return</span> compareTree(node1.left, node2.right) &amp;&amp; compareTree(node1.right, node2.left);
     }
-}</code></pre></div>
+}</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200531143714684-1192750148.png" srcset="/blog/img/loading.gif" alt=""></p>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSymmetric</span><span class="hljs-params">(TreeNode root)</span> </span>{
         <span class="hljs-comment">// 两树都为null，肯定对称</span>
         <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>; }
@@ -308,7 +308,7 @@
 
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
     }
-}</code></pre></div>
+}</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200531151524741-617752733.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h1><p>无论是递归，还是迭代，</p>
 <p><strong>时间复杂度均为：O(n)</strong></p>

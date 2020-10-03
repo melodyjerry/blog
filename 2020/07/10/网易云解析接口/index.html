@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -312,7 +312,7 @@
 </tr>
 </tbody></table>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>通过 ID 获得一首歌的信息</p>
-<div class="hljs"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.paugram.com<span class="hljs-regexp">/netease/</span>?id=<span class="hljs-number">517567145</span>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.paugram.com<span class="hljs-regexp">/netease/</span>?id=<span class="hljs-number">517567145</span>
 
 返回的是：
 
@@ -325,13 +325,13 @@
     <span class="hljs-string">"lyric"</span>: 歌词内容,
     <span class="hljs-string">"sub_lyric"</span>: 翻译歌词内容,
     <span class="hljs-string">"link"</span>: 音乐地址
-}</code></pre></div>
+}</code></pre>
 
 <p>通过 ID 获得一首歌，并跳转到实际地址</p>
-<div class="hljs"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.paugram.com<span class="hljs-regexp">/netease/</span>?id=<span class="hljs-number">517567145</span>&amp;play=true</code></pre></div>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.paugram.com<span class="hljs-regexp">/netease/</span>?id=<span class="hljs-number">517567145</span>&amp;play=true</code></pre>
 
 <p>通过歌名获得一首歌的信息</p>
-<div class="hljs"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.paugram.com<span class="hljs-regexp">/netease/</span>?title=Paradise
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.paugram.com<span class="hljs-regexp">/netease/</span>?title=Paradise
 
 返回的是：
 
@@ -344,10 +344,10 @@
     <span class="hljs-string">"lyric"</span>: 歌词内容,
     <span class="hljs-string">"sub_lyric"</span>: 翻译歌词内容,
     <span class="hljs-string">"link"</span>: 音乐地址
-}</code></pre></div>
+}</code></pre>
 
 <p>结合 Kico Style 和 Kico Player 使用本 API</p>
-<div class="hljs"><pre><code class="hljs javascript">ks.ajax({
+<pre><code class="hljs javascript">ks.ajax({
     method: <span class="hljs-string">"GET"</span>,
     url: <span class="hljs-string">"https://api.paugram.com/netease/"</span> + <span class="hljs-string">"?id="</span> + id,
     success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req</span>)</span>{
@@ -357,7 +357,7 @@
     failed: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req</span>)</span>{
         ks.notice(<span class="hljs-string">"获取音乐信息错误了！"</span>, {<span class="hljs-attr">color</span>: <span class="hljs-string">"red"</span>});
     }
-});</code></pre></div>
+});</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

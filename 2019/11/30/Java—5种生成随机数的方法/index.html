@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -231,7 +231,7 @@
 <p>最小值—最大值（整数）的随机数</p>
 <p>(类型) 最小值+Math.random()*最大值</p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RandomDemo</span> </span>{
 
@@ -243,13 +243,13 @@
 			k=(<span class="hljs-keyword">int</span>)(<span class="hljs-number">1</span>+Math.random()*<span class="hljs-number">10</span>);
 		}
 	}
-}</code></pre></div>
+}</code></pre>
 
 
 
 <h1 id="方法②"><a href="#方法②" class="headerlink" title="方法②"></a>方法②</h1><p>🔺借助java.util.Random类来产生一个随机数发生器，也是最常用的一种，构造函数有两个，Random()和Random(long seed)。第一个就是以当前时间为默认种子，第二个是以指定的种子值进行。产生之后，借助不同的语句产生不同类型的数。</p>
 <p>🔺种子就是产生随机数的第一次使用值,机制是通过一个函数,将这个种子的值转化为随机数空间中的某一个点上,并且产生的随机数均匀的散布在空间中。以后产生的随机数都与前一个随机数有关</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RandomDemo</span> </span>{
 
@@ -263,7 +263,7 @@
 		}
 	}
 
-}</code></pre></div>
+}</code></pre>
 
 <p>注：类似的方法可参考 <a href="https://blog.csdn.net/xiaoye142034/article/details/78142136/" target="_blank" rel="noopener">利用Random类来产生5个20~50之间的随机整数</a></p>
 <h1 id="方法③"><a href="#方法③" class="headerlink" title="方法③"></a>方法③</h1><ol>
@@ -276,7 +276,7 @@
 <li><p>若x不为0，则需要在随机结果后加上x。参数n的值也需要加上1后减去x。最后结果才符合要求的范围。</p>
 </li>
 </ol>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Random;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RandomDemo</span> </span>{
 
@@ -292,30 +292,30 @@
       System.out.println(<span class="hljs-string">"产生一个"</span>+START+<span class="hljs-string">"到"</span>+END+<span class="hljs-string">"之间的随机整数："</span>+number);
 	}
 
-}</code></pre></div>
+}</code></pre>
 
 <p>注：更多方法可参考<a href="https://blog.csdn.net/u012377333/article/details/71336987" target="_blank" rel="noopener">【Java工具类】—-产生随机数</a></p>
 <h1 id="方法④"><a href="#方法④" class="headerlink" title="方法④"></a>方法④</h1><p>🔺 返回的数值是 [ 0.0 , 1.0 ) 的double型数值，由于double类数的精度很高，可以在一定程度下看做随机数，借助（int）来进行类型转换就可以得到整数随机数了 </p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>
 <span class="hljs-function"></span>{    
 	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; i++) {
     	<span class="hljs-keyword">int</span> max=<span class="hljs-number">99</span>,min=<span class="hljs-number">10</span>;<span class="hljs-comment">//生成两位随机正整数</span>
 		<span class="hljs-keyword">int</span> ran2 = (<span class="hljs-keyword">int</span>) (Math.random()*(max-min)+min); 
     	System.out.println(ran2);
 	}
-}</code></pre></div>
+}</code></pre>
 
 
 
 <h1 id="方法⑤"><a href="#方法⑤" class="headerlink" title="方法⑤"></a>方法⑤</h1><p>🔺 返回从1970年1月1日0时0分0秒（这与OS有关）到现在的一个long型的毫秒数，取模之后即可得到所需范围内的随机数</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>
 <span class="hljs-function">    </span>{    
         <span class="hljs-keyword">int</span> max=<span class="hljs-number">100</span>,min=<span class="hljs-number">1</span>;
         <span class="hljs-keyword">long</span> randomNum = System.currentTimeMillis();  
         <span class="hljs-keyword">int</span> ran3 = (<span class="hljs-keyword">int</span>) (randomNum%(max-min)+min);  
         System.out.println(ran3);
         
-    }</code></pre></div>
+    }</code></pre>
 
 <hr>
 <h1 id="大佬的文章"><a href="#大佬的文章" class="headerlink" title="大佬的文章"></a>大佬的文章</h1><p>这个大佬【<a href="https://blog.csdn.net/Pranuts_" target="_blank" rel="noopener">peabits</a>】的文章贼详细，可以好好琢磨琢磨 👇</p>

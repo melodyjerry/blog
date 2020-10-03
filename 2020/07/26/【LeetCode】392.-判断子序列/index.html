@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -226,13 +226,13 @@
 <p>字符串 t 可能会很长（长度 ~= 500,000），而 s 是个短字符串（长度 &lt;=100）。</p>
 <p>字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，”ace”是”abcde”的一个子序列，而”aec”不是）。</p>
 <p>示例 1:</p>
-<div class="hljs"><pre><code class="hljs java">s = <span class="hljs-string">"abc"</span>, t = <span class="hljs-string">"ahbgdc"</span>
+<pre><code class="hljs java">s = <span class="hljs-string">"abc"</span>, t = <span class="hljs-string">"ahbgdc"</span>
 
-返回 <span class="hljs-keyword">true</span>.</code></pre></div>
+返回 <span class="hljs-keyword">true</span>.</code></pre>
 <p>示例 2:</p>
-<div class="hljs"><pre><code class="hljs java">s = <span class="hljs-string">"axc"</span>, t = <span class="hljs-string">"ahbgdc"</span>
+<pre><code class="hljs java">s = <span class="hljs-string">"axc"</span>, t = <span class="hljs-string">"ahbgdc"</span>
 
-返回 <span class="hljs-keyword">false</span>.</code></pre></div>
+返回 <span class="hljs-keyword">false</span>.</code></pre>
 <p>后续挑战 :</p>
 <blockquote>
 <p>如果有大量输入的 S，称作S1, S2, … , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代码？</p>
@@ -240,7 +240,7 @@
 <a id="more"></a>
 
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="贪心法-双指针"><a href="#贪心法-双指针" class="headerlink" title="贪心法+双指针"></a>贪心法+双指针</h2><p>简单的办法就是使用双滑动指针，思路好理解，直接上算法：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">/* 双指针的贪心算法 */</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSubsequence</span><span class="hljs-params">(String s, String t)</span> </span>{
         <span class="hljs-keyword">int</span> sL = s.length();
@@ -257,18 +257,18 @@
         }
         <span class="hljs-keyword">return</span> i == sL;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p><img src="https://s1.ax1x.com/2020/07/27/aiabuQ.png" srcset="/blog/img/loading.gif" alt="aiabuQ.png"></p>
 <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>从双指针的贪心算法中，可以推导出下面这两个式子：</p>
-<div class="hljs"><pre><code class="hljs java">s.charAt(i-<span class="hljs-number">1</span>) == t.charAt(j-<span class="hljs-number">1</span>)
+<pre><code class="hljs java">s.charAt(i-<span class="hljs-number">1</span>) == t.charAt(j-<span class="hljs-number">1</span>)
 =&gt; dp[i][j] = dp[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>]
 
 s.charAt(i-<span class="hljs-number">1</span>) != t.charAt(j-<span class="hljs-number">1</span>)
-=&gt; dp[i][j] = dp[i][j-<span class="hljs-number">1</span>]</code></pre></div>
+=&gt; dp[i][j] = dp[i][j-<span class="hljs-number">1</span>]</code></pre>
 
 <p>dff</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">/* 动态规划 */</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSubsequence</span><span class="hljs-params">(String s, String t)</span> </span>{
         <span class="hljs-keyword">if</span>(s.length()==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
@@ -292,7 +292,7 @@ s.charAt(i-<span class="hljs-number">1</span>) != t.charAt(j-<span class="hljs-n
         }
         <span class="hljs-keyword">return</span> dp[sL][tL];
     }
-}</code></pre></div>
+}</code></pre>
 
 <p><img src="https://s1.ax1x.com/2020/07/27/ai2wE8.png" srcset="/blog/img/loading.gif" alt="ai2wE8.png"></p>
 <h2 id="递归迭代-单指针"><a href="#递归迭代-单指针" class="headerlink" title="递归迭代+单指针"></a>递归迭代+单指针</h2><ul>
@@ -308,7 +308,7 @@ s.charAt(i-<span class="hljs-number">1</span>) != t.charAt(j-<span class="hljs-n
 <p>作者：andy_fu<br>链接：<a href="https://leetcode-cn.com/problems/is-subsequence/solution/xun-huan-die-dai-dan-zhi-zhen-jian-dan-kuai-su-shi/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/is-subsequence/solution/xun-huan-die-dai-dan-zhi-zhen-jian-dan-kuai-su-shi/</a></p>
 </blockquote>
 <p><img src="https://s1.ax1x.com/2020/07/27/aihzwt.png" srcset="/blog/img/loading.gif" alt="aihzwt.png"></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">/* 递归迭代+单指针 */</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSubsequence</span><span class="hljs-params">(String s, String t)</span> </span>{
         <span class="hljs-keyword">if</span>(s.length() &gt; t.length()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
@@ -321,7 +321,7 @@ s.charAt(i-<span class="hljs-number">1</span>) != t.charAt(j-<span class="hljs-n
         }
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <ul>
 <li><code>String.valueOf</code></li>
@@ -340,7 +340,7 @@ s.charAt(i-<span class="hljs-number">1</span>) != t.charAt(j-<span class="hljs-n
 <p>我们知道java中String类有这样一个方法public int indexOf(int ch, int fromIndex) ，他表示的是在字符串中是否存在一个字符ch，并且是从字符串的下标fromIndex开始查找的。我们要做的是在t字符串中查找s中的每一个字符，如果没查到，直接返回false。如果查到，就从t的下一个位置继续开始查。</p>
 <p>作者：sdwwld<br>链接：<a href="https://leetcode-cn.com/problems/is-subsequence/solution/javade-2chong-jie-fa-by-sdwwld/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/is-subsequence/solution/javade-2chong-jie-fa-by-sdwwld/</a></p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSubsequence</span><span class="hljs-params">(String s, String t)</span> </span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSubsequence</span><span class="hljs-params">(String s, String t)</span> </span>{
     <span class="hljs-keyword">int</span> index = -<span class="hljs-number">1</span>;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> c : s.toCharArray()) {
         <span class="hljs-comment">//index表示上一次查找的位置(第一次查找的时候为-1)，所以这里要从t的下标(index+1)开始查找</span>
@@ -350,7 +350,7 @@ s.charAt(i-<span class="hljs-number">1</span>) != t.charAt(j-<span class="hljs-n
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
     }
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-}</code></pre></div>
+}</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

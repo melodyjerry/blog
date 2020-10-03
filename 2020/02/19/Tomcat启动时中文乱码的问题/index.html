@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,9 +225,9 @@
 <p><img src="https://s2.ax1x.com/2020/02/19/3E39nx.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>修改<code>conf</code>文件夹下的<code>logging.properties</code>文件</p>
 <p>第47行代码：</p>
-<div class="hljs"><pre><code class="hljs stylus">java<span class="hljs-selector-class">.util</span><span class="hljs-selector-class">.logging</span><span class="hljs-selector-class">.ConsoleHandler</span><span class="hljs-selector-class">.encoding</span> = UTF-<span class="hljs-number">8</span></code></pre></div>
+<pre><code class="hljs stylus">java<span class="hljs-selector-class">.util</span><span class="hljs-selector-class">.logging</span><span class="hljs-selector-class">.ConsoleHandler</span><span class="hljs-selector-class">.encoding</span> = UTF-<span class="hljs-number">8</span></code></pre>
 <p>改为</p>
-<div class="hljs"><pre><code class="hljs stylus">java<span class="hljs-selector-class">.util</span><span class="hljs-selector-class">.logging</span><span class="hljs-selector-class">.ConsoleHandler</span><span class="hljs-selector-class">.encoding</span> = GBK</code></pre></div>
+<pre><code class="hljs stylus">java<span class="hljs-selector-class">.util</span><span class="hljs-selector-class">.logging</span><span class="hljs-selector-class">.ConsoleHandler</span><span class="hljs-selector-class">.encoding</span> = GBK</code></pre>
 
 <a id="more"></a>
 

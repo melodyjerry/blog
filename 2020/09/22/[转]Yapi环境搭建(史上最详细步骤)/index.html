@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
@@ -249,12 +249,12 @@
 <li>编辑mongodb-org.repo文件<br> <code>vim /etc/yum.repos.d/mongodb-org.repo</code></li>
 <li>添加文件内容</li>
 </ol>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-section">[mongodb-org]</span>
+<pre><code class="hljs ini"><span class="hljs-section">[mongodb-org]</span>
 
 <span class="hljs-attr">name</span>=MongoDB Repository
 <span class="hljs-attr">baseurl</span>=http://mirrors.aliyun.com/mongodb/yum/redhat/<span class="hljs-number">7</span>Server/mongodb-org/<span class="hljs-number">3.2</span>/x<span class="hljs-number">86_64</span>/
 <span class="hljs-attr">gpgcheck</span>=<span class="hljs-number">0</span>
-<span class="hljs-attr">enabled</span>=<span class="hljs-number">1</span></code></pre></div>
+<span class="hljs-attr">enabled</span>=<span class="hljs-number">1</span></code></pre>
 
 <blockquote>
 <p>这里可能退不出Vim，参考<a href="https://www.cnblogs.com/melodyjerry/p/13714705.html" target="_blank" rel="noopener">https://www.cnblogs.com/melodyjerry/p/13714705.html</a></p>
@@ -278,12 +278,12 @@
 <ol>
 <li>准备环境搭建完成后，开始搭建YApi,安装命令</li>
 </ol>
-<div class="hljs"><pre><code class="hljs bash">npm install -g yapi-cli --registry https://registry.npm.taobao.org
+<pre><code class="hljs bash">npm install -g yapi-cli --registry https://registry.npm.taobao.org
 
-yapi server</code></pre></div>
+yapi server</code></pre>
 
 <blockquote>
-<div class="hljs"><pre><code class="hljs bash">$ yapi server
+<pre><code class="hljs bash">$ yapi server
 /usr/lib/node_modules/yapi-cli/src/utils.js:68
   getVersions: async <span class="hljs-function"><span class="hljs-title">function</span></span>(){
                      ^^^^^^^^
@@ -298,7 +298,7 @@ SyntaxError: Unexpected token <span class="hljs-keyword">function</span>
     at Function.Module._load (module.js:445:3)
     at Module.require (module.js:504:17)
     at require (internal/module.js:20:19)
-    at Object.&lt;anonymous&gt; (/usr/lib/node_modules/yapi-cli/src/index.js:4:15)</code></pre></div>
+    at Object.&lt;anonymous&gt; (/usr/lib/node_modules/yapi-cli/src/index.js:4:15)</code></pre>
 
 <p>解决办法：将node升级到版本&gt;7.6</p>
 <p><a href="https://www.cnblogs.com/melodyjerry/p/13715111.html" target="_blank" rel="noopener">https://www.cnblogs.com/melodyjerry/p/13715111.html</a></p>
@@ -310,7 +310,7 @@ SyntaxError: Unexpected token <span class="hljs-keyword">function</span>
 </ul>
 <blockquote>
 <p><code>yapi server</code>后提示：</p>
-<div class="hljs"><pre><code class="hljs bash">Accessing non-existent property <span class="hljs-string">'cat'</span> of module exports inside circular dependency</code></pre></div>
+<pre><code class="hljs bash">Accessing non-existent property <span class="hljs-string">'cat'</span> of module exports inside circular dependency</code></pre>
 
 <p>产生这个的原因是node的版本太高了<br>解决的办法很简单，卸载最新版的node v14，重新安装稳定版的node v12，这个问题就解决了</p>
 </blockquote>
@@ -336,9 +336,9 @@ SyntaxError: Unexpected token <span class="hljs-keyword">function</span>
 <p>如果是阿里云ecs服务器，端口需要在安全组里开放，不然访问不了</p>
 <p><strong>4.pm2方式管理进程</strong></p>
 <p>要保证后台保持进程，需要安装pm2。<br>全局安装：</p>
-<div class="hljs"><pre><code class="hljs bash">npm install -g pm2`</code></pre></div>
+<pre><code class="hljs bash">npm install -g pm2`</code></pre>
 <p>启动：</p>
-<div class="hljs"><pre><code class="hljs bash">pm2 start /root/my-yapi/vendors/server/app.js --watch -i 1</code></pre></div>
+<pre><code class="hljs bash">pm2 start /root/my-yapi/vendors/server/app.js --watch -i 1</code></pre>
 <blockquote>
 <p>这样以后就可以很方便的用<strong>pm2</strong>就行启动关闭啦~</p>
 </blockquote>
@@ -346,41 +346,41 @@ SyntaxError: Unexpected token <span class="hljs-keyword">function</span>
 <li>通过<code>pm2 save</code>保存当前进程状态。</li>
 </ol>
 <p>查看：</p>
-<div class="hljs"><pre><code class="hljs bash">pm2 list</code></pre></div>
+<pre><code class="hljs bash">pm2 list</code></pre>
 <p>重启：</p>
-<div class="hljs"><pre><code class="hljs bash">pm2 restart service/app.js</code></pre></div>
+<pre><code class="hljs bash">pm2 restart service/app.js</code></pre>
 <p>停止：</p>
 <p>可以先通过<code>pm2 list</code>获取应用的名字（–name指定的）或者进程id。</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># pm2 stop app_name|app_id</span>
-pm2 stop /root/my-yapi/vendors/server/app.js</code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-comment"># pm2 stop app_name|app_id</span>
+pm2 stop /root/my-yapi/vendors/server/app.js</code></pre>
 
 <blockquote>
 <p>pm2使用参考文档：<br><a href="http://imweb.io/topic/57c8cbb27f226f687b365636" target="_blank" rel="noopener">http://imweb.io/topic/57c8cbb27f226f687b365636</a></p>
 </blockquote>
 <p><strong>6.升级</strong></p>
 <p>升级项目版本是非常容易的，并且不会影响已有的项目数据，只会同步 vendors 目录下的源码文件。</p>
-<div class="hljs"><pre><code class="hljs stata"><span class="hljs-keyword">cd</span> {项目目录}
+<pre><code class="hljs stata"><span class="hljs-keyword">cd</span> {项目目录}
 yapi <span class="hljs-keyword">ls</span> <span class="hljs-comment">//查看版本号列表</span>
 yapi <span class="hljs-keyword">update</span> <span class="hljs-comment">//更新到最新版本</span>
-yapi <span class="hljs-keyword">update</span> -v {<span class="hljs-keyword">Version</span>} <span class="hljs-comment">//更新到指定版本</span></code></pre></div>
+yapi <span class="hljs-keyword">update</span> -v {<span class="hljs-keyword">Version</span>} <span class="hljs-comment">//更新到指定版本</span></code></pre>
 
 <p><strong>9.nginx代理</strong></p>
 <p>如果您是将服务器代理到 nginx 服务器，请配置 nginx 支持 websocket。</p>
-<div class="hljs"><pre><code class="hljs routeros">在location /添加
+<pre><code class="hljs routeros">在location /添加
 
 proxy_http_version 1.1;
 proxy_set_header<span class="hljs-built_in"> Upgrade </span><span class="hljs-variable">$http_upgrade</span>;
-proxy_set_header<span class="hljs-built_in"> Connection </span><span class="hljs-string">"upgrade"</span>;</code></pre></div>
+proxy_set_header<span class="hljs-built_in"> Connection </span><span class="hljs-string">"upgrade"</span>;</code></pre>
 
 <p><strong>10.禁止注册</strong></p>
 <p>在 config.json 添加 <code>closeRegister:true</code> 配置项,就可以禁止用户注册 yapi 平台，修改完成后，请重启 yapi 服务器。</p>
-<div class="hljs"><pre><code class="hljs json">{
+<pre><code class="hljs json">{
 
 <span class="hljs-attr">"port"</span>: <span class="hljs-string">"*****"</span>,
 
 <span class="hljs-attr">"closeRegister"</span>:<span class="hljs-literal">true</span>
 
-}</code></pre></div>
+}</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

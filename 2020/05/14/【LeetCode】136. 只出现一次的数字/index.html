@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -256,7 +256,7 @@
 </ol>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
 <li><p>使用<font color="red" size="5">位运算</font>来完成。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">singleNumber</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
         <span class="hljs-comment">// (a1​⊕a1​)⊕(a2​⊕a2​)⊕⋯⊕(am​⊕am​)⊕am+1​</span>
         <span class="hljs-comment">// ⇨ 0⊕0⊕⋯⊕0⊕am+1​=am+1​</span>
@@ -274,7 +274,7 @@
         }
         <span class="hljs-keyword">return</span> key;
     }
-}</code></pre></div>
+}</code></pre>
 <h1 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h1></li>
 <li><p>时间复杂度：O(n)，其中 n 是数组长度。因为只需要对数组遍历一次即可</p>
 </li>

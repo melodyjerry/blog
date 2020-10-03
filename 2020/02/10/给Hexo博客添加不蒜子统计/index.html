@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,13 +223,13 @@
             <article class="markdown-body">
               <a id="more"></a>
 
-<h4 id="引入不蒜子"><a href="#引入不蒜子" class="headerlink" title="引入不蒜子"></a>引入<a href="https://link.jianshu.com?t=http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子</a></h4><div class="hljs"><pre><code class="hljs javascript">&lt;script <span class="hljs-keyword">async</span> src=<span class="hljs-string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre></div>
+<h4 id="引入不蒜子"><a href="#引入不蒜子" class="headerlink" title="引入不蒜子"></a>引入<a href="https://link.jianshu.com?t=http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子</a></h4><pre><code class="hljs javascript">&lt;script <span class="hljs-keyword">async</span> src=<span class="hljs-string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
 
 <p>这段代码可以写在footer.ejs里或者header.ejs里或者layout.ejs里</p>
 <h4 id="添加站点访问量"><a href="#添加站点访问量" class="headerlink" title="添加站点访问量"></a>添加站点访问量</h4><p>通常站点的总访问量会显示在footer的位置，所以我们可以在footer.ejs里加上如下标签：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"busuanzi_container_site_uv"</span>&gt;</span> 
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"busuanzi_container_site_uv"</span>&gt;</span> 
   本站访客数<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"busuanzi_value_site_uv"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>人次
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
 
 <p>计算访问量的方法有两种：</p>
 <ul>
@@ -237,9 +237,9 @@
 <li>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</li>
 </ul>
 <h4 id="添加文章访问量"><a href="#添加文章访问量" class="headerlink" title="添加文章访问量"></a>添加文章访问量</h4><p>文章的访问量显示在文章里面，所以在article.ejs里加上文章访问量的标签：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"busuanzi_container_page_pv"</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"busuanzi_container_page_pv"</span>&gt;</span>
    本文总阅读量<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"busuanzi_value_page_pv"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>次
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
 
 <p>这个标签里的汉字可以自行修改，还可以给标签写上你想要的样式。</p>
 <p>参考：<br> <a href="https://link.jianshu.com?t=http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">不蒜子|不如</a></p>

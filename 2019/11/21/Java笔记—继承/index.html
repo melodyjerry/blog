@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -292,15 +292,15 @@
 <li><p><font color="blue"><strong>Java只支持单继承</strong></font>，即：一个子类只能有一个父类.但可以有多个间接祖先类。</p>
 </li>
 <li><p>语法格式：</p>
-  <div class="hljs"><pre><code class="hljs java">权限修饰符 <span class="hljs-class"><span class="hljs-keyword">class</span> 父类名 </span>{
+  <pre><code class="hljs java">权限修饰符 <span class="hljs-class"><span class="hljs-keyword">class</span> 父类名 </span>{
     <span class="hljs-comment">//父类体</span>
 }
 权限修饰符 <span class="hljs-class"><span class="hljs-keyword">class</span> 子类名 <span class="hljs-keyword">extends</span> 父类名 </span>{
     <span class="hljs-comment">//子类体</span>
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>实例：</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{ 
+  <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{ 
     <span class="hljs-keyword">private</span> String name;   
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id; 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Animal</span><span class="hljs-params">(String myName, String myid)</span> </span>{ 
@@ -311,7 +311,7 @@
 } 
  
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Penguin</span>  <span class="hljs-keyword">extends</span>  <span class="hljs-title">Animal</span></span>{ 
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
@@ -320,7 +320,7 @@
 <ul>
 <li><p>变相地使java具有多继承的特性，使用范围为类继承接口的情况，可以同时继承多个接口（接口跟接口之间采用逗号分隔）。 </p>
 </li>
-<li><div class="hljs"><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>{
+<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>{
     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;
     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span></span>;
 }
@@ -336,7 +336,7 @@
 
 执行结果：
 &lt;!--￼<span class="number">3</span>--&gt;
-</code></pre></div>
+</code></pre>
 </li>
 </ul>
 <p>—————————————————————— 我 是 分 割 线 ———————————————————————</p>
@@ -345,7 +345,7 @@
 <li><p>指向<strong>”自己的引用“</strong>。</p>
 </li>
 <li><p>实例：</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+  <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>{
     System.out.println(<span class="hljs-string">"animal : eat"</span>);
   }
@@ -368,12 +368,12 @@
     Dog d = <span class="hljs-keyword">new</span> Dog();
     d.eatTest();
   }
-}</code></pre></div>
+}</code></pre>
 
 <p>  输出结果：</p>
-  <div class="hljs"><pre><code class="hljs ada">animal : <span class="hljs-type">eat</span>
+  <pre><code class="hljs ada">animal : <span class="hljs-type">eat</span>
 dog : <span class="hljs-type">eat</span>
-animal : <span class="hljs-type">eat</span></code></pre></div>
+animal : <span class="hljs-type">eat</span></code></pre>
 
 <p>  ——————————————————————————— 我 是 分 割 线 ————————————————————————————</p>
 </li>
@@ -408,7 +408,7 @@ animal : <span class="hljs-type">eat</span></code></pre></div>
 <p>  🔺子类继承父类非私域。<br>  🔺子类定义与从父类继承下来的同名域，在子类中用该名直接访问就只能访问到子类定义的域，即隐藏了同名的继承下来的父类域。<br>  🔺如果要访问同名父类域：通过父类方法，或者使用“<font color="red" size="5">*<em>super . *</em></font>”</p>
 </li>
 <li><p>实例：</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.*;
+  <pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.*;
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Super</span></span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> v1 = <span class="hljs-number">1</span>;
     <span class="hljs-keyword">int</span> v2 = <span class="hljs-number">2</span>;
@@ -431,7 +431,7 @@ animal : <span class="hljs-type">eat</span></code></pre></div>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
     <span class="hljs-keyword">new</span> Sub().show();
     }
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
@@ -460,7 +460,7 @@ animal : <span class="hljs-type">eat</span></code></pre></div>
 <p>称类 B 为”子类”，也称为次类、扩展类、派生类。</p>
 <p>子类从它的父类中继承可访问的数据域和方法，也可以添加新的数据域和新的方法。</p>
 <p>定义继承的语法：</p>
-<div class="hljs"><pre><code class="hljs java">修饰符 <span class="hljs-class"><span class="hljs-keyword">class</span> 子类名 <span class="hljs-keyword">extends</span> 父类名</span></code></pre></div>
+<pre><code class="hljs java">修饰符 <span class="hljs-class"><span class="hljs-keyword">class</span> 子类名 <span class="hljs-keyword">extends</span> 父类名</span></code></pre>
 
 <p>例如：Shape 类是父类，其子类可以有 Circle 类、Rectangle 类、Triangle 类，等等。</p>
 <p>继承的注意点：</p>
@@ -478,16 +478,16 @@ animal : <span class="hljs-type">eat</span></code></pre></div>
 <li>访问父类的数据域（可以这样用但没有必要这样用）。</li>
 </ul>
 <p>调用父类的构造方法语法：</p>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">super</span>();  
+<pre><code class="hljs Java"><span class="hljs-keyword">super</span>();  
 
 或   
 
-<span class="hljs-keyword">super</span>(参数列表);</code></pre></div>
+<span class="hljs-keyword">super</span>(参数列表);</code></pre>
 
 <p>注意：super 语句必须是子类构造方法的第一条语句。不能在子类中使用父类构造方法名来调用父类构造方法。 父类的构造方法不被子类继承。调用父类的构造方法的唯一途径是使用 super 关键字，如果子类中没显式调用，则编译器自动将 super(); 作为子类构造方法的第一条语句。这会形成一个构造方法链。</p>
 <p>静态方法中不能使用 super 关键字。</p>
 <p>调用父类的方法语法：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">super</span>.方法名(参数列表);</code></pre></div>
+<pre><code class="hljs java"><span class="hljs-keyword">super</span>.方法名(参数列表);</code></pre>
 
 <p>如果是继承的方法，是没有必要使用 super 来调用，直接即可调用。但如果子类覆盖或重写了父类的方法，则只有使用 super 才能在子类中调用父类中的被重写的方法。</p>
 <p><strong>4、this 关键字</strong></p>

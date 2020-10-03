@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -224,11 +224,11 @@
               <p>来自<a href="https://www.jianshu.com/p/62cf4055617d" target="_blank" rel="noopener">《剑指Offer（第二版）》</a></p>
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>求 1+2+…+n ，要求<strong>不能使用<em>乘除法</em>、<code>for</code>、<code>while</code>、<code>if</code>、<code>else</code>、<code>switch</code>、<code>case</code>等关键字及<em>条件判断语句</em>（<code>A?B:C</code>）。</strong></p>
 <p>示例 1：</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: n = <span class="hljs-number">3</span>
-输出: <span class="hljs-number">6</span></code></pre></div>
+<pre><code class="hljs angelscript">输入: n = <span class="hljs-number">3</span>
+输出: <span class="hljs-number">6</span></code></pre>
 <p>示例 2：</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入: n = <span class="hljs-number">9</span>
-输出: <span class="hljs-number">45</span></code></pre></div>
+<pre><code class="hljs angelscript">输入: n = <span class="hljs-number">9</span>
+输出: <span class="hljs-number">45</span></code></pre>
 
 <p>限制：</p>
 <ul>
@@ -243,7 +243,7 @@
 <p>等等，没说不能用运算符哦！！！</p>
 <p>试试看呗~~</p>
 <p>直接写写源码~~</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">// int res = 0;</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sumNums</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
         <span class="hljs-comment">// boolean x = n &gt; 1 &amp;&amp; sumNums(n - 1) &gt; 0;</span>
@@ -252,19 +252,19 @@
         <span class="hljs-comment">// return res;</span>
         <span class="hljs-keyword">return</span> n;
     }
-}</code></pre></div>
+}</code></pre>
 <p>思路吗？就直接看源码就懂了！！！</p>
 <p>不懂，那就看多几次！！！</p>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200602150703222-270823013.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>逻辑运算符的短路效应：<br>常见的逻辑运算符有三种，即 “与 <code>&amp;&amp;</code> ”，“或 <code>∣∣</code> ”，“非 <code>!</code> ” ；<br>而其有重要的短路效应，如下所示：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(A &amp;&amp; B)  <span class="hljs-comment">// 若 A 为 false ，则 B 的判断不会执行（即短路），直接判定 A &amp;&amp; B 为 false</span>
+<pre><code class="hljs java"><span class="hljs-keyword">if</span>(A &amp;&amp; B)  <span class="hljs-comment">// 若 A 为 false ，则 B 的判断不会执行（即短路），直接判定 A &amp;&amp; B 为 false</span>
 
-<span class="hljs-keyword">if</span>(A || B) <span class="hljs-comment">// 若 A 为 true ，则 B 的判断不会执行（即短路），直接判定 A || B 为 true</span></code></pre></div>
+<span class="hljs-keyword">if</span>(A || B) <span class="hljs-comment">// 若 A 为 true ，则 B 的判断不会执行（即短路），直接判定 A || B 为 true</span></code></pre>
 <p>本题需要实现 “当 n = 1n=1 时终止递归” 的需求，可通过短路效应实现。</p>
-<div class="hljs"><pre><code class="hljs java">n &gt; <span class="hljs-number">1</span> &amp;&amp; sumNums(n - <span class="hljs-number">1</span>) <span class="hljs-comment">// 当 n = 1 时 n &gt; 1 不成立 ，此时 “短路” ，终止后续递归</span></code></pre></div>
+<pre><code class="hljs java">n &gt; <span class="hljs-number">1</span> &amp;&amp; sumNums(n - <span class="hljs-number">1</span>) <span class="hljs-comment">// 当 n = 1 时 n &gt; 1 不成立 ，此时 “短路” ，终止后续递归</span></code></pre>
 
 <h2 id="异常捕获"><a href="#异常捕获" class="headerlink" title="异常捕获"></a>异常捕获</h2><p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200602151302946-1679529402.png" srcset="/blog/img/loading.gif" alt=""><br>这个方法会超时，但是确实是可以。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">int</span>[] test=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{<span class="hljs-number">0</span>};
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sumNums</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
         <span class="hljs-keyword">try</span>{
@@ -273,10 +273,10 @@
             <span class="hljs-keyword">return</span> n+sumNums(n-<span class="hljs-number">1</span>);
         }
     }
-}</code></pre></div>
+}</code></pre>
 
 <h2 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h2><p>移位运算符确实可以解，但是好像不是很多人用它写。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sumNums</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
         <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>, A = n, B = n + <span class="hljs-number">1</span>;
         <span class="hljs-keyword">boolean</span> flag;
@@ -339,7 +339,7 @@
 
         <span class="hljs-keyword">return</span> ans &gt;&gt; <span class="hljs-number">1</span>;
     }
-}</code></pre></div>
+}</code></pre>
 <p><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200602150927712-1897130525.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>我在题解区看到了“你是我见过最变态的题解”，不信就看👇<br>原帖是<a href="https://leetcode-cn.com/problems/qiu-12n-lcof/solution/jie-guo-zui-bian-tai-de-yi-dao-ti-by-qiang_zi/" target="_blank" rel="noopener">解过最变态的一道题</a><br><img src="https://img2020.cnblogs.com/blog/2013579/202006/2013579-20200602151433172-465447551.png" srcset="/blog/img/loading.gif" alt=""></p>
 <script>

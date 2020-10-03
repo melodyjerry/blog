@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,25 +225,25 @@
 <a id="more"></a>
 
 <h2 id="引入js和css"><a href="#引入js和css" class="headerlink" title="引入js和css"></a>引入js和css</h2><p>页脚插入代码</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.css"</span>&gt;</span></code></pre></div>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.css"</span>&gt;</span></code></pre>
 
 <h2 id="指定fancybox作用的区域"><a href="#指定fancybox作用的区域" class="headerlink" title="指定fancybox作用的区域"></a>指定fancybox作用的区域</h2><p>在页脚插入这样一段代码</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
 <span class="javascript">$(<span class="hljs-string">".forFlow img"</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span>
 <span class="javascript">    <span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"a"</span>);</span>
 <span class="javascript">    $(element).attr(<span class="hljs-string">"data-fancybox"</span>, <span class="hljs-string">"gallery"</span>);</span>
 <span class="javascript">    $(element).attr(<span class="hljs-string">"href"</span>, $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">"src"</span>));</span>
 <span class="javascript">    $(<span class="hljs-keyword">this</span>).wrap(element);</span>
 });
-<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 <p>上述代码将指定区域内的图片添加了父元素，从而使得当点击图片时，触发fancybox查看器。</p>
 <h2 id="样式微调"><a href="#样式微调" class="headerlink" title="样式微调"></a>样式微调</h2><p>fancybox在手机端默认最大图片宽度为300px,没有居中，这里在CSS中添加一段代码</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.fancybox-image</span>{
+<pre><code class="hljs css"><span class="hljs-selector-class">.fancybox-image</span>{
 <span class="hljs-attribute">max-width</span>:<span class="hljs-number">100%</span><span class="hljs-meta">!important</span>;
 <span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span> auto;
-}</code></pre></div>
+}</code></pre>
 
 <h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><a href="https://img2020.cnblogs.com/blog/1489774/202003/1489774-20200313184323570-41232241.jpg" target="_blank" rel="noopener"><img src="https://img2020.cnblogs.com/blog/1489774/202003/1489774-20200313184323570-41232241.jpg" srcset="/blog/img/loading.gif" alt="img"></a><br>非常不错的查看器，支持图片队列，支持放大缩小！</p>
 <script>

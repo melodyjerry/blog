@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -301,10 +301,10 @@
 </blockquote>
 </li>
 <li><p><code>w # whoami</code> 查看当前登陆用户</p>
-<div class="hljs"><pre><code class="hljs angelscript"> <span class="hljs-number">12</span>:<span class="hljs-number">10</span>:<span class="hljs-number">27</span> up <span class="hljs-number">21</span>:<span class="hljs-number">13</span>,  <span class="hljs-number">1</span> user,  load average: <span class="hljs-number">0.00</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">0.08</span>
+<pre><code class="hljs angelscript"> <span class="hljs-number">12</span>:<span class="hljs-number">10</span>:<span class="hljs-number">27</span> up <span class="hljs-number">21</span>:<span class="hljs-number">13</span>,  <span class="hljs-number">1</span> user,  load average: <span class="hljs-number">0.00</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">0.08</span>
 USER          TTY      FROM                 <span class="hljs-symbol">LOGIN@</span>   IDLE   JCPU   PCPU WHAT
 root            pts/<span class="hljs-number">0</span>    ***.**.***.**    <span class="hljs-number">11</span>:<span class="hljs-number">33</span>    <span class="hljs-number">0.00</span>s  <span class="hljs-number">0.08</span>s  <span class="hljs-number">0.00</span>s   w
-tmp_3254  ps1       ***.**.***.**     <span class="hljs-number">11</span>:<span class="hljs-number">33</span>    <span class="hljs-number">0.00</span>s  <span class="hljs-number">0.08</span>s  <span class="hljs-number">0.00</span>s   ls</code></pre></div>
+tmp_3254  ps1       ***.**.***.**     <span class="hljs-number">11</span>:<span class="hljs-number">33</span>    <span class="hljs-number">0.00</span>s  <span class="hljs-number">0.08</span>s  <span class="hljs-number">0.00</span>s   ls</code></pre>
 
 
 </li>
@@ -313,7 +313,7 @@ tmp_3254  ps1       ***.**.***.**     <span class="hljs-number">11</span>:<span 
 <li><p><code>su xxx # 或者直接 exit</code> 退出当前用户登录，进入一个有管理员权限的用户</p>
 </li>
 <li><p><code>pkill -kill -t [TTY]</code> 强制退出已经登陆用户</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">0</span>pkill -kill -t ps1</code></pre></div>
+<pre><code class="hljs angelscript"><span class="hljs-number">0</span>pkill -kill -t ps1</code></pre>
 </li>
 <li><p><code>ls -a # ls --all</code> 查看当前目录下的所有文件</p>
 </li>
@@ -340,13 +340,13 @@ tmp_3254  ps1       ***.**.***.**     <span class="hljs-number">11</span>:<span 
 <li><p><code>sudo yum makecache fast</code> 更新yum缓存</p>
 </li>
 <li><p>镜像加速</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 新建 daemon.json 文件</span>
-sudo vim /etc/docker/daemon.json</code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-comment"># 新建 daemon.json 文件</span>
+sudo vim /etc/docker/daemon.json</code></pre>
 
 <p>将下面的配置复制进去即可：</p>
-<div class="hljs"><pre><code class="hljs json">{
+<pre><code class="hljs json">{
   <span class="hljs-attr">"registry-mirrors"</span>: [<span class="hljs-string">"http://hub-mirror.c.163.com"</span>]
-}</code></pre></div>
+}</code></pre>
 
 <blockquote>
 <p>注意：修改完配置文件之后需要执行 <code>service docker restart</code> 才可生效。</p>
@@ -399,7 +399,7 @@ sudo vim /etc/docker/daemon.json</code></pre></div>
 <blockquote>
 <p>Docker本身并没有提供批量删除的功能，当有大量的镜像或者容器需要删除的时候，手动的一个一个删就比较麻烦了。</p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment"># 直接删除所有镜像或容器</span>
+<pre><code class="hljs nsis"><span class="hljs-comment"># 直接删除所有镜像或容器</span>
     <span class="hljs-comment"># 直接删除所有镜像</span>
     docker rmi <span class="hljs-string">`docker images -q`</span>
 
@@ -411,7 +411,7 @@ sudo vim /etc/docker/daemon.json</code></pre></div>
     docker rmi <span class="hljs-string">`docker images | grep xxxxx | awk '{print <span class="hljs-variable">$3</span>}'`</span>
 
     <span class="hljs-comment"># 按条件筛选之后删除容器</span>
-    docker rm <span class="hljs-string">`docker ps -a | grep xxxxx | awk '{print <span class="hljs-variable">$1</span>}'`</span></code></pre></div></li>
+    docker rm <span class="hljs-string">`docker ps -a | grep xxxxx | awk '{print <span class="hljs-variable">$1</span>}'`</span></code></pre></li>
 </ol>
 <script>
         document.querySelectorAll('.github-emoji')

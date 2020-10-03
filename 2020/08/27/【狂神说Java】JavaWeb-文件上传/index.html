@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,21 +216,21 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <p>记录一下，以免以下几个包导错</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.apache.commons.fileupload.FileItem;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> org.apache.commons.fileupload.FileItem;
 <span class="hljs-keyword">import</span> org.apache.commons.fileupload.FileUploadException;
 <span class="hljs-keyword">import</span> org.apache.commons.fileupload.ProgressListener;
 <span class="hljs-keyword">import</span> org.apache.commons.fileupload.disk.DiskFileItemFactory;
-<span class="hljs-keyword">import</span> org.apache.commons.fileupload.servlet.ServletFileUpload;</code></pre></div>
+<span class="hljs-keyword">import</span> org.apache.commons.fileupload.servlet.ServletFileUpload;</code></pre>
 
 <p><strong>源码：</strong></p>
 <p>FileSerlvet类</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.chen;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.chen;
 
 <span class="hljs-keyword">import</span> java.io.File;
 <span class="hljs-keyword">import</span> java.io.FileOutputStream;
@@ -426,19 +426,19 @@
 		<span class="hljs-keyword">return</span> msg;
 
 	}
-}</code></pre></div>
+}</code></pre>
 
 <p>注册xml</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span>
   	<span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>upload<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
   	<span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>com.chen.FileSerlvet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span>
   	<span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>upload<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
-  	<span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/upload.do<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span></code></pre></div>
+  	<span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/upload.do<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span></code></pre>
 
 <p>导入依赖的jar包</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload --&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload --&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>commons-fileupload<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-fileupload<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
@@ -449,10 +449,10 @@
 		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>commons-io<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-io<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre></div>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 
 <p>index.jsp</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">contentType</span>=<span class="hljs-string">"text/html;charset=UTF-8"</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"java"</span> %&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">contentType</span>=<span class="hljs-string">"text/html;charset=UTF-8"</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"java"</span> %&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">%--</span></span>
@@ -467,10 +467,10 @@
 			<span class="hljs-tag">&lt;<span class="hljs-name">P</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span>&gt;</span> | <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">P</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <p>info.jsp</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"java"</span> <span class="hljs-attr">contentType</span>=<span class="hljs-string">"text/html;charset=UTF-8"</span>%&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"java"</span> <span class="hljs-attr">contentType</span>=<span class="hljs-string">"text/html;charset=UTF-8"</span>%&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -481,7 +481,7 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">%=request.getAttribute("msg")%</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

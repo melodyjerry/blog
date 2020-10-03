@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,12 +216,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
-              <div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">name,value,iDay</span>)</span>{ <span class="hljs-comment">//设置cookie</span>
+              <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">name,value,iDay</span>)</span>{ <span class="hljs-comment">//设置cookie</span>
 	<span class="hljs-keyword">var</span> oDate=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();  <span class="hljs-comment">//创建日期对象</span>
 	oDate.setDate(oDate.getDate()+iDay);  <span class="hljs-comment">//修改日期对象的天</span>
 	<span class="hljs-built_in">document</span>.cookie=name+<span class="hljs-string">"="</span>+value+<span class="hljs-string">";expires="</span>+oDate;  <span class="hljs-comment">//添加到cookie</span>
@@ -239,7 +239,7 @@
 }
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delCookie</span>(<span class="hljs-params">name</span>)</span>{  <span class="hljs-comment">//根据名字删除cookie</span>
 	setCookie(name,<span class="hljs-string">"0"</span>,<span class="hljs-number">-1</span>);	  <span class="hljs-comment">//设置过期时间  前一天</span>
-}</code></pre></div>
+}</code></pre>
 <a id="more"></a><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {

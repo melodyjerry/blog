@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -236,24 +236,24 @@
 </ul>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
 <li><p>可以将查询条件用binary()括起来。 比如： </p>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-built_in">binary</span> username= <span class="hljs-string">'jack'</span>;</code></pre></div>
+<pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-built_in">binary</span> username= <span class="hljs-string">'jack'</span>;</code></pre>
 </li>
 <li><p>可以修改该字段的collation 为 binary。比如：</p>
-<div class="hljs"><pre><code class="hljs routeros">ALTER TABLE TABLENAME MODIFY COLUMN COLUMNNAME VARCHAR(50) BINARY CHARACTER <span class="hljs-builtin-name">SET</span> utf8 COLLATE utf8_bin<span class="hljs-built_in"> DEFAULT </span><span class="hljs-literal">NULL</span>;</code></pre></div>
+<pre><code class="hljs routeros">ALTER TABLE TABLENAME MODIFY COLUMN COLUMNNAME VARCHAR(50) BINARY CHARACTER <span class="hljs-builtin-name">SET</span> utf8 COLLATE utf8_bin<span class="hljs-built_in"> DEFAULT </span><span class="hljs-literal">NULL</span>;</code></pre>
 
 </li>
 </ol>
 <h2 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h2><p>mysql查询默认是不区分大小写的 如:</p>
-<div class="hljs"><pre><code class="hljs vbnet"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> username=‘jack<span class="hljs-comment">';</span>
-<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> username=<span class="hljs-comment">'JACK';</span></code></pre></div>
+<pre><code class="hljs vbnet"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> username=‘jack<span class="hljs-comment">';</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> username=<span class="hljs-comment">'JACK';</span></code></pre>
 <p>得到的结果是一样的，如果我们需要进行区分的话可以按照如下方法来做：</p>
 <h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><p>要让mysql查询区分大小写，可以：</p>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-built_in">binary</span> username=<span class="hljs-string">'jack'</span>
-<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-built_in">binary</span> username=<span class="hljs-string">'JACK'</span></code></pre></div>
+<pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-built_in">binary</span> username=<span class="hljs-string">'jack'</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-built_in">binary</span> username=<span class="hljs-string">'JACK'</span></code></pre>
 <h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>在建表时时候加以标识</p>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> emp(
+<pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> emp(
    username <span class="hljs-built_in">varchar</span>(<span class="hljs-number">20</span>) <span class="hljs-built_in">binary</span>
-)</code></pre></div>
+)</code></pre>
 <blockquote>
 <p>原理：对于CHAR、VARCHAR和TEXT类型，BINARY属性可以为列分配该列字符集的校对规则。<strong>BINARY属性是指定列字符集的二元校对规则的简写。排序和比较基于数值字符值,因此也就自然区分了大小写。</strong></p>
 </blockquote>

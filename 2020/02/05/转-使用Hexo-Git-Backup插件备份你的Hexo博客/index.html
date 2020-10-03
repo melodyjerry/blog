@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -229,19 +229,19 @@
 <p>首先进入你博客目录，输入命令 <code>hexo version</code> 查看 Hexo 版本，如图所示，我的版本是 3.7.1：</p>
 <p><a href="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A53/01.png" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A53/01.png" srcset="/blog/img/loading.gif" alt="01"></a></p>
 <p>安装备份插件，如果你的 Hexo 版本是 2.x.x，则使用以下命令安装：</p>
-<div class="hljs"><pre><code class="hljs angelscript">$ npm install hexo-git-<span class="hljs-symbol">backup@</span><span class="hljs-number">0.0</span><span class="hljs-number">.91</span> --save</code></pre></div>
+<pre><code class="hljs angelscript">$ npm install hexo-git-<span class="hljs-symbol">backup@</span><span class="hljs-number">0.0</span><span class="hljs-number">.91</span> --save</code></pre>
 
 <p>如果你的 Hexo 版本是 3.x.x，则使用以下命令安装：</p>
-<div class="hljs"><pre><code class="hljs sql">$ npm <span class="hljs-keyword">install</span> hexo-git-<span class="hljs-keyword">backup</span> <span class="hljs-comment">--save</span></code></pre></div>
+<pre><code class="hljs sql">$ npm <span class="hljs-keyword">install</span> hexo-git-<span class="hljs-keyword">backup</span> <span class="hljs-comment">--save</span></code></pre>
 
 <p>到 Hexo 博客根目录的 <code>_config.yml</code> 配置文件里添加以下配置：</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-attribute">backup</span>:
+<pre><code class="hljs less"><span class="hljs-attribute">backup</span>:
   <span class="hljs-attribute">type</span>: git
   <span class="hljs-attribute">theme</span>: material-x-<span class="hljs-number">1.2</span>.<span class="hljs-number">1</span>
   <span class="hljs-attribute">message</span>: Back up my www.itrhx.com blog
   <span class="hljs-attribute">repository</span>:
     <span class="hljs-attribute">github</span>: git<span class="hljs-variable">@github</span>.<span class="hljs-attribute">com</span>:TRHX/TRHX.github.io.git,backup
-    <span class="hljs-attribute">coding</span>: git<span class="hljs-variable">@git</span>.dev.tencent.<span class="hljs-attribute">com</span>:TRHX/TRHX.git,backup</code></pre></div>
+    <span class="hljs-attribute">coding</span>: git<span class="hljs-variable">@git</span>.dev.tencent.<span class="hljs-attribute">com</span>:TRHX/TRHX.git,backup</code></pre>
 
 <p>参数解释：</p>
 <ul>
@@ -250,10 +250,10 @@
 <li>repository：仓库名，注意仓库地址后面要添加一个分支名，比如我就创建了一个 backup 分支</li>
 </ul>
 <p>最后使用以下命令备份你的博客：</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo backup</code></pre></div>
+<pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo backup</code></pre>
 
 <p>或者使用以下简写命令也可以：</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo b</code></pre></div>
+<pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo b</code></pre>
 
 <p>备份成功后可以在你的仓库分支下看到备份的原始文件：</p>
 <p><a href="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A53/02.png" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A53/02.png" srcset="/blog/img/loading.gif" alt="02"></a></p>

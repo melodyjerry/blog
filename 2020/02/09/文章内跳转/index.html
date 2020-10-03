@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -222,11 +222,11 @@
             
             <article class="markdown-body">
               <p><a href="#jump">点击我跳转</a></p>
-<div class="hljs"><pre><code class="hljs markdown"><span class="hljs-bullet">1. </span>跳转起点
+<pre><code class="hljs markdown"><span class="hljs-bullet">1. </span>跳转起点
 [<span class="hljs-string">点击我跳转</span>](<span class="hljs-link">#jump</span>)
 
 2.跳转终点
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jump"</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">'blue'</span>&gt;</span></span>[我是跳转内容]<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#jump"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footnote-backref"</span>&gt;</span></span>↩<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></code></pre></div>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jump"</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">'blue'</span>&gt;</span></span>[我是跳转内容]<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#jump"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footnote-backref"</span>&gt;</span></span>↩<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></code></pre>
 
 <p><span id="jump"><font color="blue">[我是跳转内容]</font></span><a href="#jump" class="footnote-backref">↩</a></p>
 <p>参考文章：</p>
@@ -238,26 +238,26 @@
 <p>在MarkDown中是通过 <code>链接</code> 和 <code>标题</code> 来实现页面内跳转的，所以先讲下MarkDown中 <code>链接</code> 和 <code>标题</code> 的语法，然后再讲 MarkDown 中实现页面内跳转的方法；</p>
 <h1 id="一-链接的定义"><a href="#一-链接的定义" class="headerlink" title="一. 链接的定义"></a>一. 链接的定义</h1><p>Markdown 支持两种形式的链接语法： 行内式 和 参考式 两种形式。</p>
 <h2 id="1-行内式链接"><a href="#1-行内式链接" class="headerlink" title="1. 行内式链接"></a>1. 行内式链接</h2><p><strong>语法：</strong></p>
-<div class="hljs"><pre><code class="hljs bash">行内式链接 = [内容](地址 <span class="hljs-string">"标题"</span>)</code></pre></div>
+<pre><code class="hljs bash">行内式链接 = [内容](地址 <span class="hljs-string">"标题"</span>)</code></pre>
 
 <p><strong>说明：</strong></p>
 <ul>
 <li><code>标题</code> 是可选的，可以用单引号 或 双引号；</li>
 </ul>
 <p><strong>转换成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"地址"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"地址"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">我的博客</span>](https:<span class="hljs-comment">//www.jianshu.com/u/7ecaba2d594c "郭斌勇的主页")</span></code></pre></div>
+<pre><code class="hljs csharp">[<span class="hljs-meta">我的博客</span>](https:<span class="hljs-comment">//www.jianshu.com/u/7ecaba2d594c "郭斌勇的主页")</span></code></pre>
 
 <p><strong>渲染成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.jianshu.com/u/7ecaba2d594c"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"郭斌勇的主页"</span>&gt;</span>我的博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.jianshu.com/u/7ecaba2d594c"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"郭斌勇的主页"</span>&gt;</span>我的博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>效果如下：</strong></p>
 <p><a href="https://www.jianshu.com/u/7ecaba2d594c" target="_blank" rel="noopener">我的博客</a></p>
 <h2 id="2-参考式链接"><a href="#2-参考式链接" class="headerlink" title="2. 参考式链接"></a>2. 参考式链接</h2><p><strong>语法：</strong></p>
-<div class="hljs"><pre><code class="hljs bash">参考式链接 = [内容][参考标识符]
-参考标识符 = [标识符]: 地址 <span class="hljs-string">"标题"</span></code></pre></div>
+<pre><code class="hljs bash">参考式链接 = [内容][参考标识符]
+参考标识符 = [标识符]: 地址 <span class="hljs-string">"标题"</span></code></pre>
 
 <p><strong>说明：</strong></p>
 <ul>
@@ -267,16 +267,16 @@
 <li><code>标题</code> 是可选的，可以用单引号、双引号或是圆括弧包着；</li>
 </ul>
 <p><strong>转换成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"地址"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"地址"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">博客</span>]: https:<span class="hljs-comment">//www.jianshu.com/u/7ecaba2d594c "郭斌勇的主页"</span>
+<pre><code class="hljs csharp">[<span class="hljs-meta">博客</span>]: https:<span class="hljs-comment">//www.jianshu.com/u/7ecaba2d594c "郭斌勇的主页"</span>
 [<span class="hljs-meta">我的博客</span>][博客]
-[<span class="hljs-meta">博客</span>][]</code></pre></div>
+[<span class="hljs-meta">博客</span>][]</code></pre>
 
 <p><strong>渲染成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.jianshu.com/u/7ecaba2d594c"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"郭斌勇的主页"</span>&gt;</span>我的博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.jianshu.com/u/7ecaba2d594c"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"郭斌勇的主页"</span>&gt;</span>博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.jianshu.com/u/7ecaba2d594c"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"郭斌勇的主页"</span>&gt;</span>我的博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.jianshu.com/u/7ecaba2d594c"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"郭斌勇的主页"</span>&gt;</span>博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>效果如下：</strong></p>
 <p><a href="https://www.jianshu.com/u/7ecaba2d594c" target="_blank" rel="noopener">我的博客</a><br> <a href="https://www.jianshu.com/u/7ecaba2d594c" target="_blank" rel="noopener">博客</a></p>
@@ -285,30 +285,30 @@
 <p><code>锚点</code> 和 <code>锚点目标</code> 的定义格式如下：</p>
 <h2 id="1-锚点的定义"><a href="#1-锚点的定义" class="headerlink" title="1. 锚点的定义"></a>1. 锚点的定义</h2><p>锚点就是一个链接，另外，由于在MarkDown中可以直接写HTML，所以在MarkDown中实现锚点有两种方式：MarkDown方式 和 HTML方式；</p>
 <h3 id="1-1-MarkDown锚点"><a href="#1-1-MarkDown锚点" class="headerlink" title="1.1 MarkDown锚点"></a>1.1 MarkDown锚点</h3><p>MarkDown锚点本质上就是一个<a href="#链接的定义">MarkDown链接</a>，只是链接地址的格式为：</p>
-<div class="hljs"><pre><code class="hljs bash">链接地址 = <span class="hljs-comment">#目标内容</span></code></pre></div>
+<pre><code class="hljs bash">链接地址 = <span class="hljs-comment">#目标内容</span></code></pre>
 
 <p>所以 MarkDown锚点 的定义也有两种方式</p>
 <h4 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h4><p><strong>语法：</strong></p>
-<div class="hljs"><pre><code class="hljs objectivec">锚点 = [内容](<span class="hljs-meta">#目标内容 <span class="hljs-meta-string">"标题"</span>)</span></code></pre></div>
+<pre><code class="hljs objectivec">锚点 = [内容](<span class="hljs-meta">#目标内容 <span class="hljs-meta-string">"标题"</span>)</span></code></pre>
 
 <p><strong>说明：</strong></p>
 <ul>
 <li><code>标题</code> 是可选的，可以用单引号 或 双引号；</li>
 </ul>
 <p><strong>转换成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#目标内容"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#目标内容"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">MarkDown方式的锚点</span>](<span class="hljs-meta">#MarkDown锚点)</span></code></pre></div>
+<pre><code class="hljs csharp">[<span class="hljs-meta">MarkDown方式的锚点</span>](<span class="hljs-meta">#MarkDown锚点)</span></code></pre>
 
 <p><strong>渲染成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#MarkDown锚点"</span> &gt;</span>MarkDown方式的锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#MarkDown锚点"</span> &gt;</span>MarkDown方式的锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>效果如下：点击下面的锚点</strong></p>
 <p><a href="#MarkDown锚点">MarkDown方式的锚点</a></p>
 <h4 id="参考式"><a href="#参考式" class="headerlink" title="参考式"></a>参考式</h4><p><strong>语法：</strong></p>
-<div class="hljs"><pre><code class="hljs objectivec">锚点 = [内容][参考标识符]
-参考标识符 = [标识符]: <span class="hljs-meta">#目标内容 <span class="hljs-meta-string">"标题"</span></span></code></pre></div>
+<pre><code class="hljs objectivec">锚点 = [内容][参考标识符]
+参考标识符 = [标识符]: <span class="hljs-meta">#目标内容 <span class="hljs-meta-string">"标题"</span></span></code></pre>
 
 <p><strong>说明：</strong></p>
 <ul>
@@ -318,39 +318,39 @@
 <li><code>标题</code> 是可选的，可以用单引号、双引号或是圆括弧包着；</li>
 </ul>
 <p><strong>转换成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#目标内容"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#目标内容"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"标题"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-attr">[MarkDown方式的锚点]</span>: <span class="hljs-selector-id">#MarkDown</span>锚点
+<pre><code class="hljs css"><span class="hljs-selector-attr">[MarkDown方式的锚点]</span>: <span class="hljs-selector-id">#MarkDown</span>锚点
 <span class="hljs-selector-attr">[MD锚点]</span><span class="hljs-selector-attr">[MarkDown方式的锚点]</span>
-<span class="hljs-selector-attr">[MarkDown方式的锚点]</span><span class="hljs-selector-attr">[]</span></code></pre></div>
+<span class="hljs-selector-attr">[MarkDown方式的锚点]</span><span class="hljs-selector-attr">[]</span></code></pre>
 
 <p><strong>渲染成HTML后，会生成如下标签：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#MarkDown锚点"</span>&gt;</span>MD锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#MarkDown锚点"</span>&gt;</span>MarkDown方式的锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#MarkDown锚点"</span>&gt;</span>MD锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#MarkDown锚点"</span>&gt;</span>MarkDown方式的锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>效果如下：</strong></p>
 <p><a href="#MarkDown锚点">MD锚点</a></p>
 <p><a href="#MarkDown锚点">MarkDown方式的锚点</a></p>
 <h4 id="1-2-HTML锚点"><a href="#1-2-HTML锚点" class="headerlink" title="1.2 HTML锚点"></a>1.2 HTML锚点</h4><p>HTML锚点本质上就是一个a链接，格式为：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#目标内容"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#目标内容"</span>&gt;</span>内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>注意：</strong></p>
 <ul>
 <li><code>HTML锚点</code> 的目标锚点只能是 <a href="#标签形式的锚点目标">标签形式的锚点目标</a></li>
 </ul>
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#html锚点"</span>&gt;</span>HTML方式的锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#html锚点"</span>&gt;</span>HTML方式的锚点<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>效果如下：点击下面的锚点</strong></p>
 <p><a href="#html锚点">HTML方式的锚点</a></p>
 <h2 id="2-锚点目标的定义"><a href="#2-锚点目标的定义" class="headerlink" title="2. 锚点目标的定义"></a>2. 锚点目标的定义</h2><p>锚点目标有2种定义方式：MarkDown形式 和 标签形式；</p>
 <h3 id="MarkDown形式的锚点目标"><a href="#MarkDown形式的锚点目标" class="headerlink" title="MarkDown形式的锚点目标"></a>MarkDown形式的锚点目标</h3><p>MarkDown形式的锚点目标的定义其实就是<a href="#MarkDowm实现页面内跳转的方式">标题</a>的定义，即：任何级别的标题可以直接作为锚点目标；</p>
-<div class="hljs"><pre><code class="hljs undefined">标题内容 = 目标内容</code></pre></div>
+<pre><code class="hljs undefined">标题内容 = 目标内容</code></pre>
 
 <p>所以，类Setext形式 和 类atx形式 的标题都可作为 <code>锚点目标</code> ；</p>
 <p><strong>锚点目标定义的示例：</strong></p>
-<div class="hljs"><pre><code class="hljs bash">这是一个锚点目标
+<pre><code class="hljs bash">这是一个锚点目标
 ====
 
 这是一个锚点目标
@@ -361,7 +361,7 @@
 <span class="hljs-comment">### 这是一个锚点目标</span>
 <span class="hljs-comment">#### 这是一个锚点目标</span>
 <span class="hljs-comment">##### 这是一个锚点目标</span>
-<span class="hljs-comment">###### 这是一个锚点目标</span></code></pre></div>
+<span class="hljs-comment">###### 这是一个锚点目标</span></code></pre>
 
 <p><strong>注意：</strong></p>
 <ul>
@@ -369,7 +369,7 @@
 </li>
 <li><p>锚点</p>
 <p>  的 </p>
-  <div class="hljs"><pre><code class="hljs plain">目标内容</code></pre></div>
+  <pre><code class="hljs plain">目标内容</code></pre>
 
 <p>   中不能含有以下字符：</p>
 <ul>
@@ -379,10 +379,10 @@
 </ul>
 <h3 id="标签形式的锚点目标"><a href="#标签形式的锚点目标" class="headerlink" title="标签形式的锚点目标"></a>标签形式的锚点目标</h3><p>因为MarkDown链接会被转成a标签，并且MarkDown中也可以写标签，所以可以利用HTML的锚点机制直接定义一个带 <code>id</code> 特性的任意标签 或 带 <code>name</code> 特性的 a 标签（注意：在HTML5中，a标签已经不再支持 name 特性）作为锚点目标，然后把MarkDown中的锚点地址的目标内容设置为 <code>id</code> 或 <code>name</code> 特性的值；这样便可以实现页面内跳转；</p>
 <p>这种形式的锚点目标的定义格式为：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">标签名</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"目标内容"</span>&gt;</span>元素内容<span class="hljs-tag">&lt;/<span class="hljs-name">标签名</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">标签名</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"目标内容"</span>&gt;</span>元素内容<span class="hljs-tag">&lt;/<span class="hljs-name">标签名</span>&gt;</span></code></pre>
 
 <p>或</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"目标内容"</span>&gt;</span>元素内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"目标内容"</span>&gt;</span>元素内容<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>注意：</strong></p>
 <ul>
@@ -391,10 +391,10 @@
 <li>HTML5不支持通过a标签的 <code>name</code> 特性来定义锚点目标；</li>
 </ul>
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"这是锚点目标"</span>&gt;</span>跳转到这里<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"这是锚点目标"</span>&gt;</span>跳转到这里<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 <p>或</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"这是锚点目标"</span>&gt;</span>跳转到这里<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"这是锚点目标"</span>&gt;</span>跳转到这里<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <h1 id="四-总结"><a href="#四-总结" class="headerlink" title="四. 总结"></a>四. 总结</h1><p>MarkDown中实现页面跳转的方法如下：</p>
 <ol>
@@ -411,7 +411,7 @@
 </li>
 <li><p>锚点</p>
 <p>  的 </p>
-  <div class="hljs"><pre><code class="hljs plain">目标内容</code></pre></div>
+  <pre><code class="hljs plain">目标内容</code></pre>
 
 <p>   中不能含有以下字符：</p>
 <ul>
@@ -428,49 +428,49 @@
 </li>
 </ul>
 <h1 id="五-示例"><a href="#五-示例" class="headerlink" title="五. 示例"></a>五. 示例</h1><h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>](<span class="hljs-meta">#个人简介)</span></code></pre></div>
+<pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>](<span class="hljs-meta">#个人简介)</span></code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 个人简介</span></code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-comment"># 个人简介</span></code></pre>
 
 <h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>]: <span class="hljs-meta">#个人简介</span>
-[<span class="hljs-meta">跳转到个人简介</span>][]</code></pre></div>
+<pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>]: <span class="hljs-meta">#个人简介</span>
+[<span class="hljs-meta">跳转到个人简介</span>][]</code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">个人简介
-=====</code></pre></div>
+<pre><code class="hljs undefined">个人简介
+=====</code></pre>
 
 <h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>](<span class="hljs-meta">#个人简介)</span></code></pre></div>
+<pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>](<span class="hljs-meta">#个人简介)</span></code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 <h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>](<span class="hljs-meta">#个人简介)</span></code></pre></div>
+<pre><code class="hljs csharp">[<span class="hljs-meta">跳转到个人简介</span>](<span class="hljs-meta">#个人简介)</span></code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <h2 id="示例5"><a href="#示例5" class="headerlink" title="示例5"></a>示例5</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#个人简介"</span>&gt;</span>跳转到个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#个人简介"</span>&gt;</span>跳转到个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">个人简介
-----</code></pre></div>
+<pre><code class="hljs undefined">个人简介
+----</code></pre>
 
 <h2 id="示例6"><a href="#示例6" class="headerlink" title="示例6"></a>示例6</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#个人简介"</span>&gt;</span>跳转到个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#个人简介"</span>&gt;</span>跳转到个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre>
 
 <h2 id="示例7"><a href="#示例7" class="headerlink" title="示例7"></a>示例7</h2><p><strong>锚点：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#个人简介"</span>&gt;</span>跳转到个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#个人简介"</span>&gt;</span>跳转到个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p><strong>锚点目标：</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"个人简介"</span>&gt;</span>这是个人简介<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 
 

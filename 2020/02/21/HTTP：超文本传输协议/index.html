@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -277,7 +277,7 @@
 <li><code>Servlet</code>类中<code>service()</code>方法的参数<code>ServletRequest</code></li>
 <li>字符串格式，比如：</li>
 </ul>
-<div class="hljs"><pre><code class="hljs groovy">POST <span class="hljs-regexp">/login.html	HTTP/</span><span class="hljs-number">1.1</span>
+<pre><code class="hljs groovy">POST <span class="hljs-regexp">/login.html	HTTP/</span><span class="hljs-number">1.1</span>
 <span class="hljs-string">Host:</span> localhost
 User-<span class="hljs-string">Agent:</span> Mozilla<span class="hljs-regexp">/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/</span><span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">60.0</span>
 <span class="hljs-string">Accept:</span> text<span class="hljs-regexp">/html,application/</span>xhtml+xml,application<span class="hljs-regexp">/xml;q=0.9,*/</span>*;q=<span class="hljs-number">0.8</span>
@@ -287,7 +287,7 @@ Accept-<span class="hljs-string">Encoding:</span> gzip, deflate
 <span class="hljs-string">Connection:</span> keep-alive
 Upgrade-Insecure-<span class="hljs-string">Requests:</span> <span class="hljs-number">1</span>
 	  
-username=zhangsan</code></pre></div>
+username=zhangsan</code></pre>
 
 <p>以下关于 <font color="blue">请求信息数据格式</font> 的内容有缺省，详细见下一篇博客 <a href="https://melodyjerry.gitee.io/blog/2020/02/21/HTTP%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF%E6%95%B0%E6%8D%AE-Request%20-%20%E5%89%AF%E6%9C%AC/" target="_blank" rel="noopener">《HTTP请求信息数据 - Request》</a> 中。</p>
 <h2 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h2><ul>
@@ -365,7 +365,7 @@ username=zhangsan</code></pre></div>
 <li><p>字符串数据，比如：</p>
 </li>
 </ul>
-<div class="hljs"><pre><code class="hljs angelscript">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK
+<pre><code class="hljs angelscript">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK
 Content-Type: text/html;charset=UTF<span class="hljs-number">-8</span>
 Content-Length: <span class="hljs-number">101</span>
 Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">2018</span> <span class="hljs-number">07</span>:<span class="hljs-number">08</span>:<span class="hljs-number">42</span> GMT
@@ -377,7 +377,7 @@ Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">201
     &lt;body&gt;
         hello , response
     &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 
 <h2 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h2><ul>
 <li>格式：<code>协议/版本 响应状态码 状态码描述</code></li>
@@ -436,14 +436,14 @@ Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">201
 <li>传输的数据</li>
 <li>文件、HTML网页源码等等。比如，</li>
 </ul>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>$Title$<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
         hello , response
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <br>
 

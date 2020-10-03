@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -280,7 +280,7 @@
 </ul>
 <a id="more"></a>
 
-<h3 id="Demo：类内使用"><a href="#Demo：类内使用" class="headerlink" title="Demo：类内使用"></a>Demo：类内使用</h3><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.*; <span class="hljs-comment">//静态导入静态方法或对象 </span>
+<h3 id="Demo：类内使用"><a href="#Demo：类内使用" class="headerlink" title="Demo：类内使用"></a>Demo：类内使用</h3><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.*; <span class="hljs-comment">//静态导入静态方法或对象 </span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaticDemo1</span> </span>{ 
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> a = <span class="hljs-number">3</span>, b, i = <span class="hljs-number">0</span>; <span class="hljs-comment">// 静态变量 </span>
     <span class="hljs-keyword">char</span> ch = <span class="hljs-string">'Y'</span>; <span class="hljs-comment">// 实例变量 </span>
@@ -302,14 +302,14 @@
             out.printf(<span class="hljs-string">"构造代码块：第%d次构造第%1$d次执行\n"</span>, (++i)); 
 		} 
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>注意：</p>
 <p>🔺特别注意：类的静态代码块仅在类在加载后初始化时被执行1次</p>
 <p>🔺第一次new一个类时才加载该类</p>
 <p>🔺静态方法、静态块不能访问非静态的成员（即，静者恒静）。如上述代码中的注释【1】</p>
 <p>🔺静态块初始化：仅1次</p>
-<h3 id="Demo：类外使用和静态块执行时机"><a href="#Demo：类外使用和静态块执行时机" class="headerlink" title="Demo：类外使用和静态块执行时机"></a>Demo：类外使用和静态块执行时机</h3><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.out;
+<h3 id="Demo：类外使用和静态块执行时机"><a href="#Demo：类外使用和静态块执行时机" class="headerlink" title="Demo：类外使用和静态块执行时机"></a>Demo：类外使用和静态块执行时机</h3><pre><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.System.out;
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyD</span></span>{
 	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> m;
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> n;
@@ -331,11 +331,11 @@
 		MyD.n++; <span class="hljs-comment">//最佳：类名.静态变量</span>
 		MyD.callMe(); <span class="hljs-comment">//最佳：类名.静态方法</span>
 	}
-}</code></pre></div>
+}</code></pre>
 
 <p>特别留意：</p>
 <p>🔺用一个类声明一个类对象变量，至多会加载该类，但还未主动使用<br>🔺老师说：【主动使用】，是一个比较高级的专题，暂不深入</p>
-<h3 id="DEMO：静态方法的声明"><a href="#DEMO：静态方法的声明" class="headerlink" title="DEMO：静态方法的声明"></a>DEMO：静态方法的声明</h3><div class="hljs"><pre><code class="hljs arduino"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>{</span>
+<h3 id="DEMO：静态方法的声明"><a href="#DEMO：静态方法的声明" class="headerlink" title="DEMO：静态方法的声明"></a>DEMO：静态方法的声明</h3><pre><code class="hljs arduino"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>{</span>
     <span class="hljs-keyword">String</span> name;                         <span class="hljs-comment">//定义name属性</span>
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">String</span> nation = <span class="hljs-string">"中国"</span>; <span class="hljs-comment">//定义静态属性nation</span>
     <span class="hljs-keyword">int</span> age;                            <span class="hljs-comment">//定义age属性</span>
@@ -365,22 +365,22 @@
         System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"修改之后信息："</span> + p2.talk());
         System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"修改之后信息："</span> + p3.talk());
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <h3 id="DEMO：调用外部类定义的方法（有static-无static）"><a href="#DEMO：调用外部类定义的方法（有static-无static）" class="headerlink" title="DEMO：调用外部类定义的方法（有static+无static）"></a>DEMO：调用外部类定义的方法（有static+无static）</h3><p>首先定义方法</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dy</span> {</span>
+<pre><code class="hljs cpp"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dy</span> {</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">Add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y)</span> </span>{  <span class="hljs-comment">//定义Add(),该方法没有被static修饰</span>
         <span class="hljs-keyword">return</span> x+y;
     }
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">Sub</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y)</span> </span>{<span class="hljs-comment">//定义Sub(),该方法被static修饰</span>
             <span class="hljs-keyword">return</span> x-y;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>调用方法</p>
-<div class="hljs"><pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> Test {
+<pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> Test {
     public static void main(String<span class="hljs-literal">[]</span> args){
         <span class="hljs-built_in">int</span> a=<span class="hljs-number">5</span>;
         <span class="hljs-built_in">int</span> b=<span class="hljs-number">4</span>;
@@ -393,7 +393,7 @@
         result=Dy.<span class="hljs-constructor">Sub(<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span>;
         <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(result);
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>🔺static main方法调用外部方法/成员变量：</p>
 <ul>

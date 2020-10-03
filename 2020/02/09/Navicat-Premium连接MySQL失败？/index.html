@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -229,17 +229,17 @@
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol>
 <li>执行命令，查看当前用户的加密方式：</li>
 </ol>
-<div class="hljs"><pre><code class="hljs mysql">use mysql;
+<pre><code class="hljs mysql">use mysql;
 
-select user,plugin from user where user='root';</code></pre></div>
+select user,plugin from user where user='root';</code></pre>
 
 <p>可以看到当前用户的加密方式为caching_sha2_password。</p>
 <ol start="2">
 <li>登录MySQL后输入，执行命令：</li>
 </ol>
-<div class="hljs"><pre><code class="hljs mysql">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YourPassword';
+<pre><code class="hljs mysql">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YourPassword';
 
-FLUSH PRIVILEGES;</code></pre></div>
+FLUSH PRIVILEGES;</code></pre>
 <p>将用户的加密方式改为mysql_native_password。</p>
 <ol start="3">
 <li>再次尝试连接Mysql，连接成功。</li>

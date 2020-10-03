@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -236,22 +236,22 @@
 <h1 id="是收费软件？"><a href="#是收费软件？" class="headerlink" title="是收费软件？"></a>是收费软件？</h1><p>就目前来讲，docker有两个版本Docker CE和Docker EE，CE是社区版的免费软件，EE是企业版的收费软件。</p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="使用脚本来安装"><a href="#使用脚本来安装" class="headerlink" title="使用脚本来安装"></a>使用脚本来安装</h2><ol>
 <li><p>查询内核</p>
-<div class="hljs"><pre><code class="hljs uname">![Y2PztK.png](https://s1.ax1x.com/2020/05/17/Y2PztK.png)
+<pre><code class="hljs uname">![Y2PztK.png](https://s1.ax1x.com/2020/05/17/Y2PztK.png)
 
 2. 使用root用户登录linux系统后，将yum包更新到最新：
 关于root模式，见[Linux root 模式](https://www.cnblogs.com/melodyjerry/p/12904792.html)
-```$ yum update</code></pre></div>
+```$ yum update</code></pre>
 </li>
 <li><p>执行docker安装脚本(因curl命令需要一个网址，网址被禁止发布，此处不能列出)</p>
-<div class="hljs"><pre><code class="hljs curl">```sh get-docker.sh</code></pre></div></li>
+<pre><code class="hljs curl">```sh get-docker.sh</code></pre></li>
 <li><p>启动docker进程 systemctl start docker</p>
 </li>
 <li><p>验证docker是否安装成功：docker run hello-world</p>
 </li>
 </ol>
 <h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p>使用yum命令</p>
-<div class="hljs"><pre><code class="hljs yum">然后将docker的安装目录删除
-```rm -rf /var/lib/docker</code></pre></div>
+<pre><code class="hljs yum">然后将docker的安装目录删除
+```rm -rf /var/lib/docker</code></pre>
 <p>就可以了。</p>
 <h1 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a>参考阅读</h1><p><a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">菜鸟教程-CentOS Docker 安装</a></p>
 <a id="more"></a><script>

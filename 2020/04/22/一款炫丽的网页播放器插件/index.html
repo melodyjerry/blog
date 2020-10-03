@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -240,7 +240,7 @@
 <ol>
 <li>在 next/layout/_layout.swig 的 body 体内部，新增如下代码：</li>
 </ol>
-<div class="hljs"><pre><code class="hljs django"><span class="xml">  复制<span class="hljs-comment">&lt;!-- badApplePlayer --&gt;</span></span>
+<pre><code class="hljs django"><span class="xml">  复制<span class="hljs-comment">&lt;!-- badApplePlayer --&gt;</span></span>
 <span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> theme.badApplePlayer.enable %}</span>
 <span class="xml">  <span class="hljs-comment">&lt;!-- Your XlchPlayerKey --&gt;</span></span>
 <span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>XlchKey="</span><span class="hljs-template-variable">{{theme.badApplePlayer.XlchKey}}</span><span class="xml">";<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
@@ -252,27 +252,27 @@
 <span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 <span class="xml">  <span class="hljs-comment">&lt;!-- BadApplePlayer --&gt;</span></span>
 <span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://static.https.badapple.top/BadApplePlayer/Player.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
-<span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span></code></pre></div>
+<span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span></code></pre>
 
 <p>其还需要依赖 jquery ，我在做其它功能时已经引入，这里就不需要了，如果你加了以上代码没效果，那么再补充：</p>
-<div class="hljs"><pre><code class="hljs xml">复制<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml">复制<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 <p>以上链接均可换成 http 的，按需修改即可。</p>
 <ol>
 <li>在主题配置文件 _config.yml 中，添加配置：</li>
 </ol>
-<div class="hljs"><pre><code class="hljs dts">  复制<span class="hljs-meta"># http:<span class="hljs-comment">//www.badapple.top</span></span>
+<pre><code class="hljs dts">  复制<span class="hljs-meta"># http:<span class="hljs-comment">//www.badapple.top</span></span>
 <span class="hljs-symbol">badApplePlayer:</span>
 <span class="hljs-symbol">  enable:</span> true
-<span class="hljs-symbol">  XlchKey:</span> your_key <span class="hljs-meta"># 播放器Key</span></code></pre></div>
+<span class="hljs-symbol">  XlchKey:</span> your_key <span class="hljs-meta"># 播放器Key</span></code></pre>
 
 <p>XlchKey 为你自己的播放器 Key，官网完成注册，添加播放器后即可生成。你也可使用我的 <code>BZ9DLOyFjh</code> 来测试下。</p>
 <ol>
 <li>调整播放器在移动端大小（可选）。需要在 head 标签内添加以下代码，比如我是在 next/layout/_layout.swig 的 head 内加的：</li>
 </ol>
-<div class="hljs"><pre><code class="hljs django"><span class="xml">  复制</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> theme.badApplePlayer.enable %}</span>
+<pre><code class="hljs django"><span class="xml">  复制</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> theme.badApplePlayer.enable %}</span>
 <span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=0.9, maximum-scale=0.9"</span> /&gt;</span></span>
-<span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span></code></pre></div>
+<span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span></code></pre>
 
 <p>hexo 三连即可看到效果。附上视频教程地址：</p>
 <p><a href="https://www.bilibili.com/video/av8153459" target="_blank" rel="noopener">绚丽彩虹播放器 [BadApplePlayer] 播放器教程 V20170122  https://www.bilibili.com/video/av8153459</a></p>

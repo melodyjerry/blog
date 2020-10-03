@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,18 +216,18 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h1><p>将运行日志输入到 logs.txt (jar包所在的目录)</p>
-<div class="hljs"><pre><code class="hljs mipsasm">nohup <span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar </span>&gt;logs.txt &amp;</code></pre></div>
+<pre><code class="hljs mipsasm">nohup <span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar </span>&gt;logs.txt &amp;</code></pre>
 
 <h1 id="分解介绍"><a href="#分解介绍" class="headerlink" title="分解介绍"></a>分解介绍</h1><ol>
 <li>首先最基本的运行jar包命令是:</li>
 </ol>
-<div class="hljs"><pre><code class="hljs mipsasm"><span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar</span></code></pre></div>
+<pre><code class="hljs mipsasm"><span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar</span></code></pre>
 
 <p>这个命令会锁定命令窗口，只能看到当前运行的输出信息。而无法发送其他指令。</p>
 <blockquote>
@@ -239,29 +239,29 @@
 <p>用”<code>&amp;</code>“符号结尾表示，让程序在后台运行。<br>这样的话，命令窗口就不会被锁定，而可以发送其他指令，但是当窗口关闭时，后台运行的程序依然会被停止。</p>
 <p><code>nohup</code>命令：<code>nohup</code> 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断信号。要运行后台中的 <code>nohup</code> 命令，添加 <code>&amp;</code> （ 表示“and”的符号）到命令的尾部。</p>
 <p>简单地说就是，<code>nohup</code>命令可以阻止窗口关闭是的挂断信号，使程序继续运行。这样，命令就修改为了</p>
-<div class="hljs"><pre><code class="hljs mipsasm">nohup <span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar </span>&amp;</code></pre></div>
+<pre><code class="hljs mipsasm">nohup <span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar </span>&amp;</code></pre>
 
 <ol start="3">
 <li>设置输出文件</li>
 </ol>
 <p>在这个命令下已经可以实现需要的功能了。最后的 <code>&gt;logs.txt</code> 表示输出文件。可以随意写随意指定路径。如果不写情况下（缺省），就回默认在jar包所在目录，创建<code>nohup.out</code>文件。</p>
 <p>如果项目中已经指定了日志输出，就会重复输出，生成两个文件，把 <code>&gt;logs.txt</code> 删了的话，当前的运行程序不会再生成新的文件。</p>
-<div class="hljs"><pre><code class="hljs mipsasm">nohup <span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar </span>&gt;logs.txt &amp;</code></pre></div>
+<pre><code class="hljs mipsasm">nohup <span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>xxx.<span class="hljs-keyword">jar </span>&gt;logs.txt &amp;</code></pre>
 
 <p>命令运行成功后，会返回一个进程号，可以通过 <code>kill -9</code> 命令杀死这个进程来直接关闭。</p>
 <blockquote>
 <p>如果忘了进程号，可以通过</p>
-<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">ps</span> -ef|<span class="hljs-keyword">grep</span> xxx.jar</code></pre></div>
+<pre><code class="hljs vim"><span class="hljs-keyword">ps</span> -ef|<span class="hljs-keyword">grep</span> xxx.jar</code></pre>
 
 <p>来查看当前运行的jar包程序进程号</p>
 </blockquote>
 <blockquote>
 <p>查询当前活动的进程</p>
-<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">ps</span> -aux|<span class="hljs-keyword">grep</span> java</code></pre></div>
+<pre><code class="hljs vim"><span class="hljs-keyword">ps</span> -aux|<span class="hljs-keyword">grep</span> java</code></pre>
 </blockquote>
 <blockquote>
 <p>查看linux系统内存大小的详细信息，可以查看总内存，剩余内存、可使用内存等信息</p>
-<div class="hljs"><pre><code class="hljs armasm"><span class="hljs-symbol">cat</span> /<span class="hljs-meta">proc</span>/meminfo</code></pre></div>
+<pre><code class="hljs armasm"><span class="hljs-symbol">cat</span> /<span class="hljs-meta">proc</span>/meminfo</code></pre>
 </blockquote>
 <a id="more"></a>
 

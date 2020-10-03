@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -295,7 +295,7 @@
 <p>Model2这样不仅提高的代码的复用率与项目的扩展性，且大大降低了项目的维护成本。Model 1模式的实现比较简单，适用于快速开发小规模项目，Model1中JSP页面身兼View和Controller两种角色，将控制逻辑和表现逻辑混杂在一起，从而导致代码的重用性非常低，增加了应用的扩展性和维护的难度。Model2消除了Model1的缺点。</p>
 <h3 id="1-3、回顾Servlet"><a href="#1-3、回顾Servlet" class="headerlink" title="1.3、回顾Servlet"></a>1.3、回顾Servlet</h3><ol>
 <li><p>新建一个Maven工程当做父工程！ pom依赖！</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
@@ -321,12 +321,12 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jstl<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre>
 </li>
 <li><p>建立一个Moudle：springmvc-01-servlet ， 添加Web app的支持！</p>
 </li>
 <li><p>导入servlet 和 jsp 的 jar 依赖</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>servlet-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
@@ -335,10 +335,10 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet.jsp<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jsp-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 </li>
 <li><p>编写一个Servlet类，用来处理用户的请求</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.servlet;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.servlet;
 
 <span class="hljs-comment">//实现Servlet接口</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HttpServlet</span> </span>{
@@ -361,10 +361,10 @@
     <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
         doGet(req,resp);
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>编写Hello.jsp，在WEB-INF目录下新建一个jsp的文件夹，新建hello.jsp</p>
- <div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+ <pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Kuangshen&lt;/title&gt;
@@ -372,10 +372,10 @@
 &lt;body&gt;
     ${msg}
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>在web.xml中注册Servlet</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span>
@@ -389,7 +389,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/user<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre>
 </li>
 <li><p>配置Tomcat，并启动测试</p>
 <ul>
@@ -465,7 +465,7 @@
 <li><p>确定导入了SpringMVC 的依赖！</p>
 </li>
 <li><p>配置web.xml ， 注册DispatcherServlet</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span>
@@ -491,34 +491,34 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre>
 </li>
 <li><p>编写SpringMVC 的 配置文件！名称：springmvc-servlet.xml : [servletname]-servlet.xml说明，这里的名称要求是按照官方来的</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
 <span class="hljs-tag">      <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">      <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans</span></span>
 <span class="hljs-tag"><span class="hljs-string">       http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre>
 </li>
 <li><p>添加 处理映射器</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"</span>/&gt;</span></code></pre></div>
+ <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"</span>/&gt;</span></code></pre>
 </li>
 <li><p>添加 处理器适配器</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"</span>/&gt;</span></code></pre></div>
+ <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"</span>/&gt;</span></code></pre>
 </li>
 <li><p>添加 视图解析器</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--视图解析器:DispatcherServlet给他的ModelAndView--&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-comment">&lt;!--视图解析器:DispatcherServlet给他的ModelAndView--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"InternalResourceViewResolver"</span>&gt;</span>
     <span class="hljs-comment">&lt;!--前缀--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"prefix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/WEB-INF/jsp/"</span>/&gt;</span>
     <span class="hljs-comment">&lt;!--后缀--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre>
 </li>
 <li><p>编写我们要操作业务Controller ，要么实现Controller接口，要么增加注解；需要返回一个ModelAndView，装数据，封视图；</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
 
 <span class="hljs-keyword">import</span> org.springframework.web.servlet.ModelAndView;
 <span class="hljs-keyword">import</span> org.springframework.web.servlet.mvc.Controller;
@@ -540,14 +540,14 @@
         <span class="hljs-keyword">return</span> mv;
     }
     
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>将自己的类交给SpringIOC容器，注册bean</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Handler--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"/hello"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.kuang.controller.HelloController"</span>/&gt;</span></code></pre></div>
+ <pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Handler--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"/hello"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.kuang.controller.HelloController"</span>/&gt;</span></code></pre>
 </li>
 <li><p>写要跳转的jsp页面，显示ModelandView存放的数据，以及我们的正常页面；</p>
-<div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+<pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Kuangshen&lt;/title&gt;
@@ -555,7 +555,7 @@
 &lt;body&gt;
     ${msg}
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>配置Tomcat 启动测试！</p>
 </li>
@@ -575,7 +575,7 @@
 <p><img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331223102129-1564021137.png" srcset="/blog/img/loading.gif" alt="img"></p>
 <h2 id="4、使用注解开发SpringMVC（注解版）"><a href="#4、使用注解开发SpringMVC（注解版）" class="headerlink" title="4、使用注解开发SpringMVC（注解版）"></a>4、使用注解开发SpringMVC（注解版）</h2><p><strong>第一步:新建一个Moudle , 添加web支持！</strong>建立包结构 com.kuang.controller</p>
 <p><strong>第二步:由于Maven可能存在资源过滤的问题，我们将配置完善</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span>
@@ -594,7 +594,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span></code></pre>
 
 <p><strong>第三步:在pom.xml文件引入相关的依赖</strong>：<br>主要有Spring框架核心库、Spring MVC、servlet , JSTL等。我们在父依赖中已经引入了！</p>
 <p><strong>第四步:配置web.xml</strong></p>
@@ -609,7 +609,7 @@
 <li><p>启动级别为1</p>
 </li>
 <li><p>映射路径为 / 【不要用/*，会404】</p>
-  <div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+  <pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span>
@@ -634,13 +634,13 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre>
 
-  <div class="hljs"><pre><code class="hljs java">/ 和 <span class="hljs-comment">/* 的区别：</span>
+  <pre><code class="hljs java">/ 和 <span class="hljs-comment">/* 的区别：</span>
 <span class="hljs-comment">&lt; url-pattern &gt; / &lt;/ url-pattern &gt; 不会匹配到.jsp， 只针对我们编写的请求；</span>
 <span class="hljs-comment">即：.jsp 不会进入spring的 DispatcherServlet类 。</span>
 <span class="hljs-comment">&lt; url-pattern &gt; /* &lt;/ url-pattern &gt; 会匹配 *.jsp，</span>
-<span class="hljs-comment">会出现返回 jsp视图 时再次进入spring的DispatcherServlet 类，导致找不到对应的controller所以报404错。</span></code></pre></div>
+<span class="hljs-comment">会出现返回 jsp视图 时再次进入spring的DispatcherServlet 类，导致找不到对应的controller所以报404错。</span></code></pre>
 
 </li>
 </ul>
@@ -652,7 +652,7 @@
 <li>配置视图解析器</li>
 </ul>
 <p>在resource目录下添加springmvc-servlet.xml配置文件，配置的形式与Spring容器配置基本类似，为了支持基于注解的IOC，设置了自动扫描包的功能，具体配置信息如下：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">"http://www.springframework.org/schema/context"</span></span>
@@ -688,12 +688,12 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre>
 
 <p>在视图解析器中我们把所有的视图都存放在/WEB-INF/目录下，这样可以保证视图安全，因为这个目录下的文件，客户端不能直接访问。</p>
 <p><strong>第六步:创建Controller</strong></p>
 <p>编写一个Java控制类： com.kuang.controller.HelloController , 注意编码规范</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
 
 <span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;
 <span class="hljs-keyword">import</span> org.springframework.ui.Model;
@@ -711,7 +711,7 @@
         <span class="hljs-comment">//会被视图解析器处理，web-inf/jsp/hello.jsp</span>
         <span class="hljs-keyword">return</span> <span class="hljs-string">"hello"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <ul>
 <li>@Controller是为了让Spring IOC容器初始化时自动扫描到；</li>
@@ -722,7 +722,7 @@
 <p><strong>第七步:创建视图层</strong></p>
 <p>在WEB-INF/ jsp目录中创建hello.jsp ， 视图可以直接取出并展示从Controller带回的信息；</p>
 <p>可以通过EL表示取出Model中存放的值，或者对象；</p>
-<div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+<pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;SpringMVC&lt;/title&gt;
@@ -730,7 +730,7 @@
 &lt;body&gt;
     ${msg}
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 
 <p><strong>第八步:配置Tomcat运行</strong></p>
 <p>配置Tomcat ， 开启服务器 ， 访问 对应的请求路径！</p>
@@ -757,11 +757,11 @@
 </ul>
 <p>我们来看看有哪些方式可以实现：</p>
 <h3 id="实现Controller接口"><a href="#实现Controller接口" class="headerlink" title="实现Controller接口"></a>实现Controller接口</h3><p>Controller是一个接口，在org.springframework.web.servlet.mvc包下，接口中只有一个方法；</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//实现该接口的类获得控制器功能</span>
+<pre><code class="hljs java"><span class="hljs-comment">//实现该接口的类获得控制器功能</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Controller</span> </span>{
     <span class="hljs-comment">//处理请求且返回一个模型与视图对象</span>
     <span class="hljs-function">ModelAndView <span class="hljs-title">handleRequest</span><span class="hljs-params">(HttpServletRequest var1, HttpServletResponse var2)</span> <span class="hljs-keyword">throws</span> Exception</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p><strong>测试</strong></p>
 <ol>
@@ -772,7 +772,7 @@
 </ul>
 </li>
 <li><p>编写一个Controller类，ControllerTest1</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//定义控制器</span>
+ <pre><code class="hljs java"><span class="hljs-comment">//定义控制器</span>
 <span class="hljs-comment">//注意点：不要导错包，实现Controller接口，重写方法；</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControllerTest1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Controller</span> </span>{
 
@@ -783,13 +783,13 @@
         mv.setViewName(<span class="hljs-string">"test"</span>);
         <span class="hljs-keyword">return</span> mv;
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>编写完毕后，去Spring配置文件中注册请求的bean；name对应请求路径，class对应处理请求的类</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"/t1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.kuang.controller.ControllerTest1"</span>/&gt;</span></code></pre></div>
+ <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"/t1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.kuang.controller.ControllerTest1"</span>/&gt;</span></code></pre>
 </li>
 <li><p>编写前端test.jsp，注意在WEB-INF/jsp目录下编写，对应我们的视图解析器</p>
- <div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+ <pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Kuangshen&lt;/title&gt;
@@ -797,7 +797,7 @@
 &lt;body&gt;
     ${msg}
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>配置Tomcat运行测试，我这里没有项目发布名配置的就是一个 / ，所以请求不用加项目名，OK！</p>
 </li>
@@ -812,11 +812,11 @@
 <li><p>@Controller注解类型用于声明Spring类的实例是一个控制器（在讲IOC时还提到了另外3个注解）；</p>
 </li>
 <li><p>Spring可以使用扫描机制来找到应用程序中所有基于注解的控制器类，为了保证Spring能找到你的控制器，需要在配置文件中声明组件扫描。</p>
-  <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 自动扫描指定的包，下面所有注解类交给IOC容器管理 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">"com.kuang.controller"</span>/&gt;</span></code></pre></div>
+  <pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 自动扫描指定的包，下面所有注解类交给IOC容器管理 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">"com.kuang.controller"</span>/&gt;</span></code></pre>
 </li>
 <li><p>增加一个ControllerTest2类，使用注解实现；</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//@Controller注解的类会自动添加到Spring上下文中</span>
+  <pre><code class="hljs java"><span class="hljs-comment">//@Controller注解的类会自动添加到Spring上下文中</span>
 <span class="hljs-comment">//代表这个类会被Spring按管</span>
 <span class="hljs-comment">//被这个注解的类，中的所有方法，如果返回值是String，并且有具体页面可以跳转，那么就会被视图解析器解析;</span>
 <span class="hljs-meta">@Controller</span>
@@ -831,7 +831,7 @@
         <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
     }
 
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>运行tomcat测试</p>
 </li>
@@ -846,25 +846,25 @@
 <li><p>为了测试结论更加准确，我们可以加上一个项目名测试 myweb</p>
 </li>
 <li><p>只注解在方法上面</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+  <pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestController</span> </span>{
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/h1"</span>)
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
         <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>  访问路径：<a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:8080 / 项目名 / h1</p>
 </li>
 <li><p>同时注解类与方法</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+  <pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/admin"</span>)
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestController</span> </span>{
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/h1"</span>)
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
         <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>  访问路径：<a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:8080 / 项目名/ admin /h1 , 需要先指定类的路径再指定方法的路径；</p>
 </li>
@@ -894,12 +894,12 @@
 <p><strong>学习测试</strong></p>
 <ol>
 <li><p>在新建一个类 RestFulController</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+ <pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestFulController</span> </span>{
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>在Spring MVC中可以使用 @PathVariable 注解，让方法参数的值对应绑定到一个URI模板变量上。</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+ <pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestFulController</span> </span>{
     <span class="hljs-comment">//原来的 :  http://localhost: 8080/add?a=1&amp;b=2</span>
     <span class="hljs-comment">//RestFul :  http://localhost : 8080/add/1/2</span>
@@ -916,7 +916,7 @@
         
     }
     
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>我们来测试请求查看下<br> <img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213217087-619232504.png" srcset="/blog/img/loading.gif" alt="img"></p>
 </li>
@@ -932,7 +932,7 @@
 </ul>
 </li>
 <li><p>我们来修改下对应的参数类型，再次测试</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//映射访问路径</span>
+ <pre><code class="hljs java"><span class="hljs-comment">//映射访问路径</span>
 <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/commit/{p1}/{p2}"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">(@PathVariable <span class="hljs-keyword">int</span> p1, @PathVariable String p2, Model model)</span></span>{
 
@@ -942,7 +942,7 @@
     <span class="hljs-comment">//返回视图位置</span>
     <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
 
-}</code></pre></div>
+}</code></pre>
 
 <p> <img src="https://img2020.cnblogs.com/blog/1905053/202004/1905053-20200401214657561-1298821776.png" srcset="/blog/img/loading.gif" alt="img"></p>
 </li>
@@ -952,22 +952,22 @@
 <p>我们来测试一下：</p>
 <ul>
 <li><p>增加一个方法</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//映射访问路径,必须是POST请求</span>
+  <pre><code class="hljs java"><span class="hljs-comment">//映射访问路径,必须是POST请求</span>
 <span class="hljs-meta">@RequestMapping</span>(value = <span class="hljs-string">"/hello"</span>,method = {RequestMethod.POST})
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index2</span><span class="hljs-params">(Model model)</span></span>{
     model.addAttribute(<span class="hljs-string">"msg"</span>, <span class="hljs-string">"hello!"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>我们使用浏览器地址栏进行访问默认是Get请求，会报错405：<br>  <img src="https://img2020.cnblogs.com/blog/1905053/202004/1905053-20200401214714976-802588010.png" srcset="/blog/img/loading.gif" alt="img"></p>
 </li>
 <li><p>如果将POST修改为GET则正常了；</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//映射访问路径,必须是Get请求</span>
+  <pre><code class="hljs java"><span class="hljs-comment">//映射访问路径,必须是Get请求</span>
 <span class="hljs-meta">@RequestMapping</span>(value = <span class="hljs-string">"/hello"</span>,method = {RequestMethod.GET})
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index2</span><span class="hljs-params">(Model model)</span></span>{
     model.addAttribute(<span class="hljs-string">"msg"</span>, <span class="hljs-string">"hello!"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>  <img src="https://img2020.cnblogs.com/blog/1905053/202004/1905053-20200401214737681-664600385.png" srcset="/blog/img/loading.gif" alt="img"></p>
 </li>
@@ -976,14 +976,14 @@
 <p>Spring MVC 的 @RequestMapping 注解能够处理 HTTP 请求的方法, 比如 GET, PUT, POST, DELETE 以及 PATCH。</p>
 <p><strong>所有的地址栏请求默认都会是 HTTP GET 类型的。</strong></p>
 <p>方法级别的注解变体有如下几个： 组合注解</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping</span>
+<pre><code class="hljs java"><span class="hljs-meta">@GetMapping</span>
 <span class="hljs-meta">@PostMapping</span>
 <span class="hljs-meta">@PutMapping</span>
 <span class="hljs-meta">@DeleteMapping</span>
-<span class="hljs-meta">@PatchMapping</span></code></pre></div>
+<span class="hljs-meta">@PatchMapping</span></code></pre>
 
 <p>@GetMapping 是一个组合注解</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+<pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestFulController</span> </span>{
     <span class="hljs-comment">//原来的 :  http://localhost: 8080/add?a=1&amp;b=2</span>
     <span class="hljs-comment">//RestFul :  http://localhost : 8080/add/1/2</span>
@@ -1001,7 +1001,7 @@
         <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;  
     }
     
-}</code></pre></div>
+}</code></pre>
 
 <p><img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213251638-969968192.png" srcset="/blog/img/loading.gif" alt="img"></p>
 <p>它所扮演的是 @RequestMapping(method =RequestMethod.GET) 的一个快捷方式。</p>
@@ -1013,17 +1013,17 @@
 <p>此概念据说来自《程序员修炼之道》书中的一个故事，传说程序大师随身携带一只小黄鸭，在调试代码的时候会在桌上放上这只小黄鸭，然后详细地向鸭子解释每行代码，然后很快就将问题定位修复了。</p>
 <h2 id="7、SpringMVC：结果跳转三种方式-转发、重定向"><a href="#7、SpringMVC：结果跳转三种方式-转发、重定向" class="headerlink" title="7、SpringMVC：结果跳转三种方式(转发、重定向)"></a>7、SpringMVC：结果跳转三种方式(转发、重定向)</h2><h3 id="7-1、ModelAndView"><a href="#7-1、ModelAndView" class="headerlink" title="7.1、ModelAndView"></a>7.1、ModelAndView</h3><p>设置ModelAndView对象 , 根据view的名称 , 和视图解析器跳到指定的页面 .</p>
 <p>页面 : {视图解析器前缀} + viewName +{视图解析器后缀}</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 视图解析器 --&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 视图解析器 --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span></span>
 <span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">"internalResourceViewResolver"</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- 前缀 --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"prefix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/WEB-INF/jsp/"</span> /&gt;</span>
     <span class="hljs-comment">&lt;!-- 后缀 --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre>
 
 <p>对应的controller类</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControllerTest1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Controller</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControllerTest1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Controller</span> </span>{
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> ModelAndView <span class="hljs-title">handleRequest</span><span class="hljs-params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)</span> <span class="hljs-keyword">throws</span> Exception </span>{
         <span class="hljs-comment">//返回一个模型视图对象</span>
@@ -1032,7 +1032,7 @@
         mv.setViewName(<span class="hljs-string">"test"</span>);
         <span class="hljs-keyword">return</span> mv;
     }
-}</code></pre></div>
+}</code></pre>
 
 <h3 id="7-2、ServletAPI"><a href="#7-2、ServletAPI" class="headerlink" title="7.2、ServletAPI"></a>7.2、ServletAPI</h3><p>通过设置ServletAPI , 不需要视图解析器 .</p>
 <ol>
@@ -1040,7 +1040,7 @@
 <li>通过HttpServletResponse实现重定向</li>
 <li>通过HttpServletResponse实现转发</li>
 </ol>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+<pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ResultGo</span> </span>{
 
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/result/t1"</span>)
@@ -1060,12 +1060,12 @@
         req.getRequestDispatcher(<span class="hljs-string">"/WEB-INF/jsp/test.jsp"</span>).forward(req,rsp);
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <p><img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213355173-975224060.png" srcset="/blog/img/loading.gif" alt="img"></p>
 <h3 id="7-3、SpringMVC"><a href="#7-3、SpringMVC" class="headerlink" title="7.3、SpringMVC"></a>7.3、SpringMVC</h3><p><strong>通过SpringMVC来实现转发和重定向 - 无需视图解析器；</strong></p>
 <p>测试前，需要将视图解析器注释掉</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+<pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ResultSpringMVC</span> </span>{
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/rsm/t1"</span>)
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test1</span><span class="hljs-params">()</span></span>{
@@ -1084,12 +1084,12 @@
         <span class="hljs-comment">//重定向</span>
         <span class="hljs-keyword">return</span> <span class="hljs-string">"redirect:/index.jsp"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p><strong>通过SpringMVC来实现转发和重定向 - 有视图解析器；</strong></p>
 <p>重定向 , 不需要视图解析器 , 本质就是重新请求一个新地方嘛 , 所以注意路径问题.</p>
 <p>可以重定向到另外一个请求实现 .</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+<pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ResultSpringMVC2</span> </span>{
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/rsm2/t1"</span>)
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test1</span><span class="hljs-params">()</span></span>{
@@ -1104,27 +1104,27 @@
         <span class="hljs-comment">//return "redirect:hello.do"; //hello.do为另一个请求/</span>
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <h2 id="8、数据处理（接收请求参数及数据回显）"><a href="#8、数据处理（接收请求参数及数据回显）" class="headerlink" title="8、数据处理（接收请求参数及数据回显）"></a>8、数据处理（接收请求参数及数据回显）</h2><h3 id="处理提交数据"><a href="#处理提交数据" class="headerlink" title="处理提交数据"></a>处理提交数据</h3><p><strong>1、提交的域名称和处理方法的参数名一致</strong></p>
 <p>提交数据 : <a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:8080/hello?name=kuangshen</p>
 <p>处理方法 :</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">(String name)</span></span>{
     System.out.println(name);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"hello"</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>后台输出 : kuangshen</p>
 <p><strong>2、提交的域名称和处理方法的参数名不一致</strong></p>
 <p>提交数据 : <a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:8080/hello?username=kuangshen</p>
 <p>处理方法 :</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//@RequestParam("username") : username提交的域的名称 .</span>
+<pre><code class="hljs java"><span class="hljs-comment">//@RequestParam("username") : username提交的域的名称 .</span>
 <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">"username"</span>)</span> String name)</span>{
     System.out.println(name);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"hello"</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>后台输出 :</p>
 <p><img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213420413-895694643.png" srcset="/blog/img/loading.gif" alt="img"></p>
@@ -1132,23 +1132,23 @@
 <p>要求提交的表单域和对象的属性名一致 , 参数使用对象即可</p>
 <ol>
 <li><p>实体类</p>
- <div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
+ <pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;
     <span class="hljs-keyword">private</span> String name;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
     <span class="hljs-comment">//构造</span>
     <span class="hljs-comment">//get/set</span>
     <span class="hljs-comment">//tostring()</span>
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>提交数据 : <a href="http://localhost:8080/user?name=kuangshen&amp;id=1&amp;age=15" target="_blank" rel="noopener">http://localhost:8080/user?name=kuangshen&amp;id=1&amp;age=15</a></p>
 </li>
 <li><p>处理方法 :</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/user"</span>)
+ <pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/user"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">user</span><span class="hljs-params">(User user)</span></span>{
     System.out.println(user);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"hello"</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p> 后台输出 : User { id=1, name=’kuangshen’, age=15 }</p>
 </li>
@@ -1156,7 +1156,7 @@
 <p><strong>说明：如果使用对象的话，前端传递的参数名和对象名必须一致，否则就是null。</strong></p>
 <h3 id="数据显示到前端"><a href="#数据显示到前端" class="headerlink" title="数据显示到前端"></a>数据显示到前端</h3><p><strong>第一种 : 通过ModelAndView</strong></p>
 <p>我们前面一直都是如此 . 就不过多解释</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControllerTest1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Controller</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControllerTest1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Controller</span> </span>{
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> ModelAndView <span class="hljs-title">handleRequest</span><span class="hljs-params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)</span> <span class="hljs-keyword">throws</span> Exception </span>{
         <span class="hljs-comment">//返回一个模型视图对象</span>
@@ -1165,56 +1165,56 @@
         mv.setViewName(<span class="hljs-string">"test"</span>);
         <span class="hljs-keyword">return</span> mv;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p><strong>第二种 : 通过ModelMap</strong></p>
 <p>ModelMap</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">"username"</span>)</span> String name, ModelMap model)</span>{
     <span class="hljs-comment">//封装要显示到视图中的数据</span>
     <span class="hljs-comment">//相当于req.setAttribute("name",name);</span>
     model.addAttribute(<span class="hljs-string">"name"</span>,name);
     System.out.println(name);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"hello"</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p><strong>第三种 : 通过Model</strong></p>
 <p>Model</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/ct2/hello"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/ct2/hello"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">"username"</span>)</span> String name, Model model)</span>{
     <span class="hljs-comment">//封装要显示到视图中的数据</span>
     <span class="hljs-comment">//相当于req.setAttribute("name",name);</span>
     model.addAttribute(<span class="hljs-string">"msg"</span>,name);
     System.out.println(name);
     <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>;
-}</code></pre></div>
+}</code></pre>
 
 <h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p>就对于新手而言简单来说使用区别就是：</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-attr">Model</span> <span class="hljs-string">只有寥寥几个方法只适合用于储存数据，简化了新手对于Model对象的操作和理解；</span>
+<pre><code class="hljs properties"><span class="hljs-attr">Model</span> <span class="hljs-string">只有寥寥几个方法只适合用于储存数据，简化了新手对于Model对象的操作和理解；</span>
 
 <span class="hljs-attr">ModelMap</span> <span class="hljs-string">继承了 LinkedMap ，除了实现了自身的一些方法，同样的继承 LinkedMap 的方法和特性；</span>
 
-<span class="hljs-attr">ModelAndView</span> <span class="hljs-string">可以在储存数据的同时，可以进行设置返回的逻辑视图，进行控制展示层的跳转。</span></code></pre></div>
+<span class="hljs-attr">ModelAndView</span> <span class="hljs-string">可以在储存数据的同时，可以进行设置返回的逻辑视图，进行控制展示层的跳转。</span></code></pre>
 
 <p>当然更多的以后开发考虑的更多的是性能和优化，就不能单单仅限于此的了解。</p>
 <p><strong>请使用80%的时间打好扎实的基础，剩下18%的时间研究框架，2%的时间去学点英文，框架的官方文档永远是最好的教程。</strong></p>
 <h2 id="9、数据处理（乱码问题）"><a href="#9、数据处理（乱码问题）" class="headerlink" title="9、数据处理（乱码问题）"></a>9、数据处理（乱码问题）</h2><p>测试步骤：</p>
 <ol>
 <li><p>我们可以在首页编写一个提交的表单</p>
- <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/e/t"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+ <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/e/t"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 </li>
 <li><p>后台编写对应的处理类</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+ <pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Encoding</span> </span>{
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/e/t"</span>)
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test</span><span class="hljs-params">(Model model,String name)</span></span>{
         model.addAttribute(<span class="hljs-string">"msg"</span>,name); <span class="hljs-comment">//获取表单提交的值</span>
         <span class="hljs-keyword">return</span> <span class="hljs-string">"test"</span>; <span class="hljs-comment">//跳转到test页面显示输入的值</span>
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>输入中文测试，发现乱码<br> <img src="https://img2020.cnblogs.com/blog/1905053/202004/1905053-20200402193540997-1854631524.png" srcset="/blog/img/loading.gif" alt="img"></p>
 </li>
@@ -1222,7 +1222,7 @@
 <p>不得不说，乱码问题是在我们开发中十分常见的问题，也是让我们程序猿比较头大的问题！</p>
 <p>以前乱码问题通过过滤器解决 , 而SpringMVC给我们提供了一个过滤器 , 可以在web.xml中配置 .</p>
 <p>修改了xml文件需要重启服务器！</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--2.配置SpringMVC的乱码过滤--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--2.配置SpringMVC的乱码过滤--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">filter</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>encoding<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="hljs-tag">&lt;/<span class="hljs-name">filter-class</span>&gt;</span>
@@ -1234,18 +1234,18 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">filter-mapping</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>encoding<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">filter-mapping</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">filter-mapping</span>&gt;</span></code></pre>
 
 <p>有些极端情况下.这个过滤器对get的支持不好 .</p>
 <p>处理方法 :</p>
 <ol>
 <li><p>修改tomcat配置文件 ： 设置编码！</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Connector</span> <span class="hljs-attr">URIEncoding</span>=<span class="hljs-string">"utf-8"</span> <span class="hljs-attr">port</span>=<span class="hljs-string">"8080"</span> <span class="hljs-attr">protocol</span>=<span class="hljs-string">"HTTP/1.1"</span></span>
+ <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Connector</span> <span class="hljs-attr">URIEncoding</span>=<span class="hljs-string">"utf-8"</span> <span class="hljs-attr">port</span>=<span class="hljs-string">"8080"</span> <span class="hljs-attr">protocol</span>=<span class="hljs-string">"HTTP/1.1"</span></span>
 <span class="hljs-tag">           <span class="hljs-attr">connectionTimeout</span>=<span class="hljs-string">"20000"</span></span>
-<span class="hljs-tag">           <span class="hljs-attr">redirectPort</span>=<span class="hljs-string">"8443"</span> /&gt;</span></code></pre></div>
+<span class="hljs-tag">           <span class="hljs-attr">redirectPort</span>=<span class="hljs-string">"8443"</span> /&gt;</span></code></pre>
 </li>
 <li><p>自定义过滤器</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.filter;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.filter;
 
 <span class="hljs-keyword">import</span> javax.servlet.*;
 <span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;
@@ -1352,7 +1352,7 @@
         String[] values = parameterMap.get(name);
         <span class="hljs-keyword">return</span> values;
     }
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ol>
@@ -1372,27 +1372,27 @@
 <li>方括号保存数组</li>
 </ul>
 <p><strong>JSON 键值对</strong>是用来保存 JavaScript 对象的一种方式，和 JavaScript 对象的写法也大同小异，键/值对组合中的键名写在前面并用双引号 “” 包裹，使用冒号 : 分隔，然后紧接着值：</p>
-<div class="hljs"><pre><code class="hljs json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"QinJiang"</span>}
+<pre><code class="hljs json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"QinJiang"</span>}
 {<span class="hljs-attr">"age"</span>: <span class="hljs-string">"3"</span>}
-{<span class="hljs-attr">"sex"</span>: <span class="hljs-string">"男"</span>}</code></pre></div>
+{<span class="hljs-attr">"sex"</span>: <span class="hljs-string">"男"</span>}</code></pre>
 
 <p>很多人搞不清楚 JSON 和 JavaScript 对象的关系，甚至连谁是谁都不清楚。其实，可以这么理解：</p>
 <ul>
 <li><p>JSON 是 JavaScript 对象的字符串表示法，它使用文本表示一个 JS 对象的信息，本质是一个字符串。</p>
-  <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = {<span class="hljs-attr">a</span>: <span class="hljs-string">'Hello'</span>, <span class="hljs-attr">b</span>: <span class="hljs-string">'World'</span>}; <span class="hljs-comment">//这是一个对象，注意键名也是可以使用引号包裹的</span>
-<span class="hljs-keyword">var</span> json = <span class="hljs-string">'{"a": "Hello", "b": "World"}'</span>; <span class="hljs-comment">//这是一个 JSON 字符串，本质是一个字符串</span></code></pre></div>
+  <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = {<span class="hljs-attr">a</span>: <span class="hljs-string">'Hello'</span>, <span class="hljs-attr">b</span>: <span class="hljs-string">'World'</span>}; <span class="hljs-comment">//这是一个对象，注意键名也是可以使用引号包裹的</span>
+<span class="hljs-keyword">var</span> json = <span class="hljs-string">'{"a": "Hello", "b": "World"}'</span>; <span class="hljs-comment">//这是一个 JSON 字符串，本质是一个字符串</span></code></pre>
 
 </li>
 </ul>
 <p><strong>JSON 和 JavaScript 对象互转</strong></p>
 <ul>
 <li><p>要实现从JSON字符串转换为JavaScript 对象，使用 JSON.parse() 方法：</p>
-  <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-string">'{"a": "Hello", "b": "World"}'</span>); 
-<span class="hljs-comment">//结果是 {a: 'Hello', b: 'World'}</span></code></pre></div>
+  <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-string">'{"a": "Hello", "b": "World"}'</span>); 
+<span class="hljs-comment">//结果是 {a: 'Hello', b: 'World'}</span></code></pre>
 </li>
 <li><p>要实现从JavaScript 对象转换为JSON字符串，使用 JSON.stringify() 方法：</p>
-  <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> json = <span class="hljs-built_in">JSON</span>.stringify({<span class="hljs-attr">a</span>: <span class="hljs-string">'Hello'</span>, <span class="hljs-attr">b</span>: <span class="hljs-string">'World'</span>});
-<span class="hljs-comment">//结果是 '{"a": "Hello", "b": "World"}'</span></code></pre></div>
+  <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> json = <span class="hljs-built_in">JSON</span>.stringify({<span class="hljs-attr">a</span>: <span class="hljs-string">'Hello'</span>, <span class="hljs-attr">b</span>: <span class="hljs-string">'World'</span>});
+<span class="hljs-comment">//结果是 '{"a": "Hello", "b": "World"}'</span></code></pre>
 
 </li>
 </ul>
@@ -1401,7 +1401,7 @@
 <li><p>新建一个module ，springmvc-05-json ， 添加web的支持</p>
 </li>
 <li><p>在web目录下新建一个 json-1.html ， 编写测试内容</p>
- <div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+ <pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -1427,7 +1427,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 </li>
 <li><p>在IDEA中使用浏览器打开，查看控制台输出！</p>
 <p> <img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213612113-1624858159.png" srcset="/blog/img/loading.gif" alt="img"></p>
@@ -1439,15 +1439,15 @@
 <li><p>当然工具不止这一个，比如还有阿里巴巴的 fastjson 等等。</p>
 </li>
 <li><p>我们这里使用Jackson，使用它需要导入它的jar包；</p>
-  <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core --&gt;</span>
+  <pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jackson-databind<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.10.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 </li>
 <li><p>配置SpringMVC需要的配置<br>  <strong>web.xml</strong></p>
-  <div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+  <pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span>
@@ -1485,12 +1485,12 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">filter-mapping</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre>
 
 </li>
 </ul>
 <p><strong>springmvc-servlet.xml</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">"http://www.springframework.org/schema/context"</span></span>
@@ -1514,11 +1514,11 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre>
 
 <ul>
 <li><p>我们随便编写一个User的实体类，然后我们去编写我们的测试Controller；</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.pojo;
+  <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.pojo;
 
 <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
 <span class="hljs-keyword">import</span> lombok.Data;
@@ -1534,13 +1534,13 @@
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
     <span class="hljs-keyword">private</span> String sex;
     
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>这里我们需要两个新东西，一个是@ResponseBody，一个是ObjectMapper对象，我们看下具体的用法</p>
 </li>
 </ul>
 <p>编写一个Controller；</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+<pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>{
 
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json1"</span>)
@@ -1556,7 +1556,7 @@
         <span class="hljs-keyword">return</span> str;
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <ul>
 <li>配置Tomcat ， 启动测试一下！</li>
@@ -1567,8 +1567,8 @@
 <li><p>发现出现了乱码问题，我们需要设置一下他的编码格式为utf-8，以及它返回的类型；</p>
 </li>
 <li><p>通过@RequestMaping的produces属性来实现，修改下代码</p>
-  <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//produces:指定响应体返回类型和编码</span>
-<span class="hljs-meta">@RequestMapping</span>(value = <span class="hljs-string">"/json1"</span>,produces = <span class="hljs-string">"application/json;charset=utf-8"</span>)</code></pre></div>
+  <pre><code class="hljs java"><span class="hljs-comment">//produces:指定响应体返回类型和编码</span>
+<span class="hljs-meta">@RequestMapping</span>(value = <span class="hljs-string">"/json1"</span>,produces = <span class="hljs-string">"application/json;charset=utf-8"</span>)</code></pre>
 </li>
 <li><p>再次测试， <a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:8080/json1 ， 乱码问题OK！</p>
 <p>  <img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213702188-1592450222.png" srcset="/blog/img/loading.gif" alt="img"></p>
@@ -1578,7 +1578,7 @@
 <h3 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h3><p><strong>乱码统一解决</strong></p>
 <p>上一种方法比较麻烦，如果项目中有许多请求则每一个都要添加，可以通过Spring配置统一指定，这样就不用每次都去处理了！</p>
 <p>我们可以在springmvc的配置文件上添加一段消息StringHttpMessageConverter转换配置！</p>
-<div class="hljs"><pre><code class="hljs xml"> <span class="hljs-comment">&lt;!--JSON乱码问题配置--&gt;</span>
+<pre><code class="hljs xml"> <span class="hljs-comment">&lt;!--JSON乱码问题配置--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mvc:annotation-driven</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mvc:message-converters</span> <span class="hljs-attr">register-defaults</span>=<span class="hljs-string">"true"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.http.converter.StringHttpMessageConverter"</span>&gt;</span>
@@ -1592,11 +1592,11 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mvc:message-converters</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mvc:annotation-driven</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mvc:annotation-driven</span>&gt;</span></code></pre>
 
 <p><strong>返回json字符串统一解决</strong></p>
 <p>在类上直接使用 <strong>@RestController</strong> ，这样子，里面所有的方法都只会返回 json 字符串了，不用再每一个都添加@ResponseBody ！我们在前后端分离开发中，一般都使用 @RestController ，十分便捷！</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span>
+<pre><code class="hljs java"><span class="hljs-meta">@RestController</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>{
 
     <span class="hljs-comment">//produces:指定响应体返回类型和编码</span>
@@ -1612,11 +1612,11 @@
         <span class="hljs-keyword">return</span> str;
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <p>启动tomcat测试，结果都正常输出！</p>
 <h3 id="测试集合输出"><a href="#测试集合输出" class="headerlink" title="测试集合输出"></a>测试集合输出</h3><p>增加一个新的方法</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json2"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json2"</span>)
 <span class="hljs-meta">@ResponseBody</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">json2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>{
 
@@ -1636,11 +1636,11 @@
     <span class="hljs-comment">//将我们的对象解析成为json格式</span>
     String str = mapper.writeValueAsString(list);
     <span class="hljs-keyword">return</span> str;
-}</code></pre></div>
+}</code></pre>
 
 <p>运行结果 : 十分完美，没有任何问题！</p>
 <h3 id="输出时间对象"><a href="#输出时间对象" class="headerlink" title="输出时间对象"></a>输出时间对象</h3><p>增加一个新的方法</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json3"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json3"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">json3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>{
 
     ObjectMapper mapper = <span class="hljs-keyword">new</span> ObjectMapper();
@@ -1650,7 +1650,7 @@
     <span class="hljs-comment">//将我们的对象解析成为json格式</span>
     String str = mapper.writeValueAsString(date);
     <span class="hljs-keyword">return</span> str;
-}</code></pre></div>
+}</code></pre>
 
 <p>运行结果 :</p>
 <ul>
@@ -1658,7 +1658,7 @@
 <li>Jackson 默认是会把时间转成timestamps形式</li>
 </ul>
 <p><strong>解决方案：取消timestamps形式 ， 自定义时间格式</strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json4"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json4"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">json4</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>{
 
     ObjectMapper mapper = <span class="hljs-keyword">new</span> ObjectMapper();
@@ -1674,11 +1674,11 @@
     String str = mapper.writeValueAsString(date);
 
     <span class="hljs-keyword">return</span> str;
-}</code></pre></div>
+}</code></pre>
 
 <p>运行结果 : 成功的输出了时间！</p>
 <p><strong><em>时间戳格式化，老手艺不能丢</em></strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json6"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json6"</span>)
   <span class="hljs-meta">@ResponseBody</span>
   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">json6</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>{
 
@@ -1689,10 +1689,10 @@
       <span class="hljs-comment">// objectMapper,时间解析后的默认格式为: Timestamp, 时间裁</span>
       <span class="hljs-keyword">return</span> mapper.writeValueAsString(sdf.format(date));
 
-  }</code></pre></div>
+  }</code></pre>
 
 <h3 id="抽取为工具类"><a href="#抽取为工具类" class="headerlink" title="抽取为工具类"></a>抽取为工具类</h3><p><strong>如果要经常使用的话，这样是比较麻烦的，我们可以将这些代码封装到一个工具类中；我们去编写下</strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.utils;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.utils;
 
 <span class="hljs-keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;
 <span class="hljs-keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;
@@ -1721,24 +1721,24 @@
         }
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>我们使用工具类，代码就更加简洁了！</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json5"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json5"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">json5</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>{
     Date date = <span class="hljs-keyword">new</span> Date();
     String json = JsonUtils.getJson(date);
     <span class="hljs-keyword">return</span> json;
-}</code></pre></div>
+}</code></pre>
 
 <p>大工告成！完美！</p>
 <h3 id="2-FastJson"><a href="#2-FastJson" class="headerlink" title="2.FastJson"></a>2.FastJson</h3><p>fastjson.jar是阿里开发的一款专门用于Java开发的包，可以方便的实现json对象与JavaBean对象的转换，实现JavaBean对象与json字符串的转换，实现json对象与json字符串的转换。实现json的转换方法很多，最后的实现结果都是一样的。</p>
 <p>fastjson 的 pom依赖！</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fastjson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.60<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 
 <p>fastjson 三个主要的类：</p>
 <ul>
@@ -1758,7 +1758,7 @@
 </li>
 </ul>
 <p><strong>代码测试，我们新建一个FastJsonDemo 类</strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
 
 <span class="hljs-keyword">import</span> com.alibaba.fastjson.JSON;
 <span class="hljs-keyword">import</span> com.alibaba.fastjson.JSONObject;
@@ -1798,10 +1798,10 @@
         User to_java_user = JSON.toJavaObject(jsonObject1, User<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
         System.out.println(<span class="hljs-string">"JSON.toJavaObject(jsonObject1, User.class)==&gt;"</span>+to_java_user);
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>例题：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json8"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json8"</span>)
     <span class="hljs-meta">@ResponseBody</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">json8</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>{
 
@@ -1819,7 +1819,7 @@
         <span class="hljs-comment">//将我们的对象解析成为json格式</span>
         String str1 = JSON.toJSONString(list);
         <span class="hljs-keyword">return</span> str1;
-    }</code></pre></div>
+    }</code></pre>
 
 <p>测试：</p>
 <p><a href="http://localhost/" target="_blank" rel="noopener">http://localhost</a>:8080/json8</p>
@@ -1842,7 +1842,7 @@
 <li><p>新建一个module ： sspringmvc-06-ajax ， 导入web支持！</p>
 </li>
 <li><p>编写一个 ajax-frame.html 使用 iframe 测试，感受下效果</p>
- <div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+ <pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -1878,7 +1878,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 </li>
 <li><p>使用IDEA开浏览器测试一下！</p>
 </li>
@@ -1898,7 +1898,7 @@
 <li>jQuery 不是生产者，而是大自然搬运工。</li>
 <li>jQuery Ajax本质就是 XMLHttpRequest，对他进行了封装，方便调用！</li>
 </ul>
-<div class="hljs"><pre><code class="hljs mipsasm"><span class="hljs-keyword">jQuery.ajax(...)</span>
+<pre><code class="hljs mipsasm"><span class="hljs-keyword">jQuery.ajax(...)</span>
 <span class="hljs-keyword"> </span>      部分参数：
               url：请求地址
              type：请求方式，GET、POST（<span class="hljs-number">1</span>.<span class="hljs-number">9</span>.<span class="hljs-number">0</span>之后用method）
@@ -1918,12 +1918,12 @@
            <span class="hljs-string">"html"</span>: 将服务器端返回的内容转换成普通文本格式，在插入DOM中时，如果包含<span class="hljs-keyword">JavaScript标签，则会尝试去执行。</span>
 <span class="hljs-keyword"> </span>        <span class="hljs-string">"script"</span>: 尝试将返回值当作<span class="hljs-keyword">JavaScript去执行，然后再将服务器端返回的内容转换成普通文本格式</span>
 <span class="hljs-keyword"> </span>          <span class="hljs-string">"json"</span>: 将服务器端返回的内容转换成相应的<span class="hljs-keyword">JavaScript对象</span>
-<span class="hljs-keyword"> </span>         <span class="hljs-string">"jsonp"</span>: <span class="hljs-keyword">JSONP </span>格式使用 <span class="hljs-keyword">JSONP </span>形式调用函数时，如 <span class="hljs-string">"myurl?callback=?"</span> <span class="hljs-keyword">jQuery </span>将自动替换 ? 为正确的函数名，以执行回调函数</code></pre></div>
+<span class="hljs-keyword"> </span>         <span class="hljs-string">"jsonp"</span>: <span class="hljs-keyword">JSONP </span>格式使用 <span class="hljs-keyword">JSONP </span>形式调用函数时，如 <span class="hljs-string">"myurl?callback=?"</span> <span class="hljs-keyword">jQuery </span>将自动替换 ? 为正确的函数名，以执行回调函数</code></pre>
 
 <p><strong>我们来个简单的测试，使用最原始的HttpServletResponse处理 , .最简单 , 最通用</strong></p>
 <ol>
 <li><p>配置web.xml 和 springmvc的配置文件，复制上面案例的即可 【记得静态资源过滤和注解驱动配置上】</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">"http://www.springframework.org/schema/context"</span></span>
@@ -1949,10 +1949,10 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre>
 </li>
 <li><p>编写一个AjaxController</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
+ <pre><code class="hljs java"><span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AjaxController</span> </span>{
 
     <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/a1"</span>)
@@ -1964,14 +1964,14 @@
         }
     }
 
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>导入jquery ， 可以使用在线的CDN ， 也可以下载导入</p>
- <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://code.jquery.com/jquery-3.1.1.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"${pageContext.request.contextPath}/statics/js/jquery-3.1.1.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+ <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://code.jquery.com/jquery-3.1.1.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"${pageContext.request.contextPath}/statics/js/jquery-3.1.1.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 </li>
 <li><p>编写index.jsp测试</p>
- <div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+ <pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;$Title$&lt;/title&gt;
@@ -1996,14 +1996,14 @@
   用户名:&lt;input type=<span class="hljs-string">"text"</span> id=<span class="hljs-string">"txtName"</span> onblur=<span class="hljs-string">"a1()"</span>/&gt;
 
   &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>启动tomcat测试！ 打开浏览器的控制台，当我们鼠标离开输入框的时候，可以看到发出了一个ajax的请求！是后台返回给我们的结果！测试成功！</p>
 </li>
 </ol>
 <hr>
 <h3 id="11-2、AJAX异步加载数据"><a href="#11-2、AJAX异步加载数据" class="headerlink" title="11.2、AJAX异步加载数据"></a>11.2、AJAX异步加载数据</h3><h3 id="Springmvc实现"><a href="#Springmvc实现" class="headerlink" title="Springmvc实现"></a>Springmvc实现</h3><p>实体类user</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Data</span>
+<pre><code class="hljs java"><span class="hljs-meta">@Data</span>
 <span class="hljs-meta">@AllArgsConstructor</span>
 <span class="hljs-meta">@NoArgsConstructor</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
@@ -2012,20 +2012,20 @@
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
     <span class="hljs-keyword">private</span> String sex;
 
-}</code></pre></div>
+}</code></pre>
 
 <p>我们来获取一个集合对象，展示到前端页面</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/a2"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/a2"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">ajax2</span><span class="hljs-params">()</span></span>{
     List&lt;User&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;User&gt;();
     list.add(<span class="hljs-keyword">new</span> User(<span class="hljs-string">"秦疆1号"</span>,<span class="hljs-number">3</span>,<span class="hljs-string">"男"</span>));
     list.add(<span class="hljs-keyword">new</span> User(<span class="hljs-string">"秦疆2号"</span>,<span class="hljs-number">3</span>,<span class="hljs-string">"男"</span>));
     list.add(<span class="hljs-keyword">new</span> User(<span class="hljs-string">"秦疆3号"</span>,<span class="hljs-number">3</span>,<span class="hljs-string">"男"</span>));
     <span class="hljs-keyword">return</span> list; <span class="hljs-comment">//由于@RestController注解，将list转成json格式返回</span>
-}</code></pre></div>
+}</code></pre>
 
 <p>前端页面</p>
-<div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+<pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Title&lt;/title&gt;
@@ -2063,12 +2063,12 @@
     })
 &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 
 <p><strong>成功实现了数据回显！可以体会一下Ajax的好处！</strong></p>
 <h3 id="11-3、AJAX验证用户名体验"><a href="#11-3、AJAX验证用户名体验" class="headerlink" title="11.3、AJAX验证用户名体验"></a>11.3、AJAX验证用户名体验</h3><h3 id="注册提示效果"><a href="#注册提示效果" class="headerlink" title="注册提示效果"></a>注册提示效果</h3><p>我们再测试一个小Demo，思考一下我们平时注册时候，输入框后面的实时提示怎么做到的；如何优化</p>
 <p>我们写一个Controller</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/a3"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/a3"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">ajax3</span><span class="hljs-params">(String name,String pwd)</span></span>{
     String msg = <span class="hljs-string">""</span>;
     <span class="hljs-comment">//模拟数据库中存在数据</span>
@@ -2087,10 +2087,10 @@
         }
     }
     <span class="hljs-keyword">return</span> msg; <span class="hljs-comment">//由于@RestController注解，将msg转成json格式返回</span>
-}</code></pre></div>
+}</code></pre>
 
 <p>前端页面 login.jsp</p>
-<div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+<pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;ajax&lt;/title&gt;
@@ -2138,12 +2138,12 @@
     &lt;span id="pwdInfo"&gt;&lt;/span&gt;
 &lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 
 <p>【记得处理json乱码问题】</p>
 <p>测试一下效果，动态请求响应，局部刷新，就是如此！</p>
 <p><img src="https://blog.kuangstudy.com/usr/uploads/2019/10/3300712039.png" srcset="/blog/img/loading.gif" alt="1570203565381.png"></p>
-<h3 id="11-4、补充，自己看看"><a href="#11-4、补充，自己看看" class="headerlink" title="11.4、补充，自己看看"></a>11.4、补充，自己看看</h3><h3 id="获取baidu接口Demo"><a href="#获取baidu接口Demo" class="headerlink" title="获取baidu接口Demo"></a>获取baidu接口Demo</h3><div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE HTML&gt;</span>
+<h3 id="11-4、补充，自己看看"><a href="#11-4、补充，自己看看" class="headerlink" title="11.4、补充，自己看看"></a>11.4、补充，自己看看</h3><h3 id="获取baidu接口Demo"><a href="#获取baidu接口Demo" class="headerlink" title="获取baidu接口Demo"></a>获取baidu接口Demo</h3><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE HTML&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Content-Type"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"text/html; charset=utf-8"</span>&gt;</span>
@@ -2227,7 +2227,7 @@
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <h2 id="12、拦截器"><a href="#12、拦截器" class="headerlink" title="12、拦截器"></a>12、拦截器</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>SpringMVC的处理器拦截器类似于Servlet开发中的过滤器Filter,用于对处理器进行预处理和后处理。开发者可以自己定义一些拦截器来实现特定的功能。</p>
 <p><strong>过滤器与拦截器的区别：</strong>拦截器是AOP思想的具体应用。</p>
@@ -2249,7 +2249,7 @@
 <li><p>配置web.xml 和 springmvc-servlet.xml 文件</p>
 </li>
 <li><p>编写一个拦截器</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.interceptor;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.interceptor;
 
 <span class="hljs-keyword">import</span> org.springframework.web.servlet.HandlerInterceptor;
 <span class="hljs-keyword">import</span> org.springframework.web.servlet.ModelAndView;
@@ -2276,10 +2276,10 @@
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterCompletion</span><span class="hljs-params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e)</span> <span class="hljs-keyword">throws</span> Exception </span>{
         System.out.println(<span class="hljs-string">"------------清理------------"</span>);
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>在springmvc的配置文件中配置拦截器</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--关于拦截器的配置--&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-comment">&lt;!--关于拦截器的配置--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mvc:interceptors</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mvc:interceptor</span>&gt;</span>
         <span class="hljs-comment">&lt;!--/** 包括路径及其子路径--&gt;</span>
@@ -2289,10 +2289,10 @@
         <span class="hljs-comment">&lt;!--bean配置的就是拦截器--&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.kuang.interceptor.MyInterceptor"</span>/&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptor</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptors</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptors</span>&gt;</span></code></pre>
 </li>
 <li><p>编写一个Controller，接收请求</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
 
 <span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;
 <span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;
@@ -2308,10 +2308,10 @@
         System.out.println(<span class="hljs-string">"控制器中的方法执行了"</span>);
         <span class="hljs-keyword">return</span> <span class="hljs-string">"hello"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>前端 index.jsp</p>
- <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"${pageContext.request.contextPath}/interceptor"</span>&gt;</span>拦截器测试<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+ <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"${pageContext.request.contextPath}/interceptor"</span>&gt;</span>拦截器测试<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 </li>
 <li><p>启动tomcat 测试一下！<br> <img src="https://blog.kuangstudy.com/usr/uploads/2019/10/2785405154.png" srcset="/blog/img/loading.gif" alt="1570205071233.png"></p>
 </li>
@@ -2325,7 +2325,7 @@
 <p><strong>代码编写</strong></p>
 <ol>
 <li><p>编写一个登陆页面 login.jsp</p>
- <div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+ <pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Title&lt;/title&gt;
@@ -2341,10 +2341,10 @@
     &lt;input type=<span class="hljs-string">"submit"</span> value=<span class="hljs-string">"提交"</span>&gt;
 &lt;/form&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>编写一个Controller处理请求</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
 
 <span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;
 <span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;
@@ -2383,10 +2383,10 @@
         session.invalidate();
         <span class="hljs-keyword">return</span> <span class="hljs-string">"login"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>编写一个登陆成功的页面 success.jsp</p>
- <div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+ <pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Title&lt;/title&gt;
@@ -2399,10 +2399,10 @@
 ${user}
 &lt;a href="${pageContext.request.contextPath}/user/logout"&gt;注销&lt;/a&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>在 index 页面上测试跳转！启动Tomcat 测试，未登录也可以进入主页！</p>
- <div class="hljs"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
+ <pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">"text/html;charset=UTF-8"</span> language=<span class="hljs-string">"java"</span> %&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;$Title$&lt;/title&gt;
@@ -2414,10 +2414,10 @@ ${user}
   &lt;a href="${pageContext.request.contextPath}/user/jumplogin"&gt;登录&lt;/a&gt;
   &lt;a href="${pageContext.request.contextPath}/user/jumpSuccess"&gt;成功页面&lt;/a&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>编写用户登录拦截器</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.interceptor;
+ <pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.interceptor;
 
 <span class="hljs-keyword">import</span> org.springframework.web.servlet.HandlerInterceptor;
 <span class="hljs-keyword">import</span> org.springframework.web.servlet.ModelAndView;
@@ -2456,16 +2456,16 @@ ${user}
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterCompletion</span><span class="hljs-params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e)</span> <span class="hljs-keyword">throws</span> Exception </span>{
 
     }
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>在Springmvc的配置文件中注册拦截器</p>
- <div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--关于拦截器的配置--&gt;</span>
+ <pre><code class="hljs xml"><span class="hljs-comment">&lt;!--关于拦截器的配置--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mvc:interceptors</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mvc:interceptor</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mvc:mapping</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/**"</span>/&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"loginInterceptor"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.kuang.interceptor.LoginInterceptor"</span>/&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptor</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptors</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptors</span>&gt;</span></code></pre>
 </li>
 <li><p>再次重启Tomcat测试！</p>
 </li>
@@ -2479,10 +2479,10 @@ ${user}
 <li>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</li>
 <li>text/plain：除了把空格转换为 “+” 号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</li>
 </ul>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"file"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 
 <p>一旦设置了enctype为multipart/form-data，浏览器即会采用二进制流的方式来处理表单数据，而对于文件上传的处理则涉及在服务器端解析原始的HTTP响应。在2003年，Apache Software Foundation发布了开源的Commons FileUpload组件，其很快成为Servlet/JSP程序员上传文件的最佳选择。</p>
 <ul>
@@ -2492,7 +2492,7 @@ ${user}
 <li>Spring MVC使用Apache Commons FileUpload技术实现了一个MultipartResolver实现类：CommonsMultipartResolver。因此，SpringMVC的文件上传还需要依赖Apache Commons FileUpload的组件。</li>
 </ul>
 <h3 id="13-1、文件上传"><a href="#13-1、文件上传" class="headerlink" title="13.1、文件上传"></a>13.1、文件上传</h3><p>一、导入文件上传的jar包，commons-fileupload ， Maven会自动帮我们导入他的依赖包 commons-io包；</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--文件上传--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--文件上传--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>commons-fileupload<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-fileupload<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
@@ -2503,17 +2503,17 @@ ${user}
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.servlet-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 
 <p>二、配置bean：multipartResolver<br>【<strong>注意！！！这个bena的id必须为：multipartResolver ， 否则上传文件会报400的错误！在这里栽过坑,教训！</strong>】</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"multipartResolver"</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"defaultEncoding"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"utf-8"</span>/&gt;</span>
     <span class="hljs-comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxUploadSize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"10485760"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxInMemorySize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"40960"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre>
 
 <p>CommonsMultipartFile 的 常用方法：</p>
 <ul>
@@ -2523,13 +2523,13 @@ ${user}
 </ul>
 <p>我们去实际测试一下</p>
 <p>三、编写前端页面</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/upload"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/upload"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"file"</span>/&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"upload"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 
 <p>四、<strong>Controller</strong></p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;
 
 <span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;
 <span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;
@@ -2578,12 +2578,12 @@ ${user}
         is.close();
         <span class="hljs-keyword">return</span> <span class="hljs-string">"redirect:/index.jsp"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>五、测试上传文件，OK！</p>
 <h3 id="采用file-Transto-来保存上传的文件"><a href="#采用file-Transto-来保存上传的文件" class="headerlink" title="采用file.Transto 来保存上传的文件"></a>采用file.Transto 来保存上传的文件</h3><ol>
 <li><p>编写Controller</p>
- <div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">/*</span>
+ <pre><code class="hljs java"><span class="hljs-comment">/*</span>
 <span class="hljs-comment"> * 采用file.Transto 来保存上传的文件</span>
 <span class="hljs-comment"> */</span>
 <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/upload2"</span>)
@@ -2602,7 +2602,7 @@ ${user}
     file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">"/"</span>+ file.getOriginalFilename()));
 
     <span class="hljs-keyword">return</span> <span class="hljs-string">"redirect:/index.jsp"</span>;
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>前端表单提交地址修改</p>
 </li>
@@ -2618,7 +2618,7 @@ ${user}
 <li>关闭流 （先开后关）</li>
 </ol>
 <p>代码实现：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(value=<span class="hljs-string">"/download"</span>)
+<pre><code class="hljs java"><span class="hljs-meta">@RequestMapping</span>(value=<span class="hljs-string">"/download"</span>)
 <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">downloads</span><span class="hljs-params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception</span>{
     <span class="hljs-comment">//要下载的图片地址</span>
     String  path = request.getServletContext().getRealPath(<span class="hljs-string">"/upload"</span>);
@@ -2648,13 +2648,13 @@ ${user}
     out.close();
     input.close();
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>前端</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/download"</span>&gt;</span>点击下载<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/download"</span>&gt;</span>点击下载<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 
 <p>测试，文件下载OK，大家可以和我们之前学习的JavaWeb原生的方式对比一下，就可以知道这个便捷多了!</p>
-<h2 id="100、通用"><a href="#100、通用" class="headerlink" title="100、通用"></a>100、通用</h2><h3 id="1-web-xml"><a href="#1-web-xml" class="headerlink" title="1.web.xml"></a>1.web.xml</h3><div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<h2 id="100、通用"><a href="#100、通用" class="headerlink" title="100、通用"></a>100、通用</h2><h3 id="1-web-xml"><a href="#1-web-xml" class="headerlink" title="1.web.xml"></a>1.web.xml</h3><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span>
@@ -2696,9 +2696,9 @@ ${user}
         <span class="hljs-tag">&lt;<span class="hljs-name">session-timeout</span>&gt;</span>15<span class="hljs-tag">&lt;/<span class="hljs-name">session-timeout</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">session-config</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span></code></pre>
 
-<h3 id="2-springmvc-servlet-xml"><a href="#2-springmvc-servlet-xml" class="headerlink" title="2.springmvc-servlet.xml"></a>2.springmvc-servlet.xml</h3><div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<h3 id="2-springmvc-servlet-xml"><a href="#2-springmvc-servlet-xml" class="headerlink" title="2.springmvc-servlet.xml"></a>2.springmvc-servlet.xml</h3><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span class="hljs-tag">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">"http://www.springframework.org/schema/context"</span></span>
@@ -2736,9 +2736,9 @@ ${user}
         <span class="hljs-comment">&lt;!-- 后缀 --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre>
 
-<h3 id="3、使用到的注解"><a href="#3、使用到的注解" class="headerlink" title="3、使用到的注解"></a>3、使用到的注解</h3><div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>注解类型用于声明Spring类的实例是一个控制器
+<h3 id="3、使用到的注解"><a href="#3、使用到的注解" class="headerlink" title="3、使用到的注解"></a>3、使用到的注解</h3><pre><code class="hljs java"><span class="hljs-meta">@Controller</span>注解类型用于声明Spring类的实例是一个控制器
 <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/HelloController"</span>)
 <span class="hljs-meta">@PathVariable</span> <span class="hljs-keyword">int</span> p1
  组合注解  <span class="hljs-meta">@GetMapping</span>
@@ -2748,9 +2748,9 @@ ${user}
           <span class="hljs-meta">@PatchMapping</span>
 <span class="hljs-meta">@RequestParam</span>(<span class="hljs-string">"username"</span>) String name 
 <span class="hljs-meta">@ResponseBody</span>    
-组合注解   <span class="hljs-meta">@RestController</span></code></pre></div>
+组合注解   <span class="hljs-meta">@RestController</span></code></pre>
 
-<h3 id="4、使用到的jar包"><a href="#4、使用到的jar包" class="headerlink" title="4、使用到的jar包"></a>4、使用到的jar包</h3><div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+<h3 id="4、使用到的jar包"><a href="#4、使用到的jar包" class="headerlink" title="4、使用到的jar包"></a>4、使用到的jar包</h3><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
@@ -2801,7 +2801,7 @@ ${user}
        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.18.10<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
        <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
      <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre>
 
 <p><img src="https://img2020.cnblogs.com/blog/1905053/202003/1905053-20200331213841543-745577399.png" srcset="/blog/img/loading.gif" alt="img"></p>
 <h2 id="SpringMVC的执行流程"><a href="#SpringMVC的执行流程" class="headerlink" title="SpringMVC的执行流程"></a>SpringMVC的执行流程</h2><p><img src="https://images2018.cnblogs.com/blog/1370903/201808/1370903-20180827201021158-682489195.png" srcset="/blog/img/loading.gif" alt="img"></p>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,8 +223,8 @@
             <article class="markdown-body">
               <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><img src="https://s2.ax1x.com/2020/02/20/3eCKI0.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>IDEA run的时候报错：</p>
-<div class="hljs"><pre><code class="hljs routeros"><span class="hljs-builtin-name">Error</span> running <span class="hljs-string">'Tomcat 8.5.51'</span>:
-Address loaclhost:1099 is already <span class="hljs-keyword">in</span> use</code></pre></div>
+<pre><code class="hljs routeros"><span class="hljs-builtin-name">Error</span> running <span class="hljs-string">'Tomcat 8.5.51'</span>:
+Address loaclhost:1099 is already <span class="hljs-keyword">in</span> use</code></pre>
 
 <a id="more"></a>
 
@@ -234,7 +234,7 @@ Address loaclhost:1099 is already <span class="hljs-keyword">in</span> use</code
 <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><ol>
 <li>根据端口号查找对应的PID，可以通过在cmd中输入命令，</li>
 </ol>
-<div class="hljs"><pre><code class="hljs 1c">netstat -ano <span class="hljs-string">| findstr 1099</span></code></pre></div>
+<pre><code class="hljs 1c">netstat -ano <span class="hljs-string">| findstr 1099</span></code></pre>
 
 <ol start="2">
 <li>找到该进程的进程号为7256</li>
@@ -243,9 +243,9 @@ Address loaclhost:1099 is already <span class="hljs-keyword">in</span> use</code
 <ol start="3">
 <li>输入命令，杀死进程</li>
 </ol>
-<div class="hljs"><pre><code class="hljs angelscript">tskill <span class="hljs-number">7256</span>
+<pre><code class="hljs angelscript">tskill <span class="hljs-number">7256</span>
 或
-taskkill -f -pid <span class="hljs-number">7256</span></code></pre></div>
+taskkill -f -pid <span class="hljs-number">7256</span></code></pre>
 
 <h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>同方法一，知道进程的PID后，直接去进程管理器，直接右键结束进程。</p>
 <h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>针对方法一、二均无效时，只能在IDEA中修改端口：</p>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -224,238 +224,238 @@
               <a id="more"></a>
 
 <h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p>Centos安装脚本</p>
-<div class="hljs"><pre><code class="hljs vim">yum install -<span class="hljs-keyword">y</span> wget &amp;&amp; wget -O install.<span class="hljs-keyword">sh</span> http://download.bt.<span class="hljs-keyword">cn</span>/install/install_6.<span class="hljs-number">0</span>.<span class="hljs-keyword">sh</span> &amp;&amp; <span class="hljs-keyword">sh</span> install.<span class="hljs-keyword">sh</span></code></pre></div>
+<pre><code class="hljs vim">yum install -<span class="hljs-keyword">y</span> wget &amp;&amp; wget -O install.<span class="hljs-keyword">sh</span> http://download.bt.<span class="hljs-keyword">cn</span>/install/install_6.<span class="hljs-number">0</span>.<span class="hljs-keyword">sh</span> &amp;&amp; <span class="hljs-keyword">sh</span> install.<span class="hljs-keyword">sh</span></code></pre>
 
 <p>Ubuntu/Deepin安装脚本</p>
-<div class="hljs"><pre><code class="hljs cmake">wget -O <span class="hljs-keyword">install</span>.sh http://download.bt.cn/<span class="hljs-keyword">install</span>/<span class="hljs-keyword">install</span>-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; sudo bash <span class="hljs-keyword">install</span>.sh</code></pre></div>
+<pre><code class="hljs cmake">wget -O <span class="hljs-keyword">install</span>.sh http://download.bt.cn/<span class="hljs-keyword">install</span>/<span class="hljs-keyword">install</span>-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; sudo bash <span class="hljs-keyword">install</span>.sh</code></pre>
 
 <p>Debian安装脚本</p>
-<div class="hljs"><pre><code class="hljs cmake">wget -O <span class="hljs-keyword">install</span>.sh http://download.bt.cn/<span class="hljs-keyword">install</span>/<span class="hljs-keyword">install</span>-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; bash <span class="hljs-keyword">install</span>.sh</code></pre></div>
+<pre><code class="hljs cmake">wget -O <span class="hljs-keyword">install</span>.sh http://download.bt.cn/<span class="hljs-keyword">install</span>/<span class="hljs-keyword">install</span>-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; bash <span class="hljs-keyword">install</span>.sh</code></pre>
 
 <p>Fedora安装脚本</p>
-<div class="hljs"><pre><code class="hljs vim">wget -O install.<span class="hljs-keyword">sh</span> http://download.bt.<span class="hljs-keyword">cn</span>/install/install_6.<span class="hljs-number">0</span>.<span class="hljs-keyword">sh</span> &amp;&amp; bash install.<span class="hljs-keyword">sh</span></code></pre></div>
+<pre><code class="hljs vim">wget -O install.<span class="hljs-keyword">sh</span> http://download.bt.<span class="hljs-keyword">cn</span>/install/install_6.<span class="hljs-number">0</span>.<span class="hljs-keyword">sh</span> &amp;&amp; bash install.<span class="hljs-keyword">sh</span></code></pre>
 
 
 
 <h2 id="管理宝塔"><a href="#管理宝塔" class="headerlink" title="管理宝塔"></a>管理宝塔</h2><p>宝塔工具箱(包含下列绝大部分功能 直接ssh中执行bt命令 仅限6.x以上版本面板)</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">bt</span></code></pre></div>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">bt</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs arduino">/etc/init.d/bt <span class="hljs-built_in">stop</span></code></pre></div>
+<pre><code class="hljs arduino">/etc/init.d/bt <span class="hljs-built_in">stop</span></code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs armasm">/etc/init.d/<span class="hljs-keyword">bt </span>start</code></pre></div>
+<pre><code class="hljs armasm">/etc/init.d/<span class="hljs-keyword">bt </span>start</code></pre>
 
 <p>重启</p>
-<div class="hljs"><pre><code class="hljs armasm">/etc/init.d/<span class="hljs-keyword">bt </span>restart</code></pre></div>
+<pre><code class="hljs armasm">/etc/init.d/<span class="hljs-keyword">bt </span>restart</code></pre>
 
 <p>卸载</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /</span>etc<span class="hljs-regexp">/init.d/</span>bt &amp;&amp; rm -rf <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /</span>etc<span class="hljs-regexp">/init.d/</span>bt &amp;&amp; rm -rf <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel</span></code></pre>
 
 <p>查看当前面板端口</p>
-<div class="hljs"><pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/port.pl</span></code></pre></div>
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/port.pl</span></code></pre>
 
 <p>修改面板端口，如要改成8881（centos 6 系统）</p>
-<div class="hljs"><pre><code class="hljs routeros">echo <span class="hljs-string">'8881'</span> &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart
+<pre><code class="hljs routeros">echo <span class="hljs-string">'8881'</span> &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart
 iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 8881 -j ACCEPT
 service iptables save
-service iptables restart</code></pre></div>
+service iptables restart</code></pre>
 
 <p>修改面板端口，如要改成8881（centos 7 系统）</p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">echo</span> '8881' &gt; <span class="hljs-string">/www/server/panel/data/port.pl</span> &amp;&amp; <span class="hljs-string">/etc/init.d/bt</span> restart
+<pre><code class="hljs jboss-cli"><span class="hljs-keyword">echo</span> '8881' &gt; <span class="hljs-string">/www/server/panel/data/port.pl</span> &amp;&amp; <span class="hljs-string">/etc/init.d/bt</span> restart
 firewall-cmd <span class="hljs-params">--permanent</span> <span class="hljs-params">--zone=public</span> <span class="hljs-params">--add-port=8881/tcp</span>
-firewall-cmd <span class="hljs-params">--reload</span></code></pre></div>
+firewall-cmd <span class="hljs-params">--reload</span></code></pre>
 
 <p>强制修改MySQL管理(root)密码，如要改成123456</p>
-<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">cd</span> /www/server/panel &amp;&amp; <span class="hljs-keyword">python</span> tools.<span class="hljs-keyword">py</span> root <span class="hljs-number">123456</span></code></pre></div>
+<pre><code class="hljs vim"><span class="hljs-keyword">cd</span> /www/server/panel &amp;&amp; <span class="hljs-keyword">python</span> tools.<span class="hljs-keyword">py</span> root <span class="hljs-number">123456</span></code></pre>
 
 <p>修改面板密码，如要改成123456</p>
-<div class="hljs"><pre><code class="hljs mel">cd /www/server/<span class="hljs-keyword">panel</span> &amp;&amp; <span class="hljs-keyword">python</span> tools.py <span class="hljs-keyword">panel</span> <span class="hljs-number">123456</span></code></pre></div>
+<pre><code class="hljs mel">cd /www/server/<span class="hljs-keyword">panel</span> &amp;&amp; <span class="hljs-keyword">python</span> tools.py <span class="hljs-keyword">panel</span> <span class="hljs-number">123456</span></code></pre>
 
 <p>查看宝塔日志</p>
-<div class="hljs"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /tmp/panelBoot.<span class="hljs-keyword">pl</span></code></pre></div>
+<pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /tmp/panelBoot.<span class="hljs-keyword">pl</span></code></pre>
 
 <p>查看软件安装日志</p>
-<div class="hljs"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /tmp/panelExec.<span class="hljs-keyword">log</span></code></pre></div>
+<pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /tmp/panelExec.<span class="hljs-keyword">log</span></code></pre>
 
 <p>站点配置文件位置</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>vhost</code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>vhost</code></pre>
 
 <p>删除域名绑定面板</p>
-<div class="hljs"><pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/domain.conf</span></code></pre></div>
+<pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/domain.conf</span></code></pre>
 
 <p>清理登陆限制</p>
-<div class="hljs"><pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/*.login</span></code></pre></div>
+<pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/*.login</span></code></pre>
 
 <p>查看面板授权IP</p>
-<div class="hljs"><pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/limitip.conf</span></code></pre></div>
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/limitip.conf</span></code></pre>
 
 <p>关闭访问限制</p>
-<div class="hljs"><pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/limitip.conf</span></code></pre></div>
+<pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/limitip.conf</span></code></pre>
 
 <p>查看许可域名</p>
-<div class="hljs"><pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/domain.conf</span></code></pre></div>
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/domain.conf</span></code></pre>
 
 <p>关闭面板SSL</p>
-<div class="hljs"><pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/ssl.pl &amp;&amp; /</span>etc<span class="hljs-regexp">/init.d/</span>bt restart</code></pre></div>
+<pre><code class="hljs awk">rm -f <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/ssl.pl &amp;&amp; /</span>etc<span class="hljs-regexp">/init.d/</span>bt restart</code></pre>
 
 <p>查看面板错误日志</p>
-<div class="hljs"><pre><code class="hljs awk">cat <span class="hljs-regexp">/tmp/</span>panelBoot</code></pre></div>
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/tmp/</span>panelBoot</code></pre>
 
 <p>查看数据库错误日志</p>
-<div class="hljs"><pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/data/</span>*.err</code></pre></div>
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/data/</span>*.err</code></pre>
 
 <p>站点配置文件目录(nginx)</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>vhost<span class="hljs-regexp">/nginx</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>vhost<span class="hljs-regexp">/nginx</span></code></pre>
 
 <p>站点配置文件目录(apache)</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>vhost<span class="hljs-regexp">/apache</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>vhost<span class="hljs-regexp">/apache</span></code></pre>
 
 <p>站点默认目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>wwwroot</code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>wwwroot</code></pre>
 
 <p>数据库备份目录</p>
-<div class="hljs"><pre><code class="hljs sql">/www/<span class="hljs-keyword">backup</span>/<span class="hljs-keyword">database</span></code></pre></div>
+<pre><code class="hljs sql">/www/<span class="hljs-keyword">backup</span>/<span class="hljs-keyword">database</span></code></pre>
 
 <p>站点备份目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>backup<span class="hljs-regexp">/site</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>backup<span class="hljs-regexp">/site</span></code></pre>
 
 <p>站点日志</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>wwwlogs</code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>wwwlogs</code></pre>
 
 
 
 <h2 id="Nginx服务管理"><a href="#Nginx服务管理" class="headerlink" title="Nginx服务管理"></a>Nginx服务管理</h2><p>nginx安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/nginx</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/nginx</span></code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/nginx start</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/nginx start</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs arduino">/etc/init.d/nginx <span class="hljs-built_in">stop</span></code></pre></div>
+<pre><code class="hljs arduino">/etc/init.d/nginx <span class="hljs-built_in">stop</span></code></pre>
 
 <p>重启</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/nginx restart</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/nginx restart</span></code></pre>
 
 <p>启载</p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/nginx</span> <span class="hljs-keyword">reload</span></code></pre></div>
+<pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/nginx</span> <span class="hljs-keyword">reload</span></code></pre>
 
 <p>nginx配置文件</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/nginx/</span>conf<span class="hljs-regexp">/nginx.conf</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/nginx/</span>conf<span class="hljs-regexp">/nginx.conf</span></code></pre>
 
 
 
 <h2 id="Apache服务管理"><a href="#Apache服务管理" class="headerlink" title="Apache服务管理"></a>Apache服务管理</h2><p>apache安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/httpd</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/httpd</span></code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/httpd start</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/httpd start</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs arduino">/etc/init.d/httpd <span class="hljs-built_in">stop</span></code></pre></div>
+<pre><code class="hljs arduino">/etc/init.d/httpd <span class="hljs-built_in">stop</span></code></pre>
 
 <p>重启</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/httpd restart</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/httpd restart</span></code></pre>
 
 <p>启载</p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/httpd</span> <span class="hljs-keyword">reload</span></code></pre></div>
+<pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/httpd</span> <span class="hljs-keyword">reload</span></code></pre>
 
 <p>apache配置文件</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/apache/</span>conf<span class="hljs-regexp">/httpd.conf</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/apache/</span>conf<span class="hljs-regexp">/httpd.conf</span></code></pre>
 
 
 
 <h2 id="MySQL服务管理"><a href="#MySQL服务管理" class="headerlink" title="MySQL服务管理"></a>MySQL服务管理</h2><p>mysql安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/mysql</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/mysql</span></code></pre>
 
 <p>phpmyadmin安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/phpmyadmin</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/phpmyadmin</span></code></pre>
 
 <p>数据存储目录</p>
-<div class="hljs"><pre><code class="hljs haskell">/www/server/<span class="hljs-class"><span class="hljs-keyword">data</span></span></code></pre></div>
+<pre><code class="hljs haskell">/www/server/<span class="hljs-class"><span class="hljs-keyword">data</span></span></code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/mysqld start</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/mysqld start</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs arduino">/etc/init.d/mysqld <span class="hljs-built_in">stop</span></code></pre></div>
+<pre><code class="hljs arduino">/etc/init.d/mysqld <span class="hljs-built_in">stop</span></code></pre>
 
 <p>重启</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/mysqld restart</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/mysqld restart</span></code></pre>
 
 <p>启载</p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/mysqld</span> <span class="hljs-keyword">reload</span></code></pre></div>
+<pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/mysqld</span> <span class="hljs-keyword">reload</span></code></pre>
 
 <p>mysql配置文件</p>
-<div class="hljs"><pre><code class="hljs applescript">/etc/<span class="hljs-keyword">my</span>.cnf</code></pre></div>
+<pre><code class="hljs applescript">/etc/<span class="hljs-keyword">my</span>.cnf</code></pre>
 
 
 
 <h2 id="FTP服务管理"><a href="#FTP服务管理" class="headerlink" title="FTP服务管理"></a>FTP服务管理</h2><p>ftp安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/pure-ftpd</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/pure-ftpd</span></code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/pure-ftpd start</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/pure-ftpd start</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs fortran">/etc/init.d/<span class="hljs-keyword">pure</span>-ftpd <span class="hljs-keyword">stop</span></code></pre></div>
+<pre><code class="hljs fortran">/etc/init.d/<span class="hljs-keyword">pure</span>-ftpd <span class="hljs-keyword">stop</span></code></pre>
 
 <p>重启</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/pure-ftpd restart</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/pure-ftpd restart</span></code></pre>
 
 <p>ftp配置文件</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/pure-ftpd/</span>etc<span class="hljs-regexp">/pure-ftpd.conf</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/pure-ftpd/</span>etc<span class="hljs-regexp">/pure-ftpd.conf</span></code></pre>
 
 
 
 <h2 id="PHP服务管理"><a href="#PHP服务管理" class="headerlink" title="PHP服务管理"></a>PHP服务管理</h2><p>php安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/php</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/php</span></code></pre>
 
 <p>启动(请根据安装PHP版本号做更改，例如：/etc/init.d/php-fpm-54 start)</p>
-<div class="hljs"><pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} start</code></pre></div>
+<pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} start</code></pre>
 
 <p>停止(请根据安装PHP版本号做更改，例如：/etc/init.d/php-fpm-54 stop)</p>
-<div class="hljs"><pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} stop</code></pre></div>
+<pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} stop</code></pre>
 
 <p>重启(请根据安装PHP版本号做更改，例如：/etc/init.d/php-fpm-54 restart)</p>
-<div class="hljs"><pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} restart</code></pre></div>
+<pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} restart</code></pre>
 
 <p>启载(请根据安装PHP版本号做更改，例如：/etc/init.d/php-fpm-54 reload)</p>
-<div class="hljs"><pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} reload</code></pre></div>
+<pre><code class="hljs angelscript">/etc/init.d/php-fpm-{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>} reload</code></pre>
 
 <p>配置文件(请根据安装PHP版本号做更改，例如：/www/server/php/52/etc/php.ini)</p>
-<div class="hljs"><pre><code class="hljs angelscript">/www/server/php/{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>}/etc/php.ini</code></pre></div>
+<pre><code class="hljs angelscript">/www/server/php/{<span class="hljs-number">52</span>|<span class="hljs-number">53</span>|<span class="hljs-number">54</span>|<span class="hljs-number">55</span>|<span class="hljs-number">56</span>|<span class="hljs-number">70</span>|<span class="hljs-number">71</span>|<span class="hljs-number">72</span>|<span class="hljs-number">73</span>|<span class="hljs-number">74</span>}/etc/php.ini</code></pre>
 
 
 
 <h2 id="Redis服务管理"><a href="#Redis服务管理" class="headerlink" title="Redis服务管理"></a>Redis服务管理</h2><p>redis安装目录</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/redis</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/redis</span></code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/redis start</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/redis start</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs arduino">/etc/init.d/redis <span class="hljs-built_in">stop</span></code></pre></div>
+<pre><code class="hljs arduino">/etc/init.d/redis <span class="hljs-built_in">stop</span></code></pre>
 
 <p>redis配置文件</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/redis/</span>redis.conf</code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/redis/</span>redis.conf</code></pre>
 
 
 
 <h2 id="Memcached服务管理"><a href="#Memcached服务管理" class="headerlink" title="Memcached服务管理"></a>Memcached服务管理</h2><p>memcached安装目录</p>
-<div class="hljs"><pre><code class="hljs applescript">/usr/<span class="hljs-keyword">local</span>/memcached</code></pre></div>
+<pre><code class="hljs applescript">/usr/<span class="hljs-keyword">local</span>/memcached</code></pre>
 
 <p>启动</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/memcached start</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/memcached start</span></code></pre>
 
 <p>停止</p>
-<div class="hljs"><pre><code class="hljs arduino">/etc/init.d/memcached <span class="hljs-built_in">stop</span></code></pre></div>
+<pre><code class="hljs arduino">/etc/init.d/memcached <span class="hljs-built_in">stop</span></code></pre>
 
 <p>重启</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/memcached restart</span></code></pre></div>
+<pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/memcached restart</span></code></pre>
 
 <p>启载</p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/memcached</span> <span class="hljs-keyword">reload</span></code></pre></div>
+<pre><code class="hljs jboss-cli"><span class="hljs-string">/etc/init.d/memcached</span> <span class="hljs-keyword">reload</span></code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

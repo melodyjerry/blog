@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -239,25 +239,25 @@
 <h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><p>CSS与html结合方式</p>
 <h2 id="1-内联样式（作用域最小）"><a href="#1-内联样式（作用域最小）" class="headerlink" title="1.内联样式（作用域最小）"></a>1.内联样式（作用域最小）</h2><ul>
 <li>在标签内使用style属性指定css代码</li>
-<li>如：<div class="hljs"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"color:red;"</span>&gt;hello css&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre></div>
+<li>如：<pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"color:red;"</span>&gt;hello css&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
 
 </li>
 </ul>
 <h2 id="2-内部样式"><a href="#2-内部样式" class="headerlink" title="2.内部样式"></a>2.内部样式</h2><ul>
 <li>在head标签内，定义style标签，style标签的标签体内容就是css代码</li>
-<li>如：<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<li>如：<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
 	div{
 <span class="css">	    <span class="hljs-selector-tag">color</span><span class="hljs-selector-pseudo">:blue</span>;</span>
 	}
 <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hello css<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hello css<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 </li>
 </ul>
 <h2 id="3-外部样式（作用域最大）"><a href="#3-外部样式（作用域最大）" class="headerlink" title="3.外部样式（作用域最大）"></a>3.外部样式（作用域最大）</h2><ul>
 <li>定义css资源文件。</li>
 <li>在head标签内，定义link标签，引入外部的资源文件</li>
-<li>如：<div class="hljs"><pre><code class="hljs xml"> <span class="hljs-comment">&lt;!--a.css文件--&gt;</span>
+<li>如：<pre><code class="hljs xml"> <span class="hljs-comment">&lt;!--a.css文件--&gt;</span>
 div{
 	color:green;
 }
@@ -265,25 +265,25 @@ div{
 <span class="hljs-comment">&lt;!--html文件--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/a.css"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hello css<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hello css<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hello css<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 </li>
 </ul>
 <h1 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h1><ul>
 <li>1,2,3种方式 css作用范围越来越大</li>
 <li>第1方式不常用，后期常用第2,3种</li>
-<li>第3种格式可以写为：<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<li>第3种格式可以写为：<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
 <span class="css">	@<span class="hljs-keyword">import</span> <span class="hljs-string">"css/a.css"</span>;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 
 </li>
 </ul>
 <h1 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h1><ul>
-<li>格式：<div class="hljs"><pre><code class="hljs angelscript">选择器 {
+<li>格式：<pre><code class="hljs angelscript">选择器 {
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div></li>
+}</code></pre></li>
 <li>选择器:<br>筛选具有相似特征的元素</li>
 <li>注意：<br>每一对属性需要使用<code>；</code>隔开，最后一对属性可以不加<code>；</code></li>
 </ul>
@@ -295,59 +295,59 @@ div{
 </ul>
 <h2 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h2><h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><p>选择具体的id属性值的元素.建议在一个html页面中id值唯一</p>
 <ul>
-<li>语法：<div class="hljs"><pre><code class="hljs angelscript">#id属性值{
+<li>语法：<pre><code class="hljs angelscript">#id属性值{
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
 <h3 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h3><p>选择具有相同标签名称的元素</p>
 <ul>
-<li>语法：<div class="hljs"><pre><code class="hljs angelscript">标签名称{
+<li>语法：<pre><code class="hljs angelscript">标签名称{
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div></li>
+}</code></pre></li>
 <li>注意：id选择器优先级高于元素选择器</li>
 </ul>
 <h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>选择具有相同的class属性值的元素。</p>
 <ul>
-<li>语法：<div class="hljs"><pre><code class="hljs angelscript">.<span class="hljs-keyword">class</span>属性值{
+<li>语法：<pre><code class="hljs angelscript">.<span class="hljs-keyword">class</span>属性值{
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div></li>
+}</code></pre></li>
 <li>注意：类选择器选择器优先级高于元素选择器</li>
 </ul>
 <h2 id="扩展选择器"><a href="#扩展选择器" class="headerlink" title="扩展选择器"></a>扩展选择器</h2><h3 id="选择所有元素"><a href="#选择所有元素" class="headerlink" title="选择所有元素"></a>选择所有元素</h3><ul>
-<li>语法： <div class="hljs"><pre><code class="hljs angelscript">* {	
+<li>语法： <pre><code class="hljs angelscript">* {	
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
 <h3 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h3><p>选择多个元素</p>
 <ul>
-<li>语法：<div class="hljs"><pre><code class="hljs angelscript">选择器<span class="hljs-number">1</span>, 选择器<span class="hljs-number">2</span> {
+<li>语法：<pre><code class="hljs angelscript">选择器<span class="hljs-number">1</span>, 选择器<span class="hljs-number">2</span> {
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
 <h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>筛选 <strong>选择器1下</strong> 的 <strong>选择器2</strong> 元素</p>
 <ul>
 <li><p>语法：</p>
-<div class="hljs"><pre><code class="hljs angelscript">选择器<span class="hljs-number">1</span> 选择器<span class="hljs-number">2</span>{
+<pre><code class="hljs angelscript">选择器<span class="hljs-number">1</span> 选择器<span class="hljs-number">2</span>{
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>区别于 子选择器：</p>
 <ul>
@@ -357,35 +357,35 @@ div{
 </ul>
 <h3 id="父选择器"><a href="#父选择器" class="headerlink" title="父选择器"></a>父选择器</h3><p>筛选 <strong>选择器2</strong> 的 <strong>父元素选择器1</strong></p>
 <ul>
-<li>语法：  <div class="hljs"><pre><code class="hljs angelscript">选择器<span class="hljs-number">1</span> &gt; 选择器<span class="hljs-number">2</span>{
+<li>语法：  <pre><code class="hljs angelscript">选择器<span class="hljs-number">1</span> &gt; 选择器<span class="hljs-number">2</span>{
  	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
 <h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p>选择元素名称，属性名=属性值的元素</p>
 <ul>
-<li>语法：  <div class="hljs"><pre><code class="hljs angelscript">元素名称 [属性名 = <span class="hljs-string">"属性值"</span>] {
+<li>语法：  <pre><code class="hljs angelscript">元素名称 [属性名 = <span class="hljs-string">"属性值"</span>] {
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>
 <h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><p>选择一些元素具有的状态</p>
 <ul>
 <li><p>语法： </p>
-<div class="hljs"><pre><code class="hljs angelscript">元素: 状态{
+<pre><code class="hljs angelscript">元素: 状态{
 	属性名<span class="hljs-number">1</span>:属性值<span class="hljs-number">1</span>;
 	属性名<span class="hljs-number">2</span>:属性值<span class="hljs-number">2</span>;
 	...
-}</code></pre></div>
+}</code></pre>
 </li>
 <li><p>比如：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span>{             
+<pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span>{             
     <span class="hljs-attribute">color</span>:red;      
 }                   
 <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span>{            
@@ -396,7 +396,7 @@ div{
 }                   
 <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span>{           
     <span class="hljs-attribute">color</span>: brown;   
-}</code></pre></div>
+}</code></pre>
 
 </li>
 </ul>

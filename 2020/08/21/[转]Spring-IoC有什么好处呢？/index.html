@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,24 +216,24 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>比如这个例子：<br>①</p>
-<div class="hljs"><pre><code class="hljs java">B{
+<pre><code class="hljs java">B{
 	A a=<span class="hljs-keyword">new</span> Aimpl();
 	<span class="hljs-comment">//其他代码</span>
-}</code></pre></div>
+}</code></pre>
 <p>②</p>
-<div class="hljs"><pre><code class="hljs java">B{
+<pre><code class="hljs java">B{
 	A a;
 	<span class="hljs-comment">//其他代码</span>
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setA</span><span class="hljs-params">(A a)</span> </span>{
 		<span class="hljs-keyword">this</span>.a = a;
 	}
-}</code></pre></div>
+}</code></pre>
 <p>第一个是直接合成使用A，第二个是用控制反转进行管理。<br>书上只讲理论，我现在都不能体会Spring的IoC和不用相比有什么好处，能具体说一下么？由spring托管有什么好处呢？我现在感觉用spring 的set注入就是看起来代码牛逼点，完全不理解到底有什么优势啊……</p>
 <h1 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h1><p>以下内容摘自知乎，保存转载声明。</p>
 <blockquote>

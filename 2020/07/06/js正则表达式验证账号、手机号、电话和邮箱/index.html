@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,53 +216,53 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <a id="more"></a>
 <h2 id="验证帐号是否合法"><a href="#验证帐号是否合法" class="headerlink" title="验证帐号是否合法"></a>验证帐号是否合法</h2><p>验证规则：字母、数字、下划线组成，字母开头，4-16位。</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkUser</span>(<span class="hljs-params">str</span>)</span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^[a-zA-z]\w{3,15}$/</span>; <span class="hljs-keyword">if</span>(re.test(str)){
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkUser</span>(<span class="hljs-params">str</span>)</span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^[a-zA-z]\w{3,15}$/</span>; <span class="hljs-keyword">if</span>(re.test(str)){
         alert(<span class="hljs-string">"正确"</span>);
     }<span class="hljs-keyword">else</span>{
         alert(<span class="hljs-string">"错误"</span>);
     }          
 }
-checkUser(<span class="hljs-string">"jihua_cnblogs"</span>);<span class="hljs-comment">//调用</span></code></pre></div>
+checkUser(<span class="hljs-string">"jihua_cnblogs"</span>);<span class="hljs-comment">//调用</span></code></pre>
 
 
 
 <h2 id="验证手机号码"><a href="#验证手机号码" class="headerlink" title="验证手机号码"></a>验证手机号码</h2><p>验证规则：11位数字，以1开头。</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkMobile</span>(<span class="hljs-params">str</span>) </span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^1\d{10}$/</span> <span class="hljs-keyword">if</span> (re.test(str)) {
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkMobile</span>(<span class="hljs-params">str</span>) </span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^1\d{10}$/</span> <span class="hljs-keyword">if</span> (re.test(str)) {
         alert(<span class="hljs-string">"正确"</span>);
     } <span class="hljs-keyword">else</span> {
         alert(<span class="hljs-string">"错误"</span>);
     }
 }
-checkMobile(<span class="hljs-string">'13800138000'</span>); <span class="hljs-comment">//调用 checkMobile('139888888889');//错误示例</span></code></pre></div>
+checkMobile(<span class="hljs-string">'13800138000'</span>); <span class="hljs-comment">//调用 checkMobile('139888888889');//错误示例</span></code></pre>
 
 
 
 <h2 id="验证电话号码"><a href="#验证电话号码" class="headerlink" title="验证电话号码"></a>验证电话号码</h2><p>验证规则：区号+号码，区号以0开头，3位或4位<br>号码由7位或8位数字组成<br>区号与号码之间可以无连接符，也可以“-”连接<br>如01088888888,010-88888888,0955-7777777 </p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkPhone</span>(<span class="hljs-params">str</span>)</span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^0\d{2,3}-?\d{7,8}$/</span>; <span class="hljs-keyword">if</span>(re.test(str)){
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkPhone</span>(<span class="hljs-params">str</span>)</span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^0\d{2,3}-?\d{7,8}$/</span>; <span class="hljs-keyword">if</span>(re.test(str)){
         alert(<span class="hljs-string">"正确"</span>);
     }<span class="hljs-keyword">else</span>{
         alert(<span class="hljs-string">"错误"</span>);
     }
 }
-checkPhone(<span class="hljs-string">"09557777777"</span>);<span class="hljs-comment">//调用</span></code></pre></div>
+checkPhone(<span class="hljs-string">"09557777777"</span>);<span class="hljs-comment">//调用</span></code></pre>
 
 
 
 <h2 id="验证邮箱"><a href="#验证邮箱" class="headerlink" title="验证邮箱"></a>验证邮箱</h2><p>验证规则：姑且把邮箱地址分成“第一部分@第二部分”这样<br>第一部分：由字母、数字、下划线、短线“-”、点号“.”组成，<br>第二部分：为一个域名，域名由字母、数字、短线“-”、域名后缀组成，<br>而域名后缀一般为.xxx或.xxx.xx，一区的域名后缀一般为2-4位，如cn,com,net，现在域名有的也会大于4位</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkEmail</span>(<span class="hljs-params">str</span>)</span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/</span> <span class="hljs-keyword">if</span>(re.test(str)){
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkEmail</span>(<span class="hljs-params">str</span>)</span>{ <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/</span> <span class="hljs-keyword">if</span>(re.test(str)){
         alert(<span class="hljs-string">"正确"</span>);
     }<span class="hljs-keyword">else</span>{
         alert(<span class="hljs-string">"错误"</span>);
     }
 }
-checkEmail(<span class="hljs-string">"contact@cnblogs.com"</span>);<span class="hljs-comment">//调用</span></code></pre></div>
+checkEmail(<span class="hljs-string">"contact@cnblogs.com"</span>);<span class="hljs-comment">//调用</span></code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

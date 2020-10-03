@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,23 +216,23 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <p><strong>问题：</strong><br>Spring整合Mybatis时候，出现数据库连接异常：</p>
-<div class="hljs"><pre><code class="hljs java">com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect <span class="hljs-number">3</span> times. Giving up.</code></pre></div>
+<pre><code class="hljs java">com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect <span class="hljs-number">3</span> times. Giving up.</code></pre>
 
 <p><strong>分析：</strong></p>
 <p>找了好半天的原因，最后发现是<strong>相关jdbc驱动包版本太低</strong>！</p>
 <p><strong>解决方法：</strong></p>
 <p>下载最新版的<code>mysql-connector-java</code>即可。<br>虽然可以连接成功，但是控制台还是提示：</p>
-<div class="hljs"><pre><code class="hljs java">Loading <span class="hljs-class"><span class="hljs-keyword">class</span> `<span class="hljs-title">com</span>.<span class="hljs-title">mysql</span>.<span class="hljs-title">jdbc</span>.<span class="hljs-title">Driver</span>'. <span class="hljs-title">This</span> <span class="hljs-title">is</span> <span class="hljs-title">deprecated</span>. <span class="hljs-title">The</span> <span class="hljs-title">new</span> <span class="hljs-title">driver</span> <span class="hljs-title">class</span> <span class="hljs-title">is</span> `<span class="hljs-title">com</span>.<span class="hljs-title">mysql</span>.<span class="hljs-title">cj</span>.<span class="hljs-title">jdbc</span>.<span class="hljs-title">Driver</span>'. <span class="hljs-title">The</span> <span class="hljs-title">driver</span> <span class="hljs-title">is</span> <span class="hljs-title">automatically</span> <span class="hljs-title">registered</span> <span class="hljs-title">via</span> <span class="hljs-title">the</span> <span class="hljs-title">SPI</span> <span class="hljs-title">and</span> <span class="hljs-title">manual</span> <span class="hljs-title">loading</span> <span class="hljs-title">of</span> <span class="hljs-title">the</span> <span class="hljs-title">driver</span> <span class="hljs-title">class</span> <span class="hljs-title">is</span> <span class="hljs-title">generally</span> <span class="hljs-title">unnecessary</span>.</span></code></pre></div>
+<pre><code class="hljs java">Loading <span class="hljs-class"><span class="hljs-keyword">class</span> `<span class="hljs-title">com</span>.<span class="hljs-title">mysql</span>.<span class="hljs-title">jdbc</span>.<span class="hljs-title">Driver</span>'. <span class="hljs-title">This</span> <span class="hljs-title">is</span> <span class="hljs-title">deprecated</span>. <span class="hljs-title">The</span> <span class="hljs-title">new</span> <span class="hljs-title">driver</span> <span class="hljs-title">class</span> <span class="hljs-title">is</span> `<span class="hljs-title">com</span>.<span class="hljs-title">mysql</span>.<span class="hljs-title">cj</span>.<span class="hljs-title">jdbc</span>.<span class="hljs-title">Driver</span>'. <span class="hljs-title">The</span> <span class="hljs-title">driver</span> <span class="hljs-title">is</span> <span class="hljs-title">automatically</span> <span class="hljs-title">registered</span> <span class="hljs-title">via</span> <span class="hljs-title">the</span> <span class="hljs-title">SPI</span> <span class="hljs-title">and</span> <span class="hljs-title">manual</span> <span class="hljs-title">loading</span> <span class="hljs-title">of</span> <span class="hljs-title">the</span> <span class="hljs-title">driver</span> <span class="hljs-title">class</span> <span class="hljs-title">is</span> <span class="hljs-title">generally</span> <span class="hljs-title">unnecessary</span>.</span></code></pre>
 
 <p>修改一下<code>mybatis-config.xml</code>：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--&lt;property name="driver" value="com.mysql.jdbc.Driver"/&gt;--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driver"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--&lt;property name="driver" value="com.mysql.jdbc.Driver"/&gt;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driver"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span></code></pre>
 
 <a id="more"></a><script>
         document.querySelectorAll('.github-emoji')

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,14 +216,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="设置命令行提示符"><a href="#设置命令行提示符" class="headerlink" title="设置命令行提示符"></a>设置命令行提示符</h1><p>在命令行提示符显示用户名，当前机器IP，当前时间，当前路径等信息。但有时候如果我们的目录很长，敲击命令很不方便，可以通过修改 PS1 环境变量，让命令提示符在第二行显示：</p>
 <p>如下示例，后面的 \n 就是起到了提示符 $ 在第二行显示效果。</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PS1=<span class="hljs-string">"\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\][\[\033[01;33m\]\t\[\033[00m\]]:\[\033[01;34m\]\w\[\033[00m\]\n$ "</span></code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-built_in">export</span> PS1=<span class="hljs-string">"\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\][\[\033[01;33m\]\t\[\033[00m\]]:\[\033[01;34m\]\w\[\033[00m\]\n$ "</span></code></pre>
 <p>效果如下：</p>
 <p>​    <img src="http://note.youdao.com/yws/public/resource/202a88734065732c89c84f9e9197ab9c/xmlnote/F3DD95CE99324FCEA6BA15337467F42A/34380" srcset="/blog/img/loading.gif" alt="0"></p>
 <p><strong>注：</strong></p>
@@ -232,17 +232,17 @@
 
 <h1 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h1><p>如果要写入shell配置文件，建议写到<strong>环境变量文件</strong><code>~/.bash_profile</code>，而不要写入<code>~/.bashrc</code>，否则借助ssh类的工具都将因为trap DEBUG信号的特殊性而无限等待，比如scp/rsync等。</p>
 <p>或者，直接判断是否是交互式登录，是的话就设置，否则不设置：</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">${-#*i}</span>"</span> != <span class="hljs-string">"$-"</span> ];<span class="hljs-keyword">then</span>
+<pre><code class="hljs bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">${-#*i}</span>"</span> != <span class="hljs-string">"$-"</span> ];<span class="hljs-keyword">then</span>
     <span class="hljs-comment"># interactively shell</span>
     PS1=<span class="hljs-string">"\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\][\[\033[01;33m\]\t\[\033[00m\]]:\[\033[01;34m\]\w\[\033[00m\]\n$ "</span>
     <span class="hljs-built_in">trap</span> <span class="hljs-string">'echo -ne "\e[0m"'</span> DEBUG
-<span class="hljs-keyword">fi</span></code></pre></div>
+<span class="hljs-keyword">fi</span></code></pre>
 
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 写入</span>
+<pre><code class="hljs bash"><span class="hljs-comment"># 写入</span>
 vim ~/.bash_profile
 
 <span class="hljs-comment"># 立即生效</span>
-<span class="hljs-built_in">source</span> ~/.bash_profile</code></pre></div>
+<span class="hljs-built_in">source</span> ~/.bash_profile</code></pre>
 
 
 
@@ -274,7 +274,7 @@ vim ~/.bash_profile
 <p>开始颜色输入：<code>[\e[F;Bm]</code></p>
 <p>结束颜色输入：<code>[\e[0m]</code></p>
 <ul>
-<li>F B 值分别对应的颜色<div class="hljs"><pre><code class="hljs basic"><span class="hljs-symbol">30 </span><span class="hljs-number">40</span> 黑色
+<li>F B 值分别对应的颜色<pre><code class="hljs basic"><span class="hljs-symbol">30 </span><span class="hljs-number">40</span> 黑色
 
 <span class="hljs-symbol">31 </span><span class="hljs-number">41</span> 红色
 
@@ -288,18 +288,18 @@ vim ~/.bash_profile
 
 <span class="hljs-symbol">36 </span><span class="hljs-number">46</span> 青蓝色
 
-<span class="hljs-symbol">37 </span><span class="hljs-number">47</span> 白色</code></pre></div>
+<span class="hljs-symbol">37 </span><span class="hljs-number">47</span> 白色</code></pre>
 
 
 </li>
 </ul>
 <ul>
-<li>设置特殊显示<div class="hljs"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span><span class="hljs-keyword">OFF</span>，关闭颜色
+<li>设置特殊显示<pre><code class="hljs basic"><span class="hljs-symbol">0 </span><span class="hljs-keyword">OFF</span>，关闭颜色
 <span class="hljs-symbol">1 </span>高亮显示
 <span class="hljs-symbol">4 </span>显示下划线
 <span class="hljs-symbol">5 </span>闪烁显示
 <span class="hljs-symbol">7 </span>反白显示
-<span class="hljs-symbol">8 </span>颜色不可见</code></pre></div>
+<span class="hljs-symbol">8 </span>颜色不可见</code></pre>
 特殊显示可在结束颜色输入里面设置：<code>[\e[ 特殊颜色编号 m]</code></li>
 </ul>
 <h1 id="其他配色配置"><a href="#其他配色配置" class="headerlink" title="其他配色配置"></a>其他配色配置</h1><p>点击 Xshell 面板顶部的如下按钮。</p>

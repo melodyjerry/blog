@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,66 +225,66 @@
 
 <h1 id="Docker安装部署"><a href="#Docker安装部署" class="headerlink" title="Docker安装部署"></a>Docker安装部署</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><ul>
 <li><p>yum 包更新到最新（花的时间比较多）</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">yum update</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">yum update</span></code></pre>
 </li>
 <li><p>安装需要的软件包，yum-util 提供的yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
-  <div class="hljs"><pre><code class="hljs gml">yum install -<span class="hljs-symbol">y</span> yum-utils device-mapper-<span class="hljs-symbol">persistent</span>-data lvm2</code></pre></div>
+  <pre><code class="hljs gml">yum install -<span class="hljs-symbol">y</span> yum-utils device-mapper-<span class="hljs-symbol">persistent</span>-data lvm2</code></pre>
 </li>
 <li><p>设置yum源</p>
-  <div class="hljs"><pre><code class="hljs vim">yum-confi-manager --<span class="hljs-built_in">add</span>-repo http<span class="hljs-variable">s:</span>//download.docker.<span class="hljs-keyword">com</span>/linux/centos/docker-<span class="hljs-keyword">ce</span>.repo</code></pre></div>
+  <pre><code class="hljs vim">yum-confi-manager --<span class="hljs-built_in">add</span>-repo http<span class="hljs-variable">s:</span>//download.docker.<span class="hljs-keyword">com</span>/linux/centos/docker-<span class="hljs-keyword">ce</span>.repo</code></pre>
 </li>
 <li><p>安装docker，出现输入的页面都按 y</p>
-  <div class="hljs"><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y docker-ce</code></pre></div>
+  <pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y docker-ce</code></pre>
 </li>
 <li><p>查看docker版本，验证是否安装成功</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker -v</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker -v</span></code></pre>
 
 </li>
 </ul>
 <h3 id="其他安装方式-推荐"><a href="#其他安装方式-推荐" class="headerlink" title="其他安装方式(推荐)"></a>其他安装方式(推荐)</h3><p>教程链接：<a href="https://www.jianshu.com/p/1e5c86accacb" target="_blank" rel="noopener">Here!</a></p>
 <h1 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h1><h2 id="Docker服务相关命令"><a href="#Docker服务相关命令" class="headerlink" title="Docker服务相关命令"></a>Docker服务相关命令</h2><ul>
 <li><p>启动docker服务</p>
-  <div class="hljs"><pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> docker
-systemctl <span class="hljs-literal">start</span> docker</code></pre></div>
+  <pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> docker
+systemctl <span class="hljs-literal">start</span> docker</code></pre>
 </li>
 <li><p>停止docker服务</p>
-  <div class="hljs"><pre><code class="hljs arduino">systemctl <span class="hljs-built_in">stop</span> docker</code></pre></div>
+  <pre><code class="hljs arduino">systemctl <span class="hljs-built_in">stop</span> docker</code></pre>
 </li>
 <li><p>重启docker服务</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart docker</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart docker</span></code></pre>
 </li>
 <li><p>查看docker服务状态</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl status docker</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl status docker</span></code></pre>
 </li>
 <li><p>设置开机启动docker服务</p>
-  <div class="hljs"><pre><code class="hljs routeros">systemstl <span class="hljs-builtin-name">enable</span> docker</code></pre></div>
+  <pre><code class="hljs routeros">systemstl <span class="hljs-builtin-name">enable</span> docker</code></pre>
 
 </li>
 </ul>
 <h2 id="Docker镜像相关命令"><a href="#Docker镜像相关命令" class="headerlink" title="Docker镜像相关命令"></a>Docker镜像相关命令</h2><ul>
 <li><p>查看镜像：查看本地所有的镜像</p>
-  <div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> images
-docker images -q <span class="hljs-comment"># 查看所有镜像id</span></code></pre></div>
+  <pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> images
+docker images -q <span class="hljs-comment"># 查看所有镜像id</span></code></pre>
 </li>
 <li><p>搜索镜像：从网络中查找需要的镜像</p>
-  <div class="hljs"><pre><code class="hljs excel">docker <span class="hljs-built_in">search</span> 镜像名称</code></pre></div>
+  <pre><code class="hljs excel">docker <span class="hljs-built_in">search</span> 镜像名称</code></pre>
 </li>
 <li><p>拉取镜像：从docker仓库下载镜像到本地，镜像名称格式为 名称:版本号，如果版本号不指定则是<strong>最新版本</strong>。如果不知道镜像版本，可以去<a href="http://hub.docker.com/" target="_blank" rel="noopener">docker hub</a> 搜索对应镜像查看</p>
-  <div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> pull 镜像名称</code></pre></div>
+  <pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> pull 镜像名称</code></pre>
 </li>
 <li><p>删除镜像</p>
-  <div class="hljs"><pre><code class="hljs applescript">docker rmi 镜像<span class="hljs-built_in">id</span>
-docker rmi `docker images -q` <span class="hljs-comment"># 删除所有本地镜像</span></code></pre></div>
+  <pre><code class="hljs applescript">docker rmi 镜像<span class="hljs-built_in">id</span>
+docker rmi `docker images -q` <span class="hljs-comment"># 删除所有本地镜像</span></code></pre>
 
 </li>
 </ul>
 <h2 id="Docker容器相关的命令"><a href="#Docker容器相关的命令" class="headerlink" title="Docker容器相关的命令"></a>Docker容器相关的命令</h2><ul>
 <li><p>查看容器</p>
-  <div class="hljs"><pre><code class="hljs livecodeserver">docker ps <span class="hljs-comment"># 查看正在运行的容器</span>
-docker ps -<span class="hljs-keyword">a</span> <span class="hljs-comment"># 查看所有容器</span></code></pre></div>
+  <pre><code class="hljs livecodeserver">docker ps <span class="hljs-comment"># 查看正在运行的容器</span>
+docker ps -<span class="hljs-keyword">a</span> <span class="hljs-comment"># 查看所有容器</span></code></pre>
 </li>
 <li><p>创建并启动容器</p>
-  <div class="hljs"><pre><code class="hljs dockerfile">docker <span class="hljs-keyword">run</span><span class="bash"> 参数</span></code></pre></div>
+  <pre><code class="hljs dockerfile">docker <span class="hljs-keyword">run</span><span class="bash"> 参数</span></code></pre>
 
 <ul>
 <li>参数说明：<ul>
@@ -299,19 +299,19 @@ docker ps -<span class="hljs-keyword">a</span> <span class="hljs-comment"># 查�
 </ul>
 </li>
 <li><p>进入容器</p>
-  <div class="hljs"><pre><code class="hljs bash">docker <span class="hljs-built_in">exec</span> 参数 <span class="hljs-comment"># 退出容器，容器不会关闭</span></code></pre></div>
+  <pre><code class="hljs bash">docker <span class="hljs-built_in">exec</span> 参数 <span class="hljs-comment"># 退出容器，容器不会关闭</span></code></pre>
 </li>
 <li><p>启动容器</p>
-  <div class="hljs"><pre><code class="hljs crmsh">docker <span class="hljs-literal">start</span> 容器名称</code></pre></div>
+  <pre><code class="hljs crmsh">docker <span class="hljs-literal">start</span> 容器名称</code></pre>
 </li>
 <li><p>停止容器</p>
-  <div class="hljs"><pre><code class="hljs arduino">docker <span class="hljs-built_in">stop</span> 容器名称</code></pre></div>
+  <pre><code class="hljs arduino">docker <span class="hljs-built_in">stop</span> 容器名称</code></pre>
 </li>
 <li><p>删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除</p>
-  <div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> rm 容器名称</code></pre></div>
+  <pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> rm 容器名称</code></pre>
 </li>
 <li><p>查看容器信息</p>
-  <div class="hljs"><pre><code class="hljs gradle">docker <span class="hljs-keyword">inspect</span> 容器名称</code></pre></div>
+  <pre><code class="hljs gradle">docker <span class="hljs-keyword">inspect</span> 容器名称</code></pre>
 
 </li>
 </ul>
@@ -345,7 +345,7 @@ docker ps -<span class="hljs-keyword">a</span> <span class="hljs-comment"># 查�
 </ul>
 <h2 id="配置数据卷"><a href="#配置数据卷" class="headerlink" title="配置数据卷"></a>配置数据卷</h2><ul>
 <li><p>创建启动容器时，使用<code>-v</code>参数设置数据卷</p>
-  <div class="hljs"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> <span class="hljs-built_in">..</span>.-v 宿主机目录(文件):容器内目录(文件)<span class="hljs-built_in">..</span>.</code></pre></div>
+  <pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> <span class="hljs-built_in">..</span>.-v 宿主机目录(文件):容器内目录(文件)<span class="hljs-built_in">..</span>.</code></pre>
 </li>
 <li><p>注意事项：</p>
 <ol>
@@ -357,36 +357,36 @@ docker ps -<span class="hljs-keyword">a</span> <span class="hljs-comment"># 查�
 </ul>
 <h2 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h2><h3 id="配置数据卷容器"><a href="#配置数据卷容器" class="headerlink" title="配置数据卷容器"></a>配置数据卷容器</h3><ul>
 <li><p>创建启动c3数据卷容器，使用<code>-v</code>参数设置数据卷</p>
-  <div class="hljs"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -it <span class="hljs-attribute">--name-</span>=c3 -v /volume centos:7 /bin/bash</code></pre></div>
+  <pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -it <span class="hljs-attribute">--name-</span>=c3 -v /volume centos:7 /bin/bash</code></pre>
 </li>
 <li><p>创建启动c1 c2数据卷容器，使用<code>-volumes-from</code>参数设置数据卷</p>
-  <div class="hljs"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -it <span class="hljs-attribute">--name-</span>=c1 -volumes-from c3 centos:7 /bin/bash
-docker <span class="hljs-builtin-name">run</span> -it <span class="hljs-attribute">--name-</span>=c2 -volumes-from c3 centos:7 /bin/bash</code></pre></div>
+  <pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -it <span class="hljs-attribute">--name-</span>=c1 -volumes-from c3 centos:7 /bin/bash
+docker <span class="hljs-builtin-name">run</span> -it <span class="hljs-attribute">--name-</span>=c2 -volumes-from c3 centos:7 /bin/bash</code></pre>
 
 </li>
 </ul>
 <p>#Docker应用部署</p>
 <h2 id="MySQL部署"><a href="#MySQL部署" class="headerlink" title="MySQL部署"></a>MySQL部署</h2><ul>
 <li><p>搜索MySQL镜像</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker search mysql</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker search mysql</span></code></pre>
 </li>
 <li><p>拉取MySQL镜像</p>
-  <div class="hljs"><pre><code class="hljs angelscript">docker pull mysql:<span class="hljs-number">5.6</span></code></pre></div>
+  <pre><code class="hljs angelscript">docker pull mysql:<span class="hljs-number">5.6</span></code></pre>
 </li>
 <li><p>创建容器，设置端口映射、目录映射</p>
-  <div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-comment"># 在/root目录下创建mysql目录用于存储mysql数据信息</span>
+  <pre><code class="hljs jboss-cli"><span class="hljs-comment"># 在/root目录下创建mysql目录用于存储mysql数据信息</span>
 mkdir ~<span class="hljs-string">/mysql</span>
-<span class="hljs-keyword">cd</span> ~<span class="hljs-string">/mysql</span></code></pre></div>
+<span class="hljs-keyword">cd</span> ~<span class="hljs-string">/mysql</span></code></pre>
 
 <hr>
-  <div class="hljs"><pre><code class="hljs crystal">docker run -id \
+  <pre><code class="hljs crystal">docker run -id \
 --name=c_mysql \
 -p <span class="hljs-number">3307</span>:<span class="hljs-number">3306</span> \
 -v $PWD/<span class="hljs-symbol">conf:</span>/etc/mysql/confi.d \
 -v $PWD/<span class="hljs-symbol">logs:</span>/logs \
 -v $PWD/<span class="hljs-symbol">data:</span>/var/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">mysql</span> \</span>
 -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> \
-<span class="hljs-symbol">mysql:</span><span class="hljs-number">5.6</span></code></pre></div>
+<span class="hljs-symbol">mysql:</span><span class="hljs-number">5.6</span></code></pre>
 
 <ul>
 <li>参数说明：<ul>
@@ -402,22 +402,22 @@ mkdir ~<span class="hljs-string">/mysql</span>
 </ul>
 <h2 id="Tomcat部署"><a href="#Tomcat部署" class="headerlink" title="Tomcat部署"></a>Tomcat部署</h2><ul>
 <li><p>搜索Tomcat镜像</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker search tomcat</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker search tomcat</span></code></pre>
 </li>
 <li><p>拉取Tomcat镜像</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker pull tomcat</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker pull tomcat</span></code></pre>
 </li>
 <li><p>创建容器，设置端口映射、目录映射</p>
-  <div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-comment"># 在/root目录下创建tomcat目录用于存储tomcat数据信息</span>
+  <pre><code class="hljs jboss-cli"><span class="hljs-comment"># 在/root目录下创建tomcat目录用于存储tomcat数据信息</span>
 mkdir ~<span class="hljs-string">/tomcat</span>
-<span class="hljs-keyword">cd</span> ~<span class="hljs-string">/tomcat</span></code></pre></div>
+<span class="hljs-keyword">cd</span> ~<span class="hljs-string">/tomcat</span></code></pre>
 
 <hr>
-  <div class="hljs"><pre><code class="hljs haml">docker run -id \
+  <pre><code class="hljs haml">docker run -id \
 -<span class="ruby">-name=c_tomcat \</span>
 <span class="ruby">-p <span class="hljs-number">8080</span><span class="hljs-symbol">:</span><span class="hljs-number">8080</span> \</span>
 <span class="ruby">-v $PWD<span class="hljs-symbol">:/usr/local/tomcat/webapps</span> \</span>
-<span class="ruby">tomcat</span></code></pre></div>
+<span class="ruby">tomcat</span></code></pre>
 
 <ul>
 <li>参数说明：<ul>
@@ -430,22 +430,22 @@ mkdir ~<span class="hljs-string">/tomcat</span>
 </ul>
 <h2 id="Nginx部署"><a href="#Nginx部署" class="headerlink" title="Nginx部署"></a>Nginx部署</h2><ul>
 <li><p>搜索Nginx镜像</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker search nginx</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker search nginx</span></code></pre>
 </li>
 <li><p>拉取Nginx镜像</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker pull nginx</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker pull nginx</span></code></pre>
 </li>
 <li><p>创建容器，设置端口映射、目录映射</p>
-  <div class="hljs"><pre><code class="hljs vim"># 在/root目录下创建nginx目录用于存储nginx数据信息
+  <pre><code class="hljs vim"># 在/root目录下创建nginx目录用于存储nginx数据信息
 <span class="hljs-built_in">mkdir</span> ~/nginx
 <span class="hljs-keyword">cd</span> ~/nginx
 <span class="hljs-built_in">mkdir</span> <span class="hljs-keyword">conf</span>
 <span class="hljs-keyword">cd</span> <span class="hljs-keyword">conf</span>
 # 在~/nginx/<span class="hljs-keyword">conf</span>/下创建nginx.<span class="hljs-keyword">conf</span>文件，粘贴下面内容
-<span class="hljs-keyword">vim</span> nginx.<span class="hljs-keyword">conf</span></code></pre></div>
+<span class="hljs-keyword">vim</span> nginx.<span class="hljs-keyword">conf</span></code></pre>
 
 <hr>
-  <div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">user</span>  nginx;
+  <pre><code class="hljs nginx"><span class="hljs-attribute">user</span>  nginx;
 <span class="hljs-attribute">worker_processes</span>  <span class="hljs-number">1</span>;
 
 <span class="hljs-attribute">error_log</span>  /var/log/nginx/error.log <span class="hljs-literal">warn</span>;
@@ -473,16 +473,16 @@ mkdir ~<span class="hljs-string">/tomcat</span>
     <span class="hljs-comment">#gzip  on;</span>
 
     <span class="hljs-attribute">include</span> /etc/nginx/conf.d/<span class="hljs-regexp">*.conf</span>;
-}</code></pre></div>
+}</code></pre>
 
 <hr>
-  <div class="hljs"><pre><code class="hljs stata">docker <span class="hljs-keyword">run</span> -id \
+  <pre><code class="hljs stata">docker <span class="hljs-keyword">run</span> -id \
 --name=c_nginx \
 -p 81:80 \
 -v <span class="hljs-variable">$PWD</span>/<span class="hljs-keyword">conf</span>/nginx.<span class="hljs-keyword">conf</span>:/etc/nginx/nginx.<span class="hljs-keyword">conf</span> \
 -v <span class="hljs-variable">$PWD</span>/logs:/<span class="hljs-keyword">var</span>/<span class="hljs-keyword">log</span>/nginx \
 -v <span class="hljs-variable">$PWD</span>/html:/usr/share/nginx/html \
-nginx</code></pre></div>
+nginx</code></pre>
 
 <ul>
 <li>参数说明：<ul>
@@ -497,13 +497,13 @@ nginx</code></pre></div>
 </ul>
 <h2 id="Redis部署"><a href="#Redis部署" class="headerlink" title="Redis部署"></a>Redis部署</h2><ul>
 <li><p>搜索Redis镜像</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker search redis</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">docker search redis</span></code></pre>
 </li>
 <li><p>拉取Redis镜像</p>
-  <div class="hljs"><pre><code class="hljs vim">docker pull <span class="hljs-keyword">redi</span><span class="hljs-variable">s:5</span>.<span class="hljs-number">0</span></code></pre></div>
+  <pre><code class="hljs vim">docker pull <span class="hljs-keyword">redi</span><span class="hljs-variable">s:5</span>.<span class="hljs-number">0</span></code></pre>
 </li>
 <li><p>创建容器，设置端口映射、目录映射</p>
-  <div class="hljs"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -id <span class="hljs-attribute">--name</span>=c_redis -p 6379:6379 redis:5.0</code></pre></div>
+  <pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -id <span class="hljs-attribute">--name</span>=c_redis -p 6379:6379 redis:5.0</code></pre>
 
 <ul>
 <li>参数说明：<ul>
@@ -513,7 +513,7 @@ nginx</code></pre></div>
 </ul>
 </li>
 <li><p>使用外部机器连接redis</p>
-  <div class="hljs"><pre><code class="hljs stylus">./redis-cli<span class="hljs-selector-class">.exe</span> -h &lt;your ipAddress&gt; -<span class="hljs-selector-tag">p</span> <span class="hljs-number">6379</span></code></pre></div>
+  <pre><code class="hljs stylus">./redis-cli<span class="hljs-selector-class">.exe</span> -h &lt;your ipAddress&gt; -<span class="hljs-selector-tag">p</span> <span class="hljs-number">6379</span></code></pre>
 
 </li>
 </ul>
@@ -524,7 +524,7 @@ nginx</code></pre></div>
 </ul>
 </li>
 <li><p>Docker中一个centos镜像为什么只有200MB，而一个centos操作系统的</p>
-  <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">iso</span></code></pre></div>
+  <pre><code class="hljs ebnf"><span class="hljs-attribute">iso</span></code></pre>
 
 <p>  文件要几个GB？</p>
 <ul>
@@ -555,9 +555,9 @@ nginx</code></pre></div>
 <p><img src="http://106.75.80.200/2020/03/15/seven/layer2.png" srcset="/blog/img/loading.gif" alt="img"></p>
 <h2 id="镜像制作"><a href="#镜像制作" class="headerlink" title="镜像制作"></a>镜像制作</h2><ul>
 <li><p>容器转为镜像</p>
-  <div class="hljs"><pre><code class="hljs sql">docker <span class="hljs-keyword">commit</span> 容器<span class="hljs-keyword">id</span> 镜像名称:版本号  <span class="hljs-comment"># 将容器转换为镜像文件</span>
+  <pre><code class="hljs sql">docker <span class="hljs-keyword">commit</span> 容器<span class="hljs-keyword">id</span> 镜像名称:版本号  <span class="hljs-comment"># 将容器转换为镜像文件</span>
 docker <span class="hljs-keyword">save</span> -o 压缩文件名称 镜像名称:版本号  <span class="hljs-comment"># 将镜像文件打包成压缩文件，之后就能对压缩文件传送了</span>
-docker <span class="hljs-keyword">load</span> -i 压缩文件名称  <span class="hljs-comment"># 将压缩文件解压称为镜像文件</span></code></pre></div>
+docker <span class="hljs-keyword">load</span> -i 压缩文件名称  <span class="hljs-comment"># 将压缩文件解压称为镜像文件</span></code></pre>
 </li>
 <li><p>Dockerfile</p>
 <ul>
@@ -680,9 +680,9 @@ docker <span class="hljs-keyword">load</span> -i 压缩文件名称  <span class
 </ul>
 <h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ul>
 <li><p>创建编辑dockerfile文件</p>
-  <div class="hljs"><pre><code class="hljs properties"><span class="hljs-attr">mkdir</span> <span class="hljs-string">/root/dockerfile</span>
+  <pre><code class="hljs properties"><span class="hljs-attr">mkdir</span> <span class="hljs-string">/root/dockerfile</span>
 <span class="hljs-attr">cd</span> <span class="hljs-string">dockerfile</span>
-<span class="hljs-attr">vim</span> <span class="hljs-string">centos_dockerfile</span></code></pre></div>
+<span class="hljs-attr">vim</span> <span class="hljs-string">centos_dockerfile</span></code></pre>
 
 <ul>
 <li>定义父镜像：<code>FROM centos:7</code></li>
@@ -693,7 +693,7 @@ docker <span class="hljs-keyword">load</span> -i 压缩文件名称  <span class
 </ul>
 </li>
 <li><p>执行命令</p>
-  <div class="hljs"><pre><code class="hljs angelscript">docker build -f ./centos_dockerfile -t myCentos:<span class="hljs-number">1</span> .</code></pre></div>
+  <pre><code class="hljs angelscript">docker build -f ./centos_dockerfile -t myCentos:<span class="hljs-number">1</span> .</code></pre>
 
 <ul>
 <li><p>参数说明：</p>

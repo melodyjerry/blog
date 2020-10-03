@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -261,7 +261,7 @@
 <blockquote>
 <p>在任意一个时刻，原栈内元素的最小值就存储在辅助栈的栈顶中。</p>
 </blockquote>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXSIZE 1600</span>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXSIZE 1600</span>
 
 <span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
     <span class="hljs-comment">// 只用一个(数组模拟的)栈来同时模拟原栈、同步辅助栈并存</span>
@@ -333,7 +333,7 @@
     obj-&gt;data = <span class="hljs-literal">NULL</span>;
     <span class="hljs-built_in">free</span>(obj);
     obj = <span class="hljs-literal">NULL</span>;
-}</code></pre></div>
+}</code></pre>
 <h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><p><img src="https://i.loli.net/2020/05/12/xNKIQMybUgWART1.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="优秀、精明的题解"><a href="#优秀、精明的题解" class="headerlink" title="优秀、精明的题解"></a>优秀、精明的题解</h1><ol>
 <li><a href="https://leetcode-cn.com/problems/min-stack/solution/shi-yong-fu-zhu-zhan-tong-bu-he-bu-tong-bu-python-/" target="_blank" rel="noopener">【精选】使用辅助栈（同步和不同步)</a></li>

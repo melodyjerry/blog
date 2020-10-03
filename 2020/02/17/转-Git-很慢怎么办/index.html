@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -228,18 +228,18 @@
 <p>当你做出更多的判断而不是用一个模糊的问题来让别人替你判断的时候，你的问题也就迎刃而解了。</p>
 <p>现在这个模糊的问题变成了解决 Git 同步国外项目的网络问题了，这种情况你应该很熟悉，可以使用「代理」来解决。而 Git 支持两种网络传输协议，即 HTTP 和 SSH 协议，于是你只需要在 Google 搜索 <em>Git 如何配置 HTTP 代理和 SSH 代理</em> 就行了，当然也可以继续阅读，参考我用的配置。</p>
 <h2 id="配置-HTTP-代理"><a href="#配置-HTTP-代理" class="headerlink" title="配置 HTTP 代理"></a>配置 HTTP 代理</h2><p>如果你 <code>git clone</code> 时用的是 <code>http</code> 开头的地址，那就得配置 http 代理:</p>
-<div class="hljs"><pre><code class="hljs bash">git config --global http.proxy http://127.0.0.1:1087
+<pre><code class="hljs bash">git config --global http.proxy http://127.0.0.1:1087
 <span class="hljs-comment"># 或者 Socks5 代理</span>
-git config --global http.proxy socks5://127.0.0.1:1086</code></pre></div>
+git config --global http.proxy socks5://127.0.0.1:1086</code></pre>
 
 <h2 id="配置-SSH-代理"><a href="#配置-SSH-代理" class="headerlink" title="配置 SSH 代理"></a>配置 SSH 代理</h2><p>如果你 <code>git clone</code> 时用的是 <code>ssh</code> 开头的地址，那就得配置 SSH 代理。</p>
 <p>对 macOS 用户，你可以使用 <a href="https://bitbucket.org/gotoh/connect/wiki/Home" target="_blank" rel="noopener"><code>connect</code></a>，这是一个让 SSH 支持 SOCKS/HTTPS 代理的工具，这里我们用 <a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 来安装:</p>
-<div class="hljs"><pre><code class="hljs bash">brew install connect</code></pre></div>
+<pre><code class="hljs bash">brew install connect</code></pre>
 
 <p>然后编辑你的 <code>~/.ssh/config</code> 文件，加入以下代码:</p>
-<div class="hljs"><pre><code class="hljs git">Host *
+<pre><code class="hljs git">Host *
   User git
-  ProxyCommand connect -S 127.0.0.1:1086 %h %p</code></pre></div>
+  ProxyCommand connect -S 127.0.0.1:1086 %h %p</code></pre>
 
 <p>这样 SSH 连接时就会使用位于 <code>127.0.0.1:1086</code> 的代理。</p>
 <hr>

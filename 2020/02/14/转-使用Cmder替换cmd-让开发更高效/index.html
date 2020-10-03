@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -240,8 +240,8 @@
 <p><img src="https:////upload-images.jianshu.io/upload_images/13479263-87db9162416bf29b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/418/format/webp" srcset="/blog/img/loading.gif" alt="img"></p>
 <p><img src="https:////upload-images.jianshu.io/upload_images/13479263-e2f1e706bf445886.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/390/format/webp" srcset="/blog/img/loading.gif" alt="img"></p>
 <h4 id="2-配置右键快捷启动"><a href="#2-配置右键快捷启动" class="headerlink" title="2. 配置右键快捷启动:"></a>2. 配置右键快捷启动:</h4><p>以管理员身份打开<code>cmd</code>，执行以下命令即可，完了以后在任意地方点击右键即可使用cmder</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// 设置任意地方鼠标右键启动Cmder</span>
-Cmder.exe /REGISTER ALL</code></pre></div>
+<pre><code class="hljs cpp"><span class="hljs-comment">// 设置任意地方鼠标右键启动Cmder</span>
+Cmder.exe /REGISTER ALL</code></pre>
 
 <p><img src="https:////upload-images.jianshu.io/upload_images/13479263-46f0ec91b15cd4e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/182/format/webp" srcset="/blog/img/loading.gif" alt="img"></p>
 <p>鼠标右键启动Cmder</p>
@@ -257,7 +257,7 @@ Cmder.exe /REGISTER ALL</code></pre></div>
 <p><img src="https:////upload-images.jianshu.io/upload_images/13479263-be5705ebc73910bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/777/format/webp" srcset="/blog/img/loading.gif" alt="img"></p>
 <p> 将Cmder默认的命令提示符<code>"λ"</code>改为<code>“$”</code>，<br> 在<code>cmder\vendor</code>中的<code>clink.lua</code>内做如下修改”λ”替换成”$”</p>
 <p><img src="https:////upload-images.jianshu.io/upload_images/13479263-7de88efa37a7999b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/900/format/webp" srcset="/blog/img/loading.gif" alt="img"></p>
-<h1 id="四、关于Cmder的一些常用快捷键"><a href="#四、关于Cmder的一些常用快捷键" class="headerlink" title="四、关于Cmder的一些常用快捷键"></a>四、关于Cmder的一些常用快捷键</h1><div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">Tab</span>       自动路径补全
+<h1 id="四、关于Cmder的一些常用快捷键"><a href="#四、关于Cmder的一些常用快捷键" class="headerlink" title="四、关于Cmder的一些常用快捷键"></a>四、关于Cmder的一些常用快捷键</h1><pre><code class="hljs css"><span class="hljs-selector-tag">Tab</span>       自动路径补全
 <span class="hljs-selector-tag">Ctrl</span>+<span class="hljs-selector-tag">T</span>    建立新页签
 <span class="hljs-selector-tag">Ctrl</span>+<span class="hljs-selector-tag">W</span>    关闭页签
 <span class="hljs-selector-tag">Ctrl</span>+<span class="hljs-selector-tag">Tab</span>  切换页签
@@ -281,12 +281,12 @@ Cmder.exe /REGISTER ALL</code></pre></div>
 <span class="hljs-selector-tag">Ctrl</span>+<span class="hljs-selector-tag">n</span>      快速切换到第<span class="hljs-selector-tag">n</span>个页签( <span class="hljs-selector-tag">n</span>值无上限)
 <span class="hljs-selector-tag">Alt</span> + <span class="hljs-selector-tag">enter</span> 切换到全屏状态
 <span class="hljs-selector-tag">Ctr</span>+<span class="hljs-selector-tag">r</span>       历史命令搜索
-<span class="hljs-selector-tag">Win</span>+<span class="hljs-selector-tag">Alt</span>+<span class="hljs-selector-tag">P</span>   开启工具选项视窗</code></pre></div>
+<span class="hljs-selector-tag">Win</span>+<span class="hljs-selector-tag">Alt</span>+<span class="hljs-selector-tag">P</span>   开启工具选项视窗</code></pre>
 
 <h1 id="五、关于中文乱码问题："><a href="#五、关于中文乱码问题：" class="headerlink" title="五、关于中文乱码问题："></a>五、关于中文乱码问题：</h1><p>将下面的4行命令添加到cmder/config/aliases文件末尾,如果还是不行参考前面字体设置，将前面提到的字体设置里面的Monospace的复选框不选中。还有就是养成良好的编码习惯文件命名最好不要有中文。</p>
-<div class="hljs"><pre><code class="hljs dart">l=ls --<span class="hljs-keyword">show</span>-control-chars 
+<pre><code class="hljs dart">l=ls --<span class="hljs-keyword">show</span>-control-chars 
 la=ls -aF --<span class="hljs-keyword">show</span>-control-chars 
-ll=ls -alF --<span class="hljs-keyword">show</span>-control-chars</code></pre></div>
+ll=ls -alF --<span class="hljs-keyword">show</span>-control-chars</code></pre>
 
 <hr>
 <p>作者：_123hhh<br>链接：<a href="https://www.jianshu.com/p/5b7c985240a7" target="_blank" rel="noopener">https://www.jianshu.com/p/5b7c985240a7</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>

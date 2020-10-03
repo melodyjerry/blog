@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -237,7 +237,7 @@
 <a id="more"></a>
 
 <h2 id="提交代码（Java）"><a href="#提交代码（Java）" class="headerlink" title="提交代码（Java）"></a>提交代码（Java）</h2><h3 id="第一次提交"><a href="#第一次提交" class="headerlink" title="第一次提交"></a>第一次提交</h3><p>第一次时候，我想使用<strong>递归</strong>的方式👇</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
 
@@ -254,13 +254,13 @@
 		<span class="hljs-keyword">else</span>
 			<span class="hljs-keyword">return</span> F(n-<span class="hljs-number">1</span>)+F(n-<span class="hljs-number">2</span>);
 	}
-}</code></pre></div>
+}</code></pre>
 
 <p>提交后，系统提示【<strong>运行超时</strong>】👇</p>
 <p><fancybox><img src="https://i.loli.net/2020/02/07/d6o8x2OnvDZ7luL.png" srcset="/blog/img/loading.gif" alt=""></fancybox></p>
 <h3 id="第二次提交"><a href="#第二次提交" class="headerlink" title="第二次提交"></a>第二次提交</h3><p>使用递归来处理，比较耗时。</p>
 <p>而且这次我按照题目的提示【<strong>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</strong>】来处理，就改用数组来实现👇</p>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<pre><code class="hljs Java"><span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
 
@@ -279,7 +279,7 @@
 		sc.close();
 	}
 
-}</code></pre></div>
+}</code></pre>
 
 <p>这次直接通过👇</p>
 <fancybox>

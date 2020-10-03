@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -254,26 +254,26 @@
 <li><font size="5" color="green">“声明、创建、初始化、访问”数组</font></li>
 </ol>
 <p><font size="4" color="bron">声明数组：</font></p>
-<div class="hljs"><pre><code>🔺只给数组变量(由数组名描述)分配空间，而不会给数组按要存放的元素的多少来分配空间。</code></pre></div><ul>
+<pre><code>🔺只给数组变量(由数组名描述)分配空间，而不会给数组按要存放的元素的多少来分配空间。</code></pre><ul>
 <li>有两种形式——&gt;推荐第一种：    <font size="3" color="ydasd">数据类型[]    数组名</font></li>
 </ul>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//数据类型[]	数组名</span>
+<pre><code class="hljs java"><span class="hljs-comment">//数据类型[]	数组名</span>
 <span class="hljs-keyword">int</span>[]	a;
 
 <span class="hljs-comment">//数据类型		数组名[]</span>
-<span class="hljs-keyword">int</span>		a[];</code></pre></div>
+<span class="hljs-keyword">int</span>		a[];</code></pre>
 
 <p> ——————————————————————————— 我 是 分 割 线 ———————————————————————————— </p>
 <p><font size="4" color="bron">创建数组：</font>用<strong>new运算符</strong>，同对象的创建。</p>
 <ul>
 <li>有两种形式——&gt;</li>
 </ul>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//先声明，后创建</span>
+<pre><code class="hljs java"><span class="hljs-comment">//先声明，后创建</span>
 <span class="hljs-keyword">int</span>[] a; <span class="hljs-comment">//声明存放int型数据的数组a</span>
 a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">//在Java堆区中创建10个int型元素空间(共40个字节)</span>
 
 <span class="hljs-comment">//声明和创建合一</span>
-<span class="hljs-keyword">int</span>[]	test = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">12</span>];</code></pre></div>
+<span class="hljs-keyword">int</span>[]	test = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">12</span>];</code></pre>
 
 <p>注意：</p>
 <ol>
@@ -287,8 +287,8 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
 <p> ——————————————————————————— 我 是 分 割 线 ———————————————————————————— </p>
 <p><font size="4" color="bron">初始化数组：</font>在创建好的数组元素空间中存放初始值.否则按默认值初始化。</p>
 <p>🔺数组<font color="orange">创建时（即new时使用）</font>初始化器语法：<strong>{元素值列表}</strong>。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//声明存放int型数据的数组aMonth并初始化</span>
-<span class="hljs-keyword">int</span>[] aMonth = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>};</code></pre></div>
+<pre><code class="hljs java"><span class="hljs-comment">//声明存放int型数据的数组aMonth并初始化</span>
+<span class="hljs-keyword">int</span>[] aMonth = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>};</code></pre>
 
 <p>注意：</p>
 <ul>
@@ -296,11 +296,11 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
 <p>  即 <code>new int[12]{…}</code> ，不对</p>
 </li>
 </ul>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">int</span>[] a; 				<span class="hljs-comment">//先声明数组a</span>
+<pre><code class="hljs Java"><span class="hljs-keyword">int</span>[] a; 				<span class="hljs-comment">//先声明数组a</span>
 a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>]{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>}; 	<span class="hljs-comment">// Error,不能显式指明长度[2]</span>
 a = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>}; 				<span class="hljs-comment">// Error</span>
 a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>}; 	<span class="hljs-comment">// OK!</span>
-<span class="hljs-keyword">int</span>[] b = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}; 		<span class="hljs-comment">// OK!此方式用得最多</span></code></pre></div>
+<span class="hljs-keyword">int</span>[] b = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}; 		<span class="hljs-comment">// OK!此方式用得最多</span></code></pre>
 
 <p>——————————————————————————— 我 是 分 割 线 ———————————————————————————— </p>
 <p><font size="4" color="bron">访问数组：</font></p>
@@ -319,9 +319,9 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
 </ol>
 <p>🔺增强版for语句：<strong>foreach语句</strong>（JDK5开始提供）</p>
 <p>🔺适用于<strong>遍历数组、集合元素</strong>等形式</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(元素的数据类型 遍历变量x : 遍历对象obj){ <span class="hljs-comment">//x是自定义遍历变量名</span>
+<pre><code class="hljs java"><span class="hljs-keyword">for</span>(元素的数据类型 遍历变量x : 遍历对象obj){ <span class="hljs-comment">//x是自定义遍历变量名</span>
     引用了x的Java语句; <span class="hljs-comment">//循环体 </span>
-}</code></pre></div>
+}</code></pre>
 
 <p>注意：</p>
 <ol>
@@ -329,7 +329,7 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
 <li>foreach语句<strong>不关注下标</strong>。</li>
 <li>用foreach的遍历变量<strong>不能修改元素值</strong>。</li>
 </ol>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> </span>{ 
+<pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> </span>{ 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{ 
          <span class="hljs-keyword">int</span>[] a = {<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>}; 
         <span class="hljs-comment">/* 循环输出a */</span> 
@@ -337,7 +337,7 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
             System.out.printf(<span class="hljs-string">"%4d "</span>, n); <span class="hljs-comment">// n表示数组a的每一个元素值 </span>
     	} 
     } 
-}</code></pre></div>
+}</code></pre>
 
 <hr>
 <ol start="6">
@@ -375,7 +375,7 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
 <li><strong>数组作为方法参数</strong></li>
 </ol>
 <p>🔺数组作为方法参数传递，传递的参数是<strong>数组内存的地址</strong>。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
     <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">11</span>, <span class="hljs-number">22</span>, <span class="hljs-number">33</span>, <span class="hljs-number">44</span>, <span class="hljs-number">55</span>};
     System.out.println(<span class="hljs-string">"1位置: "</span> + arr);
     printArray(arr);  <span class="hljs-comment">// 数组作为方法参数传递，传递的参数是数组内存的地址</span>
@@ -386,14 +386,14 @@ a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[
         System.out.println(arr[i]);
     }
 }
-<span class="hljs-number">1234567891011</span></code></pre></div>
+<span class="hljs-number">1234567891011</span></code></pre>
 
 <p><img src="https://img-blog.csdn.net/20181011225148487?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0x1b2p1bjEzQ2xhc3M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/blog/img/loading.gif" alt="在这里插入图片描述"></p>
 <ol start="2">
 <li><strong>数组作为方法返回值</strong></li>
 </ol>
 <p>🔺数组作为方法的返回值，返回的是<strong>数组的内存地址</strong>。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
     <span class="hljs-comment">//调用方法，接收数组的返回值</span>
     <span class="hljs-comment">//接收到的是数组的内存地址</span>
     <span class="hljs-keyword">int</span>[] arr = getArray();
@@ -410,7 +410,7 @@ System.out.println(arr[i]);
     <span class="hljs-comment">//返回数组的地址，返回到调用者</span>
     <span class="hljs-keyword">return</span> arr;
 }
-<span class="hljs-number">1234567891011121314151617</span></code></pre></div>
+<span class="hljs-number">1234567891011121314151617</span></code></pre>
 
 <p><img src="https://img-blog.csdn.net/20181011225223723?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0x1b2p1bjEzQ2xhc3M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/blog/img/loading.gif" alt="在这里插入图片描述"></p>
 <p>该博主的延伸阅读： <a href="https://blog.csdn.net/Luojun13Class/article/details/83020011" target="_blank" rel="noopener">Java–数组的定义和访问</a>、<a href="https://blog.csdn.net/Luojun13Class/article/details/83020086" target="_blank" rel="noopener">Java–数组原理内存图</a>、<a href="https://blog.csdn.net/Luojun13Class/article/details/83020199" target="_blank" rel="noopener">Java–数组的常见操作</a> </p>

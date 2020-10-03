@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -226,30 +226,30 @@
 <a id="more"></a>
 
 
-<div class="hljs"><pre><code class="hljs taggerscript">Windows Registry Editor Version 5.00
+<pre><code class="hljs taggerscript">Windows Registry Editor Version 5.00
  
 [HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\S</span>earch]
 "ImmersiveSearch"=dword:00000001
  
 [HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\S</span>earch<span class="hljs-symbol">\F</span>lighting<span class="hljs-symbol">\O</span>verride]
 "ImmersiveSearchFull"=dword:00000001
-"CenterScreenRoundedCornerRadius"=dword:00000009</code></pre></div>
+"CenterScreenRoundedCornerRadius"=dword:00000009</code></pre>
 
 <p>动图操作示范</p>
 <p><img src="https://bincode.cc/wp-content/uploads/2019/11/floating-immersive-search-bar-windows-10.gif" srcset="/blog/img/loading.gif" alt="img"></p>
 <p>如果不想用了，可以删除注册表就能恢复Windows10默认搜索样式。</p>
-<div class="hljs"><pre><code class="hljs taggerscript">Windows Registry Editor Version 5.00
+<pre><code class="hljs taggerscript">Windows Registry Editor Version 5.00
  
 [HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\S</span>earch]
 "ImmersiveSearch"=-
  
 [-HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\S</span>earch<span class="hljs-symbol">\F</span>lighting<span class="hljs-symbol">\O</span>verride]
 "ImmersiveSearchFull"=dword:00000001
-"CenterScreenRoundedCornerRadius"=dword:00000009</code></pre></div>
+"CenterScreenRoundedCornerRadius"=dword:00000009</code></pre>
 
 <p>关于注册表文件的删除语法</p>
-<div class="hljs"><pre><code class="hljs css">要使用 <span class="hljs-selector-class">.reg</span> 文件删除注册表项，将 <span class="hljs-selector-class">.reg</span> 文件中的 <span class="hljs-selector-tag">RegistryPath</span> 的前面放一个连字符 （<span class="hljs-selector-tag">-</span>）。
-要使用 <span class="hljs-selector-class">.reg</span> 文件删除注册表值，将 <span class="hljs-selector-class">.reg</span> 文件中的 <span class="hljs-selector-tag">DataItemName</span> 的等号后放一个连字符 （<span class="hljs-selector-tag">-</span>）。</code></pre></div>
+<pre><code class="hljs css">要使用 <span class="hljs-selector-class">.reg</span> 文件删除注册表项，将 <span class="hljs-selector-class">.reg</span> 文件中的 <span class="hljs-selector-tag">RegistryPath</span> 的前面放一个连字符 （<span class="hljs-selector-tag">-</span>）。
+要使用 <span class="hljs-selector-class">.reg</span> 文件删除注册表值，将 <span class="hljs-selector-class">.reg</span> 文件中的 <span class="hljs-selector-tag">DataItemName</span> 的等号后放一个连字符 （<span class="hljs-selector-tag">-</span>）。</code></pre>
 
 
 

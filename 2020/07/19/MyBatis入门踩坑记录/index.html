@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -225,7 +225,7 @@
 <a id="more"></a>
 
 <h2 id="Maven静态资源过滤问题"><a href="#Maven静态资源过滤问题" class="headerlink" title="Maven静态资源过滤问题"></a>Maven静态资源过滤问题</h2><p><img src="https://s1.ax1x.com/2020/07/19/UWu9VU.png" srcset="/blog/img/loading.gif" alt="UWu9VU.png"></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--在build中配置resource，来防止我们资源导出失败的问题--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--在build中配置resource，来防止我们资源导出失败的问题--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>
@@ -245,22 +245,22 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span></code></pre>
 
-<h2 id="Junit测试时，可能会提示"><a href="#Junit测试时，可能会提示" class="headerlink" title="Junit测试时，可能会提示"></a>Junit测试时，可能会提示</h2><div class="hljs"><pre><code class="hljs java">org.apache.ibatis.binding.BindingException: Type <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">com</span>.<span class="hljs-title">melodyhub</span>.<span class="hljs-title">dao</span>.<span class="hljs-title">UserDao</span> <span class="hljs-title">is</span> <span class="hljs-title">not</span> <span class="hljs-title">known</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">MapperRegistry</span>.</span></code></pre></div>
+<h2 id="Junit测试时，可能会提示"><a href="#Junit测试时，可能会提示" class="headerlink" title="Junit测试时，可能会提示"></a>Junit测试时，可能会提示</h2><pre><code class="hljs java">org.apache.ibatis.binding.BindingException: Type <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">com</span>.<span class="hljs-title">melodyhub</span>.<span class="hljs-title">dao</span>.<span class="hljs-title">UserDao</span> <span class="hljs-title">is</span> <span class="hljs-title">not</span> <span class="hljs-title">known</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">MapperRegistry</span>.</span></code></pre>
 
 <p><strong><code>MapperRegistry</code>是什么？</strong></p>
 <p><font color="red" size="5">每一个Mapper.xml都需要在MyBatis核心配置文件中注册！！！</font></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--每一个Mapper.xml都需要在MyBatis核心配置文件中注册！！！--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--每一个Mapper.xml都需要在MyBatis核心配置文件中注册！！！--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">"com/melodyhub/dao/UserMapper.xml"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span></code></pre>
 
 <h2 id="MySQL时区"><a href="#MySQL时区" class="headerlink" title="MySQL时区"></a>MySQL时区</h2><p>由于MySQL底层是使用的时区是CST，跟中国时间相差挣好8个小时。</p>
 <p>解决办法是在<code>mybatis-config.xml</code>中``jdbc<code>的</code>url`末尾加上，二选一即可：</p>
-<div class="hljs"><pre><code class="hljs xml">&amp;amp;serverTimezone=GMT%2B8
+<pre><code class="hljs xml">&amp;amp;serverTimezone=GMT%2B8
 &amp;amp;useTimezone=true&amp;amp;serverTimezone=UTC
-`</code></pre></div>
+`</code></pre>
 
 <p>参考：<a href="https://blog.csdn.net/ziningyihao/article/details/90644295" target="_blank" rel="noopener">https://blog.csdn.net/ziningyihao/article/details/90644295</a></p>
 <h2 id="MySQL驱动-版本问题"><a href="#MySQL驱动-版本问题" class="headerlink" title="MySQL驱动/版本问题"></a>MySQL驱动/版本问题</h2><p>所有的代码都没有问题，但是就是连接不上数据库，经过排查，发现我的MySQL版本是8.0，驱动包是5.1.47，差距太大，不兼容。</p>

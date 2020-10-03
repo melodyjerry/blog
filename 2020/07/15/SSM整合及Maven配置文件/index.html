@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -222,7 +222,7 @@
             
             <article class="markdown-body">
               <p><a href="https://files-cdn.cnblogs.com/files/melodyjerry/SSM%E6%95%B4%E5%90%88%E5%8F%8AMaven%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.zip" target="_blank" rel="noopener">下载 🔗</a></p>
-<div class="hljs"><pre><code class="hljs crmsh">SSM整合及Maven配置文件.zip
+<pre><code class="hljs crmsh">SSM整合及Maven配置文件.zip
  ├── maven_ssm
  │   ├── pom.xml
  │   ├── pom_test.xml
@@ -235,11 +235,11 @@
  │       ├── springmvc.xml
  │       └── web.xml
  ├── pom.xml
- └── web.xml</code></pre></div>
+ └── web.xml</code></pre>
 <a id="more"></a>
 
 <p>如何使用 <a href="http://www.sikiedu.com/course/284/task/14721/show" target="_blank" rel="noopener">？</a></p>
-<h1 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h1><div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+<h1 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h1><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><span class="hljs-comment">&lt;!-- maven版本 --&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.sikiedu<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><span class="hljs-comment">&lt;!-- 域名反写 + 项目名 --&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>HelloMaven<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><span class="hljs-comment">&lt;!-- 项目名 子项目名 模块名 --&gt;</span>
@@ -290,9 +290,9 @@
 		<span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
   
-<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span></code></pre>
 
-<h1 id="SSM整合pom-xml"><a href="#SSM整合pom-xml" class="headerlink" title="SSM整合pom.xml"></a>SSM整合pom.xml</h1><div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+<h1 id="SSM整合pom-xml"><a href="#SSM整合pom-xml" class="headerlink" title="SSM整合pom.xml"></a>SSM整合pom.xml</h1><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.sikiedu<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>MavenSSM2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
@@ -614,7 +614,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
   
  
-<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span></code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

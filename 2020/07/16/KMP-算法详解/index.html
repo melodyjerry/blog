@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -240,7 +240,7 @@
 <p>PS：本文的代码参考《算法4》，原代码使用的数组名称是 <code>dfa</code>（确定有限状态机），因为我们的公众号之前有一系列动态规划的文章，就不说这么高大上的名词了，我对书中代码进行了一点修改，并沿用 <code>dp</code> 数组的名称。</p>
 <h3 id="一、KMP-算法概述"><a href="#一、KMP-算法概述" class="headerlink" title="一、KMP 算法概述"></a>一、KMP 算法概述</h3><p>首先还是简单介绍一下 KMP 算法和暴力匹配算法的不同在哪里，难点在哪里，和动态规划有啥关系。</p>
 <p>暴力的字符串匹配算法很容易写，看一下它的运行逻辑：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-comment">// 暴力匹配（伪码）</span>
+<pre><code class="hljs angelscript"><span class="hljs-comment">// 暴力匹配（伪码）</span>
 <span class="hljs-built_in">int</span> search(String pat, String txt) {
     <span class="hljs-built_in">int</span> M = pat.length;
     <span class="hljs-built_in">int</span> N = txt.length;
@@ -255,7 +255,7 @@
     }
     <span class="hljs-comment">// txt 中不存在 pat 子串</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>对于暴力算法，如果出现不匹配字符，同时回退 <code>txt</code> 和 <code>pat</code> 的指针，嵌套 for 循环，时间复杂度 $O(MN)$，空间复杂度$O(1)$。最主要的问题是，如果字符串中重复的字符比较多，该算法就显得很蠢。</p>
 <p>比如 txt = “aaacaaab” pat = “aaab”：</p>
@@ -270,10 +270,10 @@
 <p>KMP 算法的难点在于，如何计算 <code>dp</code> 数组中的信息？如何根据这些信息正确地移动 <code>pat</code> 的指针？这个就需要<strong>确定有限状态自动机</strong>来辅助了，别怕这种高大上的文学词汇，其实和动态规划的 <code>dp</code> 数组如出一辙，等你学会了也可以拿这个词去吓唬别人。</p>
 <p>还有一点需要明确的是：<strong>计算这个 <code>dp</code> 数组，只和 <code>pat</code> 串有关</strong>。意思是说，只要给我个 <code>pat</code>，我就能通过这个模式串计算出 <code>dp</code> 数组，然后你可以给我不同的 <code>txt</code>，我都不怕，利用这个 <code>dp</code> 数组我都能在 O(N) 时间完成字符串匹配。</p>
 <p>具体来说，比如上文举的两个例子：</p>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">txt1</span> = <span class="hljs-string">"aaacaaab"</span> 
+<pre><code class="hljs ini"><span class="hljs-attr">txt1</span> = <span class="hljs-string">"aaacaaab"</span> 
 <span class="hljs-attr">pat</span> = <span class="hljs-string">"aaab"</span>
 <span class="hljs-attr">txt2</span> = <span class="hljs-string">"aaaaaaab"</span> 
-<span class="hljs-attr">pat</span> = <span class="hljs-string">"aaab"</span></code></pre></div>
+<span class="hljs-attr">pat</span> = <span class="hljs-string">"aaab"</span></code></pre>
 
 <p>我们的 <code>txt</code> 不同，但是 <code>pat</code> 是一样的，所以 KMP 算法使用的 <code>dp</code> 数组是同一个。</p>
 <p>只不过对于 <code>txt1</code> 的下面这个即将出现的未匹配情况：</p>
@@ -286,7 +286,7 @@
 <p><code>dp</code> 数组指示 <code>pat</code> 这样移动：</p>
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/txt4.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/txt4.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <p>明白了 <code>dp</code> 数组只和 <code>pat</code> 有关，那么我们这样设计 KMP 算法就会比较漂亮：</p>
-<div class="hljs"><pre><code class="hljs arduino"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KMP</span> {</span>
+<pre><code class="hljs arduino"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KMP</span> {</span>
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[][] dp;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> pat;
 
@@ -300,12 +300,12 @@
         <span class="hljs-comment">// 借助 dp 数组去匹配 txt</span>
         <span class="hljs-comment">// 需要 O(N) 时间</span>
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>这样，当我们需要用同一 <code>pat</code> 去匹配不同 <code>txt</code> 时，就不需要浪费时间构造 <code>dp</code> 数组了：</p>
-<div class="hljs"><pre><code class="hljs reasonml">KMP kmp = <span class="hljs-keyword">new</span> <span class="hljs-constructor">KMP(<span class="hljs-string">"aaab"</span>)</span>;
+<pre><code class="hljs reasonml">KMP kmp = <span class="hljs-keyword">new</span> <span class="hljs-constructor">KMP(<span class="hljs-string">"aaab"</span>)</span>;
 <span class="hljs-built_in">int</span> pos1 = kmp.search(<span class="hljs-string">"aaacaaab"</span>); <span class="hljs-comment">//4</span>
-<span class="hljs-built_in">int</span> pos2 = kmp.search(<span class="hljs-string">"aaaaaaab"</span>); <span class="hljs-comment">//4</span></code></pre></div>
+<span class="hljs-built_in">int</span> pos2 = kmp.search(<span class="hljs-string">"aaaaaaab"</span>); <span class="hljs-comment">//4</span></code></pre>
 
 <h3 id="二、状态机概述"><a href="#二、状态机概述" class="headerlink" title="二、状态机概述"></a>二、状态机概述</h3><p>为什么说 KMP 算法和状态机有关呢？是这样的，我们可以认为 <code>pat</code> 的匹配就是状态的转移。比如当 pat = “ABABC”：</p>
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/state.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/state.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
@@ -330,7 +330,7 @@
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/kmp.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/kmp.gif" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <p><strong>请记住这个 GIF 的匹配过程，这就是 KMP 算法的核心逻辑</strong>！</p>
 <p>为了描述状态转移图，我们定义一个二维 dp 数组，它的含义如下：</p>
-<div class="hljs"><pre><code class="hljs angelscript">dp[j][c] = next
+<pre><code class="hljs angelscript">dp[j][c] = next
 <span class="hljs-number">0</span> &lt;= j &lt; M，代表当前的状态
 <span class="hljs-number">0</span> &lt;= c &lt; <span class="hljs-number">256</span>，代表遇到的字符（ASCII 码）
 <span class="hljs-number">0</span> &lt;= next &lt;= M，代表下一个状态
@@ -341,10 +341,10 @@ pat 应该转移到状态 <span class="hljs-number">3</span>
 
 dp[<span class="hljs-number">1</span>][<span class="hljs-string">'B'</span>] = <span class="hljs-number">2</span> 表示：
 当前是状态 <span class="hljs-number">1</span>，如果遇到字符 B，
-pat 应该转移到状态 <span class="hljs-number">2</span></code></pre></div>
+pat 应该转移到状态 <span class="hljs-number">2</span></code></pre>
 
 <p>根据我们这个 dp 数组的定义和刚才状态转移的过程，我们可以先写出 KMP 算法的 search 函数代码：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> search(String txt) {
+<pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> search(String txt) {
     <span class="hljs-built_in">int</span> M = pat.length();
     <span class="hljs-built_in">int</span> N = txt.length();
     <span class="hljs-comment">// pat 的初始态为 0</span>
@@ -358,13 +358,13 @@ pat 应该转移到状态 <span class="hljs-number">2</span></code></pre></div>
     }
     <span class="hljs-comment">// 没到达终止态，匹配失败</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>到这里，应该还是很好理解的吧，<code>dp</code> 数组就是我们刚才画的那幅状态转移图，如果不清楚的话回去看下 GIF 的算法演进过程。下面讲解：如何通过 <code>pat</code> 构建这个 <code>dp</code> 数组？</p>
 <h3 id="三、构建状态转移图"><a href="#三、构建状态转移图" class="headerlink" title="三、构建状态转移图"></a>三、构建状态转移图</h3><p>回想刚才说的：<strong>要确定状态转移的行为，必须明确两个变量，一个是当前的匹配状态，另一个是遇到的字符</strong>，而且我们已经根据这个逻辑确定了 <code>dp</code> 数组的含义，那么构造 <code>dp</code> 数组的框架就是这样：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">j</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">M:</span> <span class="hljs-comment"># 状态</span>
+<pre><code class="hljs yaml"><span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">j</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">M:</span> <span class="hljs-comment"># 状态</span>
     <span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">c</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">256:</span> <span class="hljs-comment"># 字符</span>
-        <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">next</span></code></pre></div>
+        <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">next</span></code></pre>
 
 <p>这个 next 状态应该怎么求呢？显然，<strong>如果遇到的字符 <code>c</code> 和 <code>pat[j]</code> 匹配的话</strong>，状态就应该向前推进一个，也就是说 <code>next = j + 1</code>，我们不妨称这种情况为<strong>状态推进</strong>：</p>
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/forward.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/forward.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
@@ -381,7 +381,7 @@ pat 应该转移到状态 <span class="hljs-number">2</span></code></pre></div>
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/shadow2.jpg" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/shadow2.jpg" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <p>你也许会问，这个 <code>X</code> 怎么知道遇到字符 “B” 要回退到状态 0 呢？因为 <code>X</code> 永远跟在 <code>j</code> 的身后，状态 <code>X</code> 如何转移，在之前就已经算出来了。动态规划算法不就是利用过去的结果解决现在的问题吗？</p>
 <p>这样，我们就细化一下刚才的框架代码：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">int</span> <span class="hljs-string">X</span> <span class="hljs-comment"># 影子状态</span>
+<pre><code class="hljs yaml"><span class="hljs-string">int</span> <span class="hljs-string">X</span> <span class="hljs-comment"># 影子状态</span>
 <span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">j</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">M:</span>
     <span class="hljs-string">for</span> <span class="hljs-number">0</span> <span class="hljs-string">&lt;=</span> <span class="hljs-string">c</span> <span class="hljs-string">&lt;</span> <span class="hljs-attr">256:</span>
         <span class="hljs-string">if</span> <span class="hljs-string">c</span> <span class="hljs-string">==</span> <span class="hljs-string">pat[j]:</span>
@@ -390,10 +390,10 @@ pat 应该转移到状态 <span class="hljs-number">2</span></code></pre></div>
         <span class="hljs-attr">else:</span> 
             <span class="hljs-comment"># 状态重启</span>
             <span class="hljs-comment"># 委托 X 计算重启位置</span>
-            <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">dp[X][c]</span></code></pre></div>
+            <span class="hljs-string">dp[j][c]</span> <span class="hljs-string">=</span> <span class="hljs-string">dp[X][c]</span></code></pre>
 
 <h3 id="四、代码实现"><a href="#四、代码实现" class="headerlink" title="四、代码实现"></a>四、代码实现</h3><p>如果之前的内容你都能理解，恭喜你，现在就剩下一个问题：影子状态 <code>X</code> 是如何得到的呢？下面先直接看完整代码吧。</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">KMP</span> {
+<pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">KMP</span> {
     <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span>[][] dp;
     <span class="hljs-keyword">private</span> String pat;
 
@@ -420,38 +420,38 @@ pat 应该转移到状态 <span class="hljs-number">2</span></code></pre></div>
     }
 
     <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> search(String txt) {...}
-}</code></pre></div>
+}</code></pre>
 
 <p>先解释一下这一行代码：</p>
-<div class="hljs"><pre><code class="hljs markdown">// base case
-dp[<span class="hljs-string">0</span>][<span class="hljs-symbol">pat.charAt(0)</span>] = 1;</code></pre></div>
+<pre><code class="hljs markdown">// base case
+dp[<span class="hljs-string">0</span>][<span class="hljs-symbol">pat.charAt(0)</span>] = 1;</code></pre>
 
 <p>这行代码是 base case，只有遇到 pat[0] 这个字符才能使状态从 0 转移到 1，遇到其它字符的话还是停留在状态 0（Java 默认初始化数组全为 0）。</p>
 <p>影子状态 <code>X</code> 是先初始化为 0，然后随着 <code>j</code> 的前进而不断更新的。下面看看到底应该<strong>如何更新影子状态 <code>X</code></strong>：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> X = <span class="hljs-number">0</span>;
+<pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> X = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> j = <span class="hljs-number">1</span>; j &lt; M; j++) {
     ...
     <span class="hljs-comment">// 更新影子状态</span>
     <span class="hljs-comment">// 当前是状态 X，遇到字符 pat[j]，</span>
     <span class="hljs-comment">// pat 应该转移到哪个状态？</span>
     X = dp[X][pat.charAt(j)];
-}</code></pre></div>
+}</code></pre>
 
 <p>更新 <code>X</code> 其实和 <code>search</code> 函数中更新状态 <code>j</code> 的过程是非常相似的：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>;
+<pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) {
     <span class="hljs-comment">// 当前是状态 j，遇到字符 txt[i]，</span>
     <span class="hljs-comment">// pat 应该转移到哪个状态？</span>
     j = dp[j][txt.charAt(i)];
     ...
-}</code></pre></div>
+}</code></pre>
 
 <p><strong>其中的原理非常微妙</strong>，注意代码中 for 循环的变量初始值，可以这样理解：后者是在 <code>txt</code> 中匹配 <code>pat</code>，前者是在 <code>pat</code> 中匹配 <code>pat[1..end]</code>，状态 <code>X</code> 总是落后状态 <code>j</code> 一个状态，与 <code>j</code> 具有最长的相同前缀。所以我把 <code>X</code> 比喻为影子状态，似乎也有一点贴切。</p>
 <p>另外，构建 dp 数组是根据 base case <code>dp[0][..]</code> 向后推演。这就是我认为 KMP 算法就是一种动态规划算法的原因。</p>
 <p>下面来看一下状态转移图的完整构造过程，你就能理解状态 <code>X</code> 作用之精妙了：</p>
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/pictures/kmp/dfa.gif" target="_blank" rel="noopener"><img src="https://github.com/labuladong/fucking-algorithm/raw/master/pictures/kmp/dfa.gif" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <p>至此，KMP 算法的核心终于写完啦啦啦啦！看下 KMP 算法的完整代码吧：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">KMP</span> {
+<pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">KMP</span> {
     <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span>[][] dp;
     <span class="hljs-keyword">private</span> String pat;
 
@@ -488,7 +488,7 @@ dp[<span class="hljs-string">0</span>][<span class="hljs-symbol">pat.charAt(0)</
         <span class="hljs-comment">// 没到达终止态，匹配失败</span>
         <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>经过之前的详细举例讲解，你应该可以理解这段代码的含义了，当然你也可以把 KMP 算法写成一个函数。核心代码也就是两个函数中 for 循环的部分，数一下有超过十行吗？</p>
 <h3 id="五、最后总结"><a href="#五、最后总结" class="headerlink" title="五、最后总结"></a>五、最后总结</h3><p>传统的 KMP 算法是使用一个一维数组 <code>next</code> 记录前缀信息，而本文是使用一个二维数组 <code>dp</code> 以状态转移的角度解决字符匹配问题，但是空间复杂度仍然是 O(256M) = O(M)。</p>

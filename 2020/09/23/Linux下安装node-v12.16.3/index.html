@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
@@ -224,36 +224,36 @@
               <ol>
 <li>下载nodejs</li>
 </ol>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~
-wget http://nodejs.org/dist/v12.16.3/node-v12.16.3-linux-x64.tar.gz</code></pre></div>
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~
+wget http://nodejs.org/dist/v12.16.3/node-v12.16.3-linux-x64.tar.gz</code></pre>
 
 <ol start="2">
 <li>解压并修改解压后文件名</li>
 </ol>
-<div class="hljs"><pre><code class="hljs bash">tar -zxvf node-v12.16.3-linux-x64.tar.gz 
-mv node-v12.16.3-linux-x64 nodejs</code></pre></div>
+<pre><code class="hljs bash">tar -zxvf node-v12.16.3-linux-x64.tar.gz 
+mv node-v12.16.3-linux-x64 nodejs</code></pre>
 
 <ol start="3">
 <li>切换路径到解压后文件</li>
 </ol>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> nodejs/bin   //　　切换路径
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> nodejs/bin   //　　切换路径
 ./node -v        //查看node是否安装成功 若成功返回 v12.16.3
-pwm               //查看node路径   (我安装在根目录下)返回 /root/nodejs/bin</code></pre></div>
+pwm               //查看node路径   (我安装在根目录下)返回 /root/nodejs/bin</code></pre>
 
 <ol start="4">
 <li>配置环境变量</li>
 </ol>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~ //切换到根目录
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~ //切换到根目录
 vim ~/.bash_profile     //查看环境变量文件
 //在配置文件里面，设置PATH环境变量
 //我查看时，PATH环境变量为PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$HOME</span>/bin。在其后面添加：，在：后面添加之前执行pwm返回的路径
 PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$HOME</span>/bin:/root/nodejs/bin     //键盘输入i 切换为输入状态。编辑完之后 点击esc键 退出编辑状态  输入：wq 保存离开
-<span class="hljs-built_in">source</span> ~/.bash_profile     //保存配置文件  可不执行</code></pre></div>
+<span class="hljs-built_in">source</span> ~/.bash_profile     //保存配置文件  可不执行</code></pre>
 
 <ol start="5">
 <li>查看node版本</li>
 </ol>
-<div class="hljs"><pre><code class="hljs bash">node -v</code></pre></div>
+<pre><code class="hljs bash">node -v</code></pre>
 
 <a id="more"></a><script>
         document.querySelectorAll('.github-emoji')
@@ -302,6 +302,12 @@ PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$HOME<
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/blog/2020/10/02/%E3%80%90%E7%8B%82%E7%A5%9E%E8%AF%B4Java%E3%80%91SpringBoot%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【狂神说Java】SpringBoot笔记存档</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -239,7 +239,7 @@
 <a id="more"></a>
 
 <h1 id="提交代码（Java）"><a href="#提交代码（Java）" class="headerlink" title="提交代码（Java）"></a>提交代码（Java）</h1><h2 id="暴力输出"><a href="#暴力输出" class="headerlink" title="暴力输出"></a>暴力输出</h2><p>刚开始想不出什么好办法，就<strong>直接把32个都写出来</strong>。抱着玩的心态，试试<strong>暴力输出</strong>看看系统给不给过，但是没想到，还真给我<strong>过了</strong>hhh</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
 		System.out.println(<span class="hljs-string">"00000"</span>);
 		System.out.println(<span class="hljs-string">"00001"</span>);
@@ -274,13 +274,13 @@
 		System.out.println(<span class="hljs-string">"11110"</span>);
 		System.out.println(<span class="hljs-string">"11111"</span>);
 	}
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p><img src="https://s2.ax1x.com/2020/02/07/12u7RK.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h2 id="五层循环"><a href="#五层循环" class="headerlink" title="五层循环"></a>五层循环</h2><p>这是我想到的第二个方法，就类似说的<strong>“逢二进一”</strong>吧</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
 		<span class="hljs-keyword">int</span> a,b,c,d,e;
 		<span class="hljs-keyword">for</span>(a=<span class="hljs-number">0</span>;a&lt;<span class="hljs-number">2</span>;++a)
@@ -290,7 +290,7 @@
 				<span class="hljs-keyword">for</span>(e=<span class="hljs-number">0</span>;e&lt;<span class="hljs-number">2</span>;++e)
                     System.out.printf(<span class="hljs-string">"%d%d%d%d%d\n"</span>,a,b,c,d,e);
 	}
-}</code></pre></div>
+}</code></pre>
 
 
 
@@ -298,7 +298,7 @@
 <hr>
 <p>以下两种方法均来自网络。</p>
 <hr>
-<h2 id="十进制转换二进制"><a href="#十进制转换二进制" class="headerlink" title="十进制转换二进制"></a>十进制转换二进制</h2><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+<h2 id="十进制转换二进制"><a href="#十进制转换二进制" class="headerlink" title="十进制转换二进制"></a>十进制转换二进制</h2><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
 		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">32</span>;i++){
 			<span class="hljs-keyword">int</span> a,b,c,d,e;
@@ -310,7 +310,7 @@
 			System.out.printf(<span class="hljs-string">"%d%d%d%d%d\n"</span>,a,b,c,d,e);
 	    }
 	}
-}</code></pre></div>
+}</code></pre>
 
 
 
@@ -318,7 +318,7 @@
 <blockquote>
 <p>比如，下标3表示的串是“00011”，利用while循环可以找到出现1的下标是1、2</p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+<pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
 		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">31</span>;i++){
 			<span class="hljs-keyword">int</span> a[]= <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">5</span>];<span class="hljs-comment">// 默认初始化值为0</span>
@@ -336,7 +336,7 @@
 			System.out.println();
 		}
 	}
-}</code></pre></div>
+}</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

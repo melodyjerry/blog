@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,34 +216,34 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
             <article class="markdown-body">
               <ol>
 <li><p>首先进入sql安装目录：</p>
-<div class="hljs"><pre><code class="hljs angelscript">cd C:\mysql<span class="hljs-number">-5.6</span><span class="hljs-number">.17</span>\bin  <span class="hljs-comment">//这是本人的目录，找到自己的mysql安装目录</span></code></pre></div></li>
+<pre><code class="hljs angelscript">cd C:\mysql<span class="hljs-number">-5.6</span><span class="hljs-number">.17</span>\bin  <span class="hljs-comment">//这是本人的目录，找到自己的mysql安装目录</span></code></pre></li>
 <li><p>登录：</p>
-<div class="hljs"><pre><code class="hljs elixir">mysql -u root -p 输入密码
+<pre><code class="hljs elixir">mysql -u root -p 输入密码
 
-<span class="hljs-keyword">use</span> mysql         <span class="hljs-comment">#打开mysql数据库</span></code></pre></div></li>
+<span class="hljs-keyword">use</span> mysql         <span class="hljs-comment">#打开mysql数据库</span></code></pre></li>
 <li><p>将host设置为%表示任何ip都能连接mysql，当然您也可以将host指定为某个ipd”</p>
-<div class="hljs"><pre><code class="hljs routeros">update<span class="hljs-built_in"> user </span><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">host</span>=<span class="hljs-string">'%'</span> where <span class="hljs-attribute">user</span>=<span class="hljs-string">'root'</span> <span class="hljs-keyword">and</span> <span class="hljs-attribute">host</span>=<span class="hljs-string">'localhost'</span>;
+<pre><code class="hljs routeros">update<span class="hljs-built_in"> user </span><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">host</span>=<span class="hljs-string">'%'</span> where <span class="hljs-attribute">user</span>=<span class="hljs-string">'root'</span> <span class="hljs-keyword">and</span> <span class="hljs-attribute">host</span>=<span class="hljs-string">'localhost'</span>;
 
-flush privileges;     #刷新权限表，使配置生效</code></pre></div></li>
+flush privileges;     #刷新权限表，使配置生效</code></pre></li>
 <li><p>然后我们就能远程连接我们的mysql了。</p>
 </li>
 <li><p>如果您想关闭远程连接，恢复mysql的默认设置（只能本地连接），您可以通过以下步骤操作：</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-keyword">use</span> mysql         <span class="hljs-comment">#打开mysql数据库</span></code></pre></div></li>
+<pre><code class="hljs elixir"><span class="hljs-keyword">use</span> mysql         <span class="hljs-comment">#打开mysql数据库</span></code></pre></li>
 <li><p>将host设置为localhost表示只能本地连接mysql</p>
-<div class="hljs"><pre><code class="hljs routeros">update<span class="hljs-built_in"> user </span><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">host</span>=<span class="hljs-string">'localhost'</span> where <span class="hljs-attribute">user</span>=<span class="hljs-string">'root'</span>;
+<pre><code class="hljs routeros">update<span class="hljs-built_in"> user </span><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">host</span>=<span class="hljs-string">'localhost'</span> where <span class="hljs-attribute">user</span>=<span class="hljs-string">'root'</span>;
 
-flush privileges;     #刷新权限表，使配置生效</code></pre></div>
+flush privileges;     #刷新权限表，使配置生效</code></pre>
 <p>备注：您也可以添加一个用户名为root，密码为123456，权限为%（表示任意ip都能连接）的远程连接用户。命令参考如下：</p>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;
+<pre><code class="hljs sql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;
 
-<span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;</code></pre></div>
+<span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;</code></pre>
 
 </li>
 </ol>

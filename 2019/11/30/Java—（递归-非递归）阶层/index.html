@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -226,7 +226,7 @@
 <p>扩展②：寻找最高阶、打印阶层的计算过程</p>
 <a id="more"></a>
 
-<h1 id="非递归阶层算法"><a href="#非递归阶层算法" class="headerlink" title="非递归阶层算法"></a>非递归阶层算法</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<h1 id="非递归阶层算法"><a href="#非递归阶层算法" class="headerlink" title="非递归阶层算法"></a>非递归阶层算法</h1><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
 
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnRecurrenceFactorial</span> </span>{
@@ -244,11 +244,11 @@
         sc.close();
     }
 
-}</code></pre></div>
+}</code></pre>
 
 
 
-<h1 id="递归阶层算法"><a href="#递归阶层算法" class="headerlink" title="递归阶层算法"></a>递归阶层算法</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecurrenceFactorial</span> </span>{
+<h1 id="递归阶层算法"><a href="#递归阶层算法" class="headerlink" title="递归阶层算法"></a>递归阶层算法</h1><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecurrenceFactorial</span> </span>{
 
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
 		<span class="hljs-keyword">long</span> fac = fac(k);<span class="hljs-comment">//修改k的值即可</span>
@@ -263,10 +263,10 @@
 		}
 	}
 
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="扩展①：求阶层的和"><a href="#扩展①：求阶层的和" class="headerlink" title="扩展①：求阶层的和"></a>扩展①：求阶层的和</h1><p>🔺计算 1!+2!+3!+···+k! 的值：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
 	<span class="hljs-keyword">int</span> i,j;
 	<span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
 	<span class="hljs-keyword">for</span>(i = <span class="hljs-number">1</span>; i &lt;= k; i++){	<span class="hljs-comment">//修改k的值即可</span>
@@ -277,7 +277,7 @@
 		sum += t;
 	}
 	System.out.println(sum);
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="扩展②：寻找最高阶、打印阶层的计算过程"><a href="#扩展②：寻找最高阶、打印阶层的计算过程" class="headerlink" title="扩展②：寻找最高阶、打印阶层的计算过程"></a>扩展②：寻找最高阶、打印阶层的计算过程</h1><p>🔺题目：</p>
 <p>指定一个整型数MAX，试编写一个程序求满足<strong>1!+2!+3!…+n!&lt;=MAX</strong> <strong>的最大整数n</strong>。并把满足条件的求和式子和找到的最大整数n打印输出。</p>
@@ -292,7 +292,7 @@
 <p>满足条件的最大整数:7</p>
 </blockquote>
 <p>🔺代码：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Du</span> </span>{
 	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
@@ -335,7 +335,7 @@
 		System.out.print(<span class="hljs-string">"\b\b= "</span>+ sum);<span class="hljs-comment">//退两个，删去最后一个+</span>
 		System.out.println();
 		}
-}</code></pre></div>
+}</code></pre>
 
 <p>🔺截图：</p>
 <p><img src="https://i.loli.net/2019/11/30/cfhbFSIjaK8mpTy.png" srcset="/blog/img/loading.gif" alt=""></p>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -277,12 +277,12 @@
 </blockquote>
 </li>
 </ol>
-<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">Create</span> <span class="hljs-keyword">Table</span> <span class="hljs-keyword">project</span>(
+<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><pre><code class="hljs sql"><span class="hljs-keyword">Create</span> <span class="hljs-keyword">Table</span> <span class="hljs-keyword">project</span>(
 项目编号 <span class="hljs-built_in">INT</span> <span class="hljs-keyword">CONSTRAINT</span> pk_pno PRIMARY <span class="hljs-keyword">kEY</span>，
 项目名称 <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">20</span>)，
 项目负责人 <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">20</span>)，
 <span class="hljs-keyword">CONSTRAINT</span> un_pname_pm <span class="hljs-keyword">UNIQUE</span>(项目名称，项目负责人)
-);</code></pre></div>
+);</code></pre>
 <blockquote>
 <p>分析：“项目编号”字段设置为主键，主键约束名为pk_pno，此主键约束为列主键约束。“项目名称”和“项目负责人”的组合字段设置唯一性约束，此约束为表级约束）</p>
 </blockquote>
@@ -320,34 +320,34 @@
 <li>单一主键：给一个字段添加主键约束</li>
 <li>复合主键：给多个字段联合添加一个主键约束(只能用表级定义)</li>
 </ul>
-<h4 id="单一主键（列级定义）"><a href="#单一主键（列级定义）" class="headerlink" title="单一主键（列级定义）"></a>单一主键（列级定义）</h4><div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+<h4 id="单一主键（列级定义）"><a href="#单一主键（列级定义）" class="headerlink" title="单一主键（列级定义）"></a>单一主键（列级定义）</h4><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
     -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">primary key</span>,
     -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>)
     -&gt; );
-Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.07</span> sec)</code></pre></div>
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.07</span> sec)</code></pre>
 
-<h4 id="单一主键（表级定义）"><a href="#单一主键（表级定义）" class="headerlink" title="单一主键（表级定义）"></a>单一主键（表级定义）</h4><div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+<h4 id="单一主键（表级定义）"><a href="#单一主键（表级定义）" class="headerlink" title="单一主键（表级定义）"></a>单一主键（表级定义）</h4><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
     -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>),
     -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,
     -&gt; <span class="hljs-keyword">constraint</span> t_user_id_pk <span class="hljs-keyword">primary key</span>(id)
     -&gt; );
-Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.01</span> sec)</code></pre></div>
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.01</span> sec)</code></pre>
 
 <h4 id="复合主键（表级定义）"><a href="#复合主键（表级定义）" class="headerlink" title="复合主键（表级定义）"></a>复合主键（表级定义）</h4><blockquote>
 <p><strong>一定要在表级定义。</strong></p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+<pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
     -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>),
     -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,
     -&gt; email <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>) <span class="hljs-keyword">unique</span>,
     -&gt; <span class="hljs-keyword">primary key</span>(id,<span class="hljs-type">name</span>)
     -&gt; );
-Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.05</span> sec)</code></pre></div>
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.05</span> sec)</code></pre>
 
 <h3 id="配合AUTO-INCREMENT"><a href="#配合AUTO-INCREMENT" class="headerlink" title="配合AUTO_INCREMENT"></a>配合AUTO_INCREMENT</h3><blockquote>
 <p>在MySQL数据库提供了一个自增的数字，专门用来自动生成主键值，主键值不用用户维护，自动生成，自增数从1开始，以1递增(auto_increment)</p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs asciidoc">mysql&gt; create table t<span class="hljs-emphasis">_user(</span>
+<pre><code class="hljs asciidoc">mysql&gt; create table t<span class="hljs-emphasis">_user(</span>
 <span class="hljs-emphasis">    -&gt; id int(10) primary key auto_</span>increment,
 <span class="hljs-code">    -&gt; name varchar(32) not null</span>
 <span class="hljs-code">    -&gt; );</span>
@@ -366,7 +366,7 @@ mysql&gt; select * from t<span class="hljs-emphasis">_user;</span>
 <span class="hljs-emphasis">|  1 | jay  |</span>
 <span class="hljs-emphasis">|  2 | man  |</span>
 <span class="hljs-emphasis">+----+------+</span>
-<span class="hljs-emphasis">2 rows in set (0.00 sec)</span></code></pre></div>
+<span class="hljs-emphasis">2 rows in set (0.00 sec)</span></code></pre>
 
 <h2 id="外键约束-FOREIGN-KEY"><a href="#外键约束-FOREIGN-KEY" class="headerlink" title="外键约束 FOREIGN KEY"></a>外键约束 FOREIGN KEY</h2><p>外键约束（FOREIGN KEY）用来在两个表的数据之间建立链接，它可以是一列或者多列。一个表可以有一个或多个外键。</p>
 <p>外键的主要作用是保持数据的一致性、完整性。例如，部门表 tb_dept 的主键是 id，在员工表 tb_emp5 中有一个键 deptId 与这个 id 关联。</p>
@@ -413,13 +413,13 @@ mysql&gt; select * from t<span class="hljs-emphasis">_user;</span>
 <li><p>复合外键：给多个字段联合添加一个外键约束</p>
 </li>
 </ul>
-<h4 id="表复合外键（表级定义）"><a href="#表复合外键（表级定义）" class="headerlink" title="表复合外键（表级定义）"></a>表复合外键（表级定义）</h4><div class="hljs"><pre><code class="hljs lisp">FOREIGN KEY(<span class="hljs-name">classno</span>) REFERENCES t_class(<span class="hljs-name">cno</span>)<span class="hljs-comment">;</span></code></pre></div>
+<h4 id="表复合外键（表级定义）"><a href="#表复合外键（表级定义）" class="headerlink" title="表复合外键（表级定义）"></a>表复合外键（表级定义）</h4><pre><code class="hljs lisp">FOREIGN KEY(<span class="hljs-name">classno</span>) REFERENCES t_class(<span class="hljs-name">cno</span>)<span class="hljs-comment">;</span></code></pre>
 <h2 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h2><p>用NOT NULL约束的字段不能为NULL值，<strong>必须给定具体的数据</strong>。</p>
 <p>注意的是</p>
 <blockquote>
 <p>NULL，表示空，并不是字符串中的空。两者需要区分开。</p>
 </blockquote>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="hljs"><pre><code class="hljs asciidoc">mysql&gt; CREATE TABLE t12(id INT NOT NULL);  #设置字段id不为空
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="hljs asciidoc">mysql&gt; CREATE TABLE t12(id INT NOT NULL);  #设置字段id不为空
 Query OK, 0 rows affected (0.03 sec)
 
 mysql&gt; DESC t12;
@@ -428,34 +428,34 @@ mysql&gt; DESC t12;
 <span class="hljs-code">+-------+</span>---------<span class="hljs-code">+------+</span>-----<span class="hljs-code">+---------+</span>-------+
 | id    | int(11) | NO   |     | NULL    |       |
 <span class="hljs-code">+-------+</span>---------<span class="hljs-code">+------+</span>-----<span class="hljs-code">+---------+</span>-------+
-row in set (0.01 sec)</code></pre></div>
+row in set (0.01 sec)</code></pre>
 <p>验证</p>
-<div class="hljs"><pre><code class="hljs subunit">mysql&gt; INSERT INTO t12 VALUES();  #不能插入空
-<span class="hljs-keyword">ERROR </span>1364 (HY000): Field 'id' doesn't have a default value</code></pre></div>
+<pre><code class="hljs subunit">mysql&gt; INSERT INTO t12 VALUES();  #不能插入空
+<span class="hljs-keyword">ERROR </span>1364 (HY000): Field 'id' doesn't have a default value</code></pre>
 
 <h2 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h2><p>UNIQUE约束的字段，<strong>具有唯一性，不可重复</strong>，但可以为NULL。</p>
-<h3 id="列级约束"><a href="#列级约束" class="headerlink" title="列级约束"></a>列级约束</h3><div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
+<h3 id="列级约束"><a href="#列级约束" class="headerlink" title="列级约束"></a>列级约束</h3><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_user(
     -&gt; id <span class="hljs-type">int</span>(<span class="hljs-number">10</span>),
     -&gt; <span class="hljs-type">name</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,
     -&gt; email <span class="hljs-type">varchar</span>(<span class="hljs-number">128</span>) <span class="hljs-keyword">unique</span>
     -&gt; );
-Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.03</span> sec)</code></pre></div>
+Query OK, <span class="hljs-number">0</span> <span class="hljs-keyword">rows</span> affected (<span class="hljs-number">0.03</span> sec)</code></pre>
 
-<h3 id="表级约束"><a href="#表级约束" class="headerlink" title="表级约束"></a>表级约束</h3><div class="hljs"><pre><code class="hljs livescript">mysql&gt; create table t_user(
+<h3 id="表级约束"><a href="#表级约束" class="headerlink" title="表级约束"></a>表级约束</h3><pre><code class="hljs livescript">mysql&gt; create table t_user(
 <span class="hljs-function">    -&gt;</span> id int(<span class="hljs-number">10</span>),
 <span class="hljs-function">    -&gt;</span> name varchar(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
 <span class="hljs-function">    -&gt;</span> email varchar(<span class="hljs-number">128</span>），
 <span class="hljs-function">    -&gt;</span> unique(email)
-<span class="hljs-function">    -&gt;</span> );</code></pre></div>
+<span class="hljs-function">    -&gt;</span> );</code></pre>
 
 <p>如果插入相同email会报错</p>
-<div class="hljs"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_user(id,<span class="hljs-type">name</span>,email) <span class="hljs-keyword">values</span>(<span class="hljs-number">1</span>,<span class="hljs-string">'xlj'</span>,<span class="hljs-string">'932834897@qq.com'</span>);
+<pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_user(id,<span class="hljs-type">name</span>,email) <span class="hljs-keyword">values</span>(<span class="hljs-number">1</span>,<span class="hljs-string">'xlj'</span>,<span class="hljs-string">'932834897@qq.com'</span>);
 Query OK, <span class="hljs-number">1</span> <span class="hljs-keyword">row</span> affected (<span class="hljs-number">0.00</span> sec)
 
 mysql&gt; <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_user(id,<span class="hljs-type">name</span>,email) <span class="hljs-keyword">values</span>(<span class="hljs-number">2</span>,<span class="hljs-string">'jay'</span>,<span class="hljs-string">'932834897@qq.com'</span>);
-ERROR <span class="hljs-number">1062</span> (<span class="hljs-number">23000</span>): Duplicate entry <span class="hljs-string">'932834897@qq.com'</span> <span class="hljs-keyword">for key</span> <span class="hljs-string">'email'</span></code></pre></div>
+ERROR <span class="hljs-number">1062</span> (<span class="hljs-number">23000</span>): Duplicate entry <span class="hljs-string">'932834897@qq.com'</span> <span class="hljs-keyword">for key</span> <span class="hljs-string">'email'</span></code></pre>
 
-<h3 id="扩展：联合唯一约束"><a href="#扩展：联合唯一约束" class="headerlink" title="扩展：联合唯一约束"></a>扩展：联合唯一约束</h3><div class="hljs"><pre><code class="hljs routeros"><span class="hljs-comment"># 创建services表</span>
+<h3 id="扩展：联合唯一约束"><a href="#扩展：联合唯一约束" class="headerlink" title="扩展：联合唯一约束"></a>扩展：联合唯一约束</h3><pre><code class="hljs routeros"><span class="hljs-comment"># 创建services表</span>
 mysql&gt; create table services(
         id int,
        <span class="hljs-built_in"> ip </span>char(15),
@@ -494,20 +494,20 @@ mysql&gt; select * <span class="hljs-keyword">from</span> services;
 rows <span class="hljs-keyword">in</span> <span class="hljs-builtin-name">set</span> (0.00 sec)
 
 mysql&gt; insert into services values (4,<span class="hljs-string">'192,168,11,23'</span>,80);
-<span class="hljs-builtin-name">ERROR</span> 1062 (23000): Duplicate entry <span class="hljs-string">'192,168,11,23-80'</span> <span class="hljs-keyword">for</span> key <span class="hljs-string">'ip'</span></code></pre></div>
+<span class="hljs-builtin-name">ERROR</span> 1062 (23000): Duplicate entry <span class="hljs-string">'192,168,11,23-80'</span> <span class="hljs-keyword">for</span> key <span class="hljs-string">'ip'</span></code></pre>
 
 <p>更多可参考 <a href="https://blog.csdn.net/arkblue/article/details/9070797" target="_blank" rel="noopener">mysql 给表添加唯一约束、联合唯一约束，指定唯一约束的名字</a></p>
 <h2 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h2><p><strong>为某一字段提供默认值。</strong></p>
 <blockquote>
 <p>创建列时可以指定默认值，当插入数据时如果未主动设置，则自动添加默认值</p>
 </blockquote>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><div class="hljs"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> tb1(
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> tb1(
     <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
     sex <span class="hljs-built_in">char</span> defalut <span class="hljs-string">'b'</span>
-);</code></pre></div>
+);</code></pre>
 
 <p>验证</p>
-<div class="hljs"><pre><code class="hljs asciidoc">mysql&gt; insert into tb1(id) values(1); #给t11表插一个空的值
+<pre><code class="hljs asciidoc">mysql&gt; insert into tb1(id) values(1); #给t11表插一个空的值
 Query OK, 1 row affected (0.00 sec)
 
 #查询结果如下
@@ -517,7 +517,7 @@ mysql&gt; select * from t11;
 <span class="hljs-code">+------+</span>------+
 |  1   |   b  |
 <span class="hljs-code">+------+</span>------+
-row in set (0.00 sec)</code></pre></div>
+row in set (0.00 sec)</code></pre>
 
 <hr>
 <p>主要文献：<br>[部分概念来自C语言中文网] <a href="http://c.biancheng.net/view/2440.html" target="_blank" rel="noopener">http://c.biancheng.net/view/2440.html</a><br>[大部分案例的代码块来自CSDN] <a href="https://blog.csdn.net/w_linux/article/details/79655073" target="_blank" rel="noopener">https://blog.csdn.net/w_linux/article/details/79655073</a></p>

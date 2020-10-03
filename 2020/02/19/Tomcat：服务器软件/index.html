@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -257,8 +257,8 @@
 <li><p><code>./conf/server.xml</code></p>
 </li>
 <li><p>`&lt;Connector port=”8888” protocol=”HTTP/1.1”</p>
-<div class="hljs"><pre><code>connectionTimeout="20000"
-redirectPort="8445" /&gt;`</code></pre></div></li>
+<pre><code>connectionTimeout="20000"
+redirectPort="8445" /&gt;`</code></pre></li>
 <li><p>一般会将tomcat的默认端口号修改为80。<strong>80端口号是http协议的默认端口号。</strong></p>
 <ul>
 <li>好处：在访问时，就不用输入端口号</li>
@@ -338,11 +338,11 @@ redirectPort="8445" /&gt;`</code></pre></div></li>
 <h2 id="动态项目"><a href="#动态项目" class="headerlink" title="动态项目"></a>动态项目</h2><ul>
 <li>不仅可存放静态资源，还有动态资源</li>
 </ul>
-<h3 id="目录结构-Java动态项目"><a href="#目录结构-Java动态项目" class="headerlink" title="目录结构(Java动态项目)"></a>目录结构(Java动态项目)</h3><div class="hljs"><pre><code class="hljs crystal">项目根目录
+<h3 id="目录结构-Java动态项目"><a href="#目录结构-Java动态项目" class="headerlink" title="目录结构(Java动态项目)"></a>目录结构(Java动态项目)</h3><pre><code class="hljs crystal">项目根目录
   ﹂-WEB-INF目录
 	  ﹂web.xml：web项目的核心配置文件
 	  ﹂classes目录：放置字节码文件的目录
-	  ﹂<span class="hljs-class"><span class="hljs-keyword">lib</span>目录：放置依赖的<span class="hljs-title">jar</span>包</span></code></pre></div>
+	  ﹂<span class="hljs-class"><span class="hljs-keyword">lib</span>目录：放置依赖的<span class="hljs-title">jar</span>包</span></code></pre>
 
 <p>比如：</p>
 <p><img src="https://s2.ax1x.com/2020/02/19/3Eg8mV.png" srcset="/blog/img/loading.gif" alt=""></p>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -222,7 +222,7 @@
             
             <article class="markdown-body">
               <p>今天在做<code>git push -u origin master</code>时出现了如下错误：</p>
-<div class="hljs"><pre><code class="hljs crmsh">! [rejected]        <span class="hljs-keyword">master</span> <span class="hljs-title">-&gt; master</span> (fetch first)</code></pre></div>
+<pre><code class="hljs crmsh">! [rejected]        <span class="hljs-keyword">master</span> <span class="hljs-title">-&gt; master</span> (fetch first)</code></pre>
 
 <p>分析原因，基本上可以确定是因为github上的远程库与本地库版本不一致（我对github上的文件做了编辑操作，且未更新到本地，当然也可能还有其他原因…），通过一番研究，找到了两种解决方案：</p>
 <h2 id="温柔型方案："><a href="#温柔型方案：" class="headerlink" title="温柔型方案："></a>温柔型方案：</h2><ol>

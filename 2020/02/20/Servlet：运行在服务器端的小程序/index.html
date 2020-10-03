@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -237,7 +237,7 @@
 <li><p>定义一个类，实现Servlet接口</p>
 </li>
 </ol>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-comment">/* ServletDemo1.java */</span>
+<pre><code class="hljs angelscript"><span class="hljs-comment">/* ServletDemo1.java */</span>
 package cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.servlet.*;
@@ -245,13 +245,13 @@ package cn.itcast.web.servlet;
 
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">ServletDemo1</span> <span class="hljs-symbol">implements</span> <span class="hljs-symbol">Servlet</span> {
 	<span class="hljs-comment">//TODO</span>
-}</code></pre></div>
+}</code></pre>
 
 <p>​    </p>
 <ol start="3">
 <li>实现接口中的抽象方法</li>
 </ol>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">/* ServletDemo1.java */</span>
+<pre><code class="hljs java"><span class="hljs-comment">/* ServletDemo1.java */</span>
 <span class="hljs-keyword">package</span> cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.servlet.*;
@@ -285,14 +285,14 @@ package cn.itcast.web.servlet;
 
     }
     
-}</code></pre></div>
+}</code></pre>
 
 
 
 <ol start="4">
 <li>配置Servlet，在web.xml的<code>&lt;web-app&gt;&lt;/web-app&gt;</code>中添加：</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置Servlet--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置Servlet--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>demo1<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>cn.itcast.web.servlet.ServletDemo1<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span>
@@ -301,7 +301,7 @@ package cn.itcast.web.servlet;
     <span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>demo1<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/demo1<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span></code></pre></div>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span></code></pre>
 
 <blockquote>
 <p><code>servlet-mapping</code>是做一个<strong>映射</strong>，<code>servlet-name</code>对应<code>servlet-class</code>，<code>url-pattern</code>是资源路径（<strong>/开头</strong>）</p>
@@ -341,7 +341,7 @@ package cn.itcast.web.servlet;
 </li>
 </ol>
 <h1 id="ServletDemo"><a href="#ServletDemo" class="headerlink" title="ServletDemo"></a>ServletDemo</h1><p>可以调试、运行，看看每个方法的执行次数。</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.servlet.*;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.servlet.*;
 <span class="hljs-keyword">import</span> java.io.IOException;
 
 <span class="hljs-comment">/**</span>
@@ -402,7 +402,7 @@ package cn.itcast.web.servlet;
         System.out.println(<span class="hljs-string">"destroy..."</span>);
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="Servlet中的生命周期方法"><a href="#Servlet中的生命周期方法" class="headerlink" title="Servlet中的生命周期方法"></a>Servlet中的生命周期方法</h1><h2 id="1-被创建：执行init方法，只执行一次"><a href="#1-被创建：执行init方法，只执行一次" class="headerlink" title="1.被创建：执行init方法，只执行一次"></a>1.被创建：执行init方法，只执行一次</h2><ul>
 <li>Servlet什么时候被创建？</li>
@@ -420,7 +420,7 @@ package cn.itcast.web.servlet;
 <p>2.在服务器启动时，创建</p>
 <p><load-on-startup><strong>0或正整数</strong>(一般0~10)</load-on-startup></p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs aspectj"><span class="hljs-comment">/**</span>
+<pre><code class="hljs aspectj"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * 初始化的方法</span>
 <span class="hljs-comment"> * 在Servlet被创建时，执行，且只执行一次。</span>
 <span class="hljs-comment"> * <span class="hljs-doctag">@param</span> servletConfig</span>
@@ -432,7 +432,7 @@ package cn.itcast.web.servlet;
     
     <span class="hljs-comment">// 定义局部变量，这样不存在多线程的安全问题</span>
     <span class="hljs-keyword">int</span> number = <span class="hljs-number">3</span>;
-}</code></pre></div>
+}</code></pre>
 
 <ul>
 <li>Servlet的init方法，只执行一次，说明<strong>一个Servlet在内存中只存在一个对象，Servlet是单例的。</strong></li>
@@ -442,7 +442,7 @@ package cn.itcast.web.servlet;
 <h2 id="2-提供服务：执行service方法，可执行多次"><a href="#2-提供服务：执行service方法，可执行多次" class="headerlink" title="2.提供服务：执行service方法，可执行多次"></a>2.提供服务：执行service方法，可执行多次</h2><ul>
 <li>每次访问Servlet时，Service方法都会被调用一次。</li>
 </ul>
-<div class="hljs"><pre><code class="hljs aspectj"><span class="hljs-comment">/**</span>
+<pre><code class="hljs aspectj"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * 提供服务的方法</span>
 <span class="hljs-comment"> * 每一次Servlet被访问时，执行。可执行多次。</span>
 <span class="hljs-comment"> * <span class="hljs-doctag">@param</span> servletRequest</span>
@@ -453,7 +453,7 @@ package cn.itcast.web.servlet;
 <span class="hljs-meta">@Override</span>
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(ServletRequest servletRequest, ServletResponse servletResponse)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
     System.out.println(<span class="hljs-string">"service..."</span>);
-}</code></pre></div>
+}</code></pre>
 
 
 
@@ -462,7 +462,7 @@ package cn.itcast.web.servlet;
 <li><strong>只有服务器正常关闭时，才会执行destroy方法。</strong></li>
 <li>destroy方法在Servlet被销毁之前执行，<strong>一般用于释放资源</strong></li>
 </ul>
-<div class="hljs"><pre><code class="hljs arduino"><span class="hljs-comment">/**</span>
+<pre><code class="hljs arduino"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * 销毁的方法</span>
 <span class="hljs-comment"> * 在服务器正常关闭时，执行。只执行一次。</span>
 <span class="hljs-comment"> * 非正关闭时，destroy方法不会执行。</span>
@@ -470,7 +470,7 @@ package cn.itcast.web.servlet;
 @Override
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
     System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"destroy..."</span>);
-}</code></pre></div>
+}</code></pre>
 
 
 
@@ -491,11 +491,11 @@ package cn.itcast.web.servlet;
 <li><p>在类上使用<strong><code>@WebServlet</code>注解</strong>，进行配置</p>
 <ul>
 <li><code>@WebServlet("资源路径")</code></li>
-<li>比如：<div class="hljs"><pre><code class="hljs less"><span class="hljs-variable">@WebServlet</span>(urlPatterns = <span class="hljs-string">"/demo2"</span>)
+<li>比如：<pre><code class="hljs less"><span class="hljs-variable">@WebServlet</span>(urlPatterns = <span class="hljs-string">"/demo2"</span>)
 或
 <span class="hljs-variable">@WebServlet</span>(value = <span class="hljs-string">"/demo2"</span>)
 或
-<span class="hljs-variable">@WebServlet</span>(<span class="hljs-string">"/demo2"</span>)</code></pre></div>
+<span class="hljs-variable">@WebServlet</span>(<span class="hljs-string">"/demo2"</span>)</code></pre>
 
 
 </li>
@@ -512,7 +512,7 @@ package cn.itcast.web.servlet;
 <li>特性：<strong>如果只有一个属性，<code>value</code>可以省略不写。</strong></li>
 <li>除去<code>value</code>，最重要的属性是<code>urlPatterns</code></li>
 </ul>
-<div class="hljs"><pre><code class="hljs typescript"><span class="hljs-meta">@Target</span>({ElementType.TYPE})
+<pre><code class="hljs typescript"><span class="hljs-meta">@Target</span>({ElementType.TYPE})
 <span class="hljs-meta">@Retention</span>(RetentionPolicy.RUNTIME)
 <span class="hljs-meta">@Documented</span>
 <span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> WebServlet {
@@ -528,7 +528,7 @@ package cn.itcast.web.servlet;
     <span class="hljs-built_in">String</span> description() <span class="hljs-keyword">default</span> <span class="hljs-string">""</span>;			
     <span class="hljs-built_in">String</span> displayName() <span class="hljs-keyword">default</span> <span class="hljs-string">""</span>;
   
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="Servlet-体系结构"><a href="#Servlet-体系结构" class="headerlink" title="Servlet 体系结构"></a>Servlet 体系结构</h1><p>跳转到我得下一篇博文👉 [Servlet 体系结构](<a href="https://melodyjerry.gitee.io/blog/2020/02/20/Servlet" target="_blank" rel="noopener">https://melodyjerry.gitee.io/blog/2020/02/20/Servlet</a> 体系结构/)</p>
 <script>

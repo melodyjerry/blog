@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -224,7 +224,7 @@
               <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>要求输入位数n，生成所有情况的二进制数并存进数组</p>
 <a id="more"></a>
 
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><div class="hljs"><pre><code class="hljs arduino"><span class="hljs-keyword">import</span> java.util.ArrayList;
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><pre><code class="hljs arduino"><span class="hljs-keyword">import</span> java.util.ArrayList;
 <span class="hljs-keyword">import</span> java.util.List;
 
 <span class="hljs-comment">/**</span>
@@ -254,12 +254,12 @@
             System.out.<span class="hljs-built_in">println</span>(entry);
         }
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <h1 id="需求-1"><a href="#需求-1" class="headerlink" title="需求"></a>需求</h1><p>用户输入一个整数，程序输出该数的二进制</p>
-<h1 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h1><div class="hljs"><pre><code class="hljs angelscript">package org.pcl;
+<h1 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h1><pre><code class="hljs angelscript">package org.pcl;
  
 <span class="hljs-keyword">import</span> java.util.Scanner;
  
@@ -289,14 +289,14 @@
 		}
 	}
  
-}</code></pre></div>
+}</code></pre>
 
 <blockquote>
 <p>该实现代码由CSDN博主「yfstdio」提供<br>原文链接：<a href="https://blog.csdn.net/yfstdio/article/details/25079563" target="_blank" rel="noopener">https://blog.csdn.net/yfstdio/article/details/25079563</a></p>
 </blockquote>
 <h1 id="需求-2"><a href="#需求-2" class="headerlink" title="需求"></a>需求</h1><p>二、八、十六进制输出</p>
 <h1 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h1><p>一、未使用移位运算</p>
-<div class="hljs"><pre><code class="hljs reasonml">public static void main(String<span class="hljs-literal">[]</span> args) {
+<pre><code class="hljs reasonml">public static void main(String<span class="hljs-literal">[]</span> args) {
 		<span class="hljs-built_in">int</span> a = -<span class="hljs-number">17</span>;
 		<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"二进制输出"</span>+<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">BinaryString(<span class="hljs-params">a</span>)</span>);
 		
@@ -332,10 +332,10 @@
 <span class="hljs-comment">八进制输出0000000021</span>
 <span class="hljs-comment">十六进制输出0000000011</span>
 <span class="hljs-comment">十六进制输出11</span>
-<span class="hljs-comment">*/</span></code></pre></div>
+<span class="hljs-comment">*/</span></code></pre>
 
 <p>二、使用移位运算</p>
-<div class="hljs"><pre><code class="hljs reasonml">public static void main(String<span class="hljs-literal">[]</span> args) {
+<pre><code class="hljs reasonml">public static void main(String<span class="hljs-literal">[]</span> args) {
 		<span class="hljs-built_in">int</span> a = -<span class="hljs-number">5</span>;
 		<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(a);
 		<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"二进制输出"</span>+<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">BinaryString(<span class="hljs-params">a</span>)</span>);
@@ -375,7 +375,7 @@
 <span class="hljs-comment">二进制输出1</span>
 <span class="hljs-comment">无符号右移5&gt;&gt;&gt;2=1</span>
 <span class="hljs-comment">二进制输出1</span>
-<span class="hljs-comment">*/</span></code></pre></div>
+<span class="hljs-comment">*/</span></code></pre>
 
 <p>左移运算符&lt;&lt; </p>
 <p>1、a&lt;&lt;n   将a的二进制数据左移b位，右边移空的部分补0</p>

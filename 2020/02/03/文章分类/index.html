@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,22 +223,22 @@
             <article class="markdown-body">
               <p>多个分类有两种关系，一种是层级（等同于文件夹），一种是并列（等同于标签）。</p>
 <p><strong>多级分类</strong></p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">categories</span>:<span class="hljs-meta"> [分类A, 分类B]</span></code></pre></div>
+<pre><code class="hljs apache"><span class="hljs-attribute">categories</span>:<span class="hljs-meta"> [分类A, 分类B]</span></code></pre>
 
 <p>或者</p>
-<div class="hljs"><pre><code class="hljs markdown">categories:
+<pre><code class="hljs markdown">categories:
 <span class="hljs-bullet">  - </span>分类A
-<span class="hljs-bullet">  - </span>分类B</code></pre></div>
+<span class="hljs-bullet">  - </span>分类B</code></pre>
 
 <p><strong>并列分类</strong></p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">categories</span>:
+<pre><code class="hljs css"><span class="hljs-selector-tag">categories</span>:
   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-attr">[分类A]</span>
-  <span class="hljs-selector-tag">-</span> <span class="hljs-selector-attr">[分类B]</span></code></pre></div>
+  <span class="hljs-selector-tag">-</span> <span class="hljs-selector-attr">[分类B]</span></code></pre>
 
 <p><strong>多级+并列分类</strong></p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">categories</span>:
+<pre><code class="hljs css"><span class="hljs-selector-tag">categories</span>:
   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-attr">[分类A, 分类B]</span>
-  <span class="hljs-selector-tag">-</span> <span class="hljs-selector-attr">[分类C, 分类D]</span></code></pre></div>
+  <span class="hljs-selector-tag">-</span> <span class="hljs-selector-attr">[分类C, 分类D]</span></code></pre>
 
 <a id="more"></a><script>
         document.querySelectorAll('.github-emoji')

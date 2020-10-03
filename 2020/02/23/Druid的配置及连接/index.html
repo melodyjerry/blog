@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -354,7 +354,7 @@
 <li>配置文件:<code>application.properties</code></li>
 <li>DataSource连接参数</li>
 </ul>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">url</span>=jdbc:mysql://localhost:<span class="hljs-number">3306</span>/dbtest?autoReconnect=<span class="hljs-literal">true</span>&amp;useSSL=<span class="hljs-literal">true</span>
+<pre><code class="hljs ini"><span class="hljs-attr">url</span>=jdbc:mysql://localhost:<span class="hljs-number">3306</span>/dbtest?autoReconnect=<span class="hljs-literal">true</span>&amp;useSSL=<span class="hljs-literal">true</span>
 <span class="hljs-attr">driverClassName</span>=com.mysql.jdbc.Driver
 <span class="hljs-attr">username</span>=root
 <span class="hljs-attr">password</span>=mysql
@@ -373,15 +373,15 @@
 <span class="hljs-attr">maxOpenPreparedStatements</span>=<span class="hljs-number">20</span>
 <span class="hljs-attr">removeAbandoned</span>=<span class="hljs-literal">true</span>
 <span class="hljs-attr">removeAbandonedTimeout</span>=<span class="hljs-number">1800</span>
-<span class="hljs-attr">logAbandoned</span>=<span class="hljs-literal">true</span></code></pre></div>
+<span class="hljs-attr">logAbandoned</span>=<span class="hljs-literal">true</span></code></pre>
 
 <p>最主要的是前四行</p>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">jdbc.driverClassName</span>=com.mysql.jdbc.Driver 
+<pre><code class="hljs ini"><span class="hljs-attr">jdbc.driverClassName</span>=com.mysql.jdbc.Driver 
 <span class="hljs-attr">jdbc.url</span>=jdbc:mysql://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">3306</span>/dbtest 
 <span class="hljs-attr">jdbc.username</span>=root 
-<span class="hljs-attr">jdbc.password</span>=mysql</code></pre></div>
+<span class="hljs-attr">jdbc.password</span>=mysql</code></pre>
 
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><div class="hljs"><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> static DruidDataSource ds = null;
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> static DruidDataSource ds = null;
  
     static {
         <span class="hljs-comment">// 初始化连接池</span>
@@ -409,7 +409,7 @@
         } catch (SQLException e) {
             log.error(<span class="hljs-string">"ERROR_001_com.hq.db.Db_初始化连接池失败_line52"</span>+e.get<span class="hljs-constructor">Message()</span>);
         }
-    }</code></pre></div>
+    }</code></pre>
 
 
 

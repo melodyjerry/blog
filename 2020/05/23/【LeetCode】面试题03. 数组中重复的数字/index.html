@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,9 +225,9 @@
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>找出数组中重复的数字。</p>
 <p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
 <p>示例 1：</p>
-<div class="hljs"><pre><code class="hljs angelscript">输入：
+<pre><code class="hljs angelscript">输入：
 [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>]
-输出：<span class="hljs-number">2</span> 或 <span class="hljs-number">3</span></code></pre></div>
+输出：<span class="hljs-number">2</span> 或 <span class="hljs-number">3</span></code></pre>
 
 <p>限制：</p>
 <blockquote>
@@ -245,7 +245,7 @@
 <li>遍历数组</li>
 <li>将元素加入到set中，并判断是否加入成功<ul>
 <li>若成功了，就继续遍历</li>
-<li>若失败了，说明该元素已经再该集合中<div class="hljs"><pre><code>- 直接break，并return该元素的值</code></pre></div></li>
+<li>若失败了，说明该元素已经再该集合中<pre><code>- 直接break，并return该元素的值</code></pre></li>
 </ul>
 </li>
 <li>若没有重复元素，就return -1</li>
@@ -253,7 +253,7 @@
 <blockquote>
 <p>关于Set集合见<a href="https://www.cnblogs.com/melodyjerry/p/12944335.html" target="_blank" rel="noopener">Java集合-Set（含转载）</a></p>
 </blockquote>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findRepeatNumber</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
         Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;Integer&gt;();
         <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> num : nums){
@@ -265,12 +265,12 @@
         <span class="hljs-comment">// 若没有重复元素，直接返回-1</span>
         <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 
 <h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><p><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200523214846276-2016199095.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>评论里第一条是👇，可以当作这次拓展内容补充补充。<br><img src="https://img2020.cnblogs.com/blog/2013579/202005/2013579-20200523215537937-235728693.png" srcset="/blog/img/loading.gif" alt=""></p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
     def findRepeatNumber(self, nums: List[int]) -&gt; int:
         def count(start,end):
             c,i=<span class="hljs-number">0</span>,<span class="hljs-number">0</span>
@@ -289,7 +289,7 @@
                 left = mid
         <span class="hljs-keyword">if</span> count(nums[left],nums[left])&gt;<span class="hljs-number">1</span>:<span class="hljs-keyword">return</span> nums[left]
         <span class="hljs-keyword">if</span> count(nums[right],nums[right])&gt;<span class="hljs-number">1</span>:<span class="hljs-keyword">return</span> nums[right]
-        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span></code></pre></div><script>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span></code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

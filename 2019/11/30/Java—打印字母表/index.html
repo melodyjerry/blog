@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,7 +225,7 @@
 <p><strong><font color="green">a到z</font>的ASCII码值是<font color="blue">97到122</font></strong></p>
 <a id="more"></a>
 
-<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlphabetDemo</span> </span>{
+<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlphabetDemo</span> </span>{
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
       <span class="hljs-comment">/*char和int类型能够相互转换，相信大家都明白 */</span>
@@ -242,12 +242,12 @@
       }
   }
 	
-}</code></pre></div>
+}</code></pre>
 
 <p>注：关于<code>isLowerCase</code>和<code>isUpperCase</code>在文末有进一步的说明。</p>
 <h1 id="扩展-①"><a href="#扩展-①" class="headerlink" title="扩展 ①"></a>扩展 ①</h1><p>🔺题目：<br><img src="https://i.loli.net/2019/11/30/1ZcyKpWRHgXSl93.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p>🔺参考代码：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Alphabet</span> </span>{
 
@@ -297,7 +297,7 @@
         input.close();
 	}
 
-}</code></pre></div>
+}</code></pre>
 
 <p>注意：Math.ceil();//向上取整</p>
 <p>参考：我的另一篇博客：<a href="https://melodyhub.ltd/blog/2019/11/30/Java%E2%80%94-%E5%90%91%E4%B8%8B-%E4%B8%8A%E5%8F%96%E6%95%B4/" target="_blank" rel="noopener">Java—向下/上取整</a></p>
@@ -315,7 +315,7 @@
 </blockquote>
 <p>试用<strong>一重循环</strong>编写程序，指定一个整型数N(1&lt;=N&lt;=26)，按示例规格输出列优先排序的大写字母表。 </p>
 <p>🔺代码：</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Aphabet</span> </span>{
 
@@ -341,14 +341,14 @@
 		++x;
 		p(x, n, ch);
 	}
-}</code></pre></div>
+}</code></pre>
 
 <p><del><font size="1">下午做了半个多小时都没做出来，晚上玩了会游戏突然想到用递归，下午怎么就没想到呢？然后游戏就挂机被举报了，但一气呵成搞定了这题。说明思想不够灵活hhh</font></del></p>
 <p>🔺截图：</p>
 <p><img src="https://i.loli.net/2019/11/30/vYJhpT4VCb96txE.png" srcset="/blog/img/loading.gif" alt=""></p>
 <h1 id="补充：Java-Character-类"><a href="#补充：Java-Character-类" class="headerlink" title="补充：Java Character 类"></a>补充：<a href="https://www.runoob.com/java/java-character.html" target="_blank" rel="noopener">Java Character 类</a></h1><h2 id="isLowerCase-方法"><a href="#isLowerCase-方法" class="headerlink" title="isLowerCase() 方法"></a>isLowerCase() 方法</h2><p>🔺作用：用于判断指定字符是否为小写字母。</p>
 <p>🔺语法</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isLowerCase</span><span class="hljs-params">(<span class="hljs-keyword">char</span> ch)</span></span></code></pre></div>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isLowerCase</span><span class="hljs-params">(<span class="hljs-keyword">char</span> ch)</span></span></code></pre>
 
 <p>🔺参数</p>
 <ul>
@@ -357,21 +357,21 @@
 <p>🔺返回值</p>
 <p>如果字符为小写，则返回 true；否则返回 false。</p>
 <p>🔺实例</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span> </span>{
         System.out.println( Character.isLowerCase(<span class="hljs-string">'a'</span>));
         System.out.println( Character.isLowerCase(<span class="hljs-string">'A'</span>));
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>🔺以上程序执行结果为：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-literal">true</span>
-<span class="hljs-literal">false</span></code></pre></div>
+<pre><code class="hljs yaml"><span class="hljs-literal">true</span>
+<span class="hljs-literal">false</span></code></pre>
 
 <h2 id="isUpperCase-方法"><a href="#isUpperCase-方法" class="headerlink" title="isUpperCase() 方法"></a>isUpperCase() 方法</h2><p> 🔺作用：用于判断指定字符是否为大写字母。</p>
 <p> 🔺语法</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isUpperCase</span><span class="hljs-params">(<span class="hljs-keyword">char</span> ch)</span></span></code></pre></div>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isUpperCase</span><span class="hljs-params">(<span class="hljs-keyword">char</span> ch)</span></span></code></pre>
 
 <p> 🔺参数</p>
 <ul>
@@ -380,17 +380,17 @@
 <p> 🔺返回值</p>
 <p>如果字符为大写，则返回 true；否则返回 false。</p>
 <p> 🔺实例</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span> </span>{
         System.out.println( Character.isUpperCase(<span class="hljs-string">'b'</span>));
         System.out.println( Character.isUpperCase(<span class="hljs-string">'B'</span>));
     }
-}</code></pre></div>
+}</code></pre>
 
 <p> 🔺以上程序执行结果为：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-literal">false</span>
-<span class="hljs-literal">true</span></code></pre></div><script>
+<pre><code class="hljs yaml"><span class="hljs-literal">false</span>
+<span class="hljs-literal">true</span></code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

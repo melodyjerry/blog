@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -233,20 +233,20 @@
 <a id="more"></a>
 
 <h1 id="1-环境"><a href="#1-环境" class="headerlink" title="1.环境"></a>1.环境</h1><p>主服务器系统版本与内核版本：</p>
-<div class="hljs"><pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>dbn- ~]# cat /etc/redhat-release
+<pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>dbn- ~]# cat /etc/redhat-release
 CentOS Linux release <span class="hljs-number">7.5</span><span class="hljs-number">.1804</span> (Core) 
 [<span class="hljs-symbol">root@</span>dbn- ~]# uname -r
-<span class="hljs-number">3.10</span><span class="hljs-number">.0</span><span class="hljs-number">-862.3</span><span class="hljs-number">.2</span>.el7.x86_64</code></pre></div>
+<span class="hljs-number">3.10</span><span class="hljs-number">.0</span><span class="hljs-number">-862.3</span><span class="hljs-number">.2</span>.el7.x86_64</code></pre>
 
 <p>测试服务器系统版本与内核版本：</p>
-<div class="hljs"><pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>host ~]# cat /etc/redhat-release
+<pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>host ~]# cat /etc/redhat-release
 CentOS Linux release <span class="hljs-number">7.3</span><span class="hljs-number">.1611</span> (Core) 
 [<span class="hljs-symbol">root@</span>host ~]# uname -r
-<span class="hljs-number">4.10</span><span class="hljs-number">.4</span><span class="hljs-number">-1.</span>el7.elrepo.x86_64</code></pre></div>
+<span class="hljs-number">4.10</span><span class="hljs-number">.4</span><span class="hljs-number">-1.</span>el7.elrepo.x86_64</code></pre>
 
-<h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h1><h2 id="2-1-wget"><a href="#2-1-wget" class="headerlink" title="2.1 wget"></a>2.1 wget</h2><div class="hljs"><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y wget</code></pre></div>
+<h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h1><h2 id="2-1-wget"><a href="#2-1-wget" class="headerlink" title="2.1 wget"></a>2.1 wget</h2><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y wget</code></pre>
 
-<h2 id="2-2-NodeJS"><a href="#2-2-NodeJS" class="headerlink" title="2.2 NodeJS"></a>2.2 NodeJS</h2><div class="hljs"><pre><code class="hljs crmsh"><span class="hljs-comment"># 下载nodejs最新的bin包</span>
+<h2 id="2-2-NodeJS"><a href="#2-2-NodeJS" class="headerlink" title="2.2 NodeJS"></a>2.2 NodeJS</h2><pre><code class="hljs crmsh"><span class="hljs-comment"># 下载nodejs最新的bin包</span>
 wget https://nodejs.org/dist/v12.<span class="hljs-number">18.2</span>/<span class="hljs-keyword">node</span><span class="hljs-title">-v12</span>.<span class="hljs-number">18.2</span>-linux-x64.tar.xz
 <span class="hljs-comment"># 解压</span>
 xz -d <span class="hljs-keyword">node</span><span class="hljs-title">-v12</span>.<span class="hljs-number">18.2</span>-linux-x64.tar.xz
@@ -255,31 +255,31 @@ tar -xf <span class="hljs-keyword">node</span><span class="hljs-title">-v12</spa
 mv <span class="hljs-keyword">node</span><span class="hljs-title">-v12</span>.<span class="hljs-number">18.2</span>-linux-x64 /usr/local/nodejs
 <span class="hljs-comment"># 部署文件</span>
 ln -s /usr/local/nodejs/bin/<span class="hljs-keyword">node</span> <span class="hljs-title">/usr</span>/bin/<span class="hljs-keyword">node</span><span class="hljs-title"></span>
-<span class="hljs-title">ln</span> -s /usr/local/nodejs/bin/npm /usr/bin/npm</code></pre></div>
+<span class="hljs-title">ln</span> -s /usr/local/nodejs/bin/npm /usr/bin/npm</code></pre>
 
 <p>可以去<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官方网站</a>下载，我这里使用的类型为：Linux Binaries (x64)</p>
 <p><strong>测试</strong></p>
-<div class="hljs"><pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>dbn-japan packages]# node -v
+<pre><code class="hljs angelscript">[<span class="hljs-symbol">root@</span>dbn-japan packages]# node -v
 v12<span class="hljs-number">.18</span><span class="hljs-number">.2</span>
 [<span class="hljs-symbol">root@</span>dbn-japan packages]# npm -v
-<span class="hljs-number">6.14</span><span class="hljs-number">.5</span></code></pre></div>
+<span class="hljs-number">6.14</span><span class="hljs-number">.5</span></code></pre>
 
 <p>如果输出了版本号，说明安装成功。</p>
-<h2 id="2-3-Git"><a href="#2-3-Git" class="headerlink" title="2.3 Git"></a>2.3 Git</h2><div class="hljs"><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y git</code></pre></div>
+<h2 id="2-3-Git"><a href="#2-3-Git" class="headerlink" title="2.3 Git"></a>2.3 Git</h2><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y git</code></pre>
 
 <p>初始化设置：</p>
-<div class="hljs"><pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"vip@email.com"</span>
-git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"MelodyJerry"</span></code></pre></div>
+<pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"vip@email.com"</span>
+git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"MelodyJerry"</span></code></pre>
 
-<h2 id="2-4-Hexo"><a href="#2-4-Hexo" class="headerlink" title="2.4 Hexo"></a>2.4 Hexo</h2><div class="hljs"><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span></code></pre></div>
+<h2 id="2-4-Hexo"><a href="#2-4-Hexo" class="headerlink" title="2.4 Hexo"></a>2.4 Hexo</h2><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span></code></pre>
 
 <p>安装后尝试执行命令： hexo </p>
 <p>如果出现下面的输出，按我下面的方法解决，没有则跳过。</p>
-<div class="hljs"><pre><code class="hljs mipsasm">[root@dbn-<span class="hljs-keyword">japan </span>packages]<span class="hljs-comment"># hexo</span>
--<span class="hljs-keyword">bash: </span>hexo: command not found</code></pre></div>
+<pre><code class="hljs mipsasm">[root@dbn-<span class="hljs-keyword">japan </span>packages]<span class="hljs-comment"># hexo</span>
+-<span class="hljs-keyword">bash: </span>hexo: command not found</code></pre>
 
 <p>编辑环境变量文件： vim /etc/profile ，在文件末尾增加下面设置：</p>
-<div class="hljs"><pre><code class="hljs elixir">export PATH=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/usr/local/nodejs/lib/node_modules/hexo-cli/bin</span></code></pre></div>
+<pre><code class="hljs elixir">export PATH=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/usr/local/nodejs/lib/node_modules/hexo-cli/bin</span></code></pre>
 
 <p>刷新环境变量： source /etc/profile ，这时再运行命令 hexo 就会有正确的输出了。</p>
 <h1 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h1><h2 id="3-1-创建项目与分支"><a href="#3-1-创建项目与分支" class="headerlink" title="3.1 创建项目与分支"></a>3.1 创建项目与分支</h2><p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181112223524269-603079356.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181112223524269-603079356.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
@@ -290,21 +290,21 @@ git<span class="hljs-built_in"> config </span>--global user.name <span class="hl
 <li><strong>sources</strong>：存放源文件，用来备份博客。</li>
 </ul>
 <h2 id="3-2-设置-SSH-Key"><a href="#3-2-设置-SSH-Key" class="headerlink" title="3.2 设置 SSH Key"></a>3.2 设置 SSH Key</h2><p>运行下面的命令创建 SSH Key，邮箱部分改成你创建账户时候的邮箱：</p>
-<div class="hljs"><pre><code class="hljs vbnet">[root@dbn-japan blog.dbnuo.org]<span class="hljs-meta"># ssh-keygen -t rsa -C "dbnuo@foxmail.com"</span>
+<pre><code class="hljs vbnet">[root@dbn-japan blog.dbnuo.org]<span class="hljs-meta"># ssh-keygen -t rsa -C "dbnuo@foxmail.com"</span>
 Generating <span class="hljs-keyword">public</span>/<span class="hljs-keyword">private</span> rsa <span class="hljs-keyword">key</span> pair.
 Enter file <span class="hljs-keyword">in</span> which <span class="hljs-keyword">to</span> save the <span class="hljs-keyword">key</span> (/root/.ssh/id_rsa): <span class="hljs-meta"># 目录</span>
 Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase): <span class="hljs-meta"># 输入密码，可回车跳过</span>
-Enter same passphrase again: <span class="hljs-meta"># 再次输入密码</span></code></pre></div>
+Enter same passphrase again: <span class="hljs-meta"># 再次输入密码</span></code></pre>
 
 <p>查看公开密钥：</p>
-<div class="hljs"><pre><code class="hljs arcade">cat ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub</code></pre></div>
+<pre><code class="hljs arcade">cat ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub</code></pre>
 
 <p> 将公开密钥添加至码云。</p>
 <p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181112223849791-551396003.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181112223849791-551396003.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <h2 id="3-3-拉取项目"><a href="#3-3-拉取项目" class="headerlink" title="3.3 拉取项目"></a>3.3 拉取项目</h2><p>跳转至网站根目录，克隆项目至本地：</p>
-<div class="hljs"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://gitee.com/dbnuo/bnd-hexo.git</code></pre></div>
+<pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://gitee.com/dbnuo/bnd-hexo.git</code></pre>
 <p>跳转至拉取的项目目录：</p>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-comment"># 创建 hexo 目录</span>
+<pre><code class="hljs sql"><span class="hljs-comment"># 创建 hexo 目录</span>
 mkdir hexo
 <span class="hljs-comment"># 进入 hexo 目录</span>
 cd hexo/
@@ -324,11 +324,11 @@ npm <span class="hljs-keyword">install</span> hexo-deployer-openshift <span clas
 npm <span class="hljs-keyword">install</span> hexo-renderer-marked <span class="hljs-comment">--save</span>
 npm <span class="hljs-keyword">install</span> hexo-renderer-stylus <span class="hljs-comment">--save</span>
 npm <span class="hljs-keyword">install</span> hexo-generator-feed <span class="hljs-comment">--save</span>
-npm <span class="hljs-keyword">install</span> hexo-generator-sitemap <span class="hljs-comment">--save</span></code></pre></div>
+npm <span class="hljs-keyword">install</span> hexo-generator-sitemap <span class="hljs-comment">--save</span></code></pre>
 
 <h1 id="4-建站"><a href="#4-建站" class="headerlink" title="4.建站"></a>4.建站</h1><p>先看文件夹里都有什么：</p>
-<div class="hljs"><pre><code class="hljs mipsasm">[root@dbn-<span class="hljs-keyword">japan </span>hexo]<span class="hljs-comment"># ls -a</span>
-.  ..  _<span class="hljs-built_in">config</span>.yml  .gitignore  node_modules  package.<span class="hljs-keyword">json </span> package-lock.<span class="hljs-keyword">json </span> <span class="hljs-keyword">scaffolds </span> source  themes</code></pre></div>
+<pre><code class="hljs mipsasm">[root@dbn-<span class="hljs-keyword">japan </span>hexo]<span class="hljs-comment"># ls -a</span>
+.  ..  _<span class="hljs-built_in">config</span>.yml  .gitignore  node_modules  package.<span class="hljs-keyword">json </span> package-lock.<span class="hljs-keyword">json </span> <span class="hljs-keyword">scaffolds </span> source  themes</code></pre>
 
 <ul>
 <li>_config.yml：站点的配置文件，需要备份；</li>
@@ -344,22 +344,22 @@ npm <span class="hljs-keyword">install</span> hexo-generator-sitemap <span class
 <li>db.json：文件，不需要备份。</li>
 </ul>
 <h2 id="4-1-配置-config-yml"><a href="#4-1-配置-config-yml" class="headerlink" title="4.1 配置 _config.yml"></a>4.1 配置 _config.yml</h2><p>基础配置可以参考<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">官方文档</a>的配置说明。这里需要在末尾添加 Git 的配置：</p>
-<div class="hljs"><pre><code class="hljs crmsh">...deploy:
+<pre><code class="hljs crmsh">...deploy:
   <span class="hljs-keyword">type</span>: git
   repo: https://gitee.com/dbnuo/bnd-hexo.git
   branch: <span class="hljs-literal">master</span>
-  message: 'web updata: {{now(<span class="hljs-string">"YYYY-MM-DD HH/mm/ss"</span>)}}'</code></pre></div>
+  message: 'web updata: {{now(<span class="hljs-string">"YYYY-MM-DD HH/mm/ss"</span>)}}'</code></pre>
 
 <h2 id="4-2-生成页面并提交"><a href="#4-2-生成页面并提交" class="headerlink" title="4.2 生成页面并提交"></a>4.2 生成页面并提交</h2><p>运行命令： <code>hexo cl &amp;&amp; hexo g -d</code> 输入用户名和密码后，页面代码就会提交至码云项目中。</p>
 <p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113103505392-1803344108.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113103505392-1803344108.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <p>将网站目录指定至 hexo 的 public 文件夹中，访问网站：</p>
-<div class="hljs"><pre><code class="hljs routeros">cd hexo
-hexo s # hexo<span class="hljs-built_in"> server </span>默认是4000端口</code></pre></div>
+<pre><code class="hljs routeros">cd hexo
+hexo s # hexo<span class="hljs-built_in"> server </span>默认是4000端口</code></pre>
 
 <p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113103622833-1181993845.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113103622833-1181993845.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <h1 id="5-备份"><a href="#5-备份" class="headerlink" title="5.备份"></a>5.备份</h1><p>跳转至项目目录 bnd-hexo：</p>
-<div class="hljs"><pre><code class="hljs mipsasm">git checkout -<span class="hljs-keyword">b </span>sources <span class="hljs-comment"># 创建切换分支</span>
-git push <span class="hljs-keyword">origin </span>sources <span class="hljs-comment"># 提交代码至分支</span></code></pre></div>
+<pre><code class="hljs mipsasm">git checkout -<span class="hljs-keyword">b </span>sources <span class="hljs-comment"># 创建切换分支</span>
+git push <span class="hljs-keyword">origin </span>sources <span class="hljs-comment"># 提交代码至分支</span></code></pre>
 
 <p>提交至码云项目分支：</p>
 <p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113105109879-1083473093.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113105109879-1083473093.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
@@ -367,7 +367,7 @@ git push <span class="hljs-keyword">origin </span>sources <span class="hljs-comm
 <p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113105556438-1191039737.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113105556438-1191039737.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <h1 id="6-恢复"><a href="#6-恢复" class="headerlink" title="6.恢复"></a>6.恢复</h1><p>切换至测试服务器，基础的安装和设置可以参考上面的流程。</p>
 <p>跳转至网站的根目录：</p>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-comment"># 拉取项目至本地</span>
+<pre><code class="hljs sql"><span class="hljs-comment"># 拉取项目至本地</span>
 git clone https://gitee.com/dbnuo/bnd-hexo.git
 <span class="hljs-comment"># 跳转至目录</span>
 cd bnd-hexo
@@ -390,20 +390,20 @@ npm <span class="hljs-keyword">install</span> hexo-deployer-openshift <span clas
 npm <span class="hljs-keyword">install</span> hexo-renderer-marked <span class="hljs-comment">--save</span>
 npm <span class="hljs-keyword">install</span> hexo-renderer-stylus <span class="hljs-comment">--save</span>
 npm <span class="hljs-keyword">install</span> hexo-generator-feed <span class="hljs-comment">--save</span>
-npm <span class="hljs-keyword">install</span> hexo-generator-sitemap <span class="hljs-comment">--save</span></code></pre></div>
+npm <span class="hljs-keyword">install</span> hexo-generator-sitemap <span class="hljs-comment">--save</span></code></pre>
 
 <p>执行完毕，hexo 就恢复了，可以正常操作了。</p>
 <h1 id="7-多终端"><a href="#7-多终端" class="headerlink" title="7.多终端"></a>7.多终端</h1><p>至此两台服务器都对一个项目库进行操作，可以说是多终端了，我在测试服务器新建了个文章： hexo new post “test2” </p>
 <p>创建成功后提交上传。</p>
 <p>切换回主服务器：</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-comment"># 跳转至项目目录</span>
+<pre><code class="hljs properties"><span class="hljs-comment"># 跳转至项目目录</span>
 <span class="hljs-attr">cd</span> <span class="hljs-string">bnd-hexo</span>
 <span class="hljs-comment"># 拉取项目</span>
 <span class="hljs-attr">git</span> <span class="hljs-string">pull origin sources</span>
 <span class="hljs-comment"># 跳转至源文件目录</span>
 <span class="hljs-attr">cd</span> <span class="hljs-string">hexo/</span>
 <span class="hljs-comment"># 重新编译</span>
-<span class="hljs-attr">hexo</span> <span class="hljs-string">cl &amp;&amp; hexo g -d</span></code></pre></div>
+<span class="hljs-attr">hexo</span> <span class="hljs-string">cl &amp;&amp; hexo g -d</span></code></pre>
 
 <p>再访问网站：</p>
 <p><a href="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113114656020-1660436245.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1065454/201811/1065454-20181113114656020-1660436245.png" srcset="/blog/img/loading.gif" alt="img"></a></p>

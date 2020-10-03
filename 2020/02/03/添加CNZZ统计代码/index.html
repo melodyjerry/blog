@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -222,26 +222,26 @@
             
             <article class="markdown-body">
               <p>先在博客主题配置文件themes\material-x_config.yml添加代码：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-comment">#添加CNZZ统计</span>
-<span class="hljs-attr">cnzz:</span> <span class="hljs-literal">true</span></code></pre></div>
+<pre><code class="hljs yaml"><span class="hljs-comment">#添加CNZZ统计</span>
+<span class="hljs-attr">cnzz:</span> <span class="hljs-literal">true</span></code></pre>
 
 <p>这里这个cnzz的名字可以自己取；然后在themes\material-x\layout_partial里面创建一个 cnzz.ejs文件；把cnzz给的代码复制进去；</p>
-<div class="hljs"><pre><code class="hljs gcode">&lt;<span class="hljs-meta">%</span> <span class="hljs-keyword">if</span> <span class="hljs-comment">(theme.cnzz)</span>{ <span class="hljs-meta">%</span>&gt; 
+<pre><code class="hljs gcode">&lt;<span class="hljs-meta">%</span> <span class="hljs-keyword">if</span> <span class="hljs-comment">(theme.cnzz)</span>{ <span class="hljs-meta">%</span>&gt; 
 <span class="hljs-comment">//这里添加复制的CNZZ代码</span>
-&lt;<span class="hljs-meta">%</span> } <span class="hljs-meta">%</span>&gt;</code></pre></div>
+&lt;<span class="hljs-meta">%</span> } <span class="hljs-meta">%</span>&gt;</code></pre>
 <p>然后再在footer.ejs的后面添加上一行代码就可以显示了（这里的位置可以换，可以不是scripts.ejs，或者是head.ejs，看自己的喜好）</p>
-<div class="hljs"><pre><code class="hljs erb"><span class="xml"><span class="hljs-comment">&lt;!--CNZZ统计--&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%-</span></span></span><span class="ruby"> partial(<span class="hljs-string">'cnzz'</span>) </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
+<pre><code class="hljs erb"><span class="xml"><span class="hljs-comment">&lt;!--CNZZ统计--&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%-</span></span></span><span class="ruby"> partial(<span class="hljs-string">'cnzz'</span>) </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre>
 <p>对百度统计也可以进行同样的处理；</p>
-<div class="hljs"><pre><code class="hljs gcode">&lt;<span class="hljs-meta">%</span> <span class="hljs-keyword">if</span> <span class="hljs-comment">(theme.cnzz)</span>{ <span class="hljs-meta">%</span>&gt;<span class="hljs-comment">//前面要添加的代码</span>
+<pre><code class="hljs gcode">&lt;<span class="hljs-meta">%</span> <span class="hljs-keyword">if</span> <span class="hljs-comment">(theme.cnzz)</span>{ <span class="hljs-meta">%</span>&gt;<span class="hljs-comment">//前面要添加的代码</span>
 <span class="hljs-comment">//百度统计的代码</span>
-&lt;<span class="hljs-meta">%</span> } <span class="hljs-meta">%</span>&gt;</code></pre></div>
+&lt;<span class="hljs-meta">%</span> } <span class="hljs-meta">%</span>&gt;</code></pre>
 <p>与上面的操作基本一致只是取得名字不一样。</p>
 <p>上面的是一种方法；</p>
 <p>如果嫌麻烦的话直接就在footer.ejs的后面添加cnzz的代码；直接就可以显示了（同理，可以添加在其他位置），貌似添加在这里速度最快。</p>
-<div class="hljs"><pre><code class="hljs gcode">&lt;<span class="hljs-meta">%</span> <span class="hljs-keyword">if</span> <span class="hljs-comment">(theme.cnzz)</span>{ <span class="hljs-meta">%</span>&gt; <span class="hljs-comment">//前面要添加的代码</span>
+<pre><code class="hljs gcode">&lt;<span class="hljs-meta">%</span> <span class="hljs-keyword">if</span> <span class="hljs-comment">(theme.cnzz)</span>{ <span class="hljs-meta">%</span>&gt; <span class="hljs-comment">//前面要添加的代码</span>
 <span class="hljs-comment">//这里添加复制的CNZZ代码</span>
-&lt;<span class="hljs-meta">%</span> } <span class="hljs-meta">%</span>&gt; <span class="hljs-comment">//后面要添加的</span></code></pre></div>
+&lt;<span class="hljs-meta">%</span> } <span class="hljs-meta">%</span>&gt; <span class="hljs-comment">//后面要添加的</span></code></pre>
 <p>参考链接：<a href="https://blog.csdn.net/whjkm/article/details/37884563" target="_blank" rel="noopener">https://blog.csdn.net/whjkm/article/details/37884563</a></p>
 <a id="more"></a><script>
         document.querySelectorAll('.github-emoji')

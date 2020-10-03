@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -223,34 +223,34 @@
             <article class="markdown-body">
               <p><a href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/proj/hexo.sh/e14f6ecb16deb21e894e78c9ccc46729854394.png" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/proj/hexo.sh/e14f6ecb16deb21e894e78c9ccc46729854394.png" srcset="/blog/img/loading.gif" alt="img"></a></p>
 <p>「<code>hexo.sh</code>」脚本可以很方便执行各种 hexo 命令，开启后会一直保持会话，随时输入 <code>c</code>、<code>cs</code>、<code>cg</code>、<code>cgd</code> 等简短的命令去执行一系列操作，提高效率。</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-meta">例如，`cs`相当于：hexo</span> <span class="hljs-string">clean</span>
+<pre><code class="hljs properties"><span class="hljs-meta">例如，`cs`相当于：hexo</span> <span class="hljs-string">clean</span>
 <span class="hljs-attr">hexo</span> <span class="hljs-string">s</span>
 <span class="hljs-meta">`cgd`相当于：hexo</span> <span class="hljs-string">clean</span>
 <span class="hljs-attr">hexo</span> <span class="hljs-string">g</span>
 <span class="hljs-attr">hexo</span> <span class="hljs-string">d</span>
 <span class="hljs-attr">git</span> <span class="hljs-string">add --all</span>
 <span class="hljs-attr">git</span> <span class="hljs-string">commit -am "update all"</span>
-<span class="hljs-attr">git</span> <span class="hljs-string">push origin</span></code></pre></div>
+<span class="hljs-attr">git</span> <span class="hljs-string">push origin</span></code></pre>
 
 <a id="more"></a>
 
 <h2 id="下载并安装脚本"><a href="#下载并安装脚本" class="headerlink" title="下载并安装脚本"></a>下载并安装脚本</h2><p>打开终端，输入这行命令：</p>
-<div class="hljs"><pre><code class="hljs vim">curl -s http<span class="hljs-variable">s:</span>//xaoxuu.<span class="hljs-keyword">com</span>/install | <span class="hljs-keyword">sh</span> -s hexo.<span class="hljs-keyword">sh</span></code></pre></div>
+<pre><code class="hljs vim">curl -s http<span class="hljs-variable">s:</span>//xaoxuu.<span class="hljs-keyword">com</span>/install | <span class="hljs-keyword">sh</span> -s hexo.<span class="hljs-keyword">sh</span></code></pre>
 
 <p>如需安装指定版本，在后面加上版本号即可，例如：</p>
-<div class="hljs"><pre><code class="hljs vim">curl -s http<span class="hljs-variable">s:</span>//xaoxuu.<span class="hljs-keyword">com</span>/install | <span class="hljs-keyword">sh</span> -s hexo.<span class="hljs-keyword">sh</span> <span class="hljs-number">2.1</span>.<span class="hljs-number">0</span></code></pre></div>
+<pre><code class="hljs vim">curl -s http<span class="hljs-variable">s:</span>//xaoxuu.<span class="hljs-keyword">com</span>/install | <span class="hljs-keyword">sh</span> -s hexo.<span class="hljs-keyword">sh</span> <span class="hljs-number">2.1</span>.<span class="hljs-number">0</span></code></pre>
 
 <h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h2><p>在终端输入如下命令即可打开脚本：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">hexo</span><span class="hljs-selector-class">.sh</span></code></pre></div>
+<pre><code class="hljs css"><span class="hljs-selector-tag">hexo</span><span class="hljs-selector-class">.sh</span></code></pre>
 
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>在终端输入如下命令即可查看脚本所有支持的指令：</p>
-<div class="hljs"><pre><code class="hljs stata">hexo.<span class="hljs-keyword">sh</span> <span class="hljs-keyword">help</span></code></pre></div>
+<pre><code class="hljs stata">hexo.<span class="hljs-keyword">sh</span> <span class="hljs-keyword">help</span></code></pre>
 
 <p>如果是脚本已经启动（可以看到脚本菜单，处于待输入指令的状态），则只需要输入 <code>help</code>，下文其它情景同理。</p>
 <p>下面是一些常见使用场景：</p>
 <h3 id="A-使用脚本快速搭建博客"><a href="#A-使用脚本快速搭建博客" class="headerlink" title="A. 使用脚本快速搭建博客"></a>A. 使用脚本快速搭建博客</h3><p>let <code>path</code> = 你想把博客放在哪里，打开终端 <strong><code>cd</code> 到 <code>path</code></strong> 。</p>
 <p>在终端输入如下命令自动检查并安装所有需要的环境，然后搭建并启动博客：</p>
-<div class="hljs"><pre><code class="hljs reasonml"><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">COPYhexo</span>.</span></span>sh init</code></pre></div>
+<pre><code class="hljs reasonml"><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">COPYhexo</span>.</span></span>sh init</code></pre>
 
 <p>脚本会依次执行以下这些操作：</p>
 <ol>
@@ -265,18 +265,18 @@
 </blockquote>
 <h3 id="B-使用脚本快速更新博客"><a href="#B-使用脚本快速更新博客" class="headerlink" title="B. 使用脚本快速更新博客"></a>B. 使用脚本快速更新博客</h3><p>let <code>path</code> = 你的博客路径，打开终端 <code>cd</code> 到 <code>path</code> 。</p>
 <p>在终端输入如下命令启动博客：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">hexo</span><span class="hljs-selector-class">.sh</span> <span class="hljs-selector-tag">s</span></code></pre></div>
+<pre><code class="hljs css"><span class="hljs-selector-tag">hexo</span><span class="hljs-selector-class">.sh</span> <span class="hljs-selector-tag">s</span></code></pre>
 
 <p>然后修改你的文章、博客主题，如果修改了 <code>_config.yml</code> 是需要重新启动博客的，有些参数甚至需要 <code>clean</code> 之后重启才能生效，这时候你只需要在终端脚本【请输入指令】后面输入：</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">cs</span></code></pre></div>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">cs</span></code></pre>
 
 <p>就执行 <code>hexo clean</code>，然后执行 <code>hexo server</code> 了。</p>
 <p>如果你已经修改完毕，需要发布更新，可以在终端脚本【请输入指令】后面输入：</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">cgd</span></code></pre></div>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">cgd</span></code></pre>
 
 <p>脚本就会执行 <code>hexo clean</code>、<code>hexo generate</code>、<code>hexo deploy</code>，然后执行一系列的git命令把源码的更新提交至远程仓库。</p>
 <h2 id="所有支持的命令"><a href="#所有支持的命令" class="headerlink" title="所有支持的命令"></a>所有支持的命令</h2><p>这是 <code>2.1.0</code> 版本中的所有命令，可能未必准确，以脚本中的帮助信息为准。</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-meta">常用</span>:<span class="hljs-string"></span>
+<pre><code class="hljs properties"><span class="hljs-meta">常用</span>:<span class="hljs-string"></span>
   <span class="hljs-attr">c</span> <span class="hljs-string">(clean) 	 执行 hexo clean</span>
   <span class="hljs-attr">s</span> <span class="hljs-string">(server) 	 执行 hexo server</span>
   <span class="hljs-attr">g</span> <span class="hljs-string">(generate) 	 执行 hexo generate</span>
@@ -301,7 +301,7 @@
   <span class="hljs-attr">cd</span> <span class="hljs-string">+ `path` 	 选择路径</span>
   <span class="hljs-attr">docs</span>  	 <span class="hljs-string">查看文档(https://xaoxuu.com/wiki/hexo.sh)</span>
   <span class="hljs-attr">gh</span> <span class="hljs-string">(github) 	 GitHub页面(https://github.com/xaoxuu/hexo.sh)</span>
-  <span class="hljs-attr">u</span> <span class="hljs-string">(update) 	 更新脚本文件(当前版本：2.1.0)</span></code></pre></div>
+  <span class="hljs-attr">u</span> <span class="hljs-string">(update) 	 更新脚本文件(当前版本：2.1.0)</span></code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,35 +216,35 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
             <article class="markdown-body">
               <ol>
 <li><p>下载mongodb源码，并解压：</p>
- <div class="hljs"><pre><code class="hljs bash">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-4.0.11.tgz
+ <pre><code class="hljs bash">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-4.0.11.tgz
 
-tar -zxvf mongodb-linux-x86_64-ubuntu1604-4.0.11.tgz</code></pre></div>
+tar -zxvf mongodb-linux-x86_64-ubuntu1604-4.0.11.tgz</code></pre>
 </li>
 <li><p>创建mongo专属目录，拷贝bin下文件到mongodb目录下bin中：</p>
- <div class="hljs"><pre><code class="hljs bash">mkdir /usr/<span class="hljs-built_in">local</span>/mongodb
+ <pre><code class="hljs bash">mkdir /usr/<span class="hljs-built_in">local</span>/mongodb
 
 <span class="hljs-built_in">cd</span> /usr/<span class="hljs-built_in">local</span>/mongodb
 
 mkdir bin
 
-cp .../mongodb-linux-x86_64-ubuntu1604-4.0.11/bin/* ./bin/</code></pre></div>
+cp .../mongodb-linux-x86_64-ubuntu1604-4.0.11/bin/* ./bin/</code></pre>
 </li>
 <li><p>创建数据库文件目录、日志目录、配置文件：</p>
- <div class="hljs"><pre><code class="hljs bash">mkdir data
+ <pre><code class="hljs bash">mkdir data
 
 touch mongodb.log
 
-touch mongodb.conf</code></pre></div>
+touch mongodb.conf</code></pre>
 </li>
 <li><p>配置文件内容：</p>
- <div class="hljs"><pre><code class="hljs bash">dbpath=/usr/<span class="hljs-built_in">local</span>/mongodb/data
+ <pre><code class="hljs bash">dbpath=/usr/<span class="hljs-built_in">local</span>/mongodb/data
 logpath=/usr/<span class="hljs-built_in">local</span>/mongodb/mongodb.log
 
 logappend=<span class="hljs-literal">true</span>
@@ -255,10 +255,10 @@ bind_ip = 127.0.0.1
 port = 27017
 
 noauth = <span class="hljs-literal">true</span>
-<span class="hljs-comment">#auth = true</span></code></pre></div>
+<span class="hljs-comment">#auth = true</span></code></pre>
 </li>
 <li><p>将mongo添加path：</p>
- <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment">#打开profile</span>
+ <pre><code class="hljs bash"><span class="hljs-comment">#打开profile</span>
 vi /etc/profile
 
 <span class="hljs-comment">#输入下面内容：</span>
@@ -267,16 +267,16 @@ PATH=<span class="hljs-variable">$MONGO_DB</span>/bin:<span class="hljs-variable
 <span class="hljs-built_in">export</span> PATH
 
 <span class="hljs-comment">#加载配置</span>
-<span class="hljs-built_in">source</span> /etc/profile</code></pre></div>
+<span class="hljs-built_in">source</span> /etc/profile</code></pre>
 </li>
 <li><p>启动mongodb：</p>
- <div class="hljs"><pre><code class="hljs bash">/usr/<span class="hljs-built_in">local</span>/mongodb/bin/mongod --config /usr/<span class="hljs-built_in">local</span>/mongodb/mongodb.conf</code></pre></div>
+ <pre><code class="hljs bash">/usr/<span class="hljs-built_in">local</span>/mongodb/bin/mongod --config /usr/<span class="hljs-built_in">local</span>/mongodb/mongodb.conf</code></pre>
 
- <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment">#启动后会看到：</span>
+ <pre><code class="hljs bash"><span class="hljs-comment">#启动后会看到：</span>
 
 about to fork child process, waiting until server is ready <span class="hljs-keyword">for</span> connections.
 forked process: 1361
-child process started successfully, parent exiting</code></pre></div>
+child process started successfully, parent exiting</code></pre>
 
   <a id="more"></a></li>
 </ol>

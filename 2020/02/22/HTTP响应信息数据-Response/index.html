@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -229,7 +229,7 @@
 <li><strong>Response在一次响应结束后，自动被销毁，其输出流也会自动被关闭。</strong></li>
 <li>字符串数据，比如：</li>
 </ul>
-<div class="hljs"><pre><code class="hljs angelscript">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK
+<pre><code class="hljs angelscript">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK
 Content-Type: text/html;charset=UTF<span class="hljs-number">-8</span>
 Content-Length: <span class="hljs-number">101</span>
 Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">2018</span> <span class="hljs-number">07</span>:<span class="hljs-number">08</span>:<span class="hljs-number">42</span> GMT
@@ -241,7 +241,7 @@ Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">201
     &lt;body&gt;
         hello , response
     &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
 
 <a id="more"></a>
 
@@ -302,14 +302,14 @@ Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">201
 <li>传输的数据</li>
 <li>文件、HTML网页源码等等。比如，</li>
 </ul>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>$Title$<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
         hello , response
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <h1 id="案例1：重定向"><a href="#案例1：重定向" class="headerlink" title="案例1：重定向"></a>案例1：重定向</h1><ul>
 <li>重定向：资源跳转的方式</li>
@@ -318,7 +318,7 @@ Date: Wed, <span class="hljs-number">06</span> Jun <span class="hljs-number">201
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li>ResponseDemo1.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
+<pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
@@ -357,12 +357,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-keyword">protected</span> void doGet(<span class="hljs-type">HttpServletRequest</span> request, <span class="hljs-type">HttpServletResponse</span> response) <span class="hljs-keyword">throws</span> <span class="hljs-type">ServletException</span>, <span class="hljs-type">IOException</span> {
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>ResponseDemo2.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
+<pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
@@ -386,7 +386,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
 
-}</code></pre></div>
+}</code></pre>
 
 <ol start="3">
 <li>演示：</li>
@@ -468,7 +468,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><ol>
 <li>ResponseDemo4.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
+<pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
@@ -501,7 +501,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-keyword">protected</span> void doGet(<span class="hljs-type">HttpServletRequest</span> request, <span class="hljs-type">HttpServletResponse</span> response) <span class="hljs-keyword">throws</span> <span class="hljs-type">ServletException</span>, <span class="hljs-type">IOException</span> {
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>演示</li>
@@ -516,14 +516,14 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <li><strong>简单的形式</strong>，设置编码，是<strong>在获取流之前设置</strong>  <code>response.setContentType("text/html;charset=utf-8");</code></li>
 </ul>
 <h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>上面ResponseDemo4.java文件中</p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>获取流对象之前，设置流的默认编码：ISO-<span class="hljs-number">8859</span>-<span class="hljs-number">1</span> 设置为：GBK
+<pre><code class="hljs awk"><span class="hljs-regexp">//</span>获取流对象之前，设置流的默认编码：ISO-<span class="hljs-number">8859</span>-<span class="hljs-number">1</span> 设置为：GBK
 <span class="hljs-regexp">//</span> response.setCharacterEncoding(<span class="hljs-string">"utf-8"</span>);
 
 <span class="hljs-regexp">//</span>告诉浏览器，服务器发送的消息体数据的编码。建议浏览器使用该编码解码
 <span class="hljs-regexp">//</span>response.setHeader(<span class="hljs-string">"content-type"</span>,<span class="hljs-string">"text/html;charset=utf-8"</span>);
 
 <span class="hljs-regexp">//</span>简单的形式，设置编码
-response.setContentType(<span class="hljs-string">"text/html;charset=utf-8"</span>);</code></pre></div>
+response.setContentType(<span class="hljs-string">"text/html;charset=utf-8"</span>);</code></pre>
 
 <h1 id="案例3：服务器输出字节数据到浏览器"><a href="#案例3：服务器输出字节数据到浏览器" class="headerlink" title="案例3：服务器输出字节数据到浏览器"></a>案例3：服务器输出字节数据到浏览器</h1><h2 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li><p>获取字符输出流</p>
@@ -534,7 +534,7 @@ response.setContentType(<span class="hljs-string">"text/html;charset=utf-8"</spa
 <h2 id="演示-1"><a href="#演示-1" class="headerlink" title="演示"></a>演示</h2><ol>
 <li>ResponseDemo5.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
+<pre><code class="hljs scala"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletOutputStream</span>;
@@ -558,7 +558,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-keyword">protected</span> void doGet(<span class="hljs-type">HttpServletRequest</span> request, <span class="hljs-type">HttpServletResponse</span> response) <span class="hljs-keyword">throws</span> <span class="hljs-type">ServletException</span>, <span class="hljs-type">IOException</span> {
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>演示</li>
@@ -580,7 +580,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h2 id="演示-2"><a href="#演示-2" class="headerlink" title="演示"></a>演示</h2><ol>
 <li>New一个CheckCode.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.itcast.web.servlet;
 
 <span class="hljs-keyword">import</span> javax.imageio.ImageIO;
 <span class="hljs-keyword">import</span> javax.servlet.ServletException;
@@ -619,7 +619,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>没有美化前</li>
@@ -628,7 +628,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <ol start="3">
 <li>美化图片</li>
 </ol>
-<div class="hljs"><pre><code class="hljs reasonml">package cn.itcast.web.servlet;
+<pre><code class="hljs reasonml">package cn.itcast.web.servlet;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -703,7 +703,7 @@ public <span class="hljs-keyword">class</span> CheckCode  extends HttpServlet {
     protected void <span class="hljs-keyword">do</span><span class="hljs-constructor">Get(HttpServletRequest <span class="hljs-params">request</span>, HttpServletResponse <span class="hljs-params">response</span>)</span> throws ServletException, IOException {
         this.<span class="hljs-keyword">do</span><span class="hljs-constructor">Post(<span class="hljs-params">request</span>,<span class="hljs-params">response</span>)</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="4">
 <li>美化后</li>
@@ -713,7 +713,7 @@ public <span class="hljs-keyword">class</span> CheckCode  extends HttpServlet {
 <li>在页面中配合注册表单等使用验证码</li>
 <li>点击超链接或图片后，直接加载随机验证码</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -751,7 +751,7 @@ public <span class="hljs-keyword">class</span> CheckCode  extends HttpServlet {
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"change"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>看不清，换一张？<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <ol start="7">
 <li>演示</li>

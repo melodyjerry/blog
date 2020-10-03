@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
@@ -238,7 +238,7 @@
 <p><img src="http://cdn.lzhpo.com/SSL/images/ssl-3.png" srcset="/blog/img/loading.gif" alt="ssl-3.png"></p>
 <p><img src="http://cdn.lzhpo.com/SSL/images/ssl-4.png" srcset="/blog/img/loading.gif" alt="ssl-4.png"></p>
 <p><img src="http://cdn.lzhpo.com/SSL/images/ssl-5.png" srcset="/blog/img/loading.gif" alt="ssl-5.png"></p>
-<h3 id="服务器配置ssl"><a href="#服务器配置ssl" class="headerlink" title="服务器配置ssl"></a>服务器配置ssl</h3><div class="hljs"><pre><code class="hljs nginx"><span class="hljs-comment"># HTTPS server</span>
+<h3 id="服务器配置ssl"><a href="#服务器配置ssl" class="headerlink" title="服务器配置ssl"></a>服务器配置ssl</h3><pre><code class="hljs nginx"><span class="hljs-comment"># HTTPS server</span>
 <span class="hljs-section">server</span> {
     <span class="hljs-attribute">listen</span>       <span class="hljs-number">443</span> ssl;
     <span class="hljs-attribute">server_name</span>  www.lzhpo.com;
@@ -268,13 +268,13 @@
         <span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;
         <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">"Upgrade"</span>;
     }
-}</code></pre></div>
+}</code></pre>
 
 <p><strong>emmm…sorry，手抖没注意，写错了不是主机名，是IP地址！！！</strong>不改了，还得重新截图，麻烦，在这里说明一下就好。<br><img src="http://cdn.lzhpo.com/SSL/images/ssl-6.png" srcset="/blog/img/loading.gif" alt="ssl-6.png"></p>
-<h3 id="服务器强制https"><a href="#服务器强制https" class="headerlink" title="服务器强制https"></a>服务器强制https</h3><div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">return</span>    <span class="hljs-number">301</span> https://<span class="hljs-variable">$server_name</span><span class="hljs-variable">$request_uri</span>;</code></pre></div>
+<h3 id="服务器强制https"><a href="#服务器强制https" class="headerlink" title="服务器强制https"></a>服务器强制https</h3><pre><code class="hljs nginx"><span class="hljs-attribute">return</span>    <span class="hljs-number">301</span> https://<span class="hljs-variable">$server_name</span><span class="hljs-variable">$request_uri</span>;</code></pre>
 
 <p><img src="http://cdn.lzhpo.com/SSL/images/ssl-7.png" srcset="/blog/img/loading.gif" alt="ssl-7.png"><br>配置完之后，重启nginx。</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart nginx</span></code></pre></div>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart nginx</span></code></pre>
 
 
 

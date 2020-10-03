@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -260,7 +260,7 @@
 <ol start="4">
 <li>获取请求消息数据的字符串格式 👇</li>
 </ol>
-<div class="hljs"><pre><code class="hljs groovy">POST <span class="hljs-regexp">/login.html	HTTP/</span><span class="hljs-number">1.1</span>
+<pre><code class="hljs groovy">POST <span class="hljs-regexp">/login.html	HTTP/</span><span class="hljs-number">1.1</span>
 <span class="hljs-string">Host:</span> localhost
 User-<span class="hljs-string">Agent:</span> Mozilla<span class="hljs-regexp">/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/</span><span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">60.0</span>
 <span class="hljs-string">Accept:</span> text<span class="hljs-regexp">/html,application/</span>xhtml+xml,application<span class="hljs-regexp">/xml;q=0.9,*/</span>*;q=<span class="hljs-number">0.8</span>
@@ -270,11 +270,11 @@ Accept-<span class="hljs-string">Encoding:</span> gzip, deflate
 <span class="hljs-string">Connection:</span> keep-alive
 Upgrade-Insecure-<span class="hljs-string">Requests:</span> <span class="hljs-number">1</span>
 
-username=zhangsan</code></pre></div>
+username=zhangsan</code></pre>
 
 
 
-<h3 id="一-获取请求行数据"><a href="#一-获取请求行数据" class="headerlink" title="一.获取请求行数据"></a>一.获取请求行数据</h3><div class="hljs"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string"></span> /day14/demo1?name=zhangsan <span class="hljs-string"></span> HTTP/1.1</code></pre></div>
+<h3 id="一-获取请求行数据"><a href="#一-获取请求行数据" class="headerlink" title="一.获取请求行数据"></a>一.获取请求行数据</h3><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string"></span> /day14/demo1?name=zhangsan <span class="hljs-string"></span> HTTP/1.1</code></pre>
 
 <p>调用方法（★★重点掌握）：</p>
 <ol>
@@ -347,7 +347,7 @@ username=zhangsan</code></pre></div>
 <blockquote>
 <p> 可以在新建时候选择创建Servlet，IDEA自动生成相应模板。</p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs reasonml">import javax.servlet.ServletException;
+<pre><code class="hljs reasonml">import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -408,20 +408,20 @@ public <span class="hljs-keyword">class</span> RequestDemo1 extends HttpServlet 
         String remoteAddr = request.get<span class="hljs-constructor">RemoteAddr()</span>;
         <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(remoteAddr);
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>演示👇</p>
 <p>浏览器访问：<a href="http://localhost/Servlet/RequestDemo1?name=zhangsan" target="_blank" rel="noopener">http://localhost/Servlet/RequestDemo1?name=zhangsan</a></p>
 <p>IDEA控制台输出：</p>
 <p><fancybox><img src="https://s2.ax1x.com/2020/02/21/3Kuh1e.png" srcset="/blog/img/loading.gif" alt=""></fancybox></p>
-<h3 id="二-获取请求头数据"><a href="#二-获取请求头数据" class="headerlink" title="二.获取请求头数据"></a>二.获取请求头数据</h3><div class="hljs"><pre><code class="hljs groovy"><span class="hljs-string">Host:</span> localhost
+<h3 id="二-获取请求头数据"><a href="#二-获取请求头数据" class="headerlink" title="二.获取请求头数据"></a>二.获取请求头数据</h3><pre><code class="hljs groovy"><span class="hljs-string">Host:</span> localhost
 User-<span class="hljs-string">Agent:</span> Mozilla<span class="hljs-regexp">/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/</span><span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">60.0</span>
 <span class="hljs-string">Accept:</span> text<span class="hljs-regexp">/html,application/</span>xhtml+xml,application<span class="hljs-regexp">/xml;q=0.9,*/</span>*;q=<span class="hljs-number">0.8</span>
 Accept-<span class="hljs-string">Language:</span> zh-CN,zh;q=<span class="hljs-number">0.8</span>,zh-TW;q=<span class="hljs-number">0.7</span>,zh-HK;q=<span class="hljs-number">0.5</span>,en-US;q=<span class="hljs-number">0.3</span>,en;q=<span class="hljs-number">0.2</span>
 Accept-<span class="hljs-string">Encoding:</span> gzip, deflate
 <span class="hljs-string">Referer:</span> <span class="hljs-string">http:</span><span class="hljs-comment">//localhost/login.html</span>
 <span class="hljs-string">Connection:</span> keep-alive
-Upgrade-Insecure-<span class="hljs-string">Requests:</span> <span class="hljs-number">1</span></code></pre></div>
+Upgrade-Insecure-<span class="hljs-string">Requests:</span> <span class="hljs-number">1</span></code></pre>
 
 <p>调用方法（★★重点掌握）：</p>
 <ol>
@@ -445,7 +445,7 @@ Upgrade-Insecure-<span class="hljs-string">Requests:</span> <span class="hljs-nu
 <ol>
 <li>新建一个Servlet，名为RequestDemo2.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
+<pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServletRequest</span>;
@@ -473,7 +473,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         }
 
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>浏览器访问：<a href="http://localhost/Servlet/RequestDemo2" target="_blank" rel="noopener">http://localhost/Servlet/RequestDemo2</a></li>
@@ -484,7 +484,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <ol>
 <li>新建一个Servlet，名为RequestDemo3.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
+<pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServletRequest</span>;
@@ -512,7 +512,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         }
         
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>浏览器访问：<a href="http://localhost/Servlet/RequestDemo3" target="_blank" rel="noopener">http://localhost/Servlet/RequestDemo3</a></li>
@@ -527,7 +527,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <ol start="4">
 <li>新建一个Servlet，名为RequestDemo4.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala">
+<pre><code class="hljs scala">
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
@@ -565,12 +565,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
             }
         }
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="5">
 <li>新建一个html文件，名为login.html</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -586,7 +586,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://localhost/Servlet/RequestDemo4"</span>&gt;</span>RequestDemo3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <ol start="6">
 <li>演示👉获取请求头数据：referer</li>
@@ -595,7 +595,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <ol start="7">
 <li>关于<strong>获取referer来防盗链</strong>，观看 <a href="https://www.bilibili.com/video/av70420291?p=131" target="_blank" rel="noopener">视频（进度条【10:56】）</a> </li>
 </ol>
-<h3 id="三-获取请求体数据"><a href="#三-获取请求体数据" class="headerlink" title="三.获取请求体数据"></a>三.获取请求体数据</h3><div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">username</span>=zhangsan</code></pre></div>
+<h3 id="三-获取请求体数据"><a href="#三-获取请求体数据" class="headerlink" title="三.获取请求体数据"></a>三.获取请求体数据</h3><pre><code class="hljs ini"><span class="hljs-attr">username</span>=zhangsan</code></pre>
 
 <ul>
 <li><p>请求体：<font color="red">只有POST请求方式，才有请求体，在请求体中封装了POST请求的请求参数</font></p>
@@ -645,7 +645,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><ol>
 <li>新建html文件，名为regist.html</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -661,12 +661,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <ol start="2">
 <li>新建一个Servlet，名为RequestDemo5.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
+<pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServletRequest</span>;
@@ -691,7 +691,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
     <span class="hljs-keyword">protected</span> void doGet(<span class="hljs-type">HttpServletRequest</span> request, <span class="hljs-type">HttpServletResponse</span> response) <span class="hljs-keyword">throws</span> <span class="hljs-type">ServletException</span>, <span class="hljs-type">IOException</span> {
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="3">
 <li>浏览器访问：<a href="http://localhost/Servlet/regist.html" target="_blank" rel="noopener">http://localhost/Servlet/regist.html</a></li>
@@ -742,7 +742,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h4><ol>
 <li>新建regist2.html</li>
 </ol>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -763,12 +763,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <ol start="2">
 <li>新建RequestDemo6.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs dart"><span class="hljs-keyword">import</span> javax.servlet.ServletException;
+<pre><code class="hljs dart"><span class="hljs-keyword">import</span> javax.servlet.ServletException;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.WebServlet;
 <span class="hljs-keyword">import</span> javax.servlet.http.HttpServlet;
 <span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;
@@ -834,7 +834,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="3">
 <li><p>浏览器访问：<a href="http://localhost/Servlet/regist2.html" target="_blank" rel="noopener">http://localhost/Servlet/regist2.html</a></p>
@@ -877,7 +877,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h4 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h4><ol>
 <li>新建RequestDemo8.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">RequestDispatcher</span>;
+<pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">RequestDispatcher</span>;
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
@@ -910,12 +910,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>新建RequestDemo9.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
+<pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServletRequest</span>;
@@ -938,7 +938,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="3">
 <li>浏览器访问：<a href="http://localhost/Servlet/RequestDemo8" target="_blank" rel="noopener">http://localhost/Servlet/RequestDemo8</a></li>
@@ -984,7 +984,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <h4 id="示例-6"><a href="#示例-6" class="headerlink" title="示例"></a>示例</h4><ol>
 <li>新建RequestDemo10.java</li>
 </ol>
-<div class="hljs"><pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletContext</span>;
+<pre><code class="hljs scala"><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletContext</span>;
 <span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;
 <span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;
 <span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServlet</span>;
@@ -1007,7 +1007,7 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
         <span class="hljs-keyword">this</span>.doPost(request,response);
     }
-}</code></pre></div>
+}</code></pre>
 
 <ol start="2">
 <li>浏览器访问：<a href="http://localhost/Servlet/RequestDemo10" target="_blank" rel="noopener">http://localhost/Servlet/RequestDemo10</a></li>

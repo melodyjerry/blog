@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -225,12 +225,12 @@
 <a id="more"></a>
 
 <h1 id="自定义鼠标指针样式"><a href="#自定义鼠标指针样式" class="headerlink" title="自定义鼠标指针样式"></a>自定义鼠标指针样式</h1><p>在 <code>\themes\material-x\source\less\_base.less</code> 文件 body 样式里写入如下代码：</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-tag">body</span> {
+<pre><code class="hljs less"><span class="hljs-selector-tag">body</span> {
     <span class="hljs-attribute">cursor</span>: url(<span class="hljs-string">https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.6/images/mouse.cur</span>),auto;
     <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">@theme_background</span>;
     ......
     ......
-}</code></pre></div>
+}</code></pre>
 
 <p>鼠标指针可以用 Axialis CursorWorkshop 这个软件自己制作，不同主题具体放的文件有所不同，确保在博客主体 body 的 CSS 文件中即可，其中的鼠标指针链接可替换成自己的，首先尝试加载 <a href="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.6/images/mouse.cur" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.1.6/images/mouse.cur</a> ，如果该文件不存在或由于其他原因无效，那么 auto 会被使用，也就是自动默认效果，图片格式为.ico、.ani、.cur，建议使用.cur，如果使用.ani或者其他格式无效，原因是浏览器兼容问题，请阅读<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface/Using_URL_values_for_the_cursor_property" target="_blank" rel="noopener">参考文档</a>或者参考以下兼容表：</p>
 <table>
@@ -268,12 +268,12 @@
 </tr>
 </tbody></table>
 <p>拓展阅读：<a href="https://blog.csdn.net/ixygj197875/article/details/79338360" target="_blank" rel="noopener">《CSS 鼠标样式 cursor属性》</a> （By：歪脖先生的博客）</p>
-<h1 id="打字特效（蓝色）"><a href="#打字特效（蓝色）" class="headerlink" title="打字特效（蓝色）"></a>打字特效（蓝色）</h1><div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/typed.js@2.0.11"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> 
+<h1 id="打字特效（蓝色）"><a href="#打字特效（蓝色）" class="headerlink" title="打字特效（蓝色）"></a>打字特效（蓝色）</h1><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/typed.js@2.0.11"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> 
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript"><span class="hljs-keyword">var</span> typed = <span class="hljs-keyword">new</span> Typed(<span class="hljs-string">"#subtitle"</span>, { strings: [<span class="hljs-string">"Live a good life, write some good code !!!"</span>, <span class="hljs-string">"愿自己的努力终将获得回报。"</span>, <span class="hljs-string">"花开不是为了花落，而是为了开的更加灿烂。"</span>, <span class="hljs-string">"没有伞的孩子必须努力奔跑！"</span>, <span class="hljs-string">"欲望以提升热忱，毅力以磨平高山。"</span>, <span class="hljs-string">"如果放弃太早，你永远都不知道自己会错过什么。"</span>, <span class="hljs-string">"没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"</span>], startDelay: <span class="hljs-number">1000</span>, typeSpeed: <span class="hljs-number">100</span>, loop: !<span class="hljs-number">0</span>, backSpeed: <span class="hljs-number">60</span>, backDelay: <span class="hljs-number">2000</span>, showCursor: !<span class="hljs-number">0</span> })</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center;font-weight: bold;color: #1BC3FB;"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"subtitle"</span>&gt;</span>没有伞的孩子必须努力奔跑！<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"typed-cursor typed-cursor--blink"</span>&gt;</span>|<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"typed-cursor"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>效果 👇</p>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
  <script>var typed = new Typed("#subtitle", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
@@ -285,8 +285,8 @@
 <h1 id="网站访客地理信息"><a href="#网站访客地理信息" class="headerlink" title="网站访客地理信息"></a>网站访客地理信息</h1><ul>
 <li>在<strong><code>.\themes\material-x\layout\layout.ejs</code></strong>中加入以下代码：</li>
 </ul>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--网站访客地理信息--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&amp;amp;m=2&amp;amp;c=ff0000&amp;amp;cr1=ffffff&amp;amp;f=arial&amp;amp;l=33&amp;amp;z=17&amp;amp;rx=-40&amp;amp;lx=-540&amp;amp;ly=520&amp;amp;hi=60"</span> <span class="hljs-attr">async</span>=<span class="hljs-string">"async"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--网站访客地理信息--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&amp;amp;m=2&amp;amp;c=ff0000&amp;amp;cr1=ffffff&amp;amp;f=arial&amp;amp;l=33&amp;amp;z=17&amp;amp;rx=-40&amp;amp;lx=-540&amp;amp;ly=520&amp;amp;hi=60"</span> <span class="hljs-attr">async</span>=<span class="hljs-string">"async"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 <ul>
 <li>效果 👇</li>
@@ -295,7 +295,7 @@
 <h1 id="天气挂件"><a href="#天气挂件" class="headerlink" title="天气挂件"></a>天气挂件</h1><ul>
 <li>JS代码，用于将插件插入到网页内</li>
 </ul>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tp-weather-widget"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tp-weather-widget"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
 <span class="javascript">    (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a,h,g,f,e,d,c,b</span>)</span>{b=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{d=h.createElement(g);c=h.getElementsByTagName(g)[<span class="hljs-number">0</span>];d.src=e;d.charset=<span class="hljs-string">"utf-8"</span>;d.async=<span class="hljs-number">1</span>;c.parentNode.insertBefore(d,c)};a[<span class="hljs-string">"SeniverseWeatherWidgetObject"</span>]=f;a[f]||(a[f]=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{(a[f].q=a[f].q||[]).push(<span class="hljs-built_in">arguments</span>)});a[f].l=+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<span class="hljs-keyword">if</span>(a.attachEvent){a.attachEvent(<span class="hljs-string">"onload"</span>,b)}<span class="hljs-keyword">else</span>{a.addEventListener(<span class="hljs-string">"load"</span>,b,<span class="hljs-literal">false</span>)}}(<span class="hljs-built_in">window</span>,<span class="hljs-built_in">document</span>,<span class="hljs-string">"script"</span>,<span class="hljs-string">"SeniverseWeatherWidget"</span>,<span class="hljs-string">"//cdn.sencdn.com/widget2/static/js/bundle.js?t="</span>+<span class="hljs-built_in">parseInt</span>((<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime() / <span class="hljs-number">100000000</span>).toString(),<span class="hljs-number">10</span>)));</span>
 <span class="javascript">    <span class="hljs-built_in">window</span>.SeniverseWeatherWidget(<span class="hljs-string">'show'</span>, {</span>
@@ -309,22 +309,22 @@
 <span class="actionscript">      hover: <span class="hljs-string">"enabled"</span>,</span>
 <span class="actionscript">      container: <span class="hljs-string">"tp-weather-widget"</span></span>
     })
-  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 
 <ul>
 <li>插件网页版链接，用于嵌入到iframe或webview中</li>
 </ul>
-<div class="hljs"><pre><code class="hljs lsl">&lt;iframe&gt;weather.seniverse.com/?token=<span class="hljs-number">5</span>fd5b254<span class="hljs-number">-57</span>fe<span class="hljs-number">-4</span>f8a<span class="hljs-number">-8</span>a13-f92485efeb0b&lt;/iframe&gt;</code></pre></div>
+<pre><code class="hljs lsl">&lt;iframe&gt;weather.seniverse.com/?token=<span class="hljs-number">5</span>fd5b254<span class="hljs-number">-57</span>fe<span class="hljs-number">-4</span>f8a<span class="hljs-number">-8</span>a13-f92485efeb0b&lt;/iframe&gt;</code></pre>
 
 <ul>
 <li>效果：见本博客页面左上角</li>
 </ul>
 <h1 id="背景添加动态线条效果"><a href="#背景添加动态线条效果" class="headerlink" title="背景添加动态线条效果"></a>背景添加动态线条效果</h1><p>在 <strong><code>.\themes\hexo-theme-spfk\layout\layout.ejs</code></strong>文件中添加如下代码：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--动态线条背景--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--动态线条背景--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span></span>
 <span class="hljs-tag"><span class="hljs-attr">color</span>=<span class="hljs-string">"220,220,220"</span> <span class="hljs-attr">opacity</span>=<span class="hljs-string">'0.7'</span> <span class="hljs-attr">zIndex</span>=<span class="hljs-string">"-2"</span> <span class="hljs-attr">count</span>=<span class="hljs-string">"200"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 <p>其中：</p>
 <ul>
@@ -336,22 +336,22 @@
 <h1 id="人体时钟"><a href="#人体时钟" class="headerlink" title="人体时钟"></a>人体时钟</h1><p>无意中发现了个有趣的人体时钟 HONE HONE CLOCK，作者是个日本人，<a href="http://chabudai.org/blog/" target="_blank" rel="noopener">点击此处</a>访问作者博客，<a href="http://chabudai.org/blog/?p=59" target="_blank" rel="noopener">点击此处</a>在作者原博客上查看动态样式，<a href="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf" target="_blank" rel="noopener">点击此处</a>查看动态大图，如果你的博客上有合适的地方，加上一个人体时钟会很有趣的</p>
 <p><a href="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A04/030.png" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A04/030.png" srcset="/blog/img/loading.gif" alt="030"></a></p>
 <p>实现代码：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--人体时钟背景透明--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--人体时钟背景透明--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"Shift_JIS"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!--人体时钟背景白--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"Shift_JIS"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"Shift_JIS"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <h1 id="背景动态彩带效果"><a href="#背景动态彩带效果" class="headerlink" title="背景动态彩带效果"></a>背景动态彩带效果</h1><p>样式一是鼠标点击后彩带自动更换样式，样式二是飘动的彩带：</p>
 <p><a href="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A04/034.png" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A04/034.png" srcset="/blog/img/loading.gif" alt="034"></a></p>
 <p>实现方法：在 \themes\material-x\layout\layout.ejs 文件的body前面添加如下代码：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 样式一（鼠标点击更换样式） --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://g.joyinshare.com/hc/ribbon.min.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 样式一（鼠标点击更换样式） --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://g.joyinshare.com/hc/ribbon.min.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 样式二（飘动的彩带） --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://g.joyinshare.com/hc/piao.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 样式二（飘动的彩带） --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://g.joyinshare.com/hc/piao.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 <h1 id="樱花特效"><a href="#樱花特效" class="headerlink" title="樱花特效"></a>樱花特效</h1><p><a href="https://www.17sucai.com/pins/28586.html" target="_blank" rel="noopener">canvas樱花飘落动画特效</a></p>
-<div class="hljs"><pre><code class="hljs kotlin">&lt;script&gt;
+<pre><code class="hljs kotlin">&lt;script&gt;
 <span class="hljs-keyword">var</span> RENDERER = {
 	INIT_CHERRY_BLOSSOM_COUNT : <span class="hljs-number">30</span>,
 	MAX_ADDING_INTERVAL : <span class="hljs-number">10</span>,
@@ -551,10 +551,10 @@ CHERRY_BLOSSOM.prototype = {
 };
 $(function(){
 	RENDERER.<span class="hljs-keyword">init</span>();
-});&lt;/script&gt;</code></pre></div>
+});&lt;/script&gt;</code></pre>
 
 <p>或者</p>
-<div class="hljs"><pre><code class="hljs kotlin">&lt;div id=<span class="hljs-string">"jsi-cherry-container"</span> <span class="hljs-class"><span class="hljs-keyword">class</span>="<span class="hljs-title">container</span>"&gt;&lt;<span class="hljs-type">canvas width="1536" height="80"</span>&gt;&lt;<span class="hljs-type">/canvas</span>&gt;&lt;<span class="hljs-type">/div</span>&gt;&lt;<span class="hljs-type">script</span>&gt;</span>
+<pre><code class="hljs kotlin">&lt;div id=<span class="hljs-string">"jsi-cherry-container"</span> <span class="hljs-class"><span class="hljs-keyword">class</span>="<span class="hljs-title">container</span>"&gt;&lt;<span class="hljs-type">canvas width="1536" height="80"</span>&gt;&lt;<span class="hljs-type">/canvas</span>&gt;&lt;<span class="hljs-type">/div</span>&gt;&lt;<span class="hljs-type">script</span>&gt;</span>
 <span class="hljs-keyword">var</span> RENDERER = {
 	INIT_CHERRY_BLOSSOM_COUNT : <span class="hljs-number">30</span>,
 	MAX_ADDING_INTERVAL : <span class="hljs-number">10</span>,
@@ -754,12 +754,12 @@ CHERRY_BLOSSOM.prototype = {
 };
 $(function(){
 	RENDERER.<span class="hljs-keyword">init</span>();
-});&lt;/script&gt;</code></pre></div>
+});&lt;/script&gt;</code></pre>
 
 <p>其他：</p>
 <p><a href="https://www.17sucai.com/pins/36303.html" target="_blank" rel="noopener">H5樱花掉落背景动画特效</a> ：<a href="https://www.17sucai.com/pins/36303.html" target="_blank" rel="noopener">https://www.17sucai.com/pins/36303.html</a></p>
 <h1 id="添加背景代码雨特效"><a href="#添加背景代码雨特效" class="headerlink" title="添加背景代码雨特效"></a>添加背景代码雨特效</h1><p>新建 <code>DigitalRain.js</code>，写入以下代码：</p>
-<div class="hljs"><pre><code class="hljs javascript">复制<span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+<pre><code class="hljs javascript">复制<span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
     <span class="hljs-comment">//获取画布对象</span>
     <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);
     <span class="hljs-comment">//获取画布的上下文</span>
@@ -815,10 +815,10 @@ $(function(){
     }
     draw();
     setInterval(draw,<span class="hljs-number">35</span>);
-};</code></pre></div>
+};</code></pre>
 
 <p>在主题文件的相关css文件中（以 Material X 1.2.1 主题为例，在\themes\material-x-1.2.1\source\less_main.less 文件末尾）添加以下代码：</p>
-<div class="hljs"><pre><code class="hljs css">复制<span class="hljs-selector-tag">canvas</span> {
+<pre><code class="hljs css">复制<span class="hljs-selector-tag">canvas</span> {
   <span class="hljs-attribute">position</span>: fixed;
   <span class="hljs-attribute">right</span>: <span class="hljs-number">0px</span>;
   <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0px</span>;
@@ -827,12 +827,12 @@ $(function(){
   <span class="hljs-attribute">height</span>: auto;
   <span class="hljs-attribute">width</span>: auto;
   <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
-}</code></pre></div>
+}</code></pre>
 
 <p>然后在主题的 layout.ejs 文件中引入即可：</p>
-<div class="hljs"><pre><code class="hljs xml">复制<span class="hljs-comment">&lt;!-- 数字雨 --&gt;</span>
+<pre><code class="hljs xml">复制<span class="hljs-comment">&lt;!-- 数字雨 --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"canvas"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1440"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"900"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/js/DigitalRain.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/js/DigitalRain.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
 <p>最终效果：</p>
 <p><a href="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A04/035.png" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A04/035.png" srcset="/blog/img/loading.gif" alt="035"></a></p>
@@ -841,7 +841,7 @@ $(function(){
 <p>  使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration" target="_blank" rel="noopener">https://hexo.io/docs/configuration</a></p>
 <p>方法二：</p>
 <p>  在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">layout:</span> <span class="hljs-literal">false</span>
 <span class="hljs-meta">---</span>
 
@@ -849,16 +849,16 @@ $(function(){
 
 <span class="hljs-string">这里是</span> <span class="hljs-string">HTML</span> <span class="hljs-string">代码</span>
 
-<span class="hljs-string">{%</span> <span class="hljs-string">endraw</span> <span class="hljs-string">%}</span></code></pre></div>
+<span class="hljs-string">{%</span> <span class="hljs-string">endraw</span> <span class="hljs-string">%}</span></code></pre>
 
 <p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter" target="_blank" rel="noopener">https://hexo.io/docs/front-matter</a></p>
 <p>效果可以对比我的<a href="https://www.itrhx.com/" target="_blank" rel="noopener">博客主页</a>和<a href="https://www.itrhx.com/about/" target="_blank" rel="noopener">关于页面</a></p>
 <h1 id="更改本地预览端口号"><a href="#更改本地预览端口号" class="headerlink" title="更改本地预览端口号"></a>更改本地预览端口号</h1><p>hexo博客在执行 <code>hexo s</code> 进行本地预览的时候，默认端口号是4000，当该端口号被占用时会报错 <code>Error: listen EADDRINUSE 0.0.0.0:4000</code> ，此时可以关闭占用该端口的进程，也可以更换端口号，更换端口号可以通过以下两种方法实现：</p>
 <p>方法一：在根目录的 <code>_config.yml</code> 配置文件内加上如下代码更改 <code>hexo s</code> 运行时的端口号：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span>
+<pre><code class="hljs yaml"><span class="hljs-attr">server:</span>
   <span class="hljs-attr">port:</span> <span class="hljs-number">5000</span>
   <span class="hljs-attr">compress:</span> <span class="hljs-literal">true</span>
-  <span class="hljs-attr">header:</span> <span class="hljs-literal">true</span></code></pre></div>
+  <span class="hljs-attr">header:</span> <span class="hljs-literal">true</span></code></pre>
 
 <p>方法二：通过 <code>hexo server -p 5000</code> 命令来指定端口，这种方法只是本次执行有效</p>
 <h1 id="其他网页小挂件推荐"><a href="#其他网页小挂件推荐" class="headerlink" title="其他网页小挂件推荐"></a>其他网页小挂件推荐</h1><ul>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：15 天前
                 
               </p>
             
@@ -230,7 +230,7 @@
 <hr>
 <h1 id="固定多数据源切换"><a href="#固定多数据源切换" class="headerlink" title="固定多数据源切换"></a>固定多数据源切换</h1><p>  固定多数据源的动态切换，通过自定义注解实现切换，这样在切换数据源时比较灵活，具体的实现方式如下：</p>
 <p>  1、配置多数据源</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义数据源1--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义数据源1--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"oracledataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">"close"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driverClassName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"oracle.jdbc.driver.OracleDriver"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:oracle:thin:@127.0.0.1:1522:neworcl"</span> /&gt;</span>
@@ -287,19 +287,19 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"basePackage"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.ssm.dao"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sqlSessionFactoryBeanName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"sqlSessionFactory"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre>
 
 <p> 2、定义注解(注解名为DataSource)，用于切换数据源，注解的值只能为上述配置中定义的key(对应于上面配置中定义的oracle、mysql)</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-variable">@Retention</span>(RetentionPolicy.RUNTIME)
+<pre><code class="hljs less"><span class="hljs-variable">@Retention</span>(RetentionPolicy.RUNTIME)
 <span class="hljs-variable">@Target</span>(ElementType.METHOD)
 pub lic <span class="hljs-variable">@interface</span> DataSource {
     <span class="hljs-selector-tag">String</span> <span class="hljs-selector-tag">value</span>();
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p>  3、根据Sping切面编程，当调用指定的切面类时，解释注解，并根据注解的定义使用对应的数据库</p>
-<div class="hljs"><pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> DataSourceAspect {
+<pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> DataSourceAspect {
 <span class="hljs-comment">/**</span>
 <span class="hljs-comment">    * 定义切面，当调用com.ssm.service下的所有类的所有方法前都会执行beforeInvoke方法</span>
 <span class="hljs-comment">    */</span>
@@ -329,12 +329,12 @@ pub lic <span class="hljs-variable">@interface</span> DataSource {
         }
  
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p>  4、定义动态切换数据源(继承Spring的AbstractRoutingDataSource)</p>
-<div class="hljs"><pre><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicDataSource</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractRoutingDataSource</span> </span>{
+<pre><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicDataSource</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractRoutingDataSource</span> </span>{
     <span class="hljs-comment">/**</span>
 <span class="hljs-comment">    * 根据DatasourceHolder中DataType的值获取具体的数据源</span>
 <span class="hljs-comment">    */</span>
@@ -342,12 +342,12 @@ pub lic <span class="hljs-variable">@interface</span> DataSource {
     <span class="hljs-keyword">protected</span> <span class="hljs-type">Object</span> determineCurrentLookupKey() {
         <span class="hljs-keyword">return</span> <span class="hljs-type">DatasourceHolder</span>.getDataType();
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p>  5、数据源切换的使用</p>
-<div class="hljs"><pre><code class="hljs dart"><span class="hljs-meta">@Service</span>
+<pre><code class="hljs dart"><span class="hljs-meta">@Service</span>
 public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IdxServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IIdxSevice</span> </span>{
  
     <span class="hljs-meta">@Autowired</span>
@@ -375,14 +375,14 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     public <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Object</span>&gt; getJobInfo(<span class="hljs-built_in">int</span> dbId) {
         <span class="hljs-keyword">return</span> idxMapper.getJobInfo(dbId);
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p>通过以上的步骤即实现了数据源的动态切换</p>
 <h1 id="动态多数据源切换"><a href="#动态多数据源切换" class="headerlink" title="动态多数据源切换"></a>动态多数据源切换</h1><p>  对于动态的多数据源，数据源的配置一般不放在配置文件中，因为如果放在配置文件中，每次新增或删除数据源，都需要重启项目，这样的实现方式非常不友好；通常情况向数据源的配置放在数据库中。实现方式如下：**<br>**</p>
 <p>  1、配置数据源，这里配置的数据源用于保存其他数据源的配置信息，今后数据的新增、删除、修改均在该数据库中操作，配置如下：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义数据源--&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义数据源--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"oracledataSource"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">"close"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driverClassName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"oracle.jdbc.driver.OracleDriver"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:oracle:thin:@127.0.0.1:1522:neworcl"</span> /&gt;</span>
@@ -423,12 +423,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"basePackage"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.teamsun.mapper"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sqlSessionFactoryBeanName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"sqlSessionFactory"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre>
 
 
 
 <p>2、实现查询数据源配置信息的类</p>
-<div class="hljs"><pre><code class="hljs lsl">public class DBConfigService {
+<pre><code class="hljs lsl">public class DBConfigService {
  
     private JdbcTemplate jdbcTemplate;
  
@@ -461,12 +461,12 @@ public <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p>3、实现动态切换数据源</p>
-<div class="hljs"><pre><code class="hljs reasonml"><span class="hljs-comment">/**</span>
+<pre><code class="hljs reasonml"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * &lt;p&gt;动态创建及访问多数据源&lt;/p&gt;</span>
 <span class="hljs-comment"> */</span>
 public <span class="hljs-keyword">class</span> DynamicDataSource extends AbstractRoutingDataSource{
@@ -606,12 +606,12 @@ public <span class="hljs-keyword">class</span> DynamicDataSource extends Abstrac
     public void set<span class="hljs-constructor">DbConfigService(DBConfigService <span class="hljs-params">dbConfigService</span>)</span> {
         this.dbConfigService = dbConfigService;
     }
-}</code></pre></div>
+}</code></pre>
 
 
 
 <p>4、使用动态切换数据源</p>
-<div class="hljs"><pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> ShowRptServiceImpl implements IShowRptService {
+<pre><code class="hljs reasonml">public <span class="hljs-keyword">class</span> ShowRptServiceImpl implements IShowRptService {
  
     <span class="hljs-keyword">private</span> static final Logger LOGGER = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>get<span class="hljs-constructor">Logger(ShowRptServiceImpl.<span class="hljs-params">class</span>)</span>;
  
@@ -637,7 +637,7 @@ public <span class="hljs-keyword">class</span> DynamicDataSource extends Abstrac
         RptResult rptResult = <span class="hljs-keyword">new</span> <span class="hljs-constructor">RptResult()</span>;
         return rptResult;
     }
- }</code></pre></div>
+ }</code></pre>
 
 
 

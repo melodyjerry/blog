@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：13 天前
+                  本文最后更新于：14 天前
                 
               </p>
             
@@ -232,7 +232,7 @@
 <a id="more"></a>
 
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>layout\_third-party\daovoice.ejs：</p>
-<div class="hljs"><pre><code class="hljs js">&lt;% <span class="hljs-keyword">if</span>(theme.daovoice.enable &amp;&amp; theme.daovoice.appid){ %&gt;
+<pre><code class="hljs js">&lt;% <span class="hljs-keyword">if</span>(theme.daovoice.enable &amp;&amp; theme.daovoice.appid){ %&gt;
   &lt;script&gt;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, s, o, g, r, a, m</span>) </span>{
       i[<span class="hljs-string">'DaoVoiceObject'</span>] = r;
       i[r] = i[r] ||
@@ -252,16 +252,16 @@
     });
     daovoice(<span class="hljs-string">'update'</span>);
   &lt;<span class="hljs-regexp">/script&gt;</span>
-<span class="hljs-regexp">&lt;% } %&gt;</span></code></pre></div>
+<span class="hljs-regexp">&lt;% } %&gt;</span></code></pre>
 
 <p>layout\index.ejs：</p>
-<div class="hljs"><pre><code class="hljs js">&lt;!--DaoVoice服务http:<span class="hljs-comment">//blog.daovoice.io/--&gt;</span>
-&lt;%- partial(<span class="hljs-string">'_third-party/daovoice'</span>) %&gt;</code></pre></div>
+<pre><code class="hljs js">&lt;!--DaoVoice服务http:<span class="hljs-comment">//blog.daovoice.io/--&gt;</span>
+&lt;%- partial(<span class="hljs-string">'_third-party/daovoice'</span>) %&gt;</code></pre>
 
 <p>_config.yml：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">daovoice:</span>  <span class="hljs-comment"># 在线客服 Daovoice 参考：http://dashboard.daovoice.io</span>
+<pre><code class="hljs yaml"><span class="hljs-attr">daovoice:</span>  <span class="hljs-comment"># 在线客服 Daovoice 参考：http://dashboard.daovoice.io</span>
   <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 是否开启在线客服聊天</span>
-  <span class="hljs-attr">appid:</span> <span class="hljs-string">'exxxxxxx'</span>  <span class="hljs-comment"># 应用ID设置</span></code></pre></div>
+  <span class="hljs-attr">appid:</span> <span class="hljs-string">'exxxxxxx'</span>  <span class="hljs-comment"># 应用ID设置</span></code></pre>
 
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://s1.ax1x.com/2020/09/18/w46j3D.gif" srcset="/blog/img/loading.gif" alt="w46j3D.gif"></p>
 <script>

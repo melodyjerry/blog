@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -216,21 +216,21 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：9 天前
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>其实没有设计模式我们也能完成开发工作。但是为什么需要设计模式呢？让你看起来很牛，没错这个算一个。让你的代码层次感分明，可读性强而且容易维护。让你像我一样有更多的摸鱼划水时间。<br>可能有人说我一个类或者方法就干完的东西，你搞了七八个。当然使用设计模式也是要斟酌的。一些简单稳定的业务也不推荐使用设计模式。设计模式多用于复杂多变的业务或者要求适配性、扩展性更强的场景中。不要为了设计模式而设计模式。</p>
 <p>接下来我们结合实际开探讨一下设计模式的一些原则。</p>
-<h1 id="1、开闭原则"><a href="#1、开闭原则" class="headerlink" title="1、开闭原则"></a>1、开闭原则</h1><div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Seller</span> {
+<h1 id="1、开闭原则"><a href="#1、开闭原则" class="headerlink" title="1、开闭原则"></a>1、开闭原则</h1><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Seller</span> {
     <span class="hljs-keyword">public</span> BigDecimal sellCar(Car car) {
         <span class="hljs-keyword">return</span> car.getPrice();
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>上面模拟4S店一个销售在卖车。突然老板搞了一个促销：在双十一要开展打折活动。在sellCar方法内增加一个计算可行吗？这势必影响整个业务，导致所有车都打折。不行不行！那么在Car里面操作？然后你改啊改！结果各种逻辑流程判断。才实现了业务要求。如果后续打折活动结束了或者升级了，你还要再进行各种改动。你发现一个打折让你的代码面目全非、臃肿不堪。上面说了对于复杂而多变的业务使用设计模式就可以解决。<br>那么设计模式最重要的一个原则就是开闭原则。也就是说一个软件模型实体如类、模块和函数应该对扩展开放，对修改关闭。也就是需要我们将业务行为抽象出来，使用抽象来构建。具体的业务通过抽象的实现来解决。那么我们就搞一个DiscountCar来extends Car.这样sellCar是什么具体的实现就执行什么具体的逻辑。不会影响以前的逻辑，而且不会因为改动原来的代码影响其他逻辑。保证接口可靠性和稳定性。如下：</p>
-<div class="hljs"><pre><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DiscountCar</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Car</span></span>{
+<pre><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DiscountCar</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Car</span></span>{
        
    <span class="hljs-keyword">private</span> <span class="hljs-type">BigDecimal</span> price;
    <span class="hljs-keyword">private</span> <span class="hljs-type">BigDecimal</span> discount;
@@ -238,10 +238,10 @@
    public <span class="hljs-type">BigDecimal</span> getPrice() {
        <span class="hljs-keyword">return</span> price.multiply(discount);
    }
-}</code></pre></div>
+}</code></pre>
 
 <h1 id="2、依赖倒置原则"><a href="#2、依赖倒置原则" class="headerlink" title="2、依赖倒置原则"></a>2、依赖倒置原则</h1><p>还拿上面的例子来说。经过一系列的打折活动4S店的生意蒸蒸日上。老板突然想扩展一下周边，同时压榨一下销售。让他们卖车的同时卖点玻璃水、防冻液之类的。这个需求当然又抛给了苦逼的程序员。sellCar太具体了不能满足需要了。很多情况下你会增加一个卖玻璃水、卖防冻液的方法。如果以后增加了卖大米，甚至买起了鸡蛋饼呢？总不能一直增加方法吧。我们需要考虑这种问题。我们可以抽象所有卖东西的场景。然后我们把卖的物品抽象成了一个抽象化的概念（java对应的是接口,把卖的行为抽象成了sell方法：</p>
-<div class="hljs"><pre><code class="hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Any</span> {
+<pre><code class="hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Any</span> {
 <span class="hljs-function">String <span class="hljs-title">getName</span>(<span class="hljs-params"></span>)</span>;
 <span class="hljs-function">BigDecimal <span class="hljs-title">getPrice</span>(<span class="hljs-params"></span>)</span>;
 }
@@ -249,11 +249,11 @@
 <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">sell</span>(<span class="hljs-params">Any any</span>)</span> {
 <span class="hljs-keyword">return</span> any.getPrice();
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>这样随便老板以后卖什么你都可以通过该方法进行处理了，只需要关注于Any的实现。</p>
 <h1 id="3、职责单一原则"><a href="#3、职责单一原则" class="headerlink" title="3、职责单一原则"></a>3、职责单一原则</h1><p>4S店销售卖了一段东西后，发现对客户的吸引力度不大。突然脑子比较灵活的老板又想起了电影中的一句台词：少林功夫加唱歌跳舞有没有搞头？对啊你们销售能不能搞搞什么唱、跳、Rap，当然打篮球就不要了别砸坏了车玻璃。但是人与人是不一样的，有的人只会唱，有的人只会跳，有的人可能唱跳Rap都会甚至篮球都很溜。所以为了适配这么多情况，我们必须把每种技能独立出来，根据不同的人来组合这些技能。</p>
-<div class="hljs"><pre><code class="hljs aspectj"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Seller</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Sing</span>, <span class="hljs-title">Jump</span>, <span class="hljs-title">Rap</span> </span>{
+<pre><code class="hljs aspectj"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Seller</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Sing</span>, <span class="hljs-title">Jump</span>, <span class="hljs-title">Rap</span> </span>{
 <span class="hljs-keyword">public</span> <span class="hljs-function">BigDecimal <span class="hljs-title">sell</span><span class="hljs-params">(Any any)</span> </span>{
 <span class="hljs-function"><span class="hljs-keyword">return</span> any.<span class="hljs-title">doSell</span><span class="hljs-params">()</span></span>;
     }
@@ -269,20 +269,20 @@
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rap</span><span class="hljs-params">()</span> </span>{
         System.out.println(<span class="hljs-string">"seller raping "</span>);
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>但是注意一定要适度，根据业务来细分。否则会导致接口过多反而增大开发难度以及代码的复杂度。</p>
 <h1 id="4、迪米特法则"><a href="#4、迪米特法则" class="headerlink" title="4、迪米特法则"></a>4、迪米特法则</h1><p>新的销售方法搞了一段时间后，老板想看看检验一下他这个馊主意的效果。于是就叫了一个销售让他提供一份报表出来看看。那么程序员该如何实现老板查看报表功能呢，很可能有人会这么写：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Boss</span> {
+<pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Boss</span> {
     <span class="hljs-keyword">private</span> Seller seller;
     <span class="hljs-keyword">private</span> Report report;
     <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> read() {
         seller.apply(report);
     }
-}</code></pre></div>
+}</code></pre>
 
 <p>乍看功能实现了，细看会发现逻辑不对。哪里不对呢？老板已经持有了报表，如果老板已经知道了你的业绩还叫你干什么？这种逻辑肯定是不对的！也就是说Boss直接依赖了Report；而这个Report不应该直接由Boss处理，而应由Seller控制。</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Boss</span> {
+<pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Boss</span> {
     <span class="hljs-keyword">private</span> Seller seller;
     
     <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> read(){
@@ -295,7 +295,7 @@
       <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> apply(){
          report.show();
       ｝
-}</code></pre></div>
+}</code></pre>
 
 <p>这种最大化隔离了类与类之间的关系。降低了类之间的耦合。迪米特法则因此又得名最少知道原则。</p>
 <h1 id="5、接口隔离原则"><a href="#5、接口隔离原则" class="headerlink" title="5、接口隔离原则"></a>5、接口隔离原则</h1><p>用多个专门的接口，而不使用单一的总接口，客户端不应该依赖它不需要的接口。一个类对一个类的依赖应该建立在最小的接口上。<br>建立单一接口，不要建立庞大臃肿的接口尽量细化接口，接口中的方法尽量少，尽量细化接口。注意适度原则，一定要适度。不能滥用<br>就像上面的唱跳 rap，分离是最好的。</p>

@@ -28,7 +28,7 @@
   <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
   
 
   
@@ -227,7 +227,7 @@
 
 <h1 id="卸载旧版"><a href="#卸载旧版" class="headerlink" title="卸载旧版"></a>卸载旧版</h1><p>按官方的文档，新版Docker无法覆盖旧版的，所以无比先卸载原来的旧版本</p>
 <p>在Linux虚拟机上，我是装有旧版的，但由于服务器是全新的，无任何配置的，可以跳过这步骤</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-comment"># 移除旧版本的 Docker</span>
+<pre><code class="hljs properties"><span class="hljs-comment"># 移除旧版本的 Docker</span>
 <span class="hljs-attr">yum</span> <span class="hljs-string">remove docker \</span>
   <span class="hljs-meta">docker-client</span> <span class="hljs-string">\</span>
   <span class="hljs-meta">docker-client-latest</span> <span class="hljs-string">\</span>
@@ -237,27 +237,27 @@
   <span class="hljs-meta">docker-logrotate</span> <span class="hljs-string">\</span>
   <span class="hljs-meta">docker-selinux</span> <span class="hljs-string">\</span>
   <span class="hljs-meta">docker-engine-selinux</span> <span class="hljs-string">\</span>
-  <span class="hljs-attr">docker-engine</span></code></pre></div>
+  <span class="hljs-attr">docker-engine</span></code></pre>
 
 <h1 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h1><ol>
 <li>安装软件包</li>
 </ol>
-<div class="hljs"><pre><code class="hljs haskell"><span class="hljs-meta"># 安装 Docker 依赖</span>
-<span class="hljs-title">yum</span> install -y yum-utils device-mapper-persistent-<span class="hljs-class"><span class="hljs-keyword">data</span> lvm2</span></code></pre></div>
+<pre><code class="hljs haskell"><span class="hljs-meta"># 安装 Docker 依赖</span>
+<span class="hljs-title">yum</span> install -y yum-utils device-mapper-persistent-<span class="hljs-class"><span class="hljs-keyword">data</span> lvm2</span></code></pre>
 
 <ol start="2">
 <li>配置阿里云Docker Yum源(个人觉的好)</li>
 </ol>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># 添加源</span>
+<pre><code class="hljs vala"><span class="hljs-meta"># 添加源</span>
 yum-config-manager --add-repo https:<span class="hljs-comment">//download.docker.com/linux/centos/docker-ce.repo</span>
 
 <span class="hljs-meta"># 更新 yum 缓存</span>
-yum makecache fast</code></pre></div>
+yum makecache fast</code></pre>
 
 <ol start="3">
 <li>安装最新版本的Docker</li>
 </ol>
-<div class="hljs"><pre><code class="hljs sql"><span class="hljs-comment"># 安装 Docker-CE</span>
+<pre><code class="hljs sql"><span class="hljs-comment"># 安装 Docker-CE</span>
 yum <span class="hljs-keyword">install</span> -y docker-ce
 
 <span class="hljs-comment"># 开启 Docker</span>
@@ -265,9 +265,9 @@ systemctl <span class="hljs-keyword">start</span> docker
 
 <span class="hljs-comment"># 安装 Docker Compose</span>
 curl -L <span class="hljs-string">"https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/<span class="hljs-keyword">local</span>/<span class="hljs-keyword">bin</span>/docker-compose
-chmod +x /usr/<span class="hljs-keyword">local</span>/<span class="hljs-keyword">bin</span>/docker-compose</code></pre></div>
+chmod +x /usr/<span class="hljs-keyword">local</span>/<span class="hljs-keyword">bin</span>/docker-compose</code></pre>
 
-<h1 id="相关防火墙配置"><a href="#相关防火墙配置" class="headerlink" title="相关防火墙配置"></a>相关防火墙配置</h1><div class="hljs"><pre><code class="hljs dsconfig"><span class="hljs-comment"># Docker 和 Swarm 相关防火墙配置</span>
+<h1 id="相关防火墙配置"><a href="#相关防火墙配置" class="headerlink" title="相关防火墙配置"></a>相关防火墙配置</h1><pre><code class="hljs dsconfig"><span class="hljs-comment"># Docker 和 Swarm 相关防火墙配置</span>
 <span class="hljs-string">systemctl </span><span class="hljs-string">status </span><span class="hljs-string">firewalld</span>
 <span class="hljs-string">systemctl </span><span class="hljs-string">start </span><span class="hljs-string">firewalld</span>
 <span class="hljs-string">firewall-</span><span class="hljs-string">cmd </span><span class="hljs-built_in">--add-port=9010/tcp</span> <span class="hljs-built_in">--permanent</span>
@@ -276,18 +276,18 @@ chmod +x /usr/<span class="hljs-keyword">local</span>/<span class="hljs-keyword"
 <span class="hljs-built_in">firewall-cmd</span> <span class="hljs-built_in">--add-port=80/udp</span> <span class="hljs-built_in">--permanentfirewall-cmd</span> <span class="hljs-built_in">--add-port=22/tcp</span> <span class="hljs-built_in">--permanent</span>
 <span class="hljs-built_in">firewall-cmd</span> <span class="hljs-built_in">--add-port=22/udp</span> <span class="hljs-built_in">--permanent</span>
 <span class="hljs-built_in">firewall-cmd</span> <span class="hljs-built_in">--reload</span>
-<span class="hljs-built_in">systemctl</span> <span class="hljs-string">restart </span><span class="hljs-string">docker</span></code></pre></div>
+<span class="hljs-built_in">systemctl</span> <span class="hljs-string">restart </span><span class="hljs-string">docker</span></code></pre>
 <p>这里说明一下如果开始 firewalld 服务被锁定<code>Unit is masked</code></p>
 <p>需要先解除锁定，然后才能开放端口</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl unmask firewall</span></code></pre></div>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl unmask firewall</span></code></pre>
 
-<h1 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h1><div class="hljs"><pre><code class="hljs routeros"><span class="hljs-comment"># 开机自启动</span>
+<h1 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h1><pre><code class="hljs routeros"><span class="hljs-comment"># 开机自启动</span>
 systemctl <span class="hljs-builtin-name">enable</span> firewalld
-systemctl <span class="hljs-builtin-name">enable</span> docker</code></pre></div>
+systemctl <span class="hljs-builtin-name">enable</span> docker</code></pre>
 
 <h1 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h1><p>在配置阿里云Docker Yum源时候，可能出现<code>Loaded plugins: fastestmirror</code>的错误提示，百度上的解决如下：</p>
 <p>1、</p>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-comment"># vi  /etc/yum/pluginconf.d/fastestmirror.conf</span>
+<pre><code class="hljs ini"><span class="hljs-comment"># vi  /etc/yum/pluginconf.d/fastestmirror.conf</span>
 <span class="hljs-attr">enabled</span>=<span class="hljs-number">0</span>    //由 <span class="hljs-number">1</span> 改成<span class="hljs-number">0</span> ，禁用该插件
 <span class="hljs-attr">verbose</span>=<span class="hljs-number">0</span>
 <span class="hljs-attr">always_print_best_host</span> = <span class="hljs-literal">true</span>
@@ -301,10 +301,10 @@ systemctl <span class="hljs-builtin-name">enable</span> docker</code></pre></div
 
 <span class="hljs-comment">#exclude=.gov, facebook</span>
 
-<span class="hljs-comment">#include_only=.nl,.de,.uk,.ie</span></code></pre></div>
+<span class="hljs-comment">#include_only=.nl,.de,.uk,.ie</span></code></pre>
 
 <p>2、</p>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-comment">#vi /etc/yum.conf</span>
+<pre><code class="hljs ini"><span class="hljs-comment">#vi /etc/yum.conf</span>
 
 <span class="hljs-section">[main]</span>
 <span class="hljs-attr">cachedir</span>=/var/cache/yum/<span class="hljs-variable">$basearch</span>/<span class="hljs-variable">$releasever</span>
@@ -315,10 +315,10 @@ systemctl <span class="hljs-builtin-name">enable</span> docker</code></pre></div
 <span class="hljs-attr">obsoletes</span>=<span class="hljs-number">1</span>
 <span class="hljs-attr">gpgcheck</span>=<span class="hljs-number">1</span>
 <span class="hljs-attr">plugins</span>=<span class="hljs-number">1</span> <span class="hljs-comment">#将plugins的值修改为0</span>
-<span class="hljs-attr">installonly_limit</span>=<span class="hljs-number">5</span></code></pre></div>
+<span class="hljs-attr">installonly_limit</span>=<span class="hljs-number">5</span></code></pre>
 
 <p>3、</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>yum clean dbcache</code></pre></div>
+<pre><code class="hljs elixir"><span class="hljs-variable">$ </span>yum clean dbcache</code></pre>
 
 <p>4、重新执行配置源和安装命令即可</p>
 <script>
