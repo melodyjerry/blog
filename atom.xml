@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://melodyjerry.github.io/blog/"/>
-  <updated>2020-10-03T07:54:16.372Z</updated>
+  <updated>2020-10-03T09:50:00.442Z</updated>
   <id>https://melodyjerry.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uTools,你的生产力工具集</title>
+    <link href="https://melodyjerry.github.io/blog/2020/10/03/uTools%E4%BD%A0%E7%9A%84%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7%E9%9B%86/"/>
+    <id>https://melodyjerry.github.io/blog/2020/10/03/uTools%E4%BD%A0%E7%9A%84%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7%E9%9B%86/</id>
+    <published>2020-10-03T09:39:00.000Z</published>
+    <updated>2020-10-03T09:50:00.442Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="uTools是什么？"><a href="#uTools是什么？" class="headerlink" title="uTools是什么？"></a>uTools是什么？</h1><center><font color="#FF2800">u</font><font color="#FF5000">T</font><font color="#FF7800">o</font><font color="#FFA000">o</font><font color="#FFC800">l</font><font color="#FFF000">s</font><font color="#D7FF00">，</font><font color="#AFFF00">你</font><font color="#87FF00">的</font><font color="#5FFF00">生</font><font color="#37FF00">产</font><font color="#0FFF00">力</font><font color="#00FF28">工</font><font color="#00FF50">具</font><font color="#00FF78">集</font></center><ul><li>极简</li><li>插件化</li><li>跨平台</li></ul><blockquote><p>官网：<a href="https://www.u.tools/" target="_blank" rel="noopener">https://www.u.tools/</a></p><p>自由集成丰富插件，快速匹配「场景功能」，用完即走 。</p></blockquote><p>通过自由选配丰富的插件，打造你得心应手的工具集合。</p><p>该软件支持Windows、Mac以及Linux使用，并且拥有丰富的插件库。</p><p>简单来讲，uTools可以作为一个<strong>程序快速启动器</strong>，使用中英文搜索并快速打开你的本地程序、文件、系统设置等。你可以使用快捷键（默认为<code>alt+space</code>）快速呼出这个搜索框，小巧却不简单。</p><p><strong>当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。</strong></p><h1 id="uTools能做什么？"><a href="#uTools能做什么？" class="headerlink" title="uTools能做什么？"></a>uTools能做什么？</h1><p>uTools作者将此软件设计为<font color="red" size="5">“一切皆插件”</font>的插件化工具，<strong>所有的功能均可通过插件实现。</strong></p><p>插件中心有很多实用高效地插件，例如：在线翻译、压缩图片、颜色小助手、开发文档、图床、OCR图片识别等等小工具，你可以选择适合自己使用场景的插件安装使用。</p><p><img src="https://s1.ax1x.com/2020/10/03/03G2r9.png" srcset="/blog/img/loading.gif" alt="03G2r9.png"></p><a id="more"></a><hr><p>接下来给大家看看MelodyJerry经常使用的一些插件👇</p><h1 id="MelodyJerry的uTools"><a href="#MelodyJerry的uTools" class="headerlink" title="MelodyJerry的uTools"></a>MelodyJerry的uTools</h1><h2 id="在线翻译"><a href="#在线翻译" class="headerlink" title="在线翻译"></a>在线翻译</h2><p>搜索框中搜索“翻译”就可以呼出在线翻译界面。简洁易用、随用随走。</p><p><img src="https://s1.ax1x.com/2020/10/03/03GzPf.png" srcset="/blog/img/loading.gif" alt="03GzPf.png"></p><h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><p>写博客必备，搭配<a href="">Typora</a>使用，效果最佳！！！</p><p>使用非常简单：</p><ul><li>拖动图片到搜索框</li><li>复制图片，到插件页Ctrl+V</li><li>插件页的上传按钮</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03wynO.png" srcset="/blog/img/loading.gif" alt="03wynO.png"></p><p>图床支持三种返回格式：</p><ul><li>URL</li><li>MarkDown</li><li>Html</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03Jsot.png" srcset="/blog/img/loading.gif" alt="03Jsot.png"></p><p>当然，还可以选择不同的图床源。更快速的，✔自动复制，并选择MarkDown。</p><p>这样粘贴好图片，自动复制md格式的图片链接到剪切板，提升办公写作效率呢！</p><ul><li><input disabled="" type="checkbox"> 自动复制 MarkDown</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03Jooq.png" srcset="/blog/img/loading.gif" alt="03Jooq.png"></p><h2 id="图片识别"><a href="#图片识别" class="headerlink" title="图片识别"></a>图片识别</h2><p><img src="https://s1.ax1x.com/2020/10/03/03wYBF.png" srcset="/blog/img/loading.gif" alt="03wYBF.png"></p><h2 id="剪切板"><a href="#剪切板" class="headerlink" title="剪切板"></a>剪切板</h2><p>最常用的插件之一，可以保存所有复制过的内容。</p><ul><li>文本</li><li>文件</li><li>图片</li></ul><p><strong>不用担心uTools会泄露你的信息，所有插件的生命周期就是 <em>开机到关机。</em></strong></p><p><img src="https://s1.ax1x.com/2020/10/03/03wZnS.png" srcset="/blog/img/loading.gif" alt="03wZnS.png"></p><h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><ul><li>快速打开cmd</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03Ye0A.png" srcset="/blog/img/loading.gif" alt="03Ye0A.png"></p><h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><ul><li><font color="red">前端开发者的福利工具</font></li></ul><p>uTools提供了多个插件，有的是官方的，还有的是开发者们维护的。</p><p><img src="https://s1.ax1x.com/2020/10/03/03Y36g.png" srcset="/blog/img/loading.gif" alt="03Y36g.png"></p><p>MelodyJerry最常用的是<strong>“色彩助手”</strong>。</p><p>看，羡慕了吗？</p><p><img src="https://s1.ax1x.com/2020/10/03/03YIje.png" srcset="/blog/img/loading.gif" alt="03YIje.png"></p><p><img src="https://s1.ax1x.com/2020/10/03/03YLNt.png" srcset="/blog/img/loading.gif" alt="03YLNt.png"></p><p><img src="https://s1.ax1x.com/2020/10/03/03t9Bj.png" srcset="/blog/img/loading.gif" alt="03t9Bj.png"></p><h2 id="本地快速搜索"><a href="#本地快速搜索" class="headerlink" title="本地快速搜索"></a>本地快速搜索</h2><ul><li>集成Everything的内核<ul><li>干净简洁的用户界面</li><li>快速文件索引</li><li>快速搜索</li><li>最小资源使用</li><li>便于文件分享</li><li>实时更新</li><li>……</li></ul></li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03ts8f.png" srcset="/blog/img/loading.gif" alt="03ts8f.png"></p><h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><ul><li>能够快速的将你的内网服务暴露到公网</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03NcJx.png" srcset="/blog/img/loading.gif" alt="03NcJx.png"></p><p>启动你本地服务器，如下配置你本地的ip，和随便起个外网域名。</p><p>这样你就可以外网访问你的服务了，超简单，这可比有些网站搞个内网穿透还得收钱强多了。</p><p><img src="https://s1.ax1x.com/2020/10/03/03UklT.png" srcset="/blog/img/loading.gif" alt="03UklT.png"></p><h2 id="开发小工具"><a href="#开发小工具" class="headerlink" title="开发小工具"></a>开发小工具</h2><ul><li>只展示其中一部分插件</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03U8XD.png" srcset="/blog/img/loading.gif" alt="03U8XD.png"></p><h2 id="独立文档"><a href="#独立文档" class="headerlink" title="独立文档"></a>独立文档</h2><ul><li>只展示其中一部分文档手册</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03UJne.png" srcset="/blog/img/loading.gif" alt="03UJne.png"></p><p>像MelodyJerry经常用到的是：</p><ul><li>Linux</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03Udht.png" srcset="/blog/img/loading.gif" alt="03Udht.png"></p><ul><li>Java</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03UUAA.png" srcset="/blog/img/loading.gif" alt="03UUAA.png"></p><h2 id="程序员手册"><a href="#程序员手册" class="headerlink" title="程序员手册"></a>程序员手册</h2><p>不同于上面的独立文档，“程序员手册”直接集成了各种文档，list：</p><ul><li>php手册</li><li>linux手册 </li><li>python手册 </li><li>PyQt5文档 </li><li>C函数</li><li>go</li><li>vim命令</li><li>git命令 </li><li>sql手册 </li><li>uTools API</li><li>java </li><li>javascript </li><li>vue</li><li>payload</li><li>devdocs</li></ul><blockquote><p>关于此插件的详细信息：<a href="https://yuanliao.info/d/356" target="_blank" rel="noopener">https://yuanliao.info/d/356</a></p></blockquote><p><img src="https://s1.ax1x.com/2020/10/03/03UWhq.png" srcset="/blog/img/loading.gif" alt="03UWhq.png"></p><h1 id="进阶使用uTools"><a href="#进阶使用uTools" class="headerlink" title="进阶使用uTools"></a>进阶使用uTools</h1><h2 id="全局快捷键"><a href="#全局快捷键" class="headerlink" title="全局快捷键"></a>全局快捷键</h2><p>顾名思义，上图MelodyJerry的：</p><p><img src="https://s1.ax1x.com/2020/10/03/03N7FI.png" srcset="/blog/img/loading.gif" alt="03N7FI.png"></p><h2 id="超级面板"><a href="#超级面板" class="headerlink" title="超级面板"></a>超级面板</h2><ul><li>这是1.3版本后新增的</li></ul><p><img src="https://s1.ax1x.com/2020/10/03/03NxmQ.png" srcset="/blog/img/loading.gif" alt="03NxmQ.png"></p><p><img src="https://s1.ax1x.com/2020/10/03/03NOl8.png" srcset="/blog/img/loading.gif" alt="03NOl8.png"></p><h1 id="自己开发uTools插件"><a href="#自己开发uTools插件" class="headerlink" title="自己开发uTools插件"></a>自己开发uTools插件</h1><p>uTools已经向开发者们提供开发者文档，可以参考文档，捣鼓自己的插件哦。</p><p>像MelodyJerry的，暂时就不开源，也就暂不演示了。</p><p>插件开发文档：<a href="https://u.tools/docs/developer/welcome.html" target="_blank" rel="noopener">https://u.tools/docs/developer/welcome.html</a></p><h1 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h1><ul><li>用户体验极佳</li><li>麻雀虽小，五脏俱全：简洁、方便、轻量、快速</li><li>文档齐全</li><li>支持开发个人插件</li><li>UI 很舒服</li></ul><p>就写这么多，更多的要自己去挖掘啦~</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;uTools是什么？&quot;&gt;&lt;a href=&quot;#uTools是什么？&quot; class=&quot;headerlink&quot; title=&quot;uTools是什么？&quot;&gt;&lt;/a&gt;uTools是什么？&lt;/h1&gt;&lt;center&gt;&lt;font color=&quot;#FF2800&quot;&gt;u&lt;/font&gt;&lt;font color=&quot;#FF5000&quot;&gt;T&lt;/font&gt;&lt;font color=&quot;#FF7800&quot;&gt;o&lt;/font&gt;&lt;font color=&quot;#FFA000&quot;&gt;o&lt;/font&gt;&lt;font color=&quot;#FFC800&quot;&gt;l&lt;/font&gt;&lt;font color=&quot;#FFF000&quot;&gt;s&lt;/font&gt;&lt;font color=&quot;#D7FF00&quot;&gt;，&lt;/font&gt;&lt;font color=&quot;#AFFF00&quot;&gt;你&lt;/font&gt;&lt;font color=&quot;#87FF00&quot;&gt;的&lt;/font&gt;&lt;font color=&quot;#5FFF00&quot;&gt;生&lt;/font&gt;&lt;font color=&quot;#37FF00&quot;&gt;产&lt;/font&gt;&lt;font color=&quot;#0FFF00&quot;&gt;力&lt;/font&gt;&lt;font color=&quot;#00FF28&quot;&gt;工&lt;/font&gt;&lt;font color=&quot;#00FF50&quot;&gt;具&lt;/font&gt;&lt;font color=&quot;#00FF78&quot;&gt;集&lt;/font&gt;&lt;/center&gt;
+
+&lt;ul&gt;
+&lt;li&gt;极简&lt;/li&gt;
+&lt;li&gt;插件化&lt;/li&gt;
+&lt;li&gt;跨平台&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://www.u.tools/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.u.tools/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自由集成丰富插件，快速匹配「场景功能」，用完即走 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过自由选配丰富的插件，打造你得心应手的工具集合。&lt;/p&gt;
+&lt;p&gt;该软件支持Windows、Mac以及Linux使用，并且拥有丰富的插件库。&lt;/p&gt;
+&lt;p&gt;简单来讲，uTools可以作为一个&lt;strong&gt;程序快速启动器&lt;/strong&gt;，使用中英文搜索并快速打开你的本地程序、文件、系统设置等。你可以使用快捷键（默认为&lt;code&gt;alt+space&lt;/code&gt;）快速呼出这个搜索框，小巧却不简单。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;uTools能做什么？&quot;&gt;&lt;a href=&quot;#uTools能做什么？&quot; class=&quot;headerlink&quot; title=&quot;uTools能做什么？&quot;&gt;&lt;/a&gt;uTools能做什么？&lt;/h1&gt;&lt;p&gt;uTools作者将此软件设计为&lt;font color=&quot;red&quot; size=&quot;5&quot;&gt;“一切皆插件”&lt;/font&gt;的插件化工具，&lt;strong&gt;所有的功能均可通过插件实现。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;插件中心有很多实用高效地插件，例如：在线翻译、压缩图片、颜色小助手、开发文档、图床、OCR图片识别等等小工具，你可以选择适合自己使用场景的插件安装使用。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/03/03G2r9.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;03G2r9.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="小技巧" scheme="https://melodyjerry.github.io/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="工具" scheme="https://melodyjerry.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="开发" scheme="https://melodyjerry.github.io/blog/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>【狂神说Java】SpringBoot笔记存档</title>
@@ -38,11 +80,11 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
+    
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
     
       <category term="SpringBoot" scheme="https://melodyjerry.github.io/blog/tags/SpringBoot/"/>
     
@@ -555,11 +597,11 @@ child process started successfully, parent exiting&lt;/code&gt;&lt;/pre&gt;&lt;/
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
     
       <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -585,13 +627,13 @@ child process started successfully, parent exiting&lt;/code&gt;&lt;/pre&gt;&lt;/
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
+    
+      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
+    
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
     
   </entry>
   
@@ -619,13 +661,13 @@ child process started successfully, parent exiting&lt;/code&gt;&lt;/pre&gt;&lt;/
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaWeb" scheme="https://melodyjerry.github.io/blog/tags/JavaWeb/"/>
+    
+      <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
+    
+      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
     
   </entry>
   
@@ -650,11 +692,11 @@ child process started successfully, parent exiting&lt;/code&gt;&lt;/pre&gt;&lt;/
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
+      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="Java" scheme="https://melodyjerry.github.io/blog/tags/Java/"/>
     
       <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -768,35 +810,6 @@ child process started successfully, parent exiting&lt;/code&gt;&lt;/pre&gt;&lt;/
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="Git" scheme="https://melodyjerry.github.io/blog/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[转]Maven中静态资源和字节码文件的过滤</title>
-    <link href="https://melodyjerry.github.io/blog/2020/08/29/[%E8%BD%AC]Maven%E4%B8%AD%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8C%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E6%BB%A4/"/>
-    <id>https://melodyjerry.github.io/blog/2020/08/29/[%E8%BD%AC]Maven%E4%B8%AD%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8C%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E6%BB%A4/</id>
-    <published>2020-08-29T13:00:00.000Z</published>
-    <updated>2020-09-18T04:43:03.015Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文的方法是针对Maven管理的Java Web工程</p></blockquote><a id="more"></a><h2 id="静态资源的过滤"><a href="#静态资源的过滤" class="headerlink" title="静态资源的过滤"></a>静态资源的过滤</h2><p>在maven中，静态资源的过滤使用基本上大家都知道，只需要在<code>&lt;build&gt;&lt;/build&gt;</code>中使用<code>resources</code>标签即可，示例如下：</p><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>    <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>        <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>            <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span>            <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>                <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.xml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>            <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>            <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span>        <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>    <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>1234567891011</code></pre><p>在静态资源的过滤中，基本的元素有三种：</p><ul><li><code>directory</code>：指定资源所在的目录，这个目录的路径是相对于pom.xml文件；</li><li><code>includes</code>：指定要包含哪些文件，其中包括inlcude子节点来指定匹配的模式；</li><li><code>excludes</code>：指定要排除哪些文件，其中包括exclude子节点来指定匹配的模式；</li><li><code>filtering</code>：指定哪些文件需要过滤，这个过滤的目的是为了替换其中的占位符<code>${}</code>，其中的占位符属性在pom.xml文件中的<code>&lt;properties&gt;&lt;/properties&gt;</code>中指定；</li></ul><p>在其中可能遇到的问题如下：</p><ul><li>当includes和excludes冲突的时候，优先采取excludes中的设定，<a href="http://blog.csdn.net/bluishglc/article/details/6640889" target="_blank" rel="noopener">这篇文章</a>中详细的说明了，<a href="http://bylijinnan.iteye.com/blog/2298100" target="_blank" rel="noopener">这篇文章</a>从源码角度进行了分析；</li></ul><h2 id="字节码文件的过滤"><a href="#字节码文件的过滤" class="headerlink" title="字节码文件的过滤"></a>字节码文件的过滤</h2><p>相对于静态资源的过滤，针对字节码文件的过滤则比较生僻，尤其是在配置文件基本上都是<code>xml</code>或者<code>properties</code>的时候，如果你的工程的配置是Java Config风格的，那么就会遇到在不同的环境下加载不同的配置类的问题。不同于静态的配置文件直接使用<code>&lt;resources&gt;</code>标签（其实背后还是通过resource插件完成的），字节码的过滤需要直接使用<code>maven-war-plugin</code> ，实例如下：</p><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-war-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>   <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>      <span class="hljs-tag">&lt;<span class="hljs-name">packagingExcludes</span>&gt;</span>WEB-INF/classes/test/dao/,         WEB-INF/classes/test/service/,         WEB-INF/classes/config/TestConfig.class,         WEB-INF/lib/log4j-*.jar      <span class="hljs-tag">&lt;/<span class="hljs-name">packagingExcludes</span>&gt;</span>   <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>123456789101112</code></pre><p>从上面可以看到，该插件是通过<code>packagingExcludes</code>元素完成过滤的，这个元素的作用是在工程package之前， 通过一些模式来排除掉一些文件或者文件夹，如果有多个可以通过逗号“,”来分割，上述使用的例子：</p><ul><li>排除特定配置类：<code>WEB-INF/classes/config/TestConfig.class</code></li><li>排除特定文件夹：<code>WEB-INF/classes/test/service/</code></li><li>排除引用的jar包：<code>WEB-INF/lib/log4j-*.jar</code></li></ul><p>上述使用的路径是<strong>相对于war包的根路径的</strong>。</p><p>另外在<code>packagingExcludes</code>中还可以使用Java的正则表达式，通过<code>%regex[...]</code>包裹即可，具体可以看<a href="https://maven.apache.org/plugins/maven-war-plugin/examples/including-excluding-files-from-war.html" target="_blank" rel="noopener">官方文档</a> .</p><hr><p>转载链接：<a href="https://blog.csdn.net/lmy86263/article/details/71189485?locationNum=3&amp;fps=1" target="_blank" rel="noopener">https://blog.csdn.net/lmy86263/article/details/71189485?locationNum=3&amp;fps=1</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文的方法是针对Maven管理的Java Web工程&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="SSM" scheme="https://melodyjerry.github.io/blog/tags/SSM/"/>
-    
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Maven" scheme="https://melodyjerry.github.io/blog/tags/Maven/"/>
     
   </entry>
   
