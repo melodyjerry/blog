@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://melodyjerry.github.io/blog/"/>
-  <updated>2020-10-03T10:11:16.646Z</updated>
+  <updated>2020-10-04T07:53:13.007Z</updated>
   <id>https://melodyjerry.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,76 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDEA新建SpringBoot项目提示connect timed out错误</title>
+    <link href="https://melodyjerry.github.io/blog/2020/10/04/IDEA%E6%90%AD%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE%E6%8F%90%E7%A4%BAconnect%20timed%20out%E9%94%99%E8%AF%AF/"/>
+    <id>https://melodyjerry.github.io/blog/2020/10/04/IDEA%E6%90%AD%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE%E6%8F%90%E7%A4%BAconnect%20timed%20out%E9%94%99%E8%AF%AF/</id>
+    <published>2020-10-04T06:12:11.000Z</published>
+    <updated>2020-10-04T07:53:13.007Z</updated>
+    
+    <content type="html"><![CDATA[<p>IDEA新建的SpringBoot项目时：</p><p>无法连接到<code>http://start.spring.io</code>。</p><p><img src="https://s1.ax1x.com/2020/10/04/0GKl6A.png" srcset="/blog/img/loading.gif" alt="0GKl6A.png"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>对应不同情况，可能存在不止一种解决方法。</p><h2 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h2><p>不管是网站上的，还是IDEA里集成的，都有时会提示网络异常。</p><p>多试试几次，或者更换网络环境，我用手机开热点，就解决了。</p><p><img src="https://s1.ax1x.com/2020/10/04/0GKvjA.png" srcset="/blog/img/loading.gif" alt="0GKvjA.png"></p><h2 id="使用自动代理"><a href="#使用自动代理" class="headerlink" title="使用自动代理"></a>使用自动代理</h2><p>IDEA ==&gt; Settings ==&gt; HTTP Proxy ==&gt; Auto-detect proxy settings：</p><p><img src="https://s1.ax1x.com/2020/10/04/0GMRVP.png" srcset="/blog/img/loading.gif" alt="0GMRVP.png"></p><p>等待check connection结果，若弹出connection successful即表示连接成功，问题解决。</p><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><p>IDEA ==&gt; New Project ==&gt; <code>Spring Initializr</code> ==&gt; <code>Custom:</code></p><p>使用阿里云提供的镜像服务：</p><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//start.aliyun.com</span></code></pre><p>更换了阿里云之后，还可以使用阿里云的组件呢！！！</p><p><img src="https://s1.ax1x.com/2020/10/04/0GK2hF.png" srcset="/blog/img/loading.gif" alt="0GK2hF.png"></p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;IDEA新建的SpringBoot项目时：&lt;/p&gt;
+&lt;p&gt;无法连接到&lt;code&gt;http://start.spring.io&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/04/0GKl6A.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;0GKl6A.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h1&gt;&lt;p&gt;对应不同情况，可能存在不止一种解决方法。&lt;/p&gt;
+&lt;h2 id=&quot;网络问题&quot;&gt;&lt;a href=&quot;#网络问题&quot; class=&quot;headerlink&quot; title=&quot;网络问题&quot;&gt;&lt;/a&gt;网络问题&lt;/h2&gt;&lt;p&gt;不管是网站上的，还是IDEA里集成的，都有时会提示网络异常。&lt;/p&gt;
+&lt;p&gt;多试试几次，或者更换网络环境，我用手机开热点，就解决了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/04/0GKvjA.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;0GKvjA.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;使用自动代理&quot;&gt;&lt;a href=&quot;#使用自动代理&quot; class=&quot;headerlink&quot; title=&quot;使用自动代理&quot;&gt;&lt;/a&gt;使用自动代理&lt;/h2&gt;&lt;p&gt;IDEA ==&amp;gt; Settings ==&amp;gt; HTTP Proxy ==&amp;gt; Auto-detect proxy settings：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/04/0GMRVP.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;0GMRVP.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;等待check connection结果，若弹出connection successful即表示连接成功，问题解决。&lt;/p&gt;
+&lt;h2 id=&quot;更换源&quot;&gt;&lt;a href=&quot;#更换源&quot; class=&quot;headerlink&quot; title=&quot;更换源&quot;&gt;&lt;/a&gt;更换源&lt;/h2&gt;&lt;p&gt;IDEA ==&amp;gt; New Project ==&amp;gt; &lt;code&gt;Spring Initializr&lt;/code&gt; ==&amp;gt; &lt;code&gt;Custom:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用阿里云提供的镜像服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs dts&quot;&gt;&lt;span class=&quot;hljs-symbol&quot;&gt;https:&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;//start.aliyun.com&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;更换了阿里云之后，还可以使用阿里云的组件呢！！！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/04/0GK2hF.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;0GK2hF.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="IDEA" scheme="https://melodyjerry.github.io/blog/tags/IDEA/"/>
+    
+      <category term="SPringBoot" scheme="https://melodyjerry.github.io/blog/tags/SPringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA新建SpringBoot项目无法引入SpringApplication</title>
+    <link href="https://melodyjerry.github.io/blog/2020/10/04/IDEA%E6%96%B0%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E5%BC%95%E5%85%A5SpringApplication/"/>
+    <id>https://melodyjerry.github.io/blog/2020/10/04/IDEA%E6%96%B0%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E5%BC%95%E5%85%A5SpringApplication/</id>
+    <published>2020-10-04T04:12:11.000Z</published>
+    <updated>2020-10-04T07:45:25.151Z</updated>
+    
+    <content type="html"><![CDATA[<p>IDEA新建的SpringBoot项目，run时居然会报错：</p><p>无法引入<code>SpringApplication</code>。。。</p><p><img src="https://s1.ax1x.com/2020/10/04/0Gedqf.png" srcset="/blog/img/loading.gif" alt="0Gedqf.png"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>对应不同情况，可能存在不止一种解决方法。</p><h2 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h2><p>Maven存在多个版本的springBoot，可能会造成版本冲突。</p><p>在路径<code>C:\Users\name\.m2\repository\org\springframework\boot\spring-boot</code>中，删除旧版本即可。</p><p>然后Maven执行<code>clean</code>、<code>compile</code>、<code>install</code>命令。</p><blockquote><p>来源：<a href="http://m.mamicode.com/info-detail-2209550.html" target="_blank" rel="noopener">http://m.mamicode.com/info-detail-2209550.html</a></p></blockquote><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;IDEA新建的SpringBoot项目，run时居然会报错：&lt;/p&gt;
+&lt;p&gt;无法引入&lt;code&gt;SpringApplication&lt;/code&gt;。。。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/04/0Gedqf.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;0Gedqf.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h1&gt;&lt;p&gt;对应不同情况，可能存在不止一种解决方法。&lt;/p&gt;
+&lt;h2 id=&quot;版本问题&quot;&gt;&lt;a href=&quot;#版本问题&quot; class=&quot;headerlink&quot; title=&quot;版本问题&quot;&gt;&lt;/a&gt;版本问题&lt;/h2&gt;&lt;p&gt;Maven存在多个版本的springBoot，可能会造成版本冲突。&lt;/p&gt;
+&lt;p&gt;在路径&lt;code&gt;C:\Users\name\.m2\repository\org\springframework\boot\spring-boot&lt;/code&gt;中，删除旧版本即可。&lt;/p&gt;
+&lt;p&gt;然后Maven执行&lt;code&gt;clean&lt;/code&gt;、&lt;code&gt;compile&lt;/code&gt;、&lt;code&gt;install&lt;/code&gt;命令。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;来源：&lt;a href=&quot;http://m.mamicode.com/info-detail-2209550.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://m.mamicode.com/info-detail-2209550.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="IDEA" scheme="https://melodyjerry.github.io/blog/tags/IDEA/"/>
+    
+      <category term="SPringBoot" scheme="https://melodyjerry.github.io/blog/tags/SPringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>uTools,你的生产力工具集</title>
@@ -740,78 +810,6 @@ child process started successfully, parent exiting&lt;/code&gt;&lt;/pre&gt;&lt;/
       <category term="小技巧" scheme="https://melodyjerry.github.io/blog/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     
       <category term="IDEA" scheme="https://melodyjerry.github.io/blog/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>宝塔同IP或同域名不同端口分别对应不同网站教程</title>
-    <link href="https://melodyjerry.github.io/blog/2020/09/05/%E5%AE%9D%E5%A1%94%E5%90%8CIP%E6%88%96%E5%90%8C%E5%9F%9F%E5%90%8D%E4%B8%8D%E5%90%8C%E7%AB%AF%E5%8F%A3%E5%88%86%E5%88%AB%E5%AF%B9%E5%BA%94%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99%E6%95%99%E7%A8%8B/"/>
-    <id>https://melodyjerry.github.io/blog/2020/09/05/%E5%AE%9D%E5%A1%94%E5%90%8CIP%E6%88%96%E5%90%8C%E5%9F%9F%E5%90%8D%E4%B8%8D%E5%90%8C%E7%AB%AF%E5%8F%A3%E5%88%86%E5%88%AB%E5%AF%B9%E5%BA%94%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99%E6%95%99%E7%A8%8B/</id>
-    <published>2020-09-05T09:24:41.000Z</published>
-    <updated>2020-09-18T04:43:03.065Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul><li><p>IP</p></li><li><p>服务器端放行所需端口</p></li><li><p>安装好的宝塔面板。</p></li></ul><h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p>192.168.1.666:80 站点一指向A项目</p><p>192.168.1.666:8081 站点二指向B项目</p><h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><p>1） 新建一个站点指向项目A</p><p><img src="https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514113737124-1200219923.png" srcset="/blog/img/loading.gif" alt="img"></p><p> 2）再次添加一个站点指向项目B</p><p><img src="https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514114000175-1939839843.png" srcset="/blog/img/loading.gif" alt="img"></p><p> 提交之后打开设置</p><p><img src="https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514114036225-1680296715.png" srcset="/blog/img/loading.gif" alt="img"></p><p> 修改配置文件如下图：</p><p><img src="https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514114317948-567330049.png" srcset="/blog/img/loading.gif" alt="img"></p><p> 提交之后，切记一定要重启nginx，然后即打开站点就可以看到内容</p><p>照此可添加多个</p><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;IP&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;服务器端放行所需端口&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装好的宝塔面板。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;实现效果&quot;&gt;&lt;a href=&quot;#实现效果&quot; class=&quot;headerlink&quot; title=&quot;实现效果&quot;&gt;&lt;/a&gt;实现效果&lt;/h1&gt;&lt;p&gt;192.168.1.666:80 站点一指向A项目&lt;/p&gt;
-&lt;p&gt;192.168.1.666:8081 站点二指向B项目&lt;/p&gt;
-&lt;h1 id=&quot;具体步骤&quot;&gt;&lt;a href=&quot;#具体步骤&quot; class=&quot;headerlink&quot; title=&quot;具体步骤&quot;&gt;&lt;/a&gt;具体步骤&lt;/h1&gt;&lt;p&gt;1） 新建一个站点指向项目A&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514113737124-1200219923.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt; 2）再次添加一个站点指向项目B&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514114000175-1939839843.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt; 提交之后打开设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514114036225-1680296715.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt; 修改配置文件如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img2020.cnblogs.com/blog/1137058/202005/1137058-20200514114317948-567330049.png&quot; srcset=&quot;/blog/img/loading.gif&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt; 提交之后，切记一定要重启nginx，然后即打开站点就可以看到内容&lt;/p&gt;
-&lt;p&gt;照此可添加多个&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="服务器" scheme="https://melodyjerry.github.io/blog/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-      <category term="Linux" scheme="https://melodyjerry.github.io/blog/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git笔记</title>
-    <link href="https://melodyjerry.github.io/blog/2020/08/29/Git%E7%AC%94%E8%AE%B0/"/>
-    <id>https://melodyjerry.github.io/blog/2020/08/29/Git%E7%AC%94%E8%AE%B0/</id>
-    <published>2020-08-29T13:00:00.000Z</published>
-    <updated>2020-09-18T04:43:02.948Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git笔记"><a href="#Git笔记" class="headerlink" title="Git笔记"></a>Git笔记</h1><h4 id="在当前目录下初始化一个空的git仓库"><a href="#在当前目录下初始化一个空的git仓库" class="headerlink" title="在当前目录下初始化一个空的git仓库"></a>在当前目录下初始化一个空的git仓库</h4><ul><li><code>git init</code></li></ul><h4 id="设置全局用户名和邮箱"><a href="#设置全局用户名和邮箱" class="headerlink" title="设置全局用户名和邮箱"></a>设置全局用户名和邮箱</h4><ul><li><code>git config --global user.name "name"</code></li><li><code>git config --global user.email "xxxxx@email.com"</code></li><li><code>git config user.name</code> 查看git用户名</li><li><code>git config user.email</code> 查看邮箱配置</li></ul><h4 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h4><ul><li><code>git config --list</code></li></ul><h4 id="提交修改到暂存区"><a href="#提交修改到暂存区" class="headerlink" title="提交修改到暂存区"></a>提交修改到暂存区</h4><ul><li><code>git add -A</code> 提交全部修改。（git add -All）</li><li><code>git add -u</code> 只提交修改，不提交新文件。（git add -update)</li><li><code>git add .</code> 不提交删除文件</li><li><code>git add &lt;filename&gt;</code> 提交指定文件</li></ul><h4 id="查看暂存区"><a href="#查看暂存区" class="headerlink" title="查看暂存区"></a>查看暂存区</h4><ul><li><code>git status</code></li></ul><h4 id="修改最新提交的-commit-message"><a href="#修改最新提交的-commit-message" class="headerlink" title="修改最新提交的 commit message"></a>修改最新提交的 commit message</h4><ul><li><code>git commit --amend</code></li></ul><h4 id="修改某个提交的-commit-message"><a href="#修改某个提交的-commit-message" class="headerlink" title="修改某个提交的 commit message"></a>修改某个提交的 commit message</h4><ul><li><code>git commit -i &lt;commit id&gt;</code> commit id 为要修改的目标 commit 的父亲 commit id</li></ul><h4 id="合并连续的commit"><a href="#合并连续的commit" class="headerlink" title="合并连续的commit"></a>合并连续的commit</h4><ul><li><code>git rebase -i &lt;commit id&gt;</code> commit id 为目标commit的父亲commit id</li></ul><h4 id="提交修改到本地仓库"><a href="#提交修改到本地仓库" class="headerlink" title="提交修改到本地仓库"></a>提交修改到本地仓库</h4><ul><li><code>git commit -m 'msg'</code> 提交暂存区到本地仓库</li><li><code>git commit -a -m 'msg'</code> 提交修改到本地仓库（不提交新增文件）</li></ul><h4 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h4><ul><li><code>git log</code></li></ul><h4 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h4><ul><li><code>git remote add &lt;name&gt; &lt;url&gt;</code></li></ul><h4 id="查看远程仓库信息"><a href="#查看远程仓库信息" class="headerlink" title="查看远程仓库信息"></a>查看远程仓库信息</h4><ul><li><code>git remote show &lt;name&gt;</code></li></ul><h4 id="远程仓库的删除和重命名"><a href="#远程仓库的删除和重命名" class="headerlink" title="远程仓库的删除和重命名"></a>远程仓库的删除和重命名</h4><ul><li><code>git remote rm &lt;remote_name&gt;</code></li><li><code>git remote rename &lt;old_name&gt; &lt;new_name&gt;</code></li></ul><h4 id="拉取远程仓库数据到本地"><a href="#拉取远程仓库数据到本地" class="headerlink" title="拉取远程仓库数据到本地"></a>拉取远程仓库数据到本地</h4><ul><li><code>git pull &lt;remote_name&gt; &lt;branch_name&gt;</code></li></ul><h4 id="提交本地仓库到远程仓库"><a href="#提交本地仓库到远程仓库" class="headerlink" title="提交本地仓库到远程仓库"></a>提交本地仓库到远程仓库</h4><ul><li><code>git push &lt;remote_name&gt; &lt;branch_name&gt;</code></li></ul><h4 id="查看-amp-创建-amp-切换分支"><a href="#查看-amp-创建-amp-切换分支" class="headerlink" title="查看&amp;创建&amp;切换分支"></a>查看&amp;创建&amp;切换分支</h4><ul><li><code>git branch</code> 查看已有分支</li><li><code>git branch -v</code> 查看已有分支及各个分支最后一个提交对象的信息</li><li><code>git branch &lt;branch_name&gt;</code> 创建新的空分支</li><li><code>git branch &lt;branch_name&gt; &lt;exist_branch_name&gt;</code> 创建新分支</li><li><code>git checkout -b &lt;branch_name&gt; &lt;exist_branch_name&gt;</code> 创建并切换到新分支</li><li><code>git checkout &lt;branch_name&gt;</code> 切换分支</li></ul><h4 id="删除-amp-合并分支"><a href="#删除-amp-合并分支" class="headerlink" title="删除&amp;合并分支"></a>删除&amp;合并分支</h4><ul><li><code>git branch -D &lt;branch_name&gt;</code> 删除分支</li><li><code>git merge &lt;branch_name&gt;</code> 当前分支合并到指定分支</li></ul><h4 id="暂存区恢复到HEAD"><a href="#暂存区恢复到HEAD" class="headerlink" title="暂存区恢复到HEAD"></a>暂存区恢复到HEAD</h4><ul><li><code>git reset HEAD</code></li><li><code>git reset HEAD &lt;file_name&gt;</code></li></ul><h4 id="工作区恢复到暂存区"><a href="#工作区恢复到暂存区" class="headerlink" title="工作区恢复到暂存区"></a>工作区恢复到暂存区</h4><ul><li><code>git checkout -- &lt;file_name&gt;</code></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Git笔记&quot;&gt;&lt;a href=&quot;#Git笔记&quot; class=&quot;headerlink&quot; title=&quot;Git笔记&quot;&gt;&lt;/a&gt;Git笔记&lt;/h1&gt;&lt;h4 id=&quot;在当前目录下初始化一个空的git仓库&quot;&gt;&lt;a href=&quot;#在当前目录下初始化一个空的git仓库&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Git" scheme="https://melodyjerry.github.io/blog/tags/Git/"/>
     
   </entry>
   
