@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#b9b9b9">
+  <meta name="description" content="">
+  <meta name="author" content="Melody Jerry">
+  <meta name="keywords" content="">
+  <title>Vue入门学习笔记 - MelodyHub</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/blog/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/blog/atom.xml" title="MelodyHub" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>MelodyHub</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-10-04 20:47">
+      2020年10月4日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      53
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 小时前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <a id="more"></a>
+
+<p>Vue 的核心库只关注视图层，方便与第三方库或既有项目整合。</p>
+<p>HTML + CSS + JS : 视图 ： <code>给用户看，刷新后台给的数据</code></p>
+<p>网络通信 ： <code>axios</code></p>
+<p>页面跳转 ： <code>vue-router</code></p>
+<p>状态管理：<code>vuex</code></p>
+<p>Vue-UI : <code>ICE</code>、 <code>Element UI</code></p>
+<h1 id="一、VUE-概述"><a href="#一、VUE-概述" class="headerlink" title="一、VUE 概述"></a>一、VUE 概述</h1><p>Vue (读音/vju/, 类似于view)是<strong>一套用于构建用户界面的渐进式框架</strong>，发布于2014年2月。</p>
+<p>与其它大型框架不同的是，<strong>Vue被设计为可以自底向上逐层应用。</strong></p>
+<p><strong>Vue的核心库只关注视图层</strong>，不仅易于上手，还便于与第三方库(如: <code>vue-router</code>: 跳转，<code>vue-resource</code>: 通信，<code>vuex</code>:管理)或既有项目整合。</p>
+<h1 id="二、前端核心知识分析"><a href="#二、前端核心知识分析" class="headerlink" title="二、前端核心知识分析"></a>二、前端核心知识分析</h1><h2 id="1-前端三要素"><a href="#1-前端三要素" class="headerlink" title="1. 前端三要素"></a>1. 前端三要素</h2><ul>
+<li><code>HTML</code><strong>(结构层)</strong> : 超文本标记语言(Hyper Text Markup Language) ，决定网页的结构和内容</li>
+<li><code>CSS</code><strong>(表现层)</strong> : 层叠样式表(Cascading Style sheets) ，设定网页的表现样式</li>
+<li><code>JavaScript</code><strong>(行为层)</strong> : 是一种弱类型脚本语言，其源代码不需经过编译，而是由浏览器解释运行,用于控制网页的行为</li>
+</ul>
+<h3 id="1-1-CSS-预处理器有"><a href="#1-1-CSS-预处理器有" class="headerlink" title="1.1 CSS 预处理器有"></a>1.1 CSS 预处理器有</h3><ul>
+<li>SASS：基于Ruby，通过服务端处理，功能强大。解析效率稿。需要学习 Ruby 语言，上手难度高于LESS。</li>
+<li><code>LESS</code>：基于 NodeJS，通过客户端处理，使用简单。功能比 SASS 简单，解析效率也低于 SASS，但<strong>在实际开发中足够了，所以后台人员如果需要的话，建议使用 LESS。</strong></li>
+</ul>
+<h3 id="1-2-Native原生JS开发"><a href="#1-2-Native原生JS开发" class="headerlink" title="1.2 Native原生JS开发"></a>1.2 Native原生JS开发</h3><p>原生JS开发，也就是让我们按照【<strong>ECMAScript</strong>】标准的开发方式，简称是ES,特点是所有浏览器都支持。截止到当前博客发布时间，ES标准已发布如下版本:</p>
+<ul>
+<li><p>ES3</p>
+</li>
+<li><p>ES4 (内部,未正式发布)</p>
+</li>
+<li><p><code>ES5 (全浏览器支持)</code></p>
+</li>
+<li><p><code>ES6 (常用，当前主流版本: webpack打包成为ES5支持! )</code></p>
+</li>
+<li><p>ES7</p>
+</li>
+<li><p>ES8</p>
+</li>
+<li><p>ES9 (草案阶段)</p>
+</li>
+</ul>
+<blockquote>
+<p>区别就是逐步增加新特性。</p>
+</blockquote>
+<h3 id="1-3-TypeScript微软的标准"><a href="#1-3-TypeScript微软的标准" class="headerlink" title="1.3 TypeScript微软的标准"></a>1.3 TypeScript微软的标准</h3><p>TypeScript是一种由微软开发的自由和开源的编程语言。它是JavaScript的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。由安德斯海尔斯伯格（C#、Delphi、TypeScript 之父； .NET 创立者）主导。</p>
+<p>该语言的特点就是除了具备 ES 的特性之外还纳入了许多不在标准范围内的新特性，所以会导致很多浏览器不能直接支持 TypeScript 语法，需要编译后（编译成 JS ）才能被浏览器正确执行。</p>
+<h2 id="2-JavaScript框架"><a href="#2-JavaScript框架" class="headerlink" title="2. JavaScript框架"></a>2. JavaScript框架</h2><p><font color="blue">前端三大框架：Angular、React、Vue</font></p>
+<ul>
+<li><strong>jQuery</strong>: 大家熟知的JavaScript框架，优点是简化了DOM操作，缺点是DOM操作太频繁,影响前端性能;在前端眼里使用它仅仅是为了兼容IE6、7、8。</li>
+<li><strong>Angular</strong>: Google收购的前端框架，由一群Java程序员开发，其<code>特点是将后台的MVC模式搬到了前端并增加了模块化开发的理念</code>，与微软合作，采用TypeScript语法开发;对后台程序员友好，对前端程序员不太友好;最大的缺点是版本迭代不合理(如: 1代-&gt; 2代，除了名字，基本就是两个东西;截止发表博客时已推出了Angular6)。</li>
+<li><strong>React</strong>: Facebook出品，一款高性能的JS前端框架;<code>特点是提出了新概念[虚拟DOM]用于减少真实DOM操作，在内存中模拟DOM操作，有效的提升了前端渲染效率</code>;缺点是使用复杂，因为需要额外学习一门[JSX] 语言。</li>
+<li><strong>Vue</strong>:一款渐进式JavaScript框架，<strong>所谓渐进式就是逐步实现新特性的意思</strong>，如实现模块化开发、路由、状态管理等新特性。<strong>其特点是综合了Angular (模块化)和React (虚拟DOM)的优点;</strong>。</li>
+<li><strong>Axios</strong> :<strong>前端通信框架</strong>；因为Vue 的边界很明确，就是为了处理DOM，所以并不具备通信能力，此时就需要额外使用一个通信框架与服务器交互；当然也可以直接选择使用jQuery提供的AJAX通信功能。</li>
+</ul>
+<h2 id="3-UI框架"><a href="#3-UI框架" class="headerlink" title="3. UI框架"></a>3. UI框架</h2><ul>
+<li>Ant-Design:阿里巴巴出品，基于React的UI框架</li>
+<li><strong>ElementUI、 iview、 ice</strong>: 饿了么出品，基于Vue的UI框架</li>
+<li><strong>Bootstrap</strong>: Twitter推出的一个用于前端开发</li>
+<li>AmazeUI:又叫”妹子UI”，一款HTML5跨屏前端框架</li>
+</ul>
+<h2 id="4-JavaScript构建工具"><a href="#4-JavaScript构建工具" class="headerlink" title="4. JavaScript构建工具"></a>4. JavaScript构建工具</h2><ul>
+<li>Babel: JS编译工具，主要用于浏览器不支持的ES新特性，比如用于编译TypeScript</li>
+<li><strong>WebPack</strong>: <em>模块打包器，主要作用是打包、压缩、合并及按序加载</em></li>
+</ul>
+<blockquote>
+<p>前端开发主要使用<code>WebPack</code>。</p>
+</blockquote>
+<h2 id="5-三端合一"><a href="#5-三端合一" class="headerlink" title="5. 三端合一"></a>5. 三端合一</h2><h3 id="5-1-混合开发（Hybid-App）"><a href="#5-1-混合开发（Hybid-App）" class="headerlink" title="5.1 混合开发（Hybid App）"></a>5.1 混合开发（Hybid App）</h3><p>主要目的是实现一套代码三端统一(PC、Android:.apk、iOS:.ipa )并能备够调用到底层件(如:传感器、GPS、 摄像头等)，打包方式主要有以下两种:</p>
+<ul>
+<li>云打包: <strong>HBuild -&gt; HBuildX， DCloud出品; API Cloud</strong></li>
+<li>本地打包: <strong>Cordova</strong> (前身是PhoneGap)</li>
+</ul>
+<h3 id="5-2-微信小程序"><a href="#5-2-微信小程序" class="headerlink" title="5.2 微信小程序"></a>5.2 微信小程序</h3><p>详见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank" rel="noopener">微信小程序官网</a>，这里就只介绍一个方便小程序开发的框架：</p>
+<ul>
+<li>WeUI</li>
+</ul>
+<h2 id="6-后端技术"><a href="#6-后端技术" class="headerlink" title="6. 后端技术"></a>6. 后端技术</h2><p>前端人员为了方便开发也需要掌握一定的后端技术， 但我们Java后台人员知道后台知识体系极其庞大复杂，所以为了方便前端人员开发后台应用，就出现了<code>NodeJS</code>这样的技术。</p>
+<p>NodeJS的作者已经声称放弃NodeJS (说是架构做的不好再加上笨重的node_ modules，可能让作者不爽了吧)，开始开发全新架构的Deno</p>
+<p>既然是后台技术，那肯定也需要框架和项目管理工具，<code>NodeJS</code>框架及项目管理工具如下:</p>
+<ul>
+<li>Express: NodeJS框架</li>
+<li>Koa: Express简化版</li>
+<li><code>NPM</code>: 项目综合管理工具，类似于Maven</li>
+<li><code>YARN</code>: NPM的替代方案，类似于Maven和Gradle的关系</li>
+</ul>
+<h2 id="7-主流前端框架"><a href="#7-主流前端框架" class="headerlink" title="7. 主流前端框架"></a>7. 主流前端框架</h2><ul>
+<li><strong>Vue.js</strong></li>
+</ul>
+<h3 id="7-1-iView"><a href="#7-1-iView" class="headerlink" title="7.1 iView"></a>7.1 iView</h3><p>iview 是一个强大的基于 Vue 的 UI 库，有很多实用的基础组件比 elementui 的组件更丰富，主要服务于 PC 界面的中后台产品。使用单文件的 Vue 组件化开发模式基于 npm + webpack + babel 开发，支持 ES2015 高质量、功能丰富友好的 API，自由灵活地使用空间。</p>
+<ul>
+<li><a href="https://iviewui.com/" target="_blank" rel="noopener">官网地址</a></li>
+<li><a href="https://github.com/view-design/ViewUI" target="_blank" rel="noopener">Github</a></li>
+<li><a href="https://gitee.com/icarusion/iview-admin" target="_blank" rel="noopener">iview-admin</a></li>
+</ul>
+<blockquote>
+<p>备注：属于前端主流框架，选型时可以考虑使用，主要特点是移动端支持较多</p>
+</blockquote>
+<h3 id="7-2-ElementUI"><a href="#7-2-ElementUI" class="headerlink" title="7.2 ElementUI"></a>7.2 ElementUI</h3><p><code>Element</code> 是饿了么前端开源维护的 Vue UI 组件库，组件齐全，基本涵盖后台所需的所有组件，文档讲解详细，例子也很丰富。<strong>主要用于开发 PC 端的页面，是一个质量比较高的 Vue UI 组件库。</strong></p>
+<ul>
+<li><a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener">官网地址</a></li>
+<li>Github：<a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank" rel="noopener">vue-element-admin</a></li>
+</ul>
+<blockquote>
+<p>备注：属于前端主流框架，选型时可以考虑使用，<strong>主要特点是桌面端支持较多</strong></p>
+</blockquote>
+<h3 id="7-3-ICE"><a href="#7-3-ICE" class="headerlink" title="7.3 ICE"></a>7.3 ICE</h3><p>飞冰 是阿里巴巴团队基于 React/Angular/Vue 的中后台应用解决方案，在阿里巴巴内部，已经有270多个来自几乎所有 BU 的项目在使用。飞冰包含了一条从设计端到开发端的完整链路，帮助用户快速搭建属于自己的中后台应用。</p>
+<blockquote>
+<p>备注:主要组件还是以 React 为主，截止 2019 年 02 月 17 日更新博客前对 Vue 的支持还不太完善，目前尚处于观望阶段</p>
+</blockquote>
+<h3 id="7-4-VantUI"><a href="#7-4-VantUI" class="headerlink" title="7.4 VantUI"></a>7.4 VantUI</h3><p>Vant UI 是有赞前端团队基于有赞统一的规范实现的 Vue 组件库,提供了一整套 UI 基础组件和业务组件。通过 Vant，可以快速搭建出风格统一的页面， 提升开发效率。</p>
+<h3 id="7-5-AtUI"><a href="#7-5-AtUI" class="headerlink" title="7.5 AtUI"></a>7.5 AtUI</h3><p>at-ui是一款基于 Vue 2.x 的前端UI组件库,主要用于快速开发PC网站产品。它提供了一套 npm + webpack + babel 前端开发工作流程，CSS 样式独立，即使采用不同的框架实现都能保持统一的UI风格。</p>
+<h3 id="7-6-CubeUI"><a href="#7-6-CubeUI" class="headerlink" title="7.6 CubeUI"></a>7.6 CubeUI</h3><p>cube-ui 是滴滴团队开发的基于 Vue.js 实现的精致移动端组件库。支持按需引入和后编译，轻量灵活；扩展性强，可以方便地基于现有组件实现二次开发。</p>
+<h3 id="混合开发"><a href="#混合开发" class="headerlink" title="混合开发"></a>混合开发</h3><h4 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h4><p>Flutter是谷歌的移动端UI框架，可在极短的时间内构建Android 和iOs.上高质量的原生级应用。Flutter 可与现有代码一起工作,它被世界各地的开发者和组织使用,并且Flutter是免费和开源的。</p>
+<blockquote>
+<p>备注: Google出品，主要特点是快速构建原生APP应用程序，如做混合应用该框架为必选框架</p>
+</blockquote>
+<h4 id="lonic"><a href="#lonic" class="headerlink" title="lonic"></a>lonic</h4><p>lonic 既是一个 CSS 框架也是一个 Javascript UI 库，lonic 是目前最有潜力的一款 HTML5 手机应用开发框架。通过 SASS 构建应用程序，它提供了很多 UI 组件来帮助开发者开发强大的应用。它使用 JavaScript MVVM框架和 AngularJS/Vue 来增强应用。提供数据的双向绑定，使用它成为 Web 和移动开发者的共同选择。</p>
+<h3 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h3><h4 id="mpvue"><a href="#mpvue" class="headerlink" title="mpvue"></a>mpvue</h4><p>mpvue 是美团开发的一一个使用 <code>Vue.js</code> 开发小程序的前端框架，目前支持微信小程序、百度智能小程序，头条小程序和支付宝小程序。框架基于 <code>Vue.js</code> ，修改了的运行时框架 <code>runt ime</code> 和代码编译器 <code>compiler</code> 实现，使其可运行在小程序环境中，从而为小程序开发引入了 <code>Vue.js</code> 开发体验。</p>
+<blockquote>
+<p>备注:完备的Vue开发体验，并且支持多平台的小程序开发，推荐使用</p>
+</blockquote>
+<h4 id="WeUl"><a href="#WeUl" class="headerlink" title="WeUl"></a>WeUl</h4><p>WeUI 是一套同微信原生视觉体验一致的基础样式库， 由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。包含 button、cell、 dialog、toast、article、 icon 等各式元素。</p>
+<h1 id="三、了解前后端分离的演变史"><a href="#三、了解前后端分离的演变史" class="headerlink" title="三、了解前后端分离的演变史"></a>三、了解前后端分离的演变史</h1><h2 id="3-1-后端为主的-MVC-时代"><a href="#3-1-后端为主的-MVC-时代" class="headerlink" title="3.1 后端为主的 MVC 时代"></a>3.1 后端为主的 MVC 时代</h2><p>为了降低开发的复杂度，以后端为出发点,比如：Struts、 SpringMVC 等框架的使用，就是后端的MVC时代；</p>
+<p>以 <code>Spring MVC</code> 的流程为例：</p>
+<p><img src="https://s1.ax1x.com/2020/10/04/0JmdxA.png" srcset="/blog/img/loading.gif" alt="0JmdxA.png"></p>
+<ul>
+<li>发起请求到前端控制器( <code>DispatcherServlet</code> )</li>
+<li>前端控制器请求 <code>HandlerMapping</code> 查找 <code>Handler</code>, 可以根据 <code>xml</code> 配置、注解进行查找</li>
+<li>处理器映射器 <code>HandlerMapping</code> 向前端控制器返回 <code>Handler</code></li>
+<li>前端控制器调用处理器适配器去执行Handler</li>
+<li>处理器适配器去执行 <code>Handler</code></li>
+<li><code>Handler</code> 执行完成给适配器返回 <code>ModelAndView</code></li>
+<li>处理器适配器向前端控制器返回 <code>ModelAndView</code> ，<code>Mode lAndView</code> 是 <code>SpringMVC</code> 框架的一一个底层对象，包括 <code>Model</code> 和 <code>View</code></li>
+<li>前端控制器请求视图解析器去进行视图解析，根据逻辑视图名解析成真正的视图( <code>JSP</code> )</li>
+<li>视图解析器向前端控制器返回 <code>View</code></li>
+<li>前端控制器进行视图渲染，视图渲染将模型数据（在 <code>ModelAndView</code> 对象中）填充到 <code>request</code> 域</li>
+<li>前端控制器向用户响应结果</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>MVC是一个非常好的协作模式，能够有效降低代码的耦合度,从架构上能够让开发者明白代码应该写在哪里。</li>
+<li>为了让View更纯粹,还可以使用Thymeleaf、Freemarker 等模板引擎，使模板里无法写入Java代码,让前后端分工更加清晰。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>前端开发重度依赖开发环境，开发效率低，这种架构下，前后端协作有两种模式：<ul>
+<li>第一种是前端写 DEMO，写好后，让后端去套模板。好处是 DEMO 可以本地开发，很高效。不足是还需要后端套模板，有可能套错，套完后还需要前端确定，来回沟通调整的成本比较大；</li>
+<li>另一种协作模式是前端负责浏览器端的所有开发和服务器端的 View 层模板开发。好处是 UI 相关的代码都是前端去写就好，后端不用太关注，不足就是前端开发重度绑定后端环境，环境成为影响前端开发效率的重要因素。</li>
+</ul>
+</li>
+<li>前后端职责纠缠不清：模板弓|擎功能强大，依旧可以通过拿到的上下文变量来实现各种业务逻辑。这样，只要前端弱势一点，往往就会被后端要求在模板层写出不少业务代码。还有一个很大的灰色地带是 <code>Controller</code> ，页面路由等功能本应该是前端最关注的，但却是由后端来实现。<code>Controller</code> 本身与 <code>Model</code> 往往也会纠缠不清，看了让人咬牙的业务代码经常会出现在 <code>Controller</code> 层。这些问题不能全归结于程序员的素养，否则 JSP 就够了。</li>
+<li>对前端发挥的局限性：性能优化如果只在前端做空间非常有限，于是我们经常需要后端合作，但由于后端框架限制，我们很难使用<strong>【Comet】</strong> 、<strong>【BigPipe】</strong> 等技术方案来优化性能。</li>
+</ul>
+<blockquote>
+<p>注：在这期间（2005 年以前），包括早期的 JSP、PHP 可以称之为 Web 1.0 时代。因为时代在变、技术在变、什么都在变。</p>
+<blockquote>
+<p>世界著名作家、大思想家斯宾塞·约翰逊的一句话：唯一不变的是变化本身。</p>
+</blockquote>
+<p>一些陈旧的技术对于市场来说早就过时了，比如 JSP。</p>
+</blockquote>
+<h2 id="3-2-基于-AJAX-带来的-SPA-时代"><a href="#3-2-基于-AJAX-带来的-SPA-时代" class="headerlink" title="3.2 基于 AJAX 带来的 SPA 时代"></a>3.2 基于 AJAX 带来的 SPA 时代</h2><p>时间回到 2005 年 <code>AJAX</code> （Asynchronous JavaScript And XM，异步JavaScript和XML,老技术新用法）被正式提出并开始使用 <code>CDN</code> 作为静态资源存储，于是出现了JavaScript王者归来（在这之前 JS 都是用来在网页上贴狗皮膏药广告的）的 SPA （Single Page Application）单页面应用时代。</p>
+<p><img src="https://s1.ax1x.com/2020/10/04/0JKK2Q.png" srcset="/blog/img/loading.gif" alt="0JKK2Q.png"></p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><p>这种模式下，<strong>前后端的分工非常清晰，前后端的关键协作点是AJAX接口</strong>。看起来是如此美妙,但回过头来看看的话，这与 JSP 时代区别不大。复杂度从服务端的 JSP 里移到了浏览器的 JavaScript，浏览器端变得很复杂。类似 Spring MVC，<strong>这个时代开始出现浏览器端的分层架构</strong>：</p>
+<p><img src="https://s1.ax1x.com/2020/10/04/0JKlKs.png" srcset="/blog/img/loading.gif" alt="0JKlKs.png"></p>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><strong>前后端接口的约定：</strong>如果后端的接口一塌糊涂,如果后端的业务模型不够稳定,那么前端开发会很痛苦；不少团队也有类似尝试，通过接口规则、接口平台等方式来做。<strong>有了和后端一起沉淀的接口规则，还可以用来模拟数据，使得前后端可以在约定接口后实现高效并行开发</strong>。</li>
+<li><strong>前端开发的复杂度控制：</strong>SPA 应用大多以功能交互型为主，JavaScript 代码过十万行很正常。大量 JS 代码的组织，与 View 层的绑定等，都不是容易的事情。</li>
+</ul>
+<h2 id="3-3-前端为主的-MV-时代"><a href="#3-3-前端为主的-MV-时代" class="headerlink" title="3.3 前端为主的 MV* 时代"></a>3.3 前端为主的 MV* 时代</h2><p>此处的 MV* 模式如下：</p>
+<ul>
+<li>MVC （同步通信为主）：Model、View、Controller</li>
+<li>MVP （异步通信为主）： Model、 View、 Presenter</li>
+<li>MVVM （异步通信为主）：Model、 View、 ViewModel</li>
+</ul>
+<p>为了降低前端开发复杂度，涌现了大量的前端框架，比如：<code>AngularJS</code>、 <code>React</code>、 <code>Vue.js</code> 、<code>EmberJS</code>等，这些框架总的原则是先按类型分层,比如 Templates、Controllers、 Models, 然后再在层内做切分，如下图：</p>
+<p><img src="https://s1.ax1x.com/2020/10/04/0JK3bq.png" srcset="/blog/img/loading.gif" alt="0JK3bq.png"></p>
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><strong>前后端职责很清晰：</strong>前端工作在浏览器端，后端工作在服务器端。清晰的分工，可以让开发并行，测试数据的模拟不难，前端可以本地开发。后端则可以专注于业务逻辑的处理，输出 RESTful 等接口。</li>
+<li><strong>前端开发的复杂度可控：</strong>前端代码很重，但合理分层，让前端代码能各司其职。这一块蛮有意思的，简单如模板特性的选择，就有很多讲究。并非越强大越好，限制什么，留下哪些自由，代码应该如何组织，所有这一切设计都有很大学位，得花一本书的厚度去说明。</li>
+<li><strong>部署相对独立：</strong>可以快速改进产品的体验。</li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>代码不能复用。比如后端依旧需要对数据做各种校验，校验逻辑无法复用浏览器端的代码。如果可以复用，那么后端的数据校验可以相对简单化。</li>
+<li>全异步，对 SEO 不利。往往还需要服务端做同步渲染的降级方案。</li>
+<li>性能并非最佳，特别是移动互联网环境下。</li>
+<li>SPA 不能满足所有需求，依旧存在大量多页面应用。URL Design 需要后端配合，前端无法完全掌握。</li>
+</ul>
+<h2 id="3-4-NodeJS-代理的全栈时代"><a href="#3-4-NodeJS-代理的全栈时代" class="headerlink" title="3.4 NodeJS 代理的全栈时代"></a>3.4 NodeJS 代理的全栈时代</h2><p>前端为主的 MV* 模式解决了很多很多问题，但如上所述，依旧存在不少不足之处。随着 NodeJS 的兴起， JavaScript 开始有能力运行在服务端。这意味着可以有一种新的研发模式：</p>
+<p><img src="https://s1.ax1x.com/2020/10/04/0JKGV0.png" srcset="/blog/img/loading.gif" alt="0JKGV0.png"></p>
+<p>在这种研发模式下，前后端的职责很清晰。对前端来说，两个UI层各司其职：</p>
+<ul>
+<li>Front-end UI layer 处理浏览器层的展现逻辑。通过 CSS 渲染样式，通过 JavaScript 添加交互 功能，HTML 的生成也可以放在这层,具体看应用场景。</li>
+<li>Back-end UI layer 处理路由、模板、数据获取、Cookie 等。通过路由,前端终于可以自主把控URL Design，这样无论是单页面应用还是多页面应用，前端都可以自由调控。后端也终于可以摆脱对展现的强关注，转而可以专心于业务逻辑层的开发。</li>
+</ul>
+<p>通过 Node，Web Server 层也是 JavaScript 代码，这意味着部分代码可前后复用，需要SEO的场景可以在服务端同步渲染，由于异步请求太多导致的性能问题也可以通过服务端来缓解。前一种模式的不足，通过这种模式几乎都能完美解决掉。</p>
+<p>与JSP模式相比,全栈模式看起来是一种回归，也的确是-种向原始开发模式的回归,不过是一种螺旋上升式的回归。</p>
+<p>基于NodeJS的全栈模式，依旧面临很多挑战:</p>
+<ul>
+<li>需要前端对服务端编程有更进一 步的认识。比如 TCP/IP 等网络知识的掌握。</li>
+<li>NodeJS 层与 Java 层的高效通信。NodeJS 模式下，都在服务器端，RESTful HTTP 通信未必高效,通过 SOAP 等方式通信更高效。-切需要在验证中前行。</li>
+<li>对部署、运维层面的熟练了解，需要更多知识点和实操经验。</li>
+<li>大量历史遗留问题如何过渡。这可能是最大最大的阻力。</li>
+</ul>
+<blockquote>
+<p>注：为什么说:” 前端想学后台很难，而我们后端程序员学任何东西都很简单“；就是因为后端程序员具备相对完善的知识体系。</p>
+</blockquote>
+<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>综上所述，模式也好，技术也罢，没有好坏优劣之分，只有适合不适合；前后分离的开发思想主要是基于 <code>SoC</code>（关注度分离原则），上面种种模式，都是让前后端的职责更清晰，分工更合理高效。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Vue/">Vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/10/04/IDEA%E6%90%AD%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE%E6%8F%90%E7%A4%BAconnect%20timed%20out%E9%94%99%E8%AF%AF/">
+                        <span class="hidden-mobile">IDEA新建SpringBoot项目提示connect timed out错误</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
+          app_key: "HjUUcTY42RErTnIt7O58GhvH",
+          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
+          
+           // 设置Bilibili表情包地址
+    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+    // 表情title和图片映射
+    emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        // ... 更多表情
+    } 
+          
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+
+
+
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255,0,0" opacity='1' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 天气挂件 -->
+<!-- <div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>-->
+  
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WS0E9D8WN298",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "5fd5b254-57fe-4f8a-8a13-f92485efeb0b",
+      hover: "disabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+  
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/FunnyTitle.js"></script>
+
+<!--fancybox-->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!--樱花瓣飘落-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-love109.cn@2.0.6/js/sakura.js"></script>
+
+<!--速度优化脚本-->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@2.0.6/js/instantclick-1.2.2.js" type="module"></script>
+
+<!--热门标签，旋转，来自https://arlxn.xyz/-->
+<!--tagcloud.ejs-->
+<script src="https://createdestruction.github.io/js/tagcanvas.js"></script>
+<script src="https://createdestruction.github.io/js/tagcloud.js"></script>
+
+
+
+
+
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+      <!-- cnzz Analytics Icon -->
+      <span id="cnzz_stat_icon_1278597820" style="display: none"></span>
+    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    
+  </div>
+  
+  
+  
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--宅音乐播放器 https://player.ilt.me/admin-->
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="992f0d81b6b74b93b6bbdb56f57a6c58"></script>
+
+<!--闲聊么http://www.xianliao.me/faq<script>var xlm_wid='15920';var xlm_url='https://www.xianliao.me/';</script><script type="text/javascript" charset="UTF-8" src="https://www.xianliao.me/embed.js"></script>--> 
+ 
+<center>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+
+
+
+<div style="text-align: center;font-weight: bold;color: #1BC3FB;">
+      <span id="subtitle1">没有伞的孩子必须努力奔跑！</span><span class="typed-cursor typed-cursor--blink">|</span>
+      <span id="typed-cursor"></span>
+</div>
+<!-- 打字特效（蓝色字体） -->  
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> 
+<script>var typed = new Typed("#subtitle1", { strings: ["Live a good life, write some good code !!!", "愿自己的努力终将获得回报。", "花开不是为了花落，而是为了开的更加灿烂。", "没有伞的孩子必须努力奔跑！", "欲望以提升热忱，毅力以磨平高山。", "如果放弃太早，你永远都不知道自己会错过什么。", "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。"], startDelay: 1000, typeSpeed: 100, loop: !0, backSpeed: 60, backDelay: 2000, showCursor: !0 })</script>
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("11/06/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "小站勉强运行了 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ( ͡° ͜ʖ ͡°)✧ "; 
+    } 
+setInterval("createtime()",250);
+</script><div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><!--网站访客地理信息-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5eqiqb8vl6p&m=2&c=ff0000&cr1=ffffff&f=arial&l=33&z=17&rx=-40&lx=-540&ly=520&hi=60" async="async"></script>
+</center>
+
+<!--cnzz-->
+<center>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597820'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278597820%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</center>
+
+
+  
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/blog/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/blog/2020/10/04/Vue%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz'
+    var app_key = 'HjUUcTY42RErTnIt7O58GhvH'
+    var server_url = 'https://unkl0fxj.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 2,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Vue入门学习笔记&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    var path = "/blog/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+  <script>(function (i, s, o, g, r, a, m) {
+      i['DaoVoiceObject'] = r;
+      i[r] = i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        };
+      i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      a.charset = 'utf-8';
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/87b73b33.js", 'daovoice');
+    daovoice('init', {
+      app_id: "87b73b33",
+    });
+    daovoice('update');
+  </script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3ec76546d2bce23889863e13f01a5b5f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1278597820&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/assets/haruto.model.json"},"display":{"position":"left","width":150,"height":300},"tagMode":false,"debug":false,"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
