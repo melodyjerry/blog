@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      666 字
+      1.6k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      21
        分钟
     </span>
   
@@ -216,14 +216,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 个月前
+                  本文最后更新于：10 分钟前
                 
               </p>
             
             <article class="markdown-body">
               <a id="more"></a>
 
-<h1 id="1、安装-VS-Code"><a href="#1、安装-VS-Code" class="headerlink" title="1、安装 VS Code"></a>1、安装 VS Code</h1><p>官网下载安装包直接安装即可 </p>
+<h1 id="1、安装-VS-Code"><a href="#1、安装-VS-Code" class="headerlink" title="1、安装 VS Code"></a>1、安装 VS Code</h1><p>官网下载安装包直接安装即可  </p>
 <p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></p>
 <h1 id="2、VS-Code-插件"><a href="#2、VS-Code-插件" class="headerlink" title="2、VS Code 插件"></a>2、VS Code 插件</h1><ol>
 <li>C/C++</li>
@@ -253,112 +253,110 @@
 <h1 id="6、VS-Code-配置运行环境"><a href="#6、VS-Code-配置运行环境" class="headerlink" title="6、VS Code 配置运行环境"></a>6、VS Code 配置运行环境</h1><p>打开vscode，选择或新建一个空文件夹目录打开作为项目目录。<br>点击“文件”按钮，再点击“新建文件夹”按钮，并重命名为”<code>.vscode</code>”。<br>在该文件夹内，在点击“新建文件”按钮，建<code>launch.json</code>，<code>settings.json</code>，<code>tasks.json</code>三个.json文件。</p>
 <h2 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h2><pre><code class="hljs json">{
     <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,
-    <span class="hljs-attr">"configurations"</span>: [
-        {
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"(gdb) Launch"</span>,
-            <span class="hljs-attr">"preLaunchTask"</span>: <span class="hljs-string">"build"</span>,
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"cppdbg"</span>,
-            <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
-            <span class="hljs-attr">"program"</span>: <span class="hljs-string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,
-            <span class="hljs-attr">"args"</span>: [],
-            <span class="hljs-attr">"stopAtEntry"</span>: <span class="hljs-literal">false</span>,
-            <span class="hljs-attr">"cwd"</span>: <span class="hljs-string">"${workspaceFolder}"</span>,
-            <span class="hljs-attr">"environment"</span>: [],
-            <span class="hljs-attr">"externalConsole"</span>: <span class="hljs-literal">true</span>,
-            <span class="hljs-attr">"MIMode"</span>: <span class="hljs-string">"gdb"</span>,
-            <span class="hljs-attr">"miDebuggerPath"</span>: <span class="hljs-string">"C:/Program Files/mingw-w64/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/gdb.exe"</span>, <span class="hljs-comment">// 这里修改GDB路径为安装的mingw64的bin下的gdb.exe路径</span>
-            <span class="hljs-attr">"setupCommands"</span>: [
-                {
-                    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Enable pretty-printing for gdb"</span>,
-                    <span class="hljs-attr">"text"</span>: <span class="hljs-string">"-enable-pretty-printing"</span>,
-                    <span class="hljs-attr">"ignoreFailures"</span>: <span class="hljs-literal">true</span>,
-                }
-            ]
-        }]
+    <span class="hljs-attr">"configurations"</span>: [{
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"(gdb) Launch"</span>, <span class="hljs-comment">// 配置名称，将会在启动配置的下拉菜单中显示</span>
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"cppdbg"</span>, <span class="hljs-comment">// 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg</span>
+        <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>, <span class="hljs-comment">// 请求配置类型，可以为launch（启动）或attach（附加）</span>
+        <span class="hljs-attr">"program"</span>: <span class="hljs-string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>, <span class="hljs-comment">// 将要进行调试的程序的路径</span>
+        <span class="hljs-attr">"args"</span>: [], <span class="hljs-comment">// 程序调试时传递给程序的命令行参数，一般设为空即可</span>
+        <span class="hljs-attr">"stopAtEntry"</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 设为true时程序将暂停在程序入口处，相当于在main上打断点</span>
+        <span class="hljs-attr">"cwd"</span>: <span class="hljs-string">"${workspaceFolder}"</span>, <span class="hljs-comment">// 调试程序时的工作目录，此为工作区文件夹；改成${fileDirname}可变为文件所在目录</span>
+        <span class="hljs-attr">"environment"</span>: [], <span class="hljs-comment">// 环境变量</span>
+        <span class="hljs-attr">"externalConsole"</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 为true时使用单独的cmd窗口，与其它IDE一致；18年10月后设为false可调用VSC内置终端</span>
+        <span class="hljs-attr">"internalConsoleOptions"</span>: <span class="hljs-string">"neverOpen"</span>, <span class="hljs-comment">// 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，你应该不需要对gdb手动输命令吧？</span>
+        <span class="hljs-attr">"MIMode"</span>: <span class="hljs-string">"gdb"</span>, <span class="hljs-comment">// 指定连接的调试器，可以为gdb或lldb。但我没试过lldb</span>
+        <span class="hljs-attr">"miDebuggerPath"</span>: <span class="hljs-string">"E:\\mingw64\\bin\\gdb.exe"</span>, <span class="hljs-comment">// 调试器路径，Windows下后缀不能省略，Linux下则不要</span>
+        <span class="hljs-attr">"setupCommands"</span>: [
+            { <span class="hljs-comment">// 模板自带，好像可以更好地显示STL容器的内容，具体作用自行Google</span>
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Enable pretty-printing for gdb"</span>,
+                <span class="hljs-attr">"text"</span>: <span class="hljs-string">"-enable-pretty-printing"</span>,
+                <span class="hljs-attr">"ignoreFailures"</span>: <span class="hljs-literal">false</span>
+            }
+        ],
+        <span class="hljs-attr">"preLaunchTask"</span>: <span class="hljs-string">"Compile"</span> <span class="hljs-comment">// 调试会话开始前执行的任务，一般为编译程序。与tasks.json的label相对应</span>
+    }]
 }</code></pre>
 
 <h2 id="tasks-json"><a href="#tasks-json" class="headerlink" title="tasks.json"></a>tasks.json</h2><pre><code class="hljs json">{
     <span class="hljs-attr">"version"</span>: <span class="hljs-string">"2.0.0"</span>,
     <span class="hljs-attr">"tasks"</span>: [
         {
-            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"build"</span>,
             <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shell"</span>,
-            <span class="hljs-attr">"group"</span>: {
-                <span class="hljs-attr">"kind"</span>: <span class="hljs-string">"build"</span>,
-                <span class="hljs-attr">"isDefault"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Compile"</span>,
+            <span class="hljs-attr">"command"</span>: <span class="hljs-string">"E:\\mingw64\\bin\\g++.exe"</span>, <span class="hljs-comment">// 修改</span>
+            <span class="hljs-attr">"args"</span>: [
+                <span class="hljs-string">"-g"</span>,
+                <span class="hljs-string">"${file}"</span>,
+                <span class="hljs-string">"-o"</span>,
+                <span class="hljs-string">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span>
+            ],
+            <span class="hljs-attr">"options"</span>: {
+                <span class="hljs-attr">"cwd"</span>: <span class="hljs-string">"E:\\mingw64\\bin"</span> <span class="hljs-comment">// 修改</span>
             },
-            <span class="hljs-attr">"presentation"</span>: {
-                <span class="hljs-attr">"echo"</span>: <span class="hljs-literal">true</span>,
-                <span class="hljs-attr">"reveal"</span>: <span class="hljs-string">"always"</span>,
-                <span class="hljs-attr">"focus"</span>: <span class="hljs-literal">false</span>,
-                <span class="hljs-attr">"panel"</span>: <span class="hljs-string">"shared"</span>
+            <span class="hljs-attr">"problemMatcher"</span>: [
+                <span class="hljs-string">"$gcc"</span>
+            ],
+            <span class="hljs-attr">"group"</span>: <span class="hljs-string">"build"</span>
+        },
+        {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shell"</span>,
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"C/C++: cpp.exe build active file"</span>,
+            <span class="hljs-attr">"command"</span>: <span class="hljs-string">"E:\\mingw64\\bin\\cpp.exe"</span>, <span class="hljs-comment">// 修改</span>
+            <span class="hljs-attr">"args"</span>: [
+                <span class="hljs-string">"-g"</span>,
+                <span class="hljs-string">"${file}"</span>,
+                <span class="hljs-string">"-o"</span>,
+                <span class="hljs-string">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span>
+            ],
+            <span class="hljs-attr">"options"</span>: {
+                <span class="hljs-attr">"cwd"</span>: <span class="hljs-string">"E:\\mingw64\\bin"</span> <span class="hljs-comment">// 修改</span>
             },
-            <span class="hljs-attr">"windows"</span>: {
-                <span class="hljs-attr">"command"</span>: <span class="hljs-string">"g++"</span>,
-                <span class="hljs-attr">"args"</span>: [
-                    <span class="hljs-string">"-ggdb"</span>,
-                    <span class="hljs-string">"\"${file}\""</span>,
-                    <span class="hljs-string">"--std=c++11"</span>,
-                    <span class="hljs-string">"-o"</span>,
-                    <span class="hljs-string">"\"${fileDirname}\\${fileBasenameNoExtension}.exe\""</span>,
-                    <span class="hljs-string">"-finput-charset=UTF-8"</span>,<span class="hljs-comment">//输入编译器文本编码 默认为UTF-8</span>
-                    <span class="hljs-string">"-fexec-charset=GBK"</span><span class="hljs-comment">//编译器输出文本编码 自行选择</span>
-                ]
-            }
+            <span class="hljs-attr">"problemMatcher"</span>: [
+                <span class="hljs-string">"$gcc"</span>
+            ],
+            <span class="hljs-attr">"group"</span>: <span class="hljs-string">"build"</span>
+        },
+        {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shell"</span>,
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"C/C++: g++.exe build active file"</span>,
+            <span class="hljs-attr">"command"</span>: <span class="hljs-string">"E:\\mingw64\\bin\\g++.exe"</span>, <span class="hljs-comment">// 修改</span>
+            <span class="hljs-attr">"args"</span>: [
+                <span class="hljs-string">"-g"</span>,
+                <span class="hljs-string">"${file}"</span>,
+                <span class="hljs-string">"-o"</span>,
+                <span class="hljs-string">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span>
+            ],
+            <span class="hljs-attr">"options"</span>: {
+                <span class="hljs-attr">"cwd"</span>: <span class="hljs-string">"E:\\mingw64\\bin"</span> <span class="hljs-comment">// 修改</span>
+            },
+            <span class="hljs-attr">"problemMatcher"</span>: [
+                <span class="hljs-string">"$gcc"</span>
+            ],
+            <span class="hljs-attr">"group"</span>: <span class="hljs-string">"build"</span>
         }
     ]
 }</code></pre>
 
-<h2 id="settings-json"><a href="#settings-json" class="headerlink" title="settings.json"></a>settings.json</h2><pre><code class="hljs json"><span class="hljs-comment">// Configuring tasks.json for C/C++ debugging </span>
-<span class="hljs-comment">// author: huihut</span>
-<span class="hljs-comment">// repo: https://gist.github.com/huihut/887d3c28db92617bd5148c20a5ff112a</span>
+<h2 id="settings-json"><a href="#settings-json" class="headerlink" title="settings.json"></a>settings.json</h2><pre><code class="hljs nsis">{
+    <span class="hljs-string">"files.defaultLanguage"</span>: <span class="hljs-string">"c"</span>, // ctrl+N新建文件后默认的语言
+    <span class="hljs-string">"editor.formatOnType"</span>: <span class="hljs-literal">true</span>,  // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码
+    <span class="hljs-string">"editor.suggest.snippetsPreventQuickSuggestions"</span>: <span class="hljs-literal">false</span>, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+    <span class="hljs-string">"editor.acceptSuggestionOnEnter"</span>: <span class="hljs-string">"off"</span>, // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
+    // <span class="hljs-string">"editor.snippetSuggestions"</span>: <span class="hljs-string">"top"</span>, // （可选）snippets显示在补全列表顶端，默认是inline
 
-<span class="hljs-comment">// Available variables which can be used inside of strings.</span>
-<span class="hljs-comment">// ${workspaceRoot}: the root folder of the team        </span>
-<span class="hljs-comment">// ${file}: the current opened file                     </span>
-<span class="hljs-comment">// ${fileBasename}: the current opened file's basename </span>
-<span class="hljs-comment">// ${fileDirname}: the current opened file's dirname    </span>
-<span class="hljs-comment">// ${fileExtname}: the current opened file's extension  </span>
-<span class="hljs-comment">// ${cwd}: the current working directory of the spawned process</span>
+    <span class="hljs-string">"code-runner.runInTerminal"</span>: <span class="hljs-literal">true</span>, // 设置成<span class="hljs-literal">false</span>会在“输出”中输出，无法输入
+    <span class="hljs-string">"code-runner.executorMap"</span>: {
+        <span class="hljs-string">"c"</span>: <span class="hljs-string">"cd <span class="hljs-variable">$dir</span> &amp;&amp; gcc '<span class="hljs-variable">$fileName</span>' -o '<span class="hljs-variable">$fileNameWithoutExt</span>.exe' -Wall -g -O2 -static-libgcc -std=c11 -fexec-charset=GBK &amp;&amp; &amp;'<span class="hljs-variable">$dir</span><span class="hljs-variable">$fileNameWithoutExt</span>'"</span>,
+        <span class="hljs-string">"cpp"</span>: <span class="hljs-string">"cd <span class="hljs-variable">$dir</span> &amp;&amp; g++ '<span class="hljs-variable">$fileName</span>' -o '<span class="hljs-variable">$fileNameWithoutExt</span>.exe' -Wall -g -O2 -static-libgcc -std=c++17 -fexec-charset=GBK &amp;&amp; &amp;'<span class="hljs-variable">$dir</span><span class="hljs-variable">$fileNameWithoutExt</span>'"</span>
+        // <span class="hljs-string">"c"</span>: <span class="hljs-string">"cd <span class="hljs-variable">$dir</span> &amp;&amp; gcc <span class="hljs-variable">$fileName</span> -o <span class="hljs-variable">$fileNameWithoutExt</span>.exe -Wall -g -O2 -static-libgcc -std=c11 -fexec-charset=GBK &amp;&amp; <span class="hljs-variable">$dir</span><span class="hljs-variable">$fileNameWithoutExt</span>"</span>,
+        // <span class="hljs-string">"cpp"</span>: <span class="hljs-string">"cd <span class="hljs-variable">$dir</span> &amp;&amp; g++ <span class="hljs-variable">$fileName</span> -o <span class="hljs-variable">$fileNameWithoutExt</span>.exe -Wall -g -O2 -static-libgcc -std=c++17 -fexec-charset=GBK &amp;&amp; <span class="hljs-variable">$dir</span><span class="hljs-variable">$fileNameWithoutExt</span>"</span>
+    }, // 右键run code时运行的命令；未注释的仅适用于PowerShell（<span class="hljs-literal">Win10</span>默认），文件名中有空格也可以编译运行；注释掉的适用于cmd（win7默认），PS和bash也能用，但文件名中有空格时无法运行
+    <span class="hljs-string">"code-runner.saveFileBeforeRun"</span>: <span class="hljs-literal">true</span>, // run code前保存
+    <span class="hljs-string">"code-runner.preserveFocus"</span>: <span class="hljs-literal">true</span>,     // 若为<span class="hljs-literal">false</span>，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为<span class="hljs-literal">false</span>
+    <span class="hljs-string">"code-runner.clearPreviousOutput"</span>: <span class="hljs-literal">false</span>, // 每次run code前清空属于code runner的终端消息，默认<span class="hljs-literal">false</span>
+    <span class="hljs-string">"code-runner.ignoreSelection"</span>: <span class="hljs-literal">true</span>,   // 默认为<span class="hljs-literal">false</span>，效果是鼠标选中一块代码后可以单独执行，但C是编译型语言，不适合这样用
 
-
-{
-    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"2.0.0"</span>,
-    <span class="hljs-attr">"tasks"</span>: [
-        {
-            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"build"</span>,
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shell"</span>,
-            <span class="hljs-attr">"group"</span>: {
-                <span class="hljs-attr">"kind"</span>: <span class="hljs-string">"build"</span>,
-                <span class="hljs-attr">"isDefault"</span>: <span class="hljs-literal">true</span>
-            },
-            <span class="hljs-attr">"presentation"</span>: {
-                <span class="hljs-attr">"echo"</span>: <span class="hljs-literal">true</span>,
-                <span class="hljs-attr">"reveal"</span>: <span class="hljs-string">"always"</span>,
-                <span class="hljs-attr">"focus"</span>: <span class="hljs-literal">false</span>,
-                <span class="hljs-attr">"panel"</span>: <span class="hljs-string">"shared"</span>
-            },
-            <span class="hljs-attr">"windows"</span>: {
-                <span class="hljs-attr">"command"</span>: <span class="hljs-string">"g++"</span>,
-                <span class="hljs-attr">"args"</span>: [
-                    <span class="hljs-string">"-ggdb"</span>,
-                    <span class="hljs-string">"\"${file}\""</span>,
-                    <span class="hljs-string">"--std=c++11"</span>,
-                    <span class="hljs-string">"-o"</span>,
-                    <span class="hljs-string">"\"${fileDirname}\\${fileBasenameNoExtension}.exe\""</span>
-                ]
-            }
-        }
-    ],
-    <span class="hljs-attr">"files.autoSave"</span>: <span class="hljs-string">"afterDelay"</span>,
-    <span class="hljs-attr">"[c]"</span>: {
-
-    },
-    <span class="hljs-attr">"files.encoding"</span>: <span class="hljs-string">"utf8"</span>,
-    <span class="hljs-attr">"files.autoGuessEncoding"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"explorer.confirmDragAndDrop"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-attr">"workbench.colorTheme"</span>: <span class="hljs-string">"Visual Studio Dark"</span>,
-    <span class="hljs-attr">"team.showWelcomeMessage"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"C_Cpp.clang_format_sortIncludes"</span>: <span class="hljs-literal">true</span>, // 格式化时调整include的顺序（按字母排序）
 }</code></pre>
 
 <h2 id="工作区设置（可选）"><a href="#工作区设置（可选）" class="headerlink" title="工作区设置（可选）"></a>工作区设置（可选）</h2><pre><code class="hljs json">{
@@ -378,6 +376,28 @@
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 
+<h1 id="8、-Code-Runner编译运行"><a href="#8、-Code-Runner编译运行" class="headerlink" title="8、 Code Runner编译运行"></a>8、 Code Runner编译运行</h1><p>有两种方法：编辑区右上角小三角快捷键，在 Windows 和 Linux 下一般默认是 Ctrl + Alt + N </p>
+<img src="https://pic4.zhimg.com/50/v2-8342d1c54708bd3dcc32a8c71604942e_hd.jpg" data-size="normal" data-rawwidth="289" data-rawheight="120" data-default-watermark-src="https://pic3.zhimg.com/50/v2-8dd39bc682fd0ec8c6aebb8b710f554f_hd.jpg" srcset="/blog/img/loading.gif" class="content_image" width="289">
+
+<p>小三角程序会在输出面板输出</p>
+<img src="https://pic1.zhimg.com/50/v2-971cc8b8dcd7e29b0cd902d2286fb795_hd.jpg" data-caption="" data-size="normal" data-rawwidth="496" data-rawheight="153" data-default-watermark-src="https://pic3.zhimg.com/50/v2-48978562080644049dca74c86d3b0a16_hd.jpg" srcset="/blog/img/loading.gif" class="origin_image zh-lightbox-thumb" width="496" data-original="https://pic1.zhimg.com/v2-971cc8b8dcd7e29b0cd902d2286fb795_r.jpg">
+
+<p>有个缺点是不能输入……所以要到设置页做一点轻微的改动：</p>
+<img src="https://pic2.zhimg.com/50/v2-95fda2928fdf61e1ad0a049deaf0ff9e_hd.jpg" data-caption="" data-size="normal" data-rawwidth="529" data-rawheight="511" data-default-watermark-src="https://pic1.zhimg.com/50/v2-ba1c5400401f9e8dddad33f447488124_hd.jpg" srcset="/blog/img/loading.gif" class="origin_image zh-lightbox-thumb" width="529" data-original="https://pic2.zhimg.com/v2-95fda2928fdf61e1ad0a049deaf0ff9e_r.jpg">
+
+<p>可以按图中勾上选项或去掉默认的勾最重要就是倒数第二个 Run In Terminal，勾上后插件会调用 VS Code 的内置终端并在其中运行程序，可以满足输入要求。</p>
+<p>如果编译时要带参数，比如 <code>-std=c++11</code> <code>-Wall</code> ，要编辑 Code Runner 的 <code>"code-runner.executorMap"</code>，在用户设置改动以覆盖，比如改成：</p>
+<pre><code class="hljs bash"><span class="hljs-string">"code-runner.executorMap"</span>: {
+    <span class="hljs-string">"c"</span>: <span class="hljs-string">"cd <span class="hljs-variable">$dirWithoutTrailingSlash</span> &amp;&amp; gcc <span class="hljs-variable">$fileName</span> -o <span class="hljs-variable">$fileNameWithoutExt</span>.exe -std=c11 -Wall -lm &amp;&amp; ./<span class="hljs-variable">$fileNameWithoutExt</span>.exe"</span>
+}</code></pre>
+
+<p>关于 <code>$</code> 开头的参数是 Code Runner 插件的 定义，详见 <a href="https://link.zhihu.com/?target=https%3A//marketplace.visualstudio.com/items%3FitemName%3Dformulahendry.code-runner">Code Runner - Visual Studio Marketplace</a><a href="https://link.zhihu.com/?target=https%3A//marketplace.visualstudio.com/items%3FitemName%3Dformulahendry.code-runner">marketplace.visualstudio.com</a></p>
+<p>要使用 Debug 等功能，可以参考这篇文章：<br><a href="https://zhuanlan.zhihu.com/p/35178331" target="_blank" rel="noopener">VS Code 搭建 C/C++ 编译运行环境的三种方案​</a></p>
+<p>里面介绍了三种方案来编译运行 C/C++ </p>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
+<li><a href="https://www.zhihu.com/question/30315894" target="_blank" rel="noopener">https://www.zhihu.com/question/30315894</a></li>
+<li><a href="https://www.cnblogs.com/bpf-1024/p/11597000.html" target="_blank" rel="noopener">https://www.cnblogs.com/bpf-1024/p/11597000.html</a></li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -401,6 +421,13 @@
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/categories/uncategorized/">uncategorized</a>
+                    
+                  </div>
                 
                 
                   <div class="post-meta">
@@ -429,8 +456,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/blog/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%A8%A1%E6%8B%9F%E6%AD%A3%E6%95%B4%E6%95%B0%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E9%87%8F/">
-                        <span class="hidden-mobile">蓝桥杯-模拟正整数序列的数量</span>
+                      <a href="/blog/2020/03/15/%E5%96%9C%E6%AC%A2%E7%9A%84%E5%A4%A9%E3%80%81%E5%96%9C%E6%AC%A2%E7%9A%84%E9%A3%8E%E3%80%81%E5%96%9C%E6%AC%A2%E7%9A%84%E9%98%B3%E5%85%89/">
+                        <span class="hidden-mobile">喜欢的天、喜欢的风、喜欢的阳光</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
