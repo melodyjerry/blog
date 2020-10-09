@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      276 字
+      791 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      12
        分钟
     </span>
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：16 小时前
                 
               </p>
             
@@ -235,22 +235,24 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Vue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-
+ 
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- view层 模板 --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
         <span class="hljs-comment">&lt;!-- &lt;li&gt; Hello, MelodyJerry! &lt;/li&gt; --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">MelodyJerry</span>&gt;</span> Hello, MelodyJerry! <span class="hljs-tag">&lt;/<span class="hljs-name">MelodyJerry</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">melody</span>&gt;</span> Hello, MelodyJerry! <span class="hljs-tag">&lt;/<span class="hljs-name">melody</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- &lt;MelodyJerry&gt; Hello, MelodyJerry! &lt;/MelodyJerry&gt; --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
+ 
     <span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
 <span class="actionscript">        <span class="hljs-comment">//先注册组件，定义一个Vue组件component</span></span>
-<span class="actionscript">        Vue.component(<span class="hljs-string">"MelodyJerry"</span>,{ <span class="hljs-comment">//组件名必须全小写，一旦有大写，就会注册错误</span></span>
+<span class="actionscript">        Vue.component(<span class="hljs-string">"melody"</span>,{ <span class="hljs-comment">//组件名必须全小写，一旦有大写，就会注册错误</span></span>
+<span class="actionscript">        <span class="hljs-comment">// Vue.component("MelodyJerry",{ </span></span>
 <span class="handlebars"><span class="xml">            template: '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> This is a Vue-Component. <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>'</span></span>
         });
-
+ 
 <span class="actionscript">        <span class="hljs-comment">//再实例化Vue</span></span>
 <span class="actionscript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({</span>
 <span class="actionscript">            el: <span class="hljs-string">"#app"</span>,</span>
@@ -265,7 +267,111 @@
 <p>正确显示，应该是：</p>
 <pre><code class="hljs mercury">· This <span class="hljs-keyword">is</span> a Vue-Component.</code></pre>
 
+<h1 id="methods和computed里调用方法要不要"><a href="#methods和computed里调用方法要不要" class="headerlink" title="methods和computed里调用方法要不要()"></a>methods和computed里调用方法要不要()</h1><ul>
+<li>调用<code>methods</code>里的方法,<code>得用()</code><ul>
+<li><code>methods</code>是<code>方法</code></li>
+</ul>
+</li>
+<li>调用<code>computed</code>的方法,<code>不能用()</code><ul>
+<li><code>computed</code>是<code>计算属性</code>，是<code>属性</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Vue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- view层 模板 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 调用methods里的方法,得用() --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>currentTime1: {{currentTime1()}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 调用计算属性computed的方法,不能用() --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>currentTime2: {{currentTime2}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({</span>
+<span class="actionscript">            el: <span class="hljs-string">"#app"</span>,</span>
+            data: {
+<span class="actionscript">                message: <span class="hljs-string">"hello,melodyjerry."</span></span>
+            },
+            methods: {
+<span class="actionscript">                currentTime1: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</span>
+<span class="javascript">                    <span class="hljs-keyword">var</span> Xmas95 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"December 25, 1995 23:15:30"</span>);</span>
+<span class="actionscript">                    <span class="hljs-keyword">return</span> Xmas95.getDay(); <span class="hljs-comment">//1;返回数值代表星期几：0代表星期日,1代表星期一,2代表星期二</span></span>
+                },
+            },
+
+<span class="actionscript">            <span class="hljs-comment">//计算属性</span></span>
+<span class="actionscript">            computed: { <span class="hljs-comment">//methods、computed中的方法名不能重名;重名后，只会调用methods中的方法</span></span>
+<span class="actionscript">                currentTime2: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</span>
+<span class="actionscript">                <span class="hljs-comment">//currentTime1: function() {</span></span>
+<span class="javascript">                    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now(); <span class="hljs-comment">//返回一个时间戳</span></span>
+                },
+            },
+        })
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<h1 id="methods、computed中的方法名不能重名"><a href="#methods、computed中的方法名不能重名" class="headerlink" title="methods、computed中的方法名不能重名"></a>methods、computed中的方法名不能重名</h1><ul>
+<li>重名后，只会调用methods中的方法</li>
+</ul>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Vue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- view层 模板 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 调用方法得用() --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>currentTime1: {{currentTime1()}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>currentTime1: {{currentTime1}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({</span>
+<span class="actionscript">            el: <span class="hljs-string">"#app"</span>,</span>
+            data: {
+<span class="actionscript">                message: <span class="hljs-string">"hello,melodyjerry."</span></span>
+            },
+            methods: {
+<span class="actionscript">                currentTime1: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</span>
+<span class="javascript">                    <span class="hljs-keyword">var</span> Xmas95 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"December 25, 1995 23:15:30"</span>);</span>
+<span class="actionscript">                    <span class="hljs-keyword">return</span> Xmas95.getDay(); <span class="hljs-comment">//1;返回数值代表星期几：0代表星期日,1代表星期一,2代表星期二</span></span>
+                },
+            },
+
+<span class="actionscript">            <span class="hljs-comment">//计算属性</span></span>
+<span class="actionscript">            computed: { <span class="hljs-comment">//methods、computed中的方法名不能重名;重名后，只会调用methods中的方法</span></span>
+<span class="actionscript">                currentTime1: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</span>
+<span class="javascript">                    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now(); <span class="hljs-comment">//返回一个时间戳</span></span>
+                },
+            },
+        })
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<p>页面显示：</p>
+<pre><code class="hljs http"><span class="hljs-attribute">currentTime1</span>: 1
+
+<span class="hljs-attribute">currentTime1</span>: function () { [native code] }</code></pre>
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -291,13 +397,6 @@
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/categories/uncategorized/">uncategorized</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
@@ -318,6 +417,12 @@
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/blog/2020/10/08/Vue%E6%8C%87%E4%BB%A4%EF%BC%9Av-clock%E8%A7%A3%E5%86%B3%E9%A1%B5%E9%9D%A2%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue指令：v-clock解决页面闪烁问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">

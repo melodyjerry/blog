@@ -163,12 +163,18 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 352 篇文章</p>
+  <p class="h4">共计 353 篇文章</p>
   <hr>
   
     
       
       <p class="h5">2020</p>
+    
+    <a href="/blog/2020/10/08/Vue%E6%8C%87%E4%BB%A4%EF%BC%9Av-clock%E8%A7%A3%E5%86%B3%E9%A1%B5%E9%9D%A2%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Vue指令：v-clock解决页面闪烁问题</span>
+      <span style="float: right;">10-08</span>
+    </a>
+  
     
     <a href="/blog/2020/10/06/Vue%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Vue踩坑记录</span>
@@ -223,13 +229,19 @@
       <span style="float: right;">10-03</span>
     </a>
   
-    
-    <a href="/blog/2020/10/02/%E3%80%90%E7%8B%82%E7%A5%9E%E8%AF%B4Java%E3%80%91SpringBoot%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">【狂神说Java】SpringBoot笔记存档</span>
-      <span style="float: right;">10-02</span>
-    </a>
-  
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/archives/2020/10/page/2/">2</a><a class="extend next" rel="next" href="/blog/archives/2020/10/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9.8k 字
+      12.3k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      121
+      154
        分钟
     </span>
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：6 分钟前
                 
               </p>
             
@@ -519,7 +519,7 @@
 <li>Vue.js 就是一个MVVM的实现者，他的核心就是实现了<strong>DOM监听</strong>与<strong>数据绑定</strong>。</li>
 </ul>
 <p>1、新建一个HTML文件</p>
-<p>2、引入Vue.js</p>
+<p>2、导入Vue.js</p>
 <pre><code class="hljs js">&lt;script src=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
 
 <p>3、创建一个Yue对象实例</p>
@@ -542,9 +542,7 @@
 <p>4、将实例绑定到页面元素</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span> {{message}} <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
-<blockquote>
-<p>只需要在绑定的元素中使用 <code>{{}}</code> 将 <code>Vue</code> 创建的名为 <code>message</code>属性包裹起来，即可实现数据绑定功能，也就实现了 ViewModel 层所需的效果，是不是和 EL 表达式非常像？</p>
-</blockquote>
+<p>只需要在绑定的元素中使用 <code>双{}</code> 将 <code>Vue</code> 创建的名为 <code>message</code>属性包裹起来，即可实现数据绑定功能，也就实现了 ViewModel 层所需的效果，是不是和 EL 表达式非常像？</p>
 <p>5、完整代码</p>
 <pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
@@ -1061,6 +1059,348 @@ vm.type=<span class="hljs-string">'A'</span></code></pre>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
+<h1 id="十、Axios异步通信"><a href="#十、Axios异步通信" class="headerlink" title="十、Axios异步通信"></a>十、Axios异步通信</h1><h2 id="1-什么是Axios"><a href="#1-什么是Axios" class="headerlink" title="1. 什么是Axios"></a>1. 什么是Axios</h2><p>Axios 是一个开源的可以用在浏览器端和 <code>NodeJS</code> 的异步通信框架，她的主要作用就是实现 AJAX 异步通信，其功能特点如下：</p>
+<ul>
+<li>从浏览器中创建 <code>XMLHttpRequests</code></li>
+<li>从 node.js 创建 http 请求</li>
+<li>支持 Promise API [JS中链式编程]</li>
+<li>拦截请求和响应</li>
+<li>转换请求数据和响应数据</li>
+<li>取消请求</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持防御 XSRF（跨站请求伪造）</li>
+</ul>
+<blockquote>
+<p>GitHub：<a href="https://github.com/axios/axios" target="_blank" rel="noopener">https://github.com/axios/axios</a></p>
+</blockquote>
+<blockquote>
+<p>中文文档：<a href="http://www.axios-js.com/" target="_blank" rel="noopener">http://www.axios-js.com/</a></p>
+</blockquote>
+<h2 id="2-为什么要使用Axios"><a href="#2-为什么要使用Axios" class="headerlink" title="2. 为什么要使用Axios"></a>2. 为什么要使用Axios</h2><p>由于<code>Vue.js</code>是一个<strong>视图层框架</strong>且作者(尤雨溪) 严格准守<code>SoC (关注度分离原则)</code>，所以<code>Vue.js</code>并不包含Ajax的通信功能，为了解决通信问题，作者单独开发了一个名为<code>vue-resource</code>的插件，不过在进入2.0 版本以后停止了对该插件的维护并推荐了<code>Axios</code> 框架。少用<code>jQuery</code>，因为它操作<code>Dom</code>太频繁 !</p>
+<h2 id="3-导入Axios"><a href="#3-导入Axios" class="headerlink" title="3. 导入Axios"></a>3. 导入Axios</h2><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/axios/dist/axios.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<h2 id="4-实例-demo"><a href="#4-实例-demo" class="headerlink" title="4. 实例 demo"></a>4. 实例 demo</h2><p>咱们开发的接口大部分都是采用 JSON 格式，可以先在项目里模拟一段 JSON 数据，数据内容如下：创建一个名为 <code>data.json</code> 的文件并填入上面的内容，放在项目的根目录下。</p>
+<pre><code class="hljs json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"MelodyJerry"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://melodyhub.ltd/"</span>,
+    <span class="hljs-attr">"page"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"isNonProfit"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"address"</span>: {
+      <span class="hljs-attr">"street"</span>: <span class="hljs-string">"广州"</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"广东"</span>,
+      <span class="hljs-attr">"country"</span>: <span class="hljs-string">"中国"</span>
+    },
+    <span class="hljs-attr">"links"</span>: [
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"博客园"</span>,
+        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://www.cnblogs.com/melodyjerry/"</span>
+      },
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub"</span>,
+        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"melodyhub.ltd"</span>
+      },
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Gitee"</span>,
+        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://melodyjerry.gitee.io/"</span>
+      }
+    ]
+  }</code></pre>
+
+<p>新建一个demo.html，来试试<code>Axios</code>的异步通信：</p>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Vue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--v-clock 解决闪烁问题--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">        <span class="hljs-selector-attr">[v-clock]</span> {</span>
+            display: none;
+        }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- view层 模板 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vue"</span> <span class="hljs-attr">v-clock</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>名称：{{info.name}} <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>地址：{{info.address.country}}-{{info.address.city}}-{{info.address.street}} <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>博客：<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"info.url"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>{{info.url}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--导入axios--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({</span>
+<span class="actionscript">            el: <span class="hljs-string">"#vue"</span>,</span>
+            data: {
+<span class="actionscript">                items: [<span class="hljs-string">'Java'</span>,<span class="hljs-string">'Python'</span>,<span class="hljs-string">'Php'</span>]</span>
+            },
+<span class="actionscript">            <span class="hljs-comment">//data   : vm的属性</span></span>
+<span class="actionscript">            <span class="hljs-comment">//data() : vm方法</span></span>
+            data(){
+<span class="actionscript">                <span class="hljs-keyword">return</span>{</span>
+<span class="actionscript">                    <span class="hljs-comment">//请求的返回参数,必须和json字符串一样</span></span>
+                   info:{
+<span class="actionscript">                       name: <span class="hljs-literal">null</span>,</span>
+<span class="actionscript">                       url: <span class="hljs-literal">null</span>,</span>
+                       address: {
+<span class="actionscript">                           street: <span class="hljs-literal">null</span>,</span>
+<span class="actionscript">                           city: <span class="hljs-literal">null</span>,</span>
+<span class="actionscript">                           country: <span class="hljs-literal">null</span></span>
+                       }
+                   }
+                }
+            },
+<span class="actionscript">            <span class="hljs-comment">//钩子函数，链式编程，ES6新特性</span></span>
+            mounted(){
+<span class="javascript">                axios.get(<span class="hljs-string">"../data.json"</span>).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response.data))</span>
+<span class="javascript">                axios.get(<span class="hljs-string">"../data.json"</span>).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-built_in">console</span>.log(response.data)))</span>
+            }
+        })
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<blockquote>
+<ul>
+<li><p><code>data</code>   : vm的属性</p>
+</li>
+<li><p><code>data()</code> : vm方法</p>
+<ul>
+<li><code>return{}</code> : 请求的返回参数,必须和json字符串一样</li>
+</ul>
+</li>
+<li><p><code>mounted(){}</code> :  钩子函数，链式编程，ES6新特性</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>说明:</p>
+<ol>
+<li>在这里使用了 <code>v-bind</code> 将 <code>a:href</code> 的属性值<strong>与 Vue 实例中的数据进行绑定</strong></li>
+<li>使用 Axios 框架的 get 方法请求 <code>AJAX</code> 并<strong>自动将数据封装进了 Vue 实例的数据对象中</strong></li>
+<li>我们在data中的数据结构必须要和<code>Ajax</code>响应回来的<strong>数据格式匹配</strong>！</li>
+<li>关于代码中的<code>v-clock 解决闪烁问题</code>，可参考 <a href="https://www.cnblogs.com/melodyjerry/p/13781358.html" target="_blank" rel="noopener">Vue指令：v-clock解决页面闪烁问题</a></li>
+</ol>
+</blockquote>
+<h1 id="十一、计算属性"><a href="#十一、计算属性" class="headerlink" title="十一、计算属性"></a>十一、计算属性</h1><h2 id="1-什么是计算属性"><a href="#1-什么是计算属性" class="headerlink" title="1. 什么是计算属性"></a>1. 什么是计算属性</h2><ul>
+<li>计算属性的重点突出在 <code>属性</code> 两个字上（属性是名词），首先它是个 <code>属性</code> 其次这个属性有 <code>计算</code>的能力（计算是动词），这里的 <code>计算</code> 就是个函数；</li>
+<li>简单点说，它就是<strong>一个能够将计算结果缓存起来的属性（将行为转化成了静态的属性）</strong>，仅此而已；可以想象为缓存！</li>
+</ul>
+<h2 id="2-实例-demo"><a href="#2-实例-demo" class="headerlink" title="2. 实例 demo"></a>2. 实例 demo</h2><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Vue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- view层 模板 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 调用methods里的方法,得用() --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>currentTime1: {{currentTime1()}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 调用计算属性computed的方法,不能用() --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>currentTime2: {{currentTime2}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({</span>
+<span class="actionscript">            el: <span class="hljs-string">"#app"</span>,</span>
+            data: {
+<span class="actionscript">                message: <span class="hljs-string">"hello,melodyjerry."</span></span>
+            },
+            methods: {
+<span class="actionscript">                currentTime1: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</span>
+<span class="javascript">                    <span class="hljs-keyword">var</span> Xmas95 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"December 25, 1995 23:15:30"</span>);</span>
+<span class="actionscript">                    <span class="hljs-keyword">return</span> Xmas95.getDay(); <span class="hljs-comment">//1;返回数值代表星期几：0代表星期日,1代表星期一,2代表星期二</span></span>
+                },
+            },
+
+<span class="actionscript">            <span class="hljs-comment">//计算属性</span></span>
+<span class="actionscript">            computed: { <span class="hljs-comment">//methods、computed中的方法名不能重名;重名后，只会调用methods中的方法</span></span>
+<span class="actionscript">                currentTime2: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</span>
+<span class="actionscript">                <span class="hljs-comment">//currentTime1: function() {</span></span>
+<span class="javascript">                    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now(); <span class="hljs-comment">//返回一个时间戳</span></span>
+                },
+            },
+        })
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<blockquote>
+<p>说明：以下为自己学习时发现的<a href="https://www.cnblogs.com/melodyjerry/p/13782663.html" target="_blank" rel="noopener">踩坑记录</a>，不一定正确！！！</p>
+<ul>
+<li>调用<code>methods</code>里的方法,<code>得用()</code><ul>
+<li><code>methods</code>是<code>方法</code></li>
+</ul>
+</li>
+<li>调用<code>computed</code>的方法,<code>不能用()</code><ul>
+<li><code>computed</code>是<code>计算属性</code>，是<code>属性</code></li>
+</ul>
+</li>
+<li><code>methods</code>、<code>computed</code>中的方法名<code>不能重名</code>;重名后，<code>只会调用methods</code>中的方法</li>
+</ul>
+</blockquote>
+<h2 id="3-进阶"><a href="#3-进阶" class="headerlink" title="3. 进阶"></a>3. 进阶</h2><p><code>currentTime2</code>里加个<code>this.message;</code>试试：</p>
+<pre><code class="hljs js"><span class="hljs-comment">//计算属性</span>
+computed: { <span class="hljs-comment">//methods、computed中的方法名不能重名;重名后，只会调用methods中的方法</span>
+    currentTime2: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//currentTime1: function() {</span>
+        <span class="hljs-keyword">this</span>.message;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now(); <span class="hljs-comment">//返回一个时间戳</span>
+    },
+},</code></pre>
+
+<p>到控制台里分别试试：</p>
+<p><img src="https://s1.ax1x.com/2020/10/08/00j2KP.png" srcset="/blog/img/loading.gif" alt="00j2KP.png"></p>
+<h2 id="4-结论"><a href="#4-结论" class="headerlink" title="4. 结论"></a>4. 结论</h2><p><code>调用方法时，每次都需要进行计算</code>，既然有计算过程则必定产生系统开销，那如果这个结果是不经常变化的呢？</p>
+<ul>
+<li>此时就可以考虑<code>将这个结果缓存起来</code>，采用计算属性可以很方便的做到这一点，<strong>计算属性的<code>主要特性就是为了将不经常变化的计算结果进行缓存</code>，以节约我们的系统开销。</strong></li>
+</ul>
+<h1 id="十二、插槽slot：内容分发"><a href="#十二、插槽slot：内容分发" class="headerlink" title="十二、插槽slot：内容分发"></a>十二、插槽slot：内容分发</h1><blockquote>
+<p>文档：<a href="https://cn.vuejs.org/v2/guide/components-slots.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-slots.html</a></p>
+</blockquote>
+<h2 id="1-什么是插槽"><a href="#1-什么是插槽" class="headerlink" title="1. 什么是插槽"></a>1. 什么是插槽</h2><p>Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="noopener">Web Components 规范草案</a>，将 <code>&lt;slot&gt;</code> 元素作为承载分发内容的出口。</p>
+<p>它允许你像这样合成组件：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  Your Profile
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+
+<p>然后你在 <code>&lt;navigation-link&gt;</code> 的模板中可能会写为：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span>
+<span class="hljs-tag">  <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span></span>
+<span class="hljs-tag">  <span class="hljs-attr">class</span>=<span class="hljs-string">"nav-link"</span></span>
+<span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+
+<p>当组件渲染的时候，<code>&lt;slot&gt;&lt;/slot&gt;</code> 将会被替换为“Your Profile”。插槽内可以包含任何模板代码，包括 HTML：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 添加一个 Font Awesome 图标 --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-user"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  Your Profile
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+
+<p>甚至其它的组件：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 添加一个图标的组件 --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">font-awesome-icon</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">font-awesome-icon</span>&gt;</span>
+  Your Profile
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+
+<p>如果 <code>&lt;navigation-link&gt;</code> 的 <code>template</code> 中<strong>没有</strong>包含一个 <code>&lt;slot&gt;</code> 元素，则该组件起始标签和结束标签之间的任何内容都会被抛弃。</p>
+<h2 id="2-内容分发"><a href="#2-内容分发" class="headerlink" title="2. 内容分发"></a>2. 内容分发</h2><p>在 <code>Vue.js</code> 中我们使用 <code>&lt;slot&gt;</code> 元素作为承载分发内容的出口，作者称其为 插槽，可以应用在组合组件的场景中。</p>
+<h2 id="3-实例-demo-1"><a href="#3-实例-demo-1" class="headerlink" title="3. 实例 demo"></a>3. 实例 demo</h2><ul>
+<li>需求</li>
+</ul>
+<p>比如准备制作一个待办事项组件（todo），该组件由待办标题（todo-title）和待办内容（todo-items）组成，但这三个组件又是相互独立的，该如何操作呢？</p>
+<ul>
+<li>第一步: 定义一个待办事项的组件</li>
+</ul>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 组件：todo --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>"&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">todo</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              
+<span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">    Vue.component(<span class="hljs-string">'todo'</span>, {</span>
+<span class="handlebars"><span class="xml">        template: '<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>待办事项<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Linux<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Spring Boot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Vue<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>'</span></span>
+    });
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<ul>
+<li>第二步: 我们需要让,待办事项的标题和值实现动态绑定,怎么做呢? 我们可以留出一个插槽!</li>
+</ul>
+<ol>
+<li>将上面的代码留出一个插槽,即<code>&lt;slot&gt;</code>：</li>
+</ol>
+<pre><code class="hljs html">Vue.component('todo', {
+    template: '<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>\
+                    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"todo-title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>\
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>\
+                        <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"todo-items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>\
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>\
+               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>'
+});</code></pre>
+
+<ol start="2">
+<li>定义一个名为 <code>todo-title</code> 的待办标题组件 和 <code>todo-items</code> 的待办内容组件：</li>
+</ol>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-title'</span>, {
+    props: [<span class="hljs-string">'title'</span>],
+    template: <span class="hljs-string">'&lt;div&gt;{{title}}&lt;/div&gt;'</span>
+});
+Vue.component(<span class="hljs-string">'todo-items'</span>, {
+    <span class="hljs-comment">//这里的index,就是数组的下标,使用for循环遍历的时候,可以循环出来!</span>
+    props: [<span class="hljs-string">'index'</span>, <span class="hljs-string">'item'</span>],
+    template: <span class="hljs-string">'&lt;li&gt;{{index + 1}}. {{item}}&lt;/li&gt;'</span>,
+});</code></pre>
+
+<ol start="3">
+<li>实例化 Vue 并初始化数据：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({
+    el: <span class="hljs-string">'#app'</span>,
+    data: {
+        todoTitle: <span class="hljs-string">'Jerry学JavaWeb'</span>,
+        todoItems: [<span class="hljs-string">'Linux'</span>, <span class="hljs-string">'Spring Boot'</span>, <span class="hljs-string">'Vue'</span>],
+    }
+});</code></pre>
+
+<ol start="4">
+<li>将这些值，通过插槽插入：</li>
+</ol>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 组件：todo --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>"&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">todo</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">todo-title</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"todo-title"</span> </span>
+<span class="hljs-tag">            <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"todoTitle"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">todo-title</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">todo-items</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"todo-items"</span> </span>
+<span class="hljs-tag">            <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in todoItems"</span> </span>
+<span class="hljs-tag">            <span class="hljs-attr">v-bind:item</span>=<span class="hljs-string">"item"</span> </span>
+<span class="hljs-tag">            <span class="hljs-attr">v-bind:index</span>=<span class="hljs-string">"index"</span><span class="hljs-attr">:key</span>=<span class="hljs-string">"index"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-items</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">todo-items</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<blockquote>
+<p>说明：</p>
+<p>我们的 <code>todo-title</code> 和 <code>todo-items</code> 组件分别被分发到了 <code>todo</code> 组件的 <code>todo-title</code> 和 <code>todo-items</code> 插槽中。</p>
+</blockquote>
+<h1 id="十三、自定义事件"><a href="#十三、自定义事件" class="headerlink" title="十三、自定义事件"></a>十三、自定义事件</h1><h1 id="十一、Vue生命周期"><a href="#十一、Vue生命周期" class="headerlink" title="十一、Vue生命周期"></a>十一、Vue生命周期</h1><blockquote>
+<p><a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">官方文档</a>：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA</a></p>
+<p><a href="https://segmentfault.com/a/1190000020173042" target="_blank" rel="noopener">参考文章</a>：<a href="https://segmentfault.com/a/1190000020173042" target="_blank" rel="noopener">①</a>、<a href="https://blog.csdn.net/qq_15766181/article/details/73549933" target="_blank" rel="noopener">②</a>、<a href="https://blog.csdn.net/Meuan/article/details/104765843" target="_blank" rel="noopener">③带注释</a></p>
+</blockquote>
+<p>​    Vue 实例有一个完整的生命周期，也就是<code>从开始创建、初始化数据、编译模板、挂载 DOM、渲染→更新→渲染、卸载等一系列过程</code>，我们称这是 <code>Vue 的生命周期</code>。通俗说就是 Vue 实例从创建到销毁的过程，就是生命周期。</p>
+<p>​    在 Vue 的整个生命周期中，它提供了一系列的事件，可以让我们在事件触发时注册 JS 方法，可以让我们用自己注册的 JS 方法控制整个大局，在这些事件响应方法中的 this 直接指向的是 Vue 的实例。</p>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/10/08/0wh48e.png" srcset="/blog/img/loading.gif" alt="0wh48e.png"></li>
+</ul>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/10/08/0w4Kq1.png" srcset="/blog/img/loading.gif" alt="0w4Kq1.png"></li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1084,13 +1424,6 @@ vm.type=<span class="hljs-string">'A'</span></code></pre>
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/categories/uncategorized/">uncategorized</a>
-                    
-                  </div>
                 
                 
                   <div class="post-meta">
