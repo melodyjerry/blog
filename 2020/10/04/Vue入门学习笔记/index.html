@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>Vue入门学习笔记 - MelodyHub</title>
+  <title>Vue快速入门学习笔记 - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12.3k 字
+      14.6k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      154
+      183
        分钟
     </span>
   
@@ -216,12 +216,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 小时前
+                  本文最后更新于：5 分钟前
                 
               </p>
             
             <article class="markdown-body">
-              <p>Vue 的核心库只关注视图层，方便与第三方库或既有项目整合。</p>
+              <p>Vue 的<code>核心库只关注视图层</code>，方便与第三方库或既有项目整合。</p>
 <p>HTML + CSS + JS : 视图 ： <code>给用户看，刷新后台给的数据</code></p>
 <p>网络通信 ： <code>axios</code></p>
 <p>页面跳转 ： <code>vue-router</code></p>
@@ -1189,7 +1189,10 @@ vm.type=<span class="hljs-string">'A'</span></code></pre>
 <li>关于代码中的<code>v-clock 解决闪烁问题</code>，可参考 <a href="https://www.cnblogs.com/melodyjerry/p/13781358.html" target="_blank" rel="noopener">Vue指令：v-clock解决页面闪烁问题</a></li>
 </ol>
 </blockquote>
-<h1 id="十一、计算属性"><a href="#十一、计算属性" class="headerlink" title="十一、计算属性"></a>十一、计算属性</h1><h2 id="1-什么是计算属性"><a href="#1-什么是计算属性" class="headerlink" title="1. 什么是计算属性"></a>1. 什么是计算属性</h2><ul>
+<h1 id="十一、计算属性"><a href="#十一、计算属性" class="headerlink" title="十一、计算属性"></a>十一、计算属性</h1><blockquote>
+<p>文档：<a href="https://cn.vuejs.org/v2/guide/computed.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/computed.html</a></p>
+</blockquote>
+<h2 id="1-什么是计算属性"><a href="#1-什么是计算属性" class="headerlink" title="1. 什么是计算属性"></a>1. 什么是计算属性</h2><ul>
 <li>计算属性的重点突出在 <code>属性</code> 两个字上（属性是名词），首先它是个 <code>属性</code> 其次这个属性有 <code>计算</code>的能力（计算是动词），这里的 <code>计算</code> 就是个函数；</li>
 <li>简单点说，它就是<strong>一个能够将计算结果缓存起来的属性（将行为转化成了静态的属性）</strong>，仅此而已；可以想象为缓存！</li>
 </ul>
@@ -1389,7 +1392,265 @@ Vue.component(<span class="hljs-string">'todo-items'</span>, {
 <p>说明：</p>
 <p>我们的 <code>todo-title</code> 和 <code>todo-items</code> 组件分别被分发到了 <code>todo</code> 组件的 <code>todo-title</code> 和 <code>todo-items</code> 插槽中。</p>
 </blockquote>
-<h1 id="十三、自定义事件"><a href="#十三、自定义事件" class="headerlink" title="十三、自定义事件"></a>十三、自定义事件</h1><h1 id="十一、Vue生命周期"><a href="#十一、Vue生命周期" class="headerlink" title="十一、Vue生命周期"></a>十一、Vue生命周期</h1><blockquote>
+<h1 id="十三、自定义事件"><a href="#十三、自定义事件" class="headerlink" title="十三、自定义事件"></a>十三、自定义事件</h1><blockquote>
+<p>文档：<a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-custom-events.html</a></p>
+</blockquote>
+<h2 id="1-什么是自定义事件"><a href="#1-什么是自定义事件" class="headerlink" title="1. 什么是自定义事件"></a>1. 什么是自定义事件</h2><p>通过上面”插槽slot：内容分发”的代码不难发现，数据项在Vue的实例中，但删除操作要在组件中完成，那么组件如何才能删除Vue实例中的数据呢？</p>
+<p>此时就涉及到参数传递与事件分发了，Vue为我们提供了自定义事件的功能很好的帮助我们解决了这个问题：</p>
+<ul>
+<li>使用<code>this.$emit ('自定义事件名',参数)</code></li>
+<li><img src="https://s1.ax1x.com/2020/10/09/0Dcjld.png" srcset="/blog/img/loading.gif" alt="0Dcjld.png"></li>
+</ul>
+<blockquote>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'myEvent'</span>)</code></pre>
+
+<p>则监听这个名字的 kebab-case 版本是不会有任何效果的：</p>
+<pre><code class="hljs js">&lt;!-- 没有效果 --&gt;
+&lt;my-component v-on:my-event=<span class="hljs-string">"doSomething"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></span></code></pre>
+
+<p>不同于组件和 prop，事件名不会被用作一个 JavaScript 变量名或 property 名，所以就没有理由使用 camelCase 或 PascalCase 了。并且 <code>v-on</code> 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，所以 <code>v-on:myEvent</code> 将会变成 <code>v-on:myevent</code>——导致 <code>myEvent</code> 不可能被监听到。</p>
+<p>因此，我们推荐你<strong>始终使用 kebab-case 的事件名</strong>。</p>
+</blockquote>
+<h2 id="2-自定义组件的v-model"><a href="#2-自定义组件的v-model" class="headerlink" title="2. 自定义组件的v-model"></a>2. 自定义组件的v-model</h2><blockquote>
+<blockquote>
+<p>2.2.0+ 新增</p>
+</blockquote>
+<p>一个组件上的 <code>v-model</code> 默认会利用名为 <code>value</code> 的 prop 和名为 <code>input</code> 的事件，但是像单选框、复选框等类型的输入控件可能会将 <code>value</code> attribute 用于<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value" target="_blank" rel="noopener">不同的目的</a>。<code>model</code> 选项可以用来避免这样的冲突：</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-checkbox'</span>, {
+  model: {
+    prop: <span class="hljs-string">'checked'</span>,
+    event: <span class="hljs-string">'change'</span>
+  },
+  props: {
+    checked: <span class="hljs-built_in">Boolean</span>
+  },
+  template: <span class="hljs-string">`</span>
+<span class="hljs-string">    &lt;input</span>
+<span class="hljs-string">      type="checkbox"</span>
+<span class="hljs-string">      v-bind:checked="checked"</span>
+<span class="hljs-string">      v-on:change="$emit('change', $event.target.checked)"</span>
+<span class="hljs-string">    &gt;</span>
+<span class="hljs-string">  `</span>
+})</code></pre>
+
+<p>现在在这个组件上使用 <code>v-model</code> 的时候：</p>
+<pre><code class="hljs js">&lt;base-checkbox v-model=<span class="hljs-string">"lovingVue"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">base-checkbox</span>&gt;</span></span></code></pre>
+
+<p>这里的 <code>lovingVue</code> 的值将会传入这个名为 <code>checked</code> 的 prop。同时当 <code>&lt;base-checkbox&gt;</code> 触发一个 <code>change</code> 事件并附带一个新的值的时候，这个 <code>lovingVue</code> 的 property 将会被更新。</p>
+<p>注意你仍然需要在组件的 <code>props</code> 选项里声明 <code>checked</code> 这个 prop。</p>
+</blockquote>
+<h2 id="3-实例-demo-2"><a href="#3-实例-demo-2" class="headerlink" title="3. 实例 demo"></a>3. 实例 demo</h2><ol>
+<li>在vue的实例中,增加了 <code>methods</code> 对象并定义了一个名为 <code>removeTodoItems</code> 的方法：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({
+    el: <span class="hljs-string">'#app'</span>,
+    data: {
+        todoTitle: <span class="hljs-string">'Jerry学JavaWeb'</span>,
+        todoItems: [<span class="hljs-string">'Linux'</span>, <span class="hljs-string">'Spring Boot'</span>, <span class="hljs-string">'Vue'</span>],
+    },
+    methods: {
+        <span class="hljs-comment">//该方法可以被模板中自定义事件触发</span>
+        removeTodoItems: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除 "</span> + <span class="hljs-keyword">this</span>.todoItems[index] + <span class="hljs-string">" 成功"</span>);
+            <span class="hljs-comment">// splice():方法 向/从 数组中 添加/删除 项目，然后返回被删除的项目，其中 index 为 添加/删除 项目的位置，1 表示删除的数量</span>
+            <span class="hljs-keyword">this</span>.todoItems.splice(index, <span class="hljs-number">1</span>);
+        }
+    },
+});</code></pre>
+
+<ol start="2">
+<li>修改 <code>todo-items</code>待办内容组件的代码，增加一个删除按钮，并且绑定事件：</li>
+</ol>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-items'</span>, {
+    <span class="hljs-comment">//这里的index,就是数组的下标,使用for循环遍历的时候,可以循环出来!</span>
+    props: [<span class="hljs-string">'index'</span>, <span class="hljs-string">'item'</span>],
+    <span class="hljs-comment">// “:” 是指令 “v-bind”的缩写，“@”是指令“v-on”的缩写；“.”是修饰符</span>
+    <span class="hljs-comment">//只能绑定当前组件的方法</span>
+    template: <span class="hljs-string">'&lt;li&gt;&lt;button @click="remove_component"&gt;删除&lt;/button&gt; {{index + 1}}. {{item}}  &lt;/li&gt;'</span>,
+    methods: {
+        remove_component: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index</span>) </span>{
+            <span class="hljs-comment">//这里的 remove 是自定义事件的名称，需要在 HTML 中使用 v-on:remove 的方式指派</span>
+            <span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'remove'</span>, index);
+        }
+    }
+});</code></pre>
+
+<ol start="3">
+<li>修改 <code>todo-items</code> 待办内容组件的 HTML 代码,增加一个自定义事件,比如叫 <code>remove</code>,可以和组件的方法绑定,然后绑定到vue的方法中：</li>
+</ol>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!--增加了 v-on:remove="removeTodoItems(index)" 自定义事件，该事件会调用 Vue 实例中定义的名为 removeTodoItems 的方法--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">todo-items</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"todo-items"</span> </span>
+<span class="hljs-tag">    <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in todoItems"</span> </span>
+<span class="hljs-tag">    <span class="hljs-attr">v-bind:item</span>=<span class="hljs-string">"item"</span> </span>
+<span class="hljs-tag">    <span class="hljs-attr">v-bind:index</span>=<span class="hljs-string">"index"</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">v-on:remove</span>=<span class="hljs-string">"removeTodoItems(index)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-items</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo-items</span>&gt;</span></code></pre>
+
+<ul>
+<li>完整代码：</li>
+</ul>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Vue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 组件：todo --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>"&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">todo</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">todo-title</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"todo-title"</span> </span>
+<span class="hljs-tag">                <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"todoTitle"</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">todo-title</span>&gt;</span>
+
+            <span class="hljs-comment">&lt;!--增加了 v-on:remove="removeTodoItems(index)" 自定义事件，该事件会调用 Vue 实例中定义的名为 removeTodoItems 的方法--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">todo-items</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"todo-items"</span> </span>
+<span class="hljs-tag">                <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in todoItems"</span> </span>
+<span class="hljs-tag">                <span class="hljs-attr">v-bind:item</span>=<span class="hljs-string">"item"</span> </span>
+<span class="hljs-tag">                <span class="hljs-attr">v-bind:index</span>=<span class="hljs-string">"index"</span></span>
+<span class="hljs-tag">                <span class="hljs-attr">v-on:remove</span>=<span class="hljs-string">"removeTodoItems(index)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-items</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">todo-items</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 1.导入Vue.js --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">        Vue.component(<span class="hljs-string">'todo'</span>, {</span>
+<span class="handlebars"><span class="xml">            template: '<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                        <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"todo-title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                            <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"todo-items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>\</span></span>
+<span class="handlebars"><span class="xml">                       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>'</span></span>
+        });
+<span class="actionscript">        Vue.component(<span class="hljs-string">'todo-title'</span>, {</span>
+<span class="actionscript">            props: [<span class="hljs-string">'title'</span>], <span class="hljs-comment">//props传递参数不能使用驼峰命名法则，不然数据没法渲染到页面上</span></span>
+<span class="handlebars"><span class="xml">            template: '<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-variable">{{title}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>'</span></span>
+        });
+<span class="actionscript">        Vue.component(<span class="hljs-string">'todo-items'</span>, {</span>
+<span class="actionscript">            <span class="hljs-comment">//这里的index,就是数组的下标,使用for循环遍历的时候,可以循环出来!</span></span>
+<span class="actionscript">            props: [<span class="hljs-string">'index'</span>, <span class="hljs-string">'item'</span>],</span>
+<span class="actionscript">            <span class="hljs-comment">// “:” 是指令 “v-bind”的缩写，“@”是指令“v-on”的缩写；“.”是修饰符</span></span>
+<span class="actionscript">            <span class="hljs-comment">//只能绑定当前组件的方法</span></span>
+<span class="handlebars"><span class="xml">            template: '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"remove_component"</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> </span><span class="hljs-template-variable">{{index + 1}}</span><span class="xml">. </span><span class="hljs-template-variable">{{item}}</span><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>',</span></span>
+            methods: {
+<span class="actionscript">                remove_component: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> </span>{</span>
+<span class="actionscript">                    <span class="hljs-comment">//这里的 remove 是自定义事件的名称，需要在 HTML 中使用 v-on:remove 的方式指派</span></span>
+<span class="actionscript">                    <span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'remove'</span>, index);</span>
+                }
+            }
+        });
+        
+<span class="actionscript">        <span class="hljs-comment">//再实例化</span></span>
+<span class="actionscript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue({</span>
+<span class="actionscript">            el: <span class="hljs-string">'#app'</span>,</span>
+            data: {
+<span class="actionscript">                todoTitle: <span class="hljs-string">'Jerry学JavaWeb'</span>,</span>
+<span class="actionscript">                todoItems: [<span class="hljs-string">'Linux'</span>, <span class="hljs-string">'Spring Boot'</span>, <span class="hljs-string">'Vue'</span>],</span>
+            },
+            methods: {
+<span class="actionscript">                <span class="hljs-comment">//该方法可以被模板中自定义事件触发</span></span>
+<span class="actionscript">                removeTodoItems: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> </span>{</span>
+<span class="javascript">                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除 "</span> + <span class="hljs-keyword">this</span>.todoItems[index] + <span class="hljs-string">" 成功"</span>);</span>
+<span class="actionscript">                    <span class="hljs-comment">// splice():方法 向/从 数组中 添加/删除 项目，然后返回被删除的项目，其中 index 为 添加/删除 项目的位置，1 表示删除的数量</span></span>
+<span class="actionscript">                    <span class="hljs-keyword">this</span>.todoItems.splice(index, <span class="hljs-number">1</span>);</span>
+                }
+            },
+        });
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<h1 id="十四、入门小结"><a href="#十四、入门小结" class="headerlink" title="十四、入门小结"></a>十四、入门小结</h1><ul>
+<li><p>Vue遵循<code>Soc关注度分离原则</code></p>
+</li>
+<li><p>是<code>纯粹的视图层框架</code></p>
+</li>
+<li><p>并<code>不包含AJAX之类的通信功能</code></p>
+<ul>
+<li>为了解决通信问题，需要<code>使用Axios框架做异步通信</code></li>
+</ul>
+</li>
+<li><p>Vue 的<code>核心库只关注视图层</code>，方便与第三方库或既有项目整合</p>
+</li>
+<li><p>HTML + CSS + JS : 视图： <code>给用户看，刷新后台给的数据</code></p>
+</li>
+</ul>
+<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
+<li>数据驱动</li>
+<li>组件化</li>
+<li>虚拟DOM</li>
+</ul>
+<h2 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>借鉴了<code>AngulaJS</code>的<code>模块化</code>开发</li>
+<li>借鉴了<code>React</code>的<code>虚拟DOM</code><ul>
+<li><code>虚拟DOM</code>：把DOM操作放到内存中执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="常用的属性"><a href="#常用的属性" class="headerlink" title="常用的属性"></a>常用的属性</h2><ul>
+<li><code>v-if</code><ul>
+<li><code>v-else-if</code></li>
+<li><code>v-else</code></li>
+</ul>
+</li>
+<li><code>v-for</code></li>
+<li><code>v-on</code> : 绑定事件 , 简写为<code>@</code></li>
+<li><code>v-model</code> : 数据双向绑定</li>
+<li><code>v-bind</code> : 给组件绑定参数，简写为 <code>:</code></li>
+</ul>
+<h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><ul>
+<li>组合组件 <code>slot</code> ：插槽</li>
+<li>组件内部绑定事件需要使用到 <code>this.$emit("事件名",参数);</code></li>
+<li><code>计算属性</code>的特色：<code>缓存计算数据</code></li>
+</ul>
+<h2 id="SoC-关注度分离原则"><a href="#SoC-关注度分离原则" class="headerlink" title="SoC 关注度分离原则"></a>SoC 关注度分离原则</h2><blockquote>
+<p>内容摘自：<a href="https://www.cnblogs.com/wenhongyu/archive/2017/12/06/7992028.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenhongyu/archive/2017/12/06/7992028.html</a></p>
+</blockquote>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><p>关注点分离（Separation of concerns，SOC）是对只与“特定概念、目标”(关注点)相关联的软件组成部分进行“标识、封装和操纵”的能力，即标识、封装和操纵关注点的能力。</p>
+</li>
+<li><p>是处理复杂性的一个原则。由于关注点混杂在一起会导致复杂性大大增加，所以能够把不同的关注点分离开来，分别处理就是处理复杂性的一个原则，一种方法。</p>
+</li>
+<li><p>关注点分离是面向方面的程序设计的核心概念。分离关注点使得解决特定领域问题的代码从业务逻辑中独立出来。</p>
+</li>
+<li><p>业务逻辑的代码中不再含有针对特定领域问题代码的调用(将针对特定领域问题代码抽象化成较少的程式码，例如将代码封装成function或是class)，业务逻辑同特定领域问题的关系通过侧面来封装、维护，这样原本分散在整个应用程序中的变动就可以很好的管理起来。</p>
+</li>
+</ul>
+<h3 id="具体说明（概念比较难理解）"><a href="#具体说明（概念比较难理解）" class="headerlink" title="具体说明（概念比较难理解）"></a>具体说明（概念比较难理解）</h3><ol>
+<li>好的架构设计必须把变化点错落有致地封装到软件系统的不同部分。要做到这一点，必须进行关注点分离。</li>
+<li>好的架构必须使每个关注点相互分离，也就是说系统中的一个部分发生了变化，不会影响其他部分。</li>
+<li>即使需要改变，也能够清晰地识别出那些部分需要改变。</li>
+<li>如果需要扩展架构，影响将会最小化，已经可以工作的每个部分都将继续工作。</li>
+</ol>
+<h3 id="上述论述中的四句话总结"><a href="#上述论述中的四句话总结" class="headerlink" title="上述论述中的四句话总结"></a>上述论述中的四句话总结</h3><ul>
+<li>“系统中的一个部分发生了变化，不会影响其他部分。”</li>
+<li>“即使需要改变，也能够清晰地识别出那些部分需要改变。”</li>
+<li>“如果需要扩展架构，将影响最小化，已经可以工作的每个部分都将继续工作。”</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/10/09/0rgeq1.png" srcset="/blog/img/loading.gif" alt="0rgeq1.png"></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
+<li>关注点分离原则不仅体现在问题求解、算法设计、软件设计等设计方法中，同时也体现在软件开发过程、软件项目管理以及软件开发方法学等诸多方。</li>
+<li>在某种意义上，正是对软件开发不同关注点的分离视角和关注重点的差别，导致了软件开发技术和开发方法的演变和发展。</li>
+</ul>
+<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><p>大神们说，Vue的实际开发都是：</p>
+<ul>
+<li>基于 <code>NodeJS</code></li>
+<li>实际采用 <code>vue-cli</code>脚手架</li>
+<li>网络通信 ： <code>axios</code></li>
+<li>页面跳转、路由用 <code>vue-router</code></li>
+<li>状态管理用 <code>vuex</code></li>
+<li>UI 界面<ul>
+<li><code>Element UI</code>（饿了么出品）</li>
+<li><code>ICE</code>（阿里巴巴出品）</li>
+</ul>
+</li>
+</ul>
+<h1 id="十五、Vue生命周期"><a href="#十五、Vue生命周期" class="headerlink" title="十五、Vue生命周期"></a>十五、Vue生命周期</h1><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">官方文档</a>：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA</a></p>
 <p><a href="https://segmentfault.com/a/1190000020173042" target="_blank" rel="noopener">参考文章</a>：<a href="https://segmentfault.com/a/1190000020173042" target="_blank" rel="noopener">①</a>、<a href="https://blog.csdn.net/qq_15766181/article/details/73549933" target="_blank" rel="noopener">②</a>、<a href="https://blog.csdn.net/Meuan/article/details/104765843" target="_blank" rel="noopener">③带注释</a></p>
 </blockquote>
@@ -1424,13 +1685,6 @@ Vue.component(<span class="hljs-string">'todo-items'</span>, {
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/categories/uncategorized/">uncategorized</a>
-                    
-                  </div>
                 
                 
                   <div class="post-meta">
@@ -2003,7 +2257,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Vue入门学习笔记&nbsp;",
+        "Vue快速入门学习笔记&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
