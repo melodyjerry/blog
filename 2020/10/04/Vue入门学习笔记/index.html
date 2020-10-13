@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      14.6k 字
+      15.3k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      183
+      192
        分钟
     </span>
   
@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：2 天前
                 
               </p>
             
@@ -1662,6 +1662,126 @@ Vue.component(<span class="hljs-string">'todo-items'</span>, {
 <ul>
 <li><img src="https://s1.ax1x.com/2020/10/08/0w4Kq1.png" srcset="/blog/img/loading.gif" alt="0w4Kq1.png"></li>
 </ul>
+<h1 id="十六、Vue-CLI-脚手架"><a href="#十六、Vue-CLI-脚手架" class="headerlink" title="十六、Vue CLI 脚手架"></a>十六、Vue CLI 脚手架</h1><blockquote>
+<p>🛠️ Vue.js 开发的标准工具</p>
+</blockquote>
+<h2 id="1-什么是vue-cli"><a href="#1-什么是vue-cli" class="headerlink" title="1. 什么是vue-cli"></a>1. 什么是vue-cli</h2><ul>
+<li>官方提供的一个脚手架，用于快速生成一个 vue 的项目模板</li>
+</ul>
+<blockquote>
+<p>预先定义好的目录结构及基础代码，就好比咱们在创建 Maven 项目时可以选择创建一个骨架项目，这个骨架项目就是脚手架，我们的开发更加的快速。</p>
+</blockquote>
+<h2 id="2-主要功能特点"><a href="#2-主要功能特点" class="headerlink" title="2. 主要功能特点"></a>2. 主要功能特点</h2><ul>
+<li>统一的目录结构</li>
+<li>本地调试</li>
+<li>热部署</li>
+<li>单元测试</li>
+<li>集成打包上线</li>
+<li>功能丰富</li>
+<li>易于扩展</li>
+<li>无需 Eject</li>
+</ul>
+<h2 id="3-环境安装"><a href="#3-环境安装" class="headerlink" title="3. 环境安装"></a>3. 环境安装</h2><ul>
+<li><p>Node.js：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a></p>
+<ul>
+<li><p>新版本都自带<code>npm</code></p>
+</li>
+<li><p>npm：一个软件包管理工具，类似于Linux的<code>apt</code></p>
+</li>
+<li><blockquote>
+<p><em>npm</em> 是 JavaScript 世界的包管理工具,并且是 Node.js 平台的默认包管理工具。通过 <em>npm</em> 可以安装、共享、分发代码,管理项目依赖关系。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Git：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<ul>
+<li>淘宝镜像：<a href="https://npm.taobao.org/mirrors/git-for-windows/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>检查Node.js安装是否成功：<ul>
+<li>cmd 下输入 <code>node -v</code>,打印出版本号即可!</li>
+<li>cmd 下输入 <code>npm-v</code>,打印出版本号即可!</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>安装 Node.js 淘宝镜像加速器（cnpm）:<ul>
+<li>提高下载速度</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs bash"><span class="hljs-comment"># -g 就是全局安装</span>
+npm install cnpm -g
+
+<span class="hljs-comment"># 若安装失败，则将源npm源换成淘宝镜像</span>
+<span class="hljs-comment"># 因为npm安装插件是从国外服务器下载，受网络影响大</span>
+npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org
+
+<span class="hljs-comment"># 然后再执行</span>
+npm install cnpm -g</code></pre>
+
+<blockquote>
+<p>一般的安装的位置：C:\Users\Administrator\AppData\Roaming\npm</p>
+</blockquote>
+<h2 id="4-安装vue-cli"><a href="#4-安装vue-cli" class="headerlink" title="4. 安装vue-cli"></a>4. 安装vue-cli</h2><ul>
+<li>三选一：</li>
+</ul>
+<pre><code class="hljs bash"><span class="hljs-comment"># 安装了cnpm</span>
+cnpm install vue-cli -g
+<span class="hljs-comment"># 没安装cnpm</span>
+npm install -g @vue/cli
+<span class="hljs-comment"># 或者</span>
+yarn global add @vue/cli</code></pre>
+
+<ul>
+<li>查看是否安装成功<pre><code class="hljs bash"><span class="hljs-comment"># 查看是否安装成功</span>
+vue list</code></pre>
+
+</li>
+</ul>
+<hr>
+<h3 id="安装版本的问题"><a href="#安装版本的问题" class="headerlink" title="安装版本的问题"></a>安装版本的问题</h3><p><img src="https://s1.ax1x.com/2020/10/11/0goO2j.png" srcset="/blog/img/loading.gif" alt="0goO2j.png"></p>
+<p>按照提示的信息：</p>
+<pre><code class="hljs bash"><span class="hljs-comment"># 先卸载当前版本</span>
+npm uninstall -g vue-cli
+
+<span class="hljs-comment"># 安装新的包</span>
+npm install -g @vue/cli</code></pre>
+
+<pre><code class="hljs bash"><span class="hljs-comment"># 检查版本</span>
+vue --version
+❯ @vue/cli 4.5.7</code></pre>
+
+<hr>
+<p><strong>为什么呢？</strong></p>
+<p>因为根据官方文档，需要升级Vue CLI的版本到3以上。</p>
+<blockquote>
+<p><a href="https://cli.vuejs.org/zh/guide/installation.html" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/installation.html</a></p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/10/11/0gT3zd.png" srcset="/blog/img/loading.gif" alt="0gT3zd.png"></p>
+<h2 id="5-第一个vue-cli程序"><a href="#5-第一个vue-cli程序" class="headerlink" title="5. 第一个vue-cli程序"></a>5. 第一个vue-cli程序</h2><h2 id="5-1-create"><a href="#5-1-create" class="headerlink" title="5.1 create"></a>5.1 create</h2><ul>
+<li>使用命令，直接创建第一个vue-cli项目：</li>
+</ul>
+<pre><code class="hljs bash">vue create myvue</code></pre>
+
+<ul>
+<li>然后，会被提示选取一个 preset：</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/10/11/0g7UXR.png" srcset="/blog/img/loading.gif" alt="0g7UXR.png"></p>
+<blockquote>
+<p>你可以选默认的包含了基本的 Babel + ESLint 设置的 preset，也可以选“手动选择特性”来选取需要的特性。甚至是最新的Vue 3.0 beta。</p>
+<p>这个默认的设置非常适合快速创建一个新项目的原型，而手动设置则提供了更多的选项，它们是面向生产的项目更加需要的。</p>
+<p><img src="https://s1.ax1x.com/2020/10/11/0gHt58.png" srcset="/blog/img/loading.gif" alt="0gHt58.png"></p>
+</blockquote>
+<ul>
+<li>选择Vue 2的默认配置选项：</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/10/11/0g7c1H.png" srcset="/blog/img/loading.gif" alt="0g7c1H.png"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
