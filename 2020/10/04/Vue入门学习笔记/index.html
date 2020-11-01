@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>Vue快速入门学习笔记 - MelodyHub</title>
+  <title>Vue快速入门学习笔记(更新ing) - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -166,7 +166,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15.3k 字
+      24.3k 字
     </span>
   
 
@@ -176,7 +176,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      192
+      317
        分钟
     </span>
   
@@ -216,12 +216,16 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：25 分钟前
                 
               </p>
             
             <article class="markdown-body">
-              <p>Vue 的<code>核心库只关注视图层</code>，方便与第三方库或既有项目整合。</p>
+              <blockquote>
+<p>本笔记综合了视频<a href="https://www.bilibili.com/video/BV18E411a7mC" target="_blank" rel="noopener">狂神说的Vue快速上手</a>和菜鸟教程、CSDN等博客文章，以及个人的一些学习见解与体会。</p>
+<p>由于是为了团队需要而快速入门，HTML、CSS、JS、Vue等基础均不全，故本笔记仅供参考学习使用。</p>
+</blockquote>
+<p>Vue 的<code>核心库只关注视图层</code>，方便与第三方库或既有项目整合。</p>
 <p>HTML + CSS + JS : 视图 ： <code>给用户看，刷新后台给的数据</code></p>
 <p>网络通信 ： <code>axios</code></p>
 <p>页面跳转 ： <code>vue-router</code></p>
@@ -272,10 +276,10 @@
 <li><strong>Axios</strong> :<strong>前端通信框架</strong>；因为Vue 的边界很明确，就是为了处理DOM，所以并不具备通信能力，此时就需要额外使用一个通信框架与服务器交互；当然也可以直接选择使用jQuery提供的AJAX通信功能。</li>
 </ul>
 <h2 id="3-UI框架"><a href="#3-UI框架" class="headerlink" title="3. UI框架"></a>3. UI框架</h2><ul>
-<li>Ant-Design:阿里巴巴出品，基于React的UI框架</li>
-<li><strong>ElementUI、 iview、 ice</strong>: 饿了么出品，基于Vue的UI框架</li>
-<li><strong>Bootstrap</strong>: Twitter推出的一个用于前端开发</li>
-<li>AmazeUI:又叫”妹子UI”，一款HTML5跨屏前端框架</li>
+<li>Ant-Design：阿里巴巴出品，基于React的UI框架</li>
+<li><strong>ElementUI、 iview、 ice</strong>: 基于Vue的UI框架</li>
+<li><strong>Bootstrap</strong>：Twitter推出的一个用于前端开发</li>
+<li>AmazeUI：又叫”妹子UI”，一款HTML5跨屏前端框架</li>
 </ul>
 <h2 id="4-JavaScript构建工具"><a href="#4-JavaScript构建工具" class="headerlink" title="4. JavaScript构建工具"></a>4. JavaScript构建工具</h2><ul>
 <li>Babel: JS编译工具，主要用于浏览器不支持的ES新特性，比如用于编译TypeScript</li>
@@ -1608,6 +1612,10 @@ Vue.component(<span class="hljs-string">'todo-items'</span>, {
 <li>组件内部绑定事件需要使用到 <code>this.$emit("事件名",参数);</code></li>
 <li><code>计算属性</code>的特色：<code>缓存计算数据</code></li>
 </ul>
+<h2 id="渲染机制"><a href="#渲染机制" class="headerlink" title="渲染机制"></a>渲染机制</h2><blockquote>
+<p>图源：<a href="https://blog.csdn.net/github_37516320/article/details/78321391" target="_blank" rel="noopener">https://blog.csdn.net/github_37516320/article/details/78321391</a></p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/10/12/0Wttk8.png" srcset="/blog/img/loading.gif" alt="0Wttk8.png"></p>
 <h2 id="SoC-关注度分离原则"><a href="#SoC-关注度分离原则" class="headerlink" title="SoC 关注度分离原则"></a>SoC 关注度分离原则</h2><blockquote>
 <p>内容摘自：<a href="https://www.cnblogs.com/wenhongyu/archive/2017/12/06/7992028.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenhongyu/archive/2017/12/06/7992028.html</a></p>
 </blockquote>
@@ -1651,7 +1659,7 @@ Vue.component(<span class="hljs-string">'todo-items'</span>, {
 </li>
 </ul>
 <h1 id="十五、Vue生命周期"><a href="#十五、Vue生命周期" class="headerlink" title="十五、Vue生命周期"></a>十五、Vue生命周期</h1><blockquote>
-<p><a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">官方文档</a>：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA</a></p>
+<p><a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="noopener">官方文档</a></p>
 <p><a href="https://segmentfault.com/a/1190000020173042" target="_blank" rel="noopener">参考文章</a>：<a href="https://segmentfault.com/a/1190000020173042" target="_blank" rel="noopener">①</a>、<a href="https://blog.csdn.net/qq_15766181/article/details/73549933" target="_blank" rel="noopener">②</a>、<a href="https://blog.csdn.net/Meuan/article/details/104765843" target="_blank" rel="noopener">③带注释</a></p>
 </blockquote>
 <p>​    Vue 实例有一个完整的生命周期，也就是<code>从开始创建、初始化数据、编译模板、挂载 DOM、渲染→更新→渲染、卸载等一系列过程</code>，我们称这是 <code>Vue 的生命周期</code>。通俗说就是 Vue 实例从创建到销毁的过程，就是生命周期。</p>
@@ -1764,24 +1772,1640 @@ vue --version
 <p><a href="https://cli.vuejs.org/zh/guide/installation.html" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/installation.html</a></p>
 </blockquote>
 <p><img src="https://s1.ax1x.com/2020/10/11/0gT3zd.png" srcset="/blog/img/loading.gif" alt="0gT3zd.png"></p>
-<h2 id="5-第一个vue-cli程序"><a href="#5-第一个vue-cli程序" class="headerlink" title="5. 第一个vue-cli程序"></a>5. 第一个vue-cli程序</h2><h2 id="5-1-create"><a href="#5-1-create" class="headerlink" title="5.1 create"></a>5.1 create</h2><ul>
-<li>使用命令，直接创建第一个vue-cli项目：</li>
+<h2 id="5-第一个vue-cli程序"><a href="#5-第一个vue-cli程序" class="headerlink" title="5. 第一个vue-cli程序"></a>5. 第一个vue-cli程序</h2><ol>
+<li>使用两种不同方式去创建<code>vue-cli</code>项目：</li>
+</ol>
+<ul>
+<li><code>vue create name</code></li>
+<li><code>vue init webpack name</code>：基于<code>WebPage</code>模板</li>
 </ul>
+<blockquote>
+<ul>
+<li><p><code>ES5 (全浏览器支持)</code></p>
+</li>
+<li><p><code>ES6 (常用，当前主流版本: webpack打包成为ES5支持! )</code></p>
+</li>
+</ul>
+</blockquote>
+<p>不管是哪种创建方式，都先是安装环境依赖<code>npm install</code>，最后运行的命令都是：</p>
+<ul>
+<li><code>npm run dev</code></li>
+</ul>
+<blockquote>
+<p><code>npm run dev</code>不行，就试试<code>npm run serve</code>或<code>npm run start</code></p>
+<p>至于为什么，看这篇文章：<a href="https://www.cnblogs.com/melodyjerry/p/13801535.html" target="_blank" rel="noopener">npm run dev 报错：missing script:dev</a></p>
+</blockquote>
+<h3 id="5-1-vue-create"><a href="#5-1-vue-create" class="headerlink" title="5.1 vue create"></a>5.1 vue create</h3><ol>
+<li>终端使用命令，直接创建第一个vue-cli项目：</li>
+</ol>
 <pre><code class="hljs bash">vue create myvue</code></pre>
 
-<ul>
+<ol start="2">
 <li>然后，会被提示选取一个 preset：</li>
-</ul>
+</ol>
 <p><img src="https://s1.ax1x.com/2020/10/11/0g7UXR.png" srcset="/blog/img/loading.gif" alt="0g7UXR.png"></p>
 <blockquote>
 <p>你可以选默认的包含了基本的 Babel + ESLint 设置的 preset，也可以选“手动选择特性”来选取需要的特性。甚至是最新的Vue 3.0 beta。</p>
 <p>这个默认的设置非常适合快速创建一个新项目的原型，而手动设置则提供了更多的选项，它们是面向生产的项目更加需要的。</p>
 <p><img src="https://s1.ax1x.com/2020/10/11/0gHt58.png" srcset="/blog/img/loading.gif" alt="0gHt58.png"></p>
 </blockquote>
-<ul>
+<ol start="3">
 <li>选择Vue 2的默认配置选项：</li>
-</ul>
+</ol>
 <p><img src="https://s1.ax1x.com/2020/10/11/0g7c1H.png" srcset="/blog/img/loading.gif" alt="0g7c1H.png"></p>
+<hr>
+<ol start="4">
+<li>初始化并执行：</li>
+</ol>
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> myvue
+npm install
+npm run dev <span class="hljs-comment">#不行就npm run serve</span></code></pre>
+
+<p><img src="https://s1.ax1x.com/2020/10/12/0R6hz6.png" srcset="/blog/img/loading.gif" alt="0R6hz6.png"></p>
+<h3 id="5-2-vue-init-webpack"><a href="#5-2-vue-init-webpack" class="headerlink" title="5.2 vue init webpack"></a>5.2 vue init webpack</h3><ol>
+<li>终端使用命令，直接创建第一个vue-cli（基于<code>WebPage</code>模板）项目：</li>
+</ol>
+<pre><code class="hljs bash">vue init webpack mywebpack</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>提示</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Project name</td>
+<td>项目名称，默认 回车 即可</td>
+</tr>
+<tr>
+<td>Project description</td>
+<td>项目描述，默认 回车 即可</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>项目作者，默认 回车 即可</td>
+</tr>
+<tr>
+<td>Runtime + Compiler</td>
+<td>运行时编译</td>
+</tr>
+<tr>
+<td>Install vue-router</td>
+<td>是否安装 vue-router？选择 n 不安装（后期需要再手动添加）</td>
+</tr>
+<tr>
+<td>Use ESLint to lint your code</td>
+<td>是否使用 ESLint 做代码检查？选择 n 不安装（后期需要再手动添加）</td>
+</tr>
+<tr>
+<td>Set up unit tests</td>
+<td>单元测试相关，选择 n 不安装（后期需要再手动添加）</td>
+</tr>
+<tr>
+<td>Setup e2e tests with Nightwatch</td>
+<td>单元测试相关，选择 n 不安装（后期需要再手动添加）</td>
+</tr>
+<tr>
+<td>Should we run npm install for you after the project has been created</td>
+<td>创建完成后直接初始化？选择 n，我们手动执行</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>一路选择 n ，主要是自己手动实践去完成这些模块。</p>
+</blockquote>
+<hr>
+<ol start="2">
+<li>初始化并执行：</li>
+</ol>
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> mywebpack
+npm install (or <span class="hljs-keyword">if</span> using yarn: yarn)
+npm run dev</code></pre>
+
+<p><img src="https://s1.ax1x.com/2020/10/12/0Rgy59.png" srcset="/blog/img/loading.gif" alt="0Rgy59.png"></p>
+<h3 id="5-3-执行运行"><a href="#5-3-执行运行" class="headerlink" title="5.3 执行运行"></a>5.3 执行运行</h3><ol>
+<li>不管是哪种创建方式，都先是安装环境依赖<code>npm install</code>；</li>
+<li>最后运行的命令都是：</li>
+</ol>
+<ul>
+<li><code>npm run dev</code></li>
+</ul>
+<blockquote>
+<p><code>npm run dev</code>不行，就试试<code>npm run serve</code>或<code>npm run start</code></p>
+<p>至于为什么，看这篇文章：<a href="https://www.cnblogs.com/melodyjerry/p/13801535.html" target="_blank" rel="noopener">npm run dev 报错：missing script:dev</a></p>
+</blockquote>
+<blockquote>
+<p>Vue CLI在安装模块依赖的时候，会有些警告或报错，都会有提示为什么，然后使用什么命令去修复。</p>
+<p><img src="https://s1.ax1x.com/2020/10/12/0R2NIH.png" srcset="/blog/img/loading.gif" alt="0R2NIH.png"></p>
+</blockquote>
+<ol start="3">
+<li>访问 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a>  ：</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/10/12/0RWUgI.png" srcset="/blog/img/loading.gif" alt="0RWUgI.png"></p>
+<h2 id="6-Vue-cli目录结构"><a href="#6-Vue-cli目录结构" class="headerlink" title="6. Vue-cli目录结构"></a>6. Vue-cli目录结构</h2><blockquote>
+<p>后面的文章<strong>主要是介绍了<code>src</code>文件夹的内容</strong>，<em>其他目录结构，搭配视频食用：</em><a href="https://www.bilibili.com/video/BV18E411a7mC?p=13" target="_blank" rel="noopener">https://www.bilibili.com/video/BV18E411a7mC?p=13</a></p>
+</blockquote>
+<p>先看看两种方式创建的项目目录结构：</p>
+<p><img src="https://s1.ax1x.com/2020/10/12/0WEIc4.png" srcset="/blog/img/loading.gif" alt="0WEIc4.png"></p>
+<h3 id="6-1-结构说明"><a href="#6-1-结构说明" class="headerlink" title="6.1 结构说明"></a>6.1 结构说明</h3><ul>
+<li><code>build</code>和 <code>config</code>：WebPack 配置文件</li>
+<li><code>node_modules</code>：用于存放 npm install 安装的依赖文件</li>
+<li><code>src</code>： 项目源码目录</li>
+<li><code>static</code>：静态资源文件</li>
+<li><code>.babelrc</code>：Babel 配置文件，主要作用是将 ES6 转换为 ES5</li>
+<li><code>.editorconfig</code>：编辑器配置</li>
+<li><code>eslintignore</code>：需要忽略的语法检查配置文件</li>
+<li><code>.gitignore</code>：git 忽略的配置文件</li>
+<li><code>.postcssrc.js</code>：css 相关配置文件，其中内部的 module.exports 是 NodeJS 模块化语法</li>
+<li><code>index.html</code>：首页，仅作为模板页，实际开发时不使用</li>
+<li><code>package.json</code>：项目的配置文件<ul>
+<li><code>name</code>：项目名称</li>
+<li><code>version</code>：项目版本</li>
+<li><code>description</code>：项目描述</li>
+<li><code>author</code>：项目作者</li>
+<li><code>scripts</code>：封装常用命令</li>
+<li><code>dependencies</code>：生产环境依赖</li>
+<li><code>devDependencies</code>：开发环境依赖</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-2-src源码目录"><a href="#6-2-src源码目录" class="headerlink" title="6.2 src源码目录"></a>6.2 src源码目录</h3><p>上述两种创建方式，初始化创建的src源码文件夹中文件全是一样的，都含有这三个关键的文件：<code>main.js</code>、<code>App.vue</code>、<code>HelloWorld.vue</code>。但是内容会有小些不同。</p>
+<ul>
+<li><code>src</code> 目录是项目的源码目录，所有代码都会写在这里<ul>
+<li>图片等资源文件都存放在<code>assets</code>文件夹</li>
+<li>所有自定义组件都存放在<code>component</code>文件夹</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>VUE中assets与static的区别：</p>
+<p><a href="https://www.jianshu.com/p/8341edbc7436" target="_blank" rel="noopener">https://www.jianshu.com/p/8341edbc7436</a></p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/10/12/0WVmvQ.png" srcset="/blog/img/loading.gif" alt="0WVmvQ.png"></p>
+<hr>
+<p>下面主要介绍的是WebPack项目的<code>main.js</code>、<code>App.vue</code>、<code>HelloWorld.vue</code>文件。</p>
+<h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><ul>
+<li>项目的入口文件，我们知道所有的程序都会有一个入口</li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-comment">// The Vue build version to load with the `import` command</span>
+<span class="hljs-comment">// (runtime-only or standalone) has been set in webpack.base.conf with an alias.</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
+
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">/* eslint-disable no-new */</span>
+<span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">'#app'</span>,
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App)
+})
+<span class="hljs-comment">/*</span>
+<span class="hljs-comment">new Vue({</span>
+<span class="hljs-comment">  render: h =&gt; h(App),</span>
+<span class="hljs-comment">}).$mount('#app')</span>
+<span class="hljs-comment">*/</span></code></pre>
+
+<ul>
+<li><code>import Vue from 'vue'</code>：ES6 写法，会被转换成 <code>require(“vue”);</code> （<code>require</code> 是 <code>NodeJS</code> 提供的模块加载器）</li>
+<li><code>import App from './App'</code>：意思同上，但是指定了查找路径，<code>./</code> 为当前目录</li>
+<li><code>Vue.config.productionTip = false</code>：关闭浏览器控制台关于环境的相关提示</li>
+<li><code>new Vue({...})</code>：实例化 Vue</li>
+<li><code>el: '#app'</code>：查找 <code>index.html</code> 中 <code>id</code> 为 <code>app</code> 的元素</li>
+<li><code>render: h =&gt; h(App)</code>：<code>render</code>是一个方法，自带一个形参<code>createElement</code><em>（就是h,一个形参，没有具体意义，可以随意改变书写）</em>，这个参数也是一个方法，是用来创建<code>vue 节点</code>的，也就是<code>html模板</code>的，然后<code>渲染(render)到指定的节点上</code>。<ul>
+<li>跟 <code>template</code> 一样都是创建 html 模板的；</li>
+<li>但是有些场景中用 <code>template</code> 实现起来代码冗长繁琐而且有大量重复，这时候就可以用 <code>render 函数</code>。</li>
+<li>详见：<a href="https://cn.vuejs.org/v2/api/#render" target="_blank" rel="noopener">官方文档</a>和<a href="https://blog.csdn.net/playboyanta123/article/details/99675795" target="_blank" rel="noopener">文章①</a>和<a href="https://blog.csdn.net/sansan_7957/article/details/83014838" target="_blank" rel="noopener">文章②</a></li>
+</ul>
+</li>
+<li><code>.$mount('#app')</code>：<code>手动挂载</code>，挂载到制定的页面节点（<code>index.html</code> 中 <code>id</code> 为 <code>app</code> 的元素）。在项目中可用于延时挂载（例如在挂载之前要进行一些其他操作、判断等），之后要手动挂载上。<code>new Vue</code>时，<code>el</code>和<code>$mount</code><strong>并没有本质上的不同。</strong></li>
+</ul>
+<blockquote>
+<p>可能有的其他参数信息：</p>
+<ul>
+<li><p><code>template: '&lt;App/&gt;'</code>：模板，模板将会<strong>替换</strong>挂载的元素。挂载元素的内容都将被忽略，除非模板的内容有分发插槽。</p>
+</li>
+<li><p><code>components: { App }</code>：引入组件，使用的是 <code>import App from './App'</code> 定义的 App 组件</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h4><pre><code class="hljs vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;img alt="Vue logo" src="./assets/logo.png"&gt;
+    &lt;HelloWorld msg="Welcome to Your Vue.js App"/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+&lt;/style&gt;</code></pre>
+
+<ul>
+<li><code>template</code>：模板，将会<strong>替换</strong>挂载的元素。挂载元素的内容都将被忽略，除非模板的内容有分发插槽。</li>
+<li><code>import HelloWorld from './components/HelloWorld.vue'</code>：引入 HelloWorld 组件，用于替换 template 中的 HelloWorld 标签</li>
+<li><code>export default {…}</code>：导出 NodeJS 对象，作用是可以通过 import 关键字导入<ul>
+<li><code>name: 'App'</code>：定义组件的名称</li>
+<li><code>components: { HelloWorld }</code>：定义子组件</li>
+</ul>
+</li>
+</ul>
+<h4 id="component-HelloWorld-vue"><a href="#component-HelloWorld-vue" class="headerlink" title="component/HelloWorld.vue"></a>component/HelloWorld.vue</h4><ul>
+<li>定义了<code>&lt;HelloWorld&gt;</code>组件</li>
+<li>所有自定义组件都存放在<code>component</code>文件夹</li>
+</ul>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div class="hello"&gt;
+    &lt;h1&gt;{{ msg }}&lt;/h1&gt;
+    &lt;p&gt;
+      For a guide and recipes on how to configure / customize this project,&lt;br&gt;
+      check out the
+      &lt;a href="https://cli.vuejs.org" target="_blank" rel="noopener"&gt;vue-cli documentation&lt;/a&gt;.
+    &lt;/p&gt;
+    &lt;h3&gt;Installed CLI Plugins&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener"&gt;babel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener"&gt;eslint&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;Essential Links&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://vuejs.org" target="_blank" rel="noopener"&gt;Core Docs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://forum.vuejs.org" target="_blank" rel="noopener"&gt;Forum&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://chat.vuejs.org" target="_blank" rel="noopener"&gt;Community Chat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://twitter.com/vuejs" target="_blank" rel="noopener"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://news.vuejs.org" target="_blank" rel="noopener"&gt;News&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;Ecosystem&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://router.vuejs.org" target="_blank" rel="noopener"&gt;vue-router&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://vuex.vuejs.org" target="_blank" rel="noopener"&gt;vuex&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener"&gt;vue-devtools&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"&gt;vue-loader&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener"&gt;awesome-vue&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+&lt;/script&gt;
+
+&lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
+&lt;style scoped&gt;
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+&lt;/style&gt;</code></pre>
+
+<h1 id="十七、Webpack"><a href="#十七、Webpack" class="headerlink" title="十七、Webpack"></a>十七、Webpack</h1><p><img src="https://s1.ax1x.com/2020/10/13/0hxIp9.png" srcset="/blog/img/loading.gif" alt="0hxIp9.png"></p>
+<p>从图中我们可以看出，<code>Webpack</code> 可以将多种静态资源 <code>js</code>、<code>css</code>、<code>less</code> 转换成一个静态文件，减少了页面的请求。</p>
+<h2 id="1-什么是Webpack"><a href="#1-什么是Webpack" class="headerlink" title="1. 什么是Webpack"></a>1. 什么是Webpack</h2><ul>
+<li><code>Webpack</code> 是一款<code>模块加载器兼打包工具</code>，它能把各种资源，如 JS、JSX、ES6、SASS、LESS、图片等都<code>作为模块</code>来处理和使用。</li>
+</ul>
+<p>​        <code>本质上，webpack是一个现代JavaScript应用程序的静态模块打包器(module bundler)</code>。当webpack处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)<em>（类似于Maven）</em>，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个<code>bundle</code>。</p>
+<blockquote>
+<p>​        Webpack是当下最热门的前端资源模块化管理和打包工具，它可以将许多松散耦合的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分离，等到实际需要时再异步加载。通过<code>loader</code>转换，任何形式的资源都可以当做模块，比如CommonsJS、AMD、ES6、 CSS、JSON、CoffeeScript、LESS等;<br>     伴随着移动互联网的大潮，当今越来越多的网站已经从网页模式进化到了WebApp模式。它们运行在现代浏览器里，使用HTML5、CSS3、ES6 等新的技术来开发丰富的功能，网页已经不仅仅是完成浏览器的基本需求; WebApp通常是一个SPA (单页面应用) ，每一个视图通过异步的方式加载，这导致页面初始化和使用过程中会加载越来越多的JS代码，这给前端的开发流程和资源组织带来了巨大挑战。<br>     前端开发和其他开发工作的主要区别，首先是前端基于多语言、多层次的编码和组织工作，其次前端产品的交付是基于浏览器的，这些资源是通过增量加载的方式运行到浏览器端，如何在开发环境组织好这些碎片化的代码和资源，并且保证他们在浏览器端快速、优雅的加载和更新，就需要一个模块化系统，这个理想中的模块化系统是前端工程师多年来一直探索的难题。</p>
+</blockquote>
+<h2 id="2-模块化的演进"><a href="#2-模块化的演进" class="headerlink" title="2. 模块化的演进"></a>2. 模块化的演进</h2><h3 id="2-1-Script标签"><a href="#2-1-Script标签" class="headerlink" title="2.1 Script标签"></a>2.1 Script标签</h3><pre><code class="hljs js">&lt;script src = <span class="hljs-string">"module1.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script src = <span class="hljs-string">"module2.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script src = <span class="hljs-string">"module3.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
+
+<p>​        这是最原始的JavaScript文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在window对象中，不同模块的调用都是一个作用域。</p>
+<p><strong>缺点</strong>：</p>
+<p>这种原始的加载方式暴露了一些显而易见的弊端：</p>
+<ul>
+<li>全局作用域下容易造成变量冲突</li>
+<li>文件只能按照<code>&lt;script&gt;</code>的书写顺序进行加载</li>
+<li>开发人员必须主观解决模块和代码库的依赖关系</li>
+<li>在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪</li>
+</ul>
+<h3 id="2-2-CommonsJS"><a href="#2-2-CommonsJS" class="headerlink" title="2.2 CommonsJS"></a>2.2 CommonsJS</h3><p>服务器端的NodeJS遵循CommonsJS规范，该规范核心思想是允许模块通过require方法来同步加载所需依赖的其它模块，然后通过exports或module.exports来导出需要暴露的接口。</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">require</span>(<span class="hljs-string">"module"</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">"../module.js"</span>);
+<span class="hljs-keyword">export</span>.doStuff = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{};
+<span class="hljs-built_in">module</span>.exports = someValue;</code></pre>
+
+<p><strong>优点：</strong></p>
+<ul>
+<li>服务器端模块便于重用</li>
+<li>NPM中已经有超过45万个可以使用的模块包</li>
+<li>简单易用</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>同步的模块加载方式不适合在浏览器环境中，同步意味着阻塞加载，浏览器资源是异步加载的</li>
+<li>不能非阻塞的并行加载多个模块</li>
+</ul>
+<p><strong>实现：</strong></p>
+<ul>
+<li>服务端的NodeJS</li>
+<li>•Browserify，浏览器端的CommonsJS实现，可以使用NPM的模块，但是编译打包后的文件体积较大</li>
+<li>modules-webmake，类似Browserify，但不如Browserify灵活</li>
+<li>wreq，Browserify的前身</li>
+</ul>
+<h3 id="2-3-AMD"><a href="#2-3-AMD" class="headerlink" title="2.3 AMD"></a>2.3 AMD</h3><p>Asynchronous Module Definition规范其实主要一个主要接口define(id?,dependencies?,factory);它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行。</p>
+<pre><code class="hljs javascript">define(<span class="hljs-string">"module"</span>,[<span class="hljs-string">"dep1"</span>,<span class="hljs-string">"dep2"</span>],functian(d1,d2){
+	<span class="hljs-keyword">return</span> someExportedValue;
+});
+<span class="hljs-built_in">require</span>（[<span class="hljs-string">"module"</span>,<span class="hljs-string">"../file.js"</span>],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">module，file</span>)</span>{});</code></pre>
+
+<p><strong>优点：</strong></p>
+<ul>
+<li>适合在浏览器环境中异步加载模块</li>
+<li>可以并行加载多个模块</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>提高了开发成本，代码的阅读和书写比较困难，模块定义方式的语义不畅</li>
+<li>不符合通用的模块化思维方式，是一种妥协的实现</li>
+</ul>
+<p><strong>实现：</strong></p>
+<ul>
+<li>RequireJS</li>
+<li>curl</li>
+</ul>
+<h3 id="2-4-CMD"><a href="#2-4-CMD" class="headerlink" title="2.4 CMD"></a>2.4 CMD</h3><p>Commons Module Definition规范和AMD很相似，尽保持简单，并与CommonsJS和NodeJS的Modules规范保持了很大的兼容性。</p>
+<pre><code class="hljs javascript">define(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require,exports,module</span>)</span>{
+	<span class="hljs-keyword">var</span> $=<span class="hljs-built_in">require</span>(<span class="hljs-string">"jquery"</span>);
+	<span class="hljs-keyword">var</span> Spinning = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./spinning"</span>);
+	exports.doSomething = ...;
+	<span class="hljs-built_in">module</span>.exports=...;
+});</code></pre>
+
+<p><strong>优点：</strong></p>
+<ul>
+<li>依赖就近，延迟执行</li>
+<li>可以很容易在NodeJS中运行缺点</li>
+<li>依赖SPM打包，模块的加载逻辑偏重</li>
+</ul>
+<p><strong>实现：</strong></p>
+<ul>
+<li>Sea.js</li>
+<li>coolie</li>
+</ul>
+<h3 id="2-5-ES6模块"><a href="#2-5-ES6模块" class="headerlink" title="2.5 ES6模块"></a>2.5 ES6模块</h3><p>EcmaScript 6标准增加了JavaScript语言层面的模块体系定义。ES 6模块的设计思想， 是尽量静态化， 使编译时就能确定模块的依赖关系， 以及输入和输出的变量。Commons JS和AMD模块，都只能在运行时确定这些东西。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">"jquery"</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doStuff</span>(<span class="hljs-params"></span>)</span>{}
+<span class="hljs-built_in">module</span> <span class="hljs-string">"localModule"</span>{}</code></pre>
+
+<p><strong>优点：</strong></p>
+<ul>
+<li>容易进行静态分析</li>
+<li>面向未来的EcmaScript标准</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>原生浏览器端还没有实现该标准</li>
+<li>全新的命令，新版的Node JS才支持</li>
+</ul>
+<p><strong>实现：</strong></p>
+<ul>
+<li>Babel</li>
+</ul>
+<p><strong>大家期望的模块：</strong><br>  系统可以兼容多种模块风格， 尽量可以利用已有的代码， 不仅仅只是JavaScript模块化， 还有CSS、图片、字体等资源也需要模块化。</p>
+<h2 id="3-安装Webpack"><a href="#3-安装Webpack" class="headerlink" title="3. 安装Webpack"></a>3. 安装Webpack</h2><ul>
+<li>使用<code>npm</code>安装<code>Webpack</code>：</li>
+</ul>
+<pre><code class="hljs bash">npm install webpack -g
+npm install webpack-cli -g</code></pre>
+
+<ul>
+<li>测试安装结果：</li>
+</ul>
+<pre><code class="hljs bash">webpack -v
+webpack-cli -v
+
+<span class="hljs-comment"># webpack-cli 4.0.0</span>
+<span class="hljs-comment"># webpack 4.44.2</span></code></pre>
+
+<h2 id="4-配置"><a href="#4-配置" class="headerlink" title="4. 配置"></a>4. 配置</h2><p>创建 <code>webpack.config.js</code>配置文件</p>
+<ul>
+<li><code>entry</code>：入口文件， 指定Web Pack用哪个文件作为项目的入口</li>
+<li><code>output</code>：输出， 指定WebPack把处理完成的文件放置到指定路径</li>
+<li><code>module</code>：模块， 用于处理各种类型的文件</li>
+<li><code>plugins</code>：插件， 如：热更新、代码重用等</li>
+<li><code>resolve</code>：设置路径指向</li>
+<li><code>watch</code>：监听， 用于设置文件改动后直接打包</li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-comment">//入口文件,指定用哪个文件作为项目的入口</span>
+    entry: <span class="hljs-string">"./modules/main.js"</span>,
+
+    <span class="hljs-comment">//输出</span>
+	output: {
+		path: <span class="hljs-string">""</span>,
+        <span class="hljs-comment">//把处理完成的文件放置到指定路径</span>
+		filename: <span class="hljs-string">"./js/bundle.js"</span>
+    },
+
+    <span class="hljs-comment">//模块,用于处理各种类型的文件</span>
+	<span class="hljs-built_in">module</span>: {
+		loaders: [
+			<span class="hljs-comment">/* {test:/\.js$/,;\loade:""} */</span>
+		]
+    }, 
+
+    <span class="hljs-comment">//插件,如：热更新、代码重用等</span>
+    plugins: {},
+
+    <span class="hljs-comment">//路径指向</span>
+    resolve: {},
+
+    <span class="hljs-comment">//监听,用于设置文件改动后直接打包</span>
+	watch: <span class="hljs-literal">true</span>
+}
+
+<span class="hljs-comment">/* ES6模块</span>
+<span class="hljs-comment">export const entry = "./modules/main.js";</span>
+<span class="hljs-comment">export const output = {</span>
+<span class="hljs-comment">    path: "",</span>
+<span class="hljs-comment">    filename: "./js/bundle.js"</span>
+<span class="hljs-comment">};</span>
+<span class="hljs-comment">export const module = {</span>
+<span class="hljs-comment">    loaders: [</span>
+<span class="hljs-comment">        {test:/\.js$/,;\loade:""}</span>
+<span class="hljs-comment">    ]</span>
+<span class="hljs-comment">};</span>
+<span class="hljs-comment">export const plugins = {};</span>
+<span class="hljs-comment">export const resolve = {};</span>
+<span class="hljs-comment">export const watch = true;</span>
+<span class="hljs-comment">*/</span></code></pre>
+
+<h2 id="5-使用"><a href="#5-使用" class="headerlink" title="5. 使用"></a>5. 使用</h2><ul>
+<li>直接运行<code>webpack</code>命令，进行打包</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/10/16/0bxdXD.png" srcset="/blog/img/loading.gif" alt="0bxdXD.png"></p>
+<ul>
+<li>运行<code>webpack --watch</code>命令，<em>用于监听变化</em>，<strong>实现热部署</strong></li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/10/16/0bzSE9.png" srcset="/blog/img/loading.gif" alt="0bzSE9.png"></p>
+<h2 id="6-实例demo"><a href="#6-实例demo" class="headerlink" title="6. 实例demo"></a>6. 实例demo</h2><ol>
+<li><p>创建空白项目文件夹<code>myvue</code></p>
+</li>
+<li><p>创建一个名为<code>modules</code>的目录，用于放置JS模块等资源文件</p>
+</li>
+<li><p>在<code>modules</code>下创建模块文件，如<code>hello.js</code>，用于编写JS模块相关代码：</p>
+</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//暴露一个方法</span>
+
+<span class="hljs-comment">//ES5模块</span>
+exports.sayHi = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-comment">// export function sayHi() { //ES6模块 </span>
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;li&gt;Hello Webpack&lt;/li&gt;"</span>);
+}</code></pre>
+
+<ol start="4">
+<li>在<code>modules</code>下创建一个名为<code>main.js</code>的入口文件，用于打包时设置<code>entry</code>属性：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//require 导入一个模块，就可以调用这个模块中的方法了</span>
+
+<span class="hljs-comment">//ES5模块</span>
+<span class="hljs-keyword">var</span> hello = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./hello"</span>); 
+<span class="hljs-comment">// import "./hello"; //ES6模块</span>
+
+hello.sayHi();</code></pre>
+
+<ol start="5">
+<li>在项目根目录下创建<code>webpack.config.js</code>配置文件：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-comment">//入口文件,,指定用哪个文件作为项目的入口</span>
+    entry: <span class="hljs-string">"./modules/main.js"</span>,
+
+    <span class="hljs-comment">//输出</span>
+	output: {
+        <span class="hljs-comment">//把处理完成的文件放置到指定路径</span>
+		filename: <span class="hljs-string">"./js/bundle.js"</span>
+    },
+
+    <span class="hljs-comment">//监听,用于设置文件改动后直接打包</span>
+	<span class="hljs-comment">// watch: true</span>
+}</code></pre>
+
+<ol start="6">
+<li>使用<code>webpack</code>命令打包</li>
+<li>在项目根目录下创建HTML页面，如<code>index.html</code>，导入<code>webpack</code>打包后的JS文件：</li>
+</ol>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Webpack Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 前端的模块化开发 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./dist/js/bundle.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<h2 id="7-热部署"><a href="#7-热部署" class="headerlink" title="7. 热部署"></a>7. 热部署</h2><ul>
+<li>运行<code>webpack --watch</code>命令，<em>用于监听变化</em>，<strong>实现热部署</strong><ul>
+<li>参数 <code>--watch</code> 用于<strong>监听变化</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/10/16/0bzSE9.png" srcset="/blog/img/loading.gif" alt="0bzSE9.png"></p>
+<h1 id="十八、vue-router路由"><a href="#十八、vue-router路由" class="headerlink" title="十八、vue-router路由"></a>十八、vue-router路由</h1><blockquote>
+<p>视频：<a href="https://www.bilibili.com/video/BV18E411a7mC?p=15" target="_blank" rel="noopener">https://www.bilibili.com/video/BV18E411a7mC?p=15</a></p>
+</blockquote>
+<h2 id="1-什么是vue-router"><a href="#1-什么是vue-router" class="headerlink" title="1. 什么是vue-router"></a>1. 什么是vue-router</h2><p><code>Vue Router</code>是Vue.js官方的<strong>路由管理器</strong>（路径跳转）。它和Vue.js的核心深度集成，让<code>构建单页面应用</code>变得易如反掌。包含的功能有:</p>
+<ul>
+<li>嵌套的路由/视图表</li>
+<li>模块化的、基于组件的路由配置</li>
+<li>路由参数、查询、通配符</li>
+<li>基于Vue.js过渡系统的视图过渡效果</li>
+<li>细粒度的导航控制</li>
+<li>带有自动激活的CSS class的链接</li>
+<li>HTML5历史模式或hash模式，在IE9中自动降级</li>
+<li>自定义的滚动条行为</li>
+</ul>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><blockquote>
+<p>先查看<code>node_modules</code>中是否存在 <code>vue-router</code>。</p>
+</blockquote>
+<ul>
+<li><code>vue-router</code>是一个<strong>插件包</strong>，所以我们还是需要用 <code>npm</code>或<code>cnpm</code> 来进行安装的：</li>
+</ul>
+<pre><code class="hljs bash">npm install vue-router --save-dev</code></pre>
+
+<ul>
+<li>安装完之后去<code>node_modules</code>路径看看是否有<code>vue-router</code>信息，有的话则表明安装成功。</li>
+</ul>
+<blockquote>
+<p>如果在一个<code>模块化工程</code>中使用它，必须要通过 <code>Vue.use()</code> 明确地安装路由功能：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span>
+
+Vue.use(VueRouter);</code></pre>
+</blockquote>
+<h2 id="3-实例demo"><a href="#3-实例demo" class="headerlink" title="3. 实例demo"></a>3. 实例demo</h2><ol>
+<li><p>项目文件夹中主要存在三个文件：</p>
+<ul>
+<li><code>./src/App.vue</code></li>
+<li><code>./src/main.js</code></li>
+<li><code>./index.html</code></li>
+</ul>
+<blockquote>
+<p>这三个文件的关系是 <code>index.html</code> 调用<code>main.js</code> 调用<code>App.vue</code>。</p>
+<ul>
+<li><code>index.html</code></li>
+</ul>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width,initial-scale=1.0"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>myvue<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- built files will be auto injected --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<ul>
+<li><code>main.js</code></li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span>
+
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+}).$mount(<span class="hljs-string">'#app'</span>)</code></pre>
+
+<ul>
+<li><code>App.vue</code></li>
+</ul>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+
+export default {
+  name: 'App'
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+&lt;/style&gt;</code></pre>
+</blockquote>
+</li>
+<li><p>在<code>main.js</code>中导入<code>vue-router</code>路由插件：</p>
+</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">// 导入路由插件</span>
+<span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span></code></pre>
+
+<ol start="3">
+<li>在<code>main.js</code>中<code>显示声明使用VueRouter</code>：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//显示声明使用vue-router路由</span>
+Vue.use(VueRouter)</code></pre>
+
+<ol start="4">
+<li><code>components</code>目录下，定义一个<code>Content</code>组件和<code>Main</code>组件：</li>
+</ol>
+<ul>
+<li><code>Content</code>组件：</li>
+</ul>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;内容页&lt;/h1&gt;
+    &lt;h3&gt;学科&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Linux&lt;/li&gt;
+      &lt;li&gt;Java&lt;/li&gt;
+      &lt;li&gt;Vue&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;怎么学&lt;/h3&gt;
+    &lt;ol&gt;
+      &lt;li&gt;看文档&lt;/li&gt;
+      &lt;li&gt;看视频&lt;/li&gt;
+      &lt;li&gt;做笔记&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    name: "Content"
+  }
+
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;</code></pre>
+
+<ul>
+<li><code>Main</code>组件：</li>
+</ul>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;个人介绍&lt;/h1&gt;
+    &lt;ul&gt;
+      个人主页:
+      &lt;a href="http://melodyhub.ltd"&gt;melodyhub.ltd&lt;/a&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    name: "Main"
+  }
+
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;</code></pre>
+
+<ol start="5">
+<li><p>创建<code>src/router</code>目录，专门存放路由。</p>
+</li>
+<li><p>创建<code>src/router/index.js</code>主配置文件：</p>
+</li>
+</ol>
+<ul>
+<li><code>index.js</code>：Vue官方命名规则，主配置文件，实现全局配置<ul>
+<li><code>path</code>：路由路径,类似<code>Spring</code>中的<code>@RequestMapping</code></li>
+<li><code>name</code>：路由名称</li>
+<li><code>component</code>：跳转到组件</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
+<span class="hljs-comment">//导入路由插件</span>
+<span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span>;
+<span class="hljs-comment">//导入自定义组件</span>
+<span class="hljs-keyword">import</span> Content <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/Content.vue'</span>;
+<span class="hljs-keyword">import</span> Main <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/Main.vue'</span>;
+
+<span class="hljs-comment">//安装路由</span>
+Vue.use(VueRouter);
+
+<span class="hljs-comment">//配置导出路由</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> VueRouter({
+  routes: [
+    {
+      <span class="hljs-comment">//路由路径,类似Spring中的@RequestMapping</span>
+      path: <span class="hljs-string">"/content"</span>,
+      <span class="hljs-comment">//路由名称</span>
+      name: <span class="hljs-string">"content"</span>,
+      <span class="hljs-comment">//跳转到组件</span>
+      component: Content,
+
+    }, {
+      <span class="hljs-comment">//路由路径</span>
+      path: <span class="hljs-string">"/main"</span>,
+      <span class="hljs-comment">//路由名称</span>
+      name: <span class="hljs-string">"main"</span>,
+      <span class="hljs-comment">//跳转到组件</span>
+      component: Main,
+    }
+  ]
+})</code></pre>
+
+<ol start="7">
+<li>第6步只是配置了路由，但未启用路由，在<code>main.js</code>中启用上述配置的路由：</li>
+</ol>
+<ul>
+<li><code>router</code>：全局唯一</li>
+<li>通过<code>router/index.js</code>主配置文件，实现全局配置</li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span>
+
+<span class="hljs-comment">//导入路由配置目录,自动扫描里面的路由配置</span>
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">'./router'</span>
+
+<span class="hljs-comment">//来关闭生产模式下给出的提示</span>
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  <span class="hljs-comment">//配置路由</span>
+  router,
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+}).$mount(<span class="hljs-string">'#app'</span>)</code></pre>
+
+<ol start="8">
+<li>在<code>App.vue</code>中使用路由：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+  &lt;h1&gt;vue-router Demo&lt;/h1&gt;
+    &lt;router-link to="/main"&gt;首页&lt;/router-link&gt;
+    &lt;router-link to="/content"&gt;内容页&lt;/router-link&gt;
+    &lt;!-- 控制路由页面展示 --&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+
+export default {
+  name: 'App',
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+&lt;/style&gt;</code></pre>
+
+<ol start="9">
+<li>运行<code>npm run dev</code>，测试、查看效果。</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/10/17/0qhMDK.png" srcset="/blog/img/loading.gif" alt="0qhMDK.png"></p>
+<h1 id="十九、Element-UI"><a href="#十九、Element-UI" class="headerlink" title="十九、Element UI"></a>十九、Element UI</h1><h2 id="1-什么是Element"><a href="#1-什么是Element" class="headerlink" title="1. 什么是Element"></a>1. 什么是Element</h2><p><code>Element</code> 是饿了么前端开源维护的 Vue UI 组件库，组件齐全，基本涵盖后台所需的所有组件，文档讲解详细，例子也很丰富。<strong>主要用于开发 PC 端的页面，是一个质量比较高的 Vue UI 组件库。</strong></p>
+<ul>
+<li><a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener">官网地址</a></li>
+<li>Github：<a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank" rel="noopener">vue-element-admin</a></li>
+</ul>
+<blockquote>
+<p>备注：属于前端主流框架，选型时可以考虑使用，<strong>主要特点是桌面端支持较多</strong></p>
+</blockquote>
+<h2 id="2-实战"><a href="#2-实战" class="headerlink" title="2. 实战"></a>2. 实战</h2><ol>
+<li>创建一个工程<code>vue-element</code>：</li>
+</ol>
+<pre><code class="hljs bash">vue init webpack vue-element</code></pre>
+
+<ol start="2">
+<li>安装依赖，需要4个插件，分别为： <code>vue-router</code>、<code>element-ui</code>、<code>sass-loader</code> 和<code>node-sass</code> ：</li>
+</ol>
+<pre><code class="hljs bash"><span class="hljs-comment"># 进入工程目录</span>
+<span class="hljs-built_in">cd</span> vue-element
+<span class="hljs-comment"># 安装 vue-router</span>
+npm install vue-router --save-dev
+<span class="hljs-comment"># 安装 element-ui</span>
+npm i element-ui -S
+<span class="hljs-comment"># 安装依赖</span>
+npm install
+<span class="hljs-comment"># 安装 SASS 加载器,直接一句命令安装两个依赖插件</span>
+npm install sass-loader node-sass --save-dev
+<span class="hljs-comment"># 启动测试</span>
+npm run dev</code></pre>
+
+<blockquote>
+<p><code>npm</code> 命令解释：</p>
+<ul>
+<li><code>npm install moduleName</code>：安装模块到项目目录下</li>
+<li><code>npm install -g moduleName</code>：<code>-g</code> 的意思是将模块安装到全局，具体安装到磁盘的哪个位置，要看 <code>npm config prefix</code>的位置</li>
+<li><code>npm install moduleName -save</code>：<code>–save</code>的意思是将模块安装到项目目录下，并在<code>package</code>文件的<code>dependencies</code>节点写入依赖，<code>-S</code>为该命令的缩写</li>
+<li><code>npm install moduleName -save-dev</code>：<code>–save-dev</code>的意思是将模块安装到项目目录下，并在<code>package</code>文件的<code>devDependencies</code>节点写入依赖，<code>-D</code>为该命令的缩写</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>删除assets、components中的文件，并创建文件夹<code>view</code>、<code>router</code>分别存放<code>视图</code>、<code>路由</code>。</li>
+<li>在<code>views</code>中创建<code>Main.vue</code>：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;h1&gt;首页&lt;/h1&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: "Main"
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+
+&lt;/style&gt;</code></pre>
+
+<ol start="5">
+<li>在<code>views</code>中创建<code>Login.vue</code>：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;!--el-form一个表单，两个输入框--&gt;
+    &lt;el-form ref="loginForm" :model="form" :rules="rules"  label-width="80px" class="login-box"&gt;
+      &lt;center&gt;&lt;h3 class="login-title"&gt;欢迎登陆&lt;/h3&gt;&lt;/center&gt;
+      &lt;el-form-item label="账号" prop="username"&gt;
+        &lt;el-input type="text" placeholder="请输入账号" v-model="form.username"/&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item label="密码" prop="password"&gt;
+        &lt;el-input type="password" placeholder="请输入密码" v-model="form.password"/&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item&gt;
+        &lt;!--登陆按钮绑定了一个onSubmit事件--&gt;
+        &lt;el-button type="primary" v-on:click="onSubmit('loginForm')"&gt;登陆&lt;/el-button&gt;
+      &lt;/el-form-item&gt;
+    &lt;/el-form&gt;
+    &lt;!--提示窗--&gt;
+    &lt;el-dialog
+      title="温馨提示"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose"&gt;
+      &lt;span&gt;请输入账号和密码&lt;/span&gt;
+      &lt;span slot="footer" class="dialog-footer"&gt;
+        &lt;el-button type="primary" @click="dialogVisible = false"&gt;确定&lt;/el-button&gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name:"Login",
+    data(){
+      return{
+        form:{
+          username:'',
+          password:''
+        },
+
+        // 表单验证，需要在 el-form-item 元素中增加 prop 属性
+        rules:{
+          username: [
+            {required:true,message:'账号不可为空',trigger:'blur'}
+          ],
+          password: [
+            {required:true,message:'密码不可为空',trigger:'blur'}
+          ]
+        },
+
+        // 对话框显示和隐藏
+        dialogVisible:false
+
+      }
+    },
+    methods:{
+      onSubmit(formName){
+        // 为表单绑定验证功能
+        this.$refs[formName].validate((valid)=&gt;{
+          if(valid){
+            /*使用 vue-router 路由到指定页面,如果引用成功了,会去router中push到main，这种方式称为编程式导航*/
+            this.$router.push("/main");
+          }else {
+            this.dialogVisible=true;
+            return false;
+
+          }
+        });
+      }
+    }
+  }
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.login-box {
+  border: 1px solid #dcdfe6;
+  width: 350px;
+  margin: 180px auto;
+  padding: 35px 35px 15px 35px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0 0 25px #909399;
+}
+
+.login-title {
+  text-align: center;
+  margin: 0 auto 40px auto;
+  color: #303133;
+}
+&lt;/style&gt;</code></pre>
+
+<ol start="6">
+<li>在<code>router</code>中创建<code>index.js</code>：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//导入vue</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
+<span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span>;
+<span class="hljs-comment">//导入组件</span>
+<span class="hljs-keyword">import</span> Main <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/Main"</span>;
+<span class="hljs-keyword">import</span> Login <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/Login"</span>;
+<span class="hljs-comment">//使用</span>
+Vue.use(VueRouter);
+<span class="hljs-comment">//导出</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> VueRouter({
+  routes: [
+    {
+      <span class="hljs-comment">//登录页</span>
+      path: <span class="hljs-string">'/main'</span>,
+      component: Main
+    },
+    <span class="hljs-comment">//首页</span>
+    {
+      path: <span class="hljs-string">'/login'</span>,
+      component: Login
+    },
+  ]
+})</code></pre>
+
+<ol start="7">
+<li>在<code>main.js</code>中导入相关配置：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span>
+<span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">"vue-router"</span>;
+<span class="hljs-comment">//扫描路由配置</span>
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">"./router"</span>
+<span class="hljs-comment">//导入Element UI</span>
+<span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">"element-ui"</span>
+<span class="hljs-comment">//导入element css,样式文件需要单独引入</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'element-ui/lib/theme-chalk/index.css'</span>
+<span class="hljs-comment">//使用</span>
+Vue.use(VueRouter)
+Vue.use(ElementUI)
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  <span class="hljs-comment">//el: '#app', //同.$mount('#app')</span>
+  <span class="hljs-comment">//配置路由</span>
+  router,
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),<span class="hljs-comment">//ElementUI规定这样使用</span>
+}).$mount(<span class="hljs-string">'#app'</span>)</code></pre>
+
+<ol start="8">
+<li>在<code>App.vue</code>中使用路由并展示视图：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;router-link to="/main"&gt;首页&lt;/router-link&gt;
+    &lt;router-link to="/login"&gt;注册&lt;/router-link&gt;
+
+    &lt;!--展示视图--&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: 'App',
+  }
+&lt;/script&gt;</code></pre>
+
+<ol start="9">
+<li>运行测试 <code>http://localhost:8080/#/login</code> ：</li>
+</ol>
+<pre><code class="hljs bash">npm run dev</code></pre>
+
+<blockquote>
+<ul>
+<li>如果出现错误: 可能是因为<code>sass-loader</code>的版本导致的编译错误，可以切换到当前最高版本10.0.3，或尝试退回到7.3.1 ：<ul>
+<li>去<code>package.json</code>文件里面的<code>"sass-loader"</code>的版本更换成10.0.3，然后重新<code>npm install</code>就可以了。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/10/21/BP2Lb4.png" srcset="/blog/img/loading.gif" alt="BP2Lb4.png"></p>
+<h1 id="二十、路由嵌套"><a href="#二十、路由嵌套" class="headerlink" title="二十、路由嵌套"></a>二十、路由嵌套</h1><h2 id="1-什么是路由嵌套"><a href="#1-什么是路由嵌套" class="headerlink" title="1. 什么是路由嵌套"></a>1. 什么是路由嵌套</h2><ul>
+<li><code>嵌套路由</code>，又称<code>子路由</code>。</li>
+<li>在实际应用中，通常<code>由多层嵌套的组件组合而成</code>。</li>
+</ul>
+<h2 id="2-实战-1"><a href="#2-实战-1" class="headerlink" title="2. 实战"></a>2. 实战</h2><ol>
+<li>创建用户信息组件，在 <code>views/user</code> 目录下创建一个名为 <code>Profile.vue</code> 的视图组件：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;h1&gt;个人信息&lt;/h1&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: "UserProfile"
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;</code></pre>
+
+<ol start="2">
+<li>创建用户列表组件，在 <code>views/user</code> 目录下创建一个名为 <code>List.vue</code> 的视图组件：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;h1&gt;用户列表&lt;/h1&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: "UserList"
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;</code></pre>
+
+<ol start="3">
+<li>修改 <code>Main.vue</code> 首页视图，使用 <code>Element UI</code> 布局容器组件：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;el-container&gt;
+      &lt;el-aside width="200px"&gt;
+        &lt;el-menu :default-openeds="['1']"&gt;
+          &lt;el-submenu index="1"&gt;
+            &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;用户管理&lt;/template&gt;
+            &lt;el-menu-item-group&gt;
+              &lt;el-menu-item index="1-1"&gt;
+                &lt;!--插入的地方--&gt;
+                &lt;router-link to="/user/profile"&gt;个人信息&lt;/router-link&gt;
+              &lt;/el-menu-item&gt;
+              &lt;el-menu-item index="1-2"&gt;
+                &lt;!--插入的地方--&gt;
+                &lt;router-link to="/user/list"&gt;用户列表&lt;/router-link&gt;
+              &lt;/el-menu-item&gt;
+            &lt;/el-menu-item-group&gt;
+          &lt;/el-submenu&gt;
+          &lt;el-submenu index="2"&gt;
+            &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;内容管理&lt;/template&gt;
+            &lt;el-menu-item-group&gt;
+              &lt;el-menu-item index="2-1"&gt;分类管理&lt;/el-menu-item&gt;
+              &lt;el-menu-item index="2-2"&gt;内容列表&lt;/el-menu-item&gt;
+            &lt;/el-menu-item-group&gt;
+          &lt;/el-submenu&gt;
+          &lt;el-submenu index="3"&gt;
+            &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;系统管理&lt;/template&gt;
+            &lt;el-menu-item-group&gt;
+              &lt;el-menu-item index="3-1"&gt;用户设置&lt;/el-menu-item&gt;
+            &lt;/el-menu-item-group&gt;
+          &lt;/el-submenu&gt;
+        &lt;/el-menu&gt;
+      &lt;/el-aside&gt;
+
+      &lt;el-container&gt;
+        &lt;el-header style="text-align: right; font-size: 12px"&gt;
+          &lt;el-dropdown&gt;
+            &lt;i class="el-icon-setting" style="margin-right: 15px"&gt;&lt;/i&gt;
+            &lt;el-dropdown-menu slot="dropdown"&gt;
+              &lt;el-dropdown-item&gt;个人信息&lt;/el-dropdown-item&gt;
+              &lt;el-dropdown-item&gt;退出登录&lt;/el-dropdown-item&gt;
+            &lt;/el-dropdown-menu&gt;
+          &lt;/el-dropdown&gt;
+        &lt;/el-header&gt;
+        &lt;el-main&gt;
+          &lt;!--在这里展示视图--&gt;
+          &lt;router-view /&gt;
+        &lt;/el-main&gt;
+      &lt;/el-container&gt;
+    &lt;/el-container&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: "Main"
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
+  }
+  .el-aside {
+    color: #333;
+  }
+&lt;/style&gt;</code></pre>
+
+<ol start="4">
+<li>使用<code>children</code>配置<code>嵌套路由</code>，修改<code>router/index.js</code>主路由配置文件：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//导入vue</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
+<span class="hljs-keyword">import</span> VueRouter <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span>;
+<span class="hljs-comment">//导入组件</span>
+<span class="hljs-keyword">import</span> Main <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/Main"</span>;
+<span class="hljs-keyword">import</span> Login <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/Login"</span>;
+<span class="hljs-comment">//导入子模块</span>
+<span class="hljs-keyword">import</span> UserList <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/user/List"</span>;
+<span class="hljs-keyword">import</span> UserProfile <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/user/Profile"</span>;
+
+<span class="hljs-comment">//使用</span>
+Vue.use(VueRouter);
+<span class="hljs-comment">//导出</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> VueRouter({
+  routes: [
+    {
+      <span class="hljs-comment">//登录页</span>
+      path: <span class="hljs-string">'/main'</span>,
+      component: Main,
+      <span class="hljs-comment">//  写入子模块</span>
+      children: [
+        {
+          path: <span class="hljs-string">'/user/profile'</span>,
+          component: UserProfile,
+        }, {
+          path: <span class="hljs-string">'/user/list'</span>,
+          component: UserList,
+        },
+      ]
+    },
+    <span class="hljs-comment">//首页</span>
+    {
+      path: <span class="hljs-string">'/login'</span>,
+      component: Login
+
+    },
+  ]
+})</code></pre>
+
+<h1 id="二十一、参数传递"><a href="#二十一、参数传递" class="headerlink" title="二十一、参数传递"></a>二十一、参数传递</h1><ul>
+<li><code>Vue-Router</code>中的``path`传值问题</li>
+</ul>
+<blockquote>
+<p>我们经常需要把某种模式匹配到的所有路由，全都映射到同个组件。</p>
+<p>例如，我们有一个 User 组件，对于所有 ID 各不相同的用户，都要使用这个组件来渲染。此时我们就需要传递参数了。</p>
+</blockquote>
+<h2 id="不使用props"><a href="#不使用props" class="headerlink" title="不使用props"></a>不使用props</h2><ol>
+<li>修改<code>src/router/index.js</code>路由配置：</li>
+</ol>
+<ul>
+<li>主要在<code>path</code>属性中增加<code>:id</code>占位符</li>
+</ul>
+<pre><code class="hljs js">{
+  path: <span class="hljs-string">'/user/profile/:id'</span>,
+  name: <span class="hljs-string">'UserProfile'</span>,
+  component: UserProfile,
+}</code></pre>
+
+<ol start="2">
+<li>前端传递参数：</li>
+</ol>
+<ul>
+<li>在<code>Main.vue</code>，给<code>to</code>绑定对象<code>v-bind:to</code>或<code>:to</code>（<code>:</code>就是<code>v-bind</code>的省略）</li>
+<li><code>router-link</code> 中的 <code>name</code> 属性名称 一定要和 <code>路由配置</code>中的 <code>name</code> 属性名称 <code>匹配</code>，因为这样 <code>Vue</code> 才能找到对应的路由路径。</li>
+<li>利用<code>params</code>来<code>传递参数</code>。</li>
+</ul>
+<pre><code class="hljs vue">&lt;!--name：传组件名 params：传递参数，需要绑定对象：v-bind--&gt;
+&lt;router-link v-bind:to="{name: 'UserProfile', params: {id: 123}}"&gt;个人信息&lt;/router-link&gt;</code></pre>
+
+<ol start="3">
+<li>目标组件<code>Profile.vue</code>中接收参数，并在视图中展示：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;个人信息&lt;/h1&gt;
+    {{ $route.params.id }}
+  &lt;/div&gt;
+&lt;/template
+&lt;script&gt;
+  export default {
+    name: "UserProfile"
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;</code></pre>
+
+<blockquote>
+<p><code></code>一定要用<code>标签</code>包围起来，不然会报错！！！</p>
+<p><img src="https://s1.ax1x.com/2020/11/01/Bwwt00.png" srcset="/blog/img/loading.gif" alt="Bwwt00.png"></p>
+</blockquote>
+<ol start="4">
+<li>试试 <code>http://localhost:8080/#/user/profile/123</code>：</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/11/01/Bw0724.png" srcset="/blog/img/loading.gif" alt="Bw0724.png"></p>
+<h2 id="使用props"><a href="#使用props" class="headerlink" title="使用props"></a>使用props</h2><ol>
+<li>修改<code>src/router/index.js</code>路由配置，增加<code>props:true</code>属性：</li>
+</ol>
+<pre><code class="hljs js">{
+  path: <span class="hljs-string">'/user/profile/:id'</span>,
+  name: <span class="hljs-string">'UserProfile'</span>,
+  component: UserProfile,
+  props: <span class="hljs-literal">true</span>,
+}</code></pre>
+
+<ol start="2">
+<li>目标组件<code>Profile.vue</code>中接收参数的方式有些变化：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;个人信息&lt;/h1&gt;
+      {{id}}
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: "UserProfile",
+    //传递参数
+    props: ['id']
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;</code></pre>
+
+<ol start="3">
+<li>试试<code>http://localhost:8080/#/user/profile/123456</code>：</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/11/01/Bw062Q.png" srcset="/blog/img/loading.gif" alt="Bw062Q.png"></p>
+<h2 id="实例demo"><a href="#实例demo" class="headerlink" title="实例demo"></a>实例demo</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ul>
+<li>通过登陆页面成功登陆后，在首页右上角展示用户名</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ol>
+<li><code>Login.vue</code>的<code>methods</code>中获取当前用户名：</li>
+</ol>
+<pre><code class="hljs vue">methods:{
+  onSubmit(formName){
+    this.$refs[formName].validate((valid)=&gt;{
+      if(valid){
+        /*获取当前用户的用户名*/
+        this.$router.push("/main"+"/"+this.form.username);
+      }else {
+        this.dialogVisible=true;
+        return false;
+      }
+    });
+  }
+}</code></pre>
+
+<ol start="2">
+<li>修改<code>src/router/index.js</code>路由配置，<code>/main</code>路由接收<code>name</code>参数：</li>
+</ol>
+<pre><code class="hljs js">{
+	path: <span class="hljs-string">'/main/:name'</span>,
+	component: Main,
+	props: <span class="hljs-literal">true</span>,
+}</code></pre>
+
+<ol start="3">
+<li><code>Main.vue</code>中接收参数，</li>
+</ol>
+<pre><code class="hljs vue">&lt;script&gt;
+  export default {
+    name: "Main",
+    props: ['name'],
+  }
+&lt;/script&gt;</code></pre>
+
+<p>然后展示数据，</p>
+<pre><code class="hljs vue">&lt;/el-dropdown&gt;
+  &lt;span&gt;{{name}}&lt;/span&gt;
+&lt;/el-header&gt;</code></pre>
+
+<ol start="4">
+<li>试试效果：</li>
+</ol>
+<p><img src="https://i.loli.net/2020/11/01/562xUAJhIZF4Co9.gif" srcset="/blog/img/loading.gif" alt="gif.gif"></p>
+<h1 id="二十二、组件重定向"><a href="#二十二、组件重定向" class="headerlink" title="二十二、组件重定向"></a>二十二、组件重定向</h1><ul>
+<li>重定向，顾名思义。</li>
+<li>但是 <code>Vue</code> 中的<code>重定向</code>是<code>作用在路径不同但组件相同的情况下</code>。</li>
+</ul>
+<ol>
+<li>修改<code>src/router/index.js</code>路由配置，增加重定向路由<code>redirect</code>属性：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//重定向</span>
+}
+  path: <span class="hljs-string">'/goLogin'</span>,
+  redirect: <span class="hljs-string">'/login'</span>
+},
+<span class="hljs-comment">//登录页</span>
+{
+  path: <span class="hljs-string">'/login'</span>,
+  component: Login
+},</code></pre>
+
+<blockquote>
+<p><strong>说明：</strong></p>
+<p>这里定义了两个路径，一个是 ``/login<code>，一个是</code>/goLogin<code>，其中</code>/goLogin<code>重定向到了</code>/login` 路径，由此可以看出重定向不需要定义组件。</p>
+</blockquote>
+<ol start="2">
+<li><code>Main.vue</code>中重定向路由组件：</li>
+</ol>
+<pre><code class="hljs vue">&lt;el-menu-item index="1-3"&gt;
+  &lt;!--组件重定向--&gt;
+  &lt;router-link to="/goLogin"&gt;回到登录页&lt;/router-link&gt;
+&lt;/el-menu-item&gt;</code></pre>
+
+<ol start="3">
+<li>刷新页面，点击“回到登录页”试试</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/11/01/Bwh06P.gif" srcset="/blog/img/loading.gif" alt="Bwh06P.gif"></p>
+<h1 id="二十三、路由模式"><a href="#二十三、路由模式" class="headerlink" title="二十三、路由模式"></a>二十三、路由模式</h1><p> <strong>路由模式有两种</strong>：</p>
+<ul>
+<li><code>hash</code>：<ul>
+<li>路径带 <code>#</code> 符号</li>
+<li>如 <code>http://localhost/#/login</code></li>
+</ul>
+</li>
+<li><code>history</code>：<ul>
+<li>路径不带 <code>#</code> 符号</li>
+<li>如 <code>http://localhost/login</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="修改路由配置"><a href="#修改路由配置" class="headerlink" title="修改路由配置"></a>修改路由配置</h2><ul>
+<li>在我们的路由配置文件<code>src/router/index.js</code>中指定路由模式<code>mode</code>：</li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+  mode: <span class="hljs-string">'history'</span>,
+  routes: [
+  ]
+});</code></pre>
+
+<h1 id="二十四、404"><a href="#二十四、404" class="headerlink" title="二十四、404"></a>二十四、404</h1><ol>
+<li>新建<code>src/views/NotFound.vue</code>：</li>
+</ol>
+<pre><code class="hljs vue">&lt;template&gt;
+    &lt;div&gt;
+      &lt;h1&gt;哇~404,你的页面走丢了🤣&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default {
+        name: "NotFound"
+    }
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;</code></pre>
+
+<ol start="2">
+<li>在路由配置文件<code>src/router/index.js</code>中配置路由：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-comment">//导入组件</span>
+<span class="hljs-keyword">import</span> NotFound <span class="hljs-keyword">from</span> <span class="hljs-string">"../views/NotFound.vue"</span>;
+
+routes: [
+  {
+    path: <span class="hljs-string">"*"</span>,
+    component: NotFound
+  }
+]</code></pre>
+
+<ol start="3">
+<li>试试访问<code>http://localhost:8080/#/abv</code>：</li>
+</ol>
+<blockquote>
+<p>使用了<code>history</code>路由模式的话，访问<code>http://localhost:8080/abv</code>。</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/11/01/BwqilQ.png" srcset="/blog/img/loading.gif" alt="BwqilQ.png"></p>
+<h1 id="二十五、路由钩子与异步请求"><a href="#二十五、路由钩子与异步请求" class="headerlink" title="二十五、路由钩子与异步请求"></a>二十五、路由钩子与异步请求</h1><blockquote>
+<p>官方文档：<a href="https://cn.vuejs.org/v2/guide/custom-directive.html#钩子函数" target="_blank" rel="noopener">钩子函数及参数 — Vue.js</a></p>
+</blockquote>
+<p>回顾<a href="https://www.cnblogs.com/melodyjerry/p/13768594.html#十五、vue生命周期" target="_blank" rel="noopener">十五、Vue生命周期</a>中的两张图，其中就涉及到了<strong>钩子</strong>。</p>
+<p><img src="https://s1.ax1x.com/2020/11/01/BwLGvQ.png" srcset="/blog/img/loading.gif" alt="BwLGvQ.png"></p>
+<h2 id="1-什么是钩子函数"><a href="#1-什么是钩子函数" class="headerlink" title="1.什么是钩子函数"></a>1.什么是钩子函数</h2><ul>
+<li><code>钩子函数</code>：钩子函数是在一个事件触发的时候，在系统级捕获到了他，然后做一些操作。<strong>一段用以处理系统消息的程序。</strong>“钩子”就是在某个阶段给你一个做某些处理的机会。<ul>
+<li><ol>
+<li>是个函数，在系统消息触发时被系统调用</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>不是用户自己触发的</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>钩子函数的名称是确定的，当系统消息触发，自动会调用。</p>
+<p>例如<code>react</code>的<code>componentWillUpdate</code>函数，用户只需要编写<code>componentWillUpdate</code>的函数体，当组件状态改变要更新时，系统就会调用<code>componentWillUpdate</code>。</p>
+</blockquote>
+<blockquote>
+<p>常见的钩子函数：</p>
+<ul>
+<li>react的生命周期函数</li>
+<li>vue的生命周期函数</li>
+<li>vue的自定义指令</li>
+<li>……</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>解释来源于：<a href="https://www.cnblogs.com/8080zh/p/11164277.html" target="_blank" rel="noopener">理解什么是钩子函数</a></p>
+</blockquote>
+<h2 id="2-路由钩子"><a href="#2-路由钩子" class="headerlink" title="2.路由钩子"></a>2.路由钩子</h2><ul>
+<li><code>beforeRouteEnter</code>：在进入路由前执行</li>
+<li><code>beforeRouteLeave</code>：在离开路由前执行</li>
+<li><code>beforeRouteUpdate</code>： Vue2.2 新增，用于相同路由组件的的参数更新</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>是<code>时机函数</code>，在页面加载前，可以在这两个函数里面做一些事情， 比如发送<code>异步请求</code>。</p>
+</li>
+<li><p>类似<code>过滤器</code>，或者<code>拦截器</code>的环绕。</p>
+</li>
+<li><p>它们是和<code>data</code>, <code>methods</code>平级的：</p>
+</li>
+</ul>
+<pre><code class="hljs vue">beforeRouteLeave(to, from, next) {
+    next()
+},
+beforeRouteEnter(to, from, next) {
+    next()
+},
+beforeRouteUpdate(to, from, next) { 
+    next()
+},
+data: {},
+method: {}</code></pre>
+</blockquote>
+<h3 id="2-1-参数说明"><a href="#2-1-参数说明" class="headerlink" title="2.1 参数说明"></a>2.1 参数说明</h3><ul>
+<li><code>to</code> 路由将要跳转的路径信息</li>
+<li><code>from</code> 路径跳转前的路径信息</li>
+<li><code>next</code> 路由的控制参数，<strong>必须存在一种<code>next</code>方法</strong><ul>
+<li><code>next()</code> 跳入下一个页面，</li>
+<li><code>next('/path')</code> 改变路由的跳转方向，跳到下一个页面</li>
+<li><code>next(false)</code> 返回原来的页面</li>
+<li><code>next((vm) =&gt; {})</code> 只能在<code>beforeRouteEnter</code> 中可用，<code>vm</code>是组件实例</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs vue">// 两个钩子函数,类似过滤器或拦截器的环绕
+beforeRouteEnter: (to, from, next) =&gt; {
+    console.log('进入路由之前...');
+    next() // 必写
+},
+beforeRouteLeave: (to, from, next) =&gt; {
+    console.log('离开路由之前...')
+    next() // 必写
+}</code></pre>
+
+<blockquote>
+<p>到控制台试试  <em>进入、离开路由前</em>  是否会打印日志信息？</p>
+</blockquote>
+<h2 id="3-在钩子函数中使用异步请求"><a href="#3-在钩子函数中使用异步请求" class="headerlink" title="3. 在钩子函数中使用异步请求"></a>3. 在钩子函数中使用异步请求</h2><blockquote>
+<p>官方文档：<a href="http://www.axios-js.com/zh-cn/docs/vue-axios.html" target="_blank" rel="noopener">vue-axios|axios中文网</a></p>
+</blockquote>
+<ol>
+<li>安装<code>Axios</code>：</li>
+</ol>
+<pre><code class="hljs bash">npm install --save vue-axios</code></pre>
+
+<ol start="2">
+<li><code>main.js</code>引入<code>Axios</code>：</li>
+</ol>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">'axios'</span>
+<span class="hljs-keyword">import</span> VueAxios <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-axios'</span>
+
+<span class="hljs-comment">//使用</span>
+Vue.use(VueAxios, axios)</code></pre>
+
+<ol start="3">
+<li>准备测试数据，新建<code>static/mock/data.json</code>：</li>
+</ol>
+<blockquote>
+<p><em>静态数据存放的位置</em>：<code>static</code>文件夹下的<code>mock</code>文件夹</p>
+</blockquote>
+<pre><code class="hljs json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"MelodyJerry"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://melodyhub.ltd/"</span>,
+    <span class="hljs-attr">"page"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"isNonProfit"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"address"</span>: {
+      <span class="hljs-attr">"street"</span>: <span class="hljs-string">"广州"</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"广东"</span>,
+      <span class="hljs-attr">"country"</span>: <span class="hljs-string">"中国"</span>
+    },
+    <span class="hljs-attr">"links"</span>: [
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"博客园"</span>,
+        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://www.cnblogs.com/melodyjerry/"</span>
+      },
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub"</span>,
+        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"melodyhub.ltd"</span>
+      },
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Gitee"</span>,
+        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://melodyjerry.gitee.io/"</span>
+      }
+    ]
+  }</code></pre>
+
+<ol start="4">
+<li>运行<code>npm run dev</code>，访问<code>http://localhost:8080/static/mock/data.json</code>，获取json数据：</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/11/01/B0UgaT.png" srcset="/blog/img/loading.gif" alt="B0UgaT.png"></p>
+<ol start="5">
+<li>在 <code>beforeRouteEnter</code>中进行异步请求：</li>
+</ol>
+<pre><code class="hljs vue">&lt;script&gt;
+  export default {
+    name: "UserProfile",
+    //传递参数
+    props: ['id'],
+    beforeRouteEnter (to, from, next) {
+      console.log("进入路由之前...");
+      //加载数据
+      next(vm =&gt; { //发送异步请求并放行
+        vm.getDatd(); //进入路由之前执行getData方法
+      }); //必写
+    },
+    beforeRouteLeave (to, from, next) {
+      console.log("进入路由之后...");
+      next(); //必写
+    },
+    methods: {
+      getDatd: function () {
+        this.axios({
+          methods: 'get',
+          url: 'http://localhost:8080/static/mock/data.json'
+        }).then(function (respone) {
+          console.log(respone);
+        })
+      }
+    },
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;</code></pre>
+
+<ol start="6">
+<li>运行<code>npm run dev</code>，打开控制台：</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/11/01/B0wJq1.png" srcset="/blog/img/loading.gif" alt="B0wJq1.png"></p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p>[0] <a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">Vue.js 官方文档</a></p>
+<p>[1] <a href="https://blog.csdn.net/u010510187/article/details/100356624" target="_blank" rel="noopener">关于template标签用法总结(含vue中的用法总结)</a></p>
+<p>[2] <a href="https://blog.csdn.net/weixin_43343144/article/details/86164858?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">Vue2 模板template的四种写法总结（很重要）</a></p>
+<p>[3] <a href="https://blog.csdn.net/crazywoniu/article/details/80942642" target="_blank" rel="noopener">vue-router传递参数的几种方式</a></p>
+<p>[4] <a href="https://www.jianshu.com/p/8341edbc7436" target="_blank" rel="noopener">VUE中assets与static的区别</a></p>
+<p>[5] <a href="https://www.cnblogs.com/totoro-cat/p/12912891.html" target="_blank" rel="noopener">【VUE】2.渲染组件&amp;重定向路由</a></p>
+<p>[6] <a href="https://blog.csdn.net/hbiao68/article/details/107250272" target="_blank" rel="noopener">Vue2.x 自定义重定向路由route组件</a></p>
+<p>[7] <a href="https://www.cnblogs.com/8080zh/p/11164277.html" target="_blank" rel="noopener">理解什么是钩子函数</a></p>
+<p>[8] <a href="https://www.cnblogs.com/lhl66/p/9195901.html" target="_blank" rel="noopener">vue组件独享守卫钩子函数参数详解（beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave）</a></p>
+<p>[9] <a href="https://blog.csdn.net/ddr66288/article/details/102119947" target="_blank" rel="noopener">vue路由钩子拦截器beforeEach和afterEach及页面路由变化路由监听</a></p>
+<p>[10] <a href="https://blog.csdn.net/qq_44783283/article/details/108808029" target="_blank" rel="noopener">beforeRouteEnter，beforeRouteLeave函数</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2377,7 +4001,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Vue快速入门学习笔记&nbsp;",
+        "Vue快速入门学习笔记(更新ing)&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
