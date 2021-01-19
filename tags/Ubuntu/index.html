@@ -19,19 +19,10 @@
   <meta name="description" content="">
   <meta name="author" content="Melody Jerry">
   <meta name="keywords" content="">
-  <title>解决npm install时npm ERR! Unexpected end of JSON input while parsing near - MelodyHub</title>
+  <title>标签 - Ubuntu - MelodyHub</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
-
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
-
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark-reasonable.min.css" />
-  
-
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -54,7 +45,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -142,7 +133,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://s1.ax1x.com/2020/07/16/UDRtE9.png') no-repeat center center;
+         style="background: url('https://s1.ax1x.com/2020/07/16/UDRJHJ.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -150,48 +141,6 @@
             <span class="h2" id="subtitle">
               
             </span>
-
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-01-04 16:40">
-      2021年1月4日 下午
-    </time>
-  </div>
-
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      183 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      2
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
-      </span>
-    
-  
-</div>
 
             
           </div>
@@ -204,195 +153,37 @@
 
   <main>
     
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
+  
+    
       
+      <p class="h5">2021</p>
+    
+    <a href="/blog/2021/01/18/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEapt%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C%E4%BA%91%E6%BA%90/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">ubuntu更换apt源</span>
+      <span style="float: right;">01-18</span>
+    </a>
+  
+</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：9 天前
-                
-              </p>
-            
-            <article class="markdown-body">
-              <p>最近我的<code>npm</code>发抽了似的，安装各种依赖出现各种报错，直接记录一下。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>执行<code>npm install</code>时，控制台的部分报错：</p>
-<pre><code class="hljs shell">npm ERR! Unexpected end of JSON input while parsing near '...7839d064dd0d46cd1b88e'
 
-npm ERR! A complete log of this run can be found in:
-npm ERR!     E:\DeveloperTool\nodejs\node_cache\_logs\2021-01-04T08_02_35_882Z-debug.log</code></pre>
-<p>报错截图，如下：<br><img src="https://img-blog.csdnimg.cn/img_convert/0faa1dd1bdc7500ac675984571b24927.png" srcset="/blog/img/loading.gif" alt=""></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ol>
-<li><p>清除<strong>缓存</strong></p>
-<pre><code class="hljs shell">npm cache clean --force</code></pre>
-<blockquote>
-<p>注意：清楚缓存可能需要一些时间，耐心等待~</p>
-</blockquote>
-</li>
-<li><p>重新安装</p>
-<pre><code class="hljs shell">npm install</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/44da7b25f7678af8fa4eeffccb83619e.png" srcset="/blog/img/loading.gif" alt=""></p>
-</li>
-<li><p>试试<code>npm run dev</code>，服务器启动成功了！</p>
-</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-            </article>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/tags/Node/">Node</a>
-                    
-                      <a class="hover-with-bg" href="/blog/tags/npm/">npm</a>
-                    
-                  </div>
-                
+
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
-                    
-                    
-                      <a href="/blog/2021/01/12/%E5%A5%B6%E7%88%B8%E6%95%99%E7%A8%8B-%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E5%BC%80%E5%8F%91%E4%BA%91%E6%89%98%E7%AE%A1%E6%95%B4%E4%B8%80%E4%B8%AA%E4%B8%93%E5%B1%9E%E7%BD%91%E7%9B%98%EF%BC%81/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">奶爸教程-用腾讯云开发云托管整一个专属网盘！</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </div>
-                  <div class="post-next col-6">
-                    
-                    
-                      <a href="/blog/2021/01/03/Terminal%EF%BC%8Cwin10%E7%9A%84%E6%9C%80%E4%BD%B3%E7%BB%88%E7%AB%AF/">
-                        <span class="hidden-mobile">Terminal，win10的最佳终端</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </div>
-                </div>
-              
             </div>
-
-            
-              <!-- Comments -->
-              <div class="comments" id="comments">
-                
-                
-  <div id="vcomments"></div>
-  <script type="text/javascript">
-    function loadValine() {
-      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
-        new Valine({
-          el: "#vcomments",
-          app_id: "UNKL0FXJFAFOKRM1mGyL3Y2s-gzGzoHsz",
-          app_key: "HjUUcTY42RErTnIt7O58GhvH",
-          placeholder: "( ͡° ͜ʖ ͡°)✧ 来啊~",
-          path: window.location.pathname,
-          avatar: "retro",
-          meta: ["nick","mail","link"],
-          pageSize: "10",
-          lang: "zh-CN",
-          highlight: true,
-          recordIP: true,
-          serverURLs: "https://unkl0fxj.lc-cn-n1-shared.com",
-          
-           // 设置Bilibili表情包地址
-    emojiCDN: '//i0.hdslb.com/bfs/emote/', 
-    // 表情title和图片映射
-    emojiMaps: {
-        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
-        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
-        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
-        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
-        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
-        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
-        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
-        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
-        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
-        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
-        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
-        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
-        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
-        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
-        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
-        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
-        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
-        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
-        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
-        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
-        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
-        // ... 更多表情
-    } 
-          
-        });
-      });
-    }
-    createObserver(loadValine, 'vcomments');
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
-
-
-              </div>
-            
           </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-md">
-    <div class="container custom post-content mx-auto">
-      <img src="https://i.loli.net/2020/02/11/lMEgBFV2OdnCLN7.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
-
-
     
   </main>
 
@@ -738,10 +529,10 @@ setInterval("createtime()",250);
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
+      if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/blog/2021/01/04/2021-01-04-%E8%A7%A3%E5%86%B3npm-install%E6%97%B6npm-ERR!-Unexpected-end-of-JSON-input-while-parsing-near/');
+          var target = decodeURI('/blog/tags/Ubuntu/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -803,31 +594,6 @@ setInterval("createtime()",250);
 
 
 
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 2,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -835,7 +601,7 @@ setInterval("createtime()",250);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "解决npm install时npm ERR! Unexpected end of JSON input while parsing near&nbsp;",
+        "标签 - Ubuntu&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -849,23 +615,6 @@ setInterval("createtime()",250);
   </script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-      icon: "§"
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
 
 
 
@@ -881,62 +630,9 @@ setInterval("createtime()",250);
 
 
 
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
-
-  
 
 
 
@@ -1016,13 +712,6 @@ setInterval("createtime()",250);
 
 
 
-
-  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({"theme":"default"});
-    }
-  </script>
 
 
 
