@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://melodyjerry.github.io/blog/"/>
-  <updated>2021-01-19T12:50:23.537Z</updated>
+  <updated>2021-01-28T15:55:58.948Z</updated>
   <id>https://melodyjerry.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git clone克隆指定分支</title>
+    <link href="https://melodyjerry.github.io/blog/2021/01/28/git%20clone%E5%85%8B%E9%9A%86%E6%8C%87%E5%AE%9A%E5%88%86%E6%94%AF/"/>
+    <id>https://melodyjerry.github.io/blog/2021/01/28/git%20clone%E5%85%8B%E9%9A%86%E6%8C%87%E5%AE%9A%E5%88%86%E6%94%AF/</id>
+    <published>2021-01-28T15:53:00.000Z</published>
+    <updated>2021-01-28T15:55:58.948Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code class="hljs bash">git branch -r <span class="hljs-comment"># 列出远程跟踪分支</span>git branch -a <span class="hljs-comment"># 查看所有分支</span></code></pre><blockquote><p><code>git clone</code> <strong>默认</strong> 会把远程仓库 <strong>整个</strong> 给clone下来;<br>但只会在本地默认创建一个<code>master</code>分支<br>如果远程还有其他的分支，此时用<code>git branch -a</code>查看所有分支。</p></blockquote><p><img src="https://img-blog.csdnimg.cn/img_convert/11bba6869d607508493da99fa6af3bc6.png" srcset="/blog/img/loading.gif" alt=""></p><pre><code class="hljs bash"><span class="hljs-comment"># clone用参数-b指定分支</span>git <span class="hljs-built_in">clone</span> -b 分支名 https://github.com/用户名/仓库名.git</code></pre><p><img src="https://img-blog.csdnimg.cn/img_convert/832a541af040faab01cda0c478533063.png" srcset="/blog/img/loading.gif" alt=""></p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol><li><a href="https://www.jianshu.com/p/79cdb8d514ed" target="_blank" rel="noopener">克隆 GitHub Repo 非 Master 分支</a></li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;git branch -r &lt;span class=&quot;hljs-comment&quot;&gt;# 列出远程跟踪分支&lt;/span&gt;
+git branch -a &lt;span class=&quot;hljs-comment&quot;&gt;# 查看所有分支&lt;/s
+      
+    
+    </summary>
+    
+    
+      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
+    
+    
+      <category term="Git" scheme="https://melodyjerry.github.io/blog/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ubuntu更换apt源</title>
     <link href="https://melodyjerry.github.io/blog/2021/01/18/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEapt%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C%E4%BA%91%E6%BA%90/"/>
     <id>https://melodyjerry.github.io/blog/2021/01/18/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEapt%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C%E4%BA%91%E6%BA%90/</id>
     <published>2021-01-18T05:00:00.000Z</published>
-    <updated>2021-01-19T12:50:23.537Z</updated>
+    <updated>2021-01-19T12:55:07.516Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、备份apt源的配置文件"><a href="#一、备份apt源的配置文件" class="headerlink" title="一、备份apt源的配置文件"></a>一、备份apt源的配置文件</h1><blockquote><p>我们要修改的文件是<code>sources.list</code>，它在目录<code>/etc/apt/</code>下，<code>sources.list</code>是包管理工具<code>apt</code>所用的<code>记录软件包仓库位置的配置文件</code>，同样类型的还有位于 同目录下<code>sources.list.d</code>文件下的各种<code>.list</code>后缀的各文件。</p></blockquote><pre><code class="hljs shell">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></pre><h1 id="二、编辑apt源的配置文件"><a href="#二、编辑apt源的配置文件" class="headerlink" title="二、编辑apt源的配置文件"></a>二、编辑apt源的配置文件</h1><blockquote><p>关于Vim介绍以及使用：<a href="https://blog.csdn.net/weixin_43438052/article/details/108743013" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43438052/article/details/108743013</a></p></blockquote><pre><code class="hljs shell">vim /etc/apt/sources.list</code></pre><blockquote><p>如果报错 <code>sudo:vim:command not found</code>  说明没装vim编辑器。</p><p>安装命令：</p><p><code>sudo apt-get install vim</code> </p></blockquote><h1 id="三、查看Ubuntu版本代号"><a href="#三、查看Ubuntu版本代号" class="headerlink" title="三、查看Ubuntu版本代号"></a>三、查看Ubuntu版本代号</h1><ol><li>使用命令查看Ubuntu的版本代号<code>Codename</code>：</li></ol><pre><code class="hljs shell">lsb_release -c<span class="hljs-meta">#</span><span class="bash"> Codename:bionic</span></code></pre><ul><li>我用的是<code>Ubuntu18.04(LTS)</code>,其代号为<code>bionic</code></li></ul><blockquote><p><code>Ubuntu 12.04 (LTS)</code>代号为<code>precise</code></p><p><code>Ubuntu 14.04 (LTS)</code>代号为<code>trusty</code></p><p><code>Ubuntu 15.04</code>代号为<code>vivid</code></p><p><code>Ubuntu 15.10</code>代号为<code>wily</code></p><p><code>Ubuntu 16.04 (LTS)</code>代号为<code>xenial</code></p><p><code>Ubuntu 18.04 (LTS)</code>代号为<code>bionic</code></p></blockquote><h1 id="四、更换apt源"><a href="#四、更换apt源" class="headerlink" title="四、更换apt源"></a>四、更换apt源</h1><ul><li><code>sources.list</code>文件的条目都是有格式的，一般有如下形式：</li></ul><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> deb包</span>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<span class="hljs-meta">#</span><span class="bash"> 源码  </span>deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</code></pre><ul><li><code>Ubuntu</code>中软件包的分类是<code>main</code>， <code>restricted</code>，<code>universe</code>，<code>multiverse</code></li></ul><h2 id="快速切换源配置文件"><a href="#快速切换源配置文件" class="headerlink" title="快速切换源配置文件"></a>快速切换源配置文件</h2><ol><li>建议备份保存为多个源（当网络出现问题时，可以换上切换！）</li></ol><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 官方的源</span>/etc/apt/sources.list<span class="hljs-meta">#</span><span class="bash"> 阿里云</span>/etc/apt/sources.list.aliyun<span class="hljs-meta">#</span><span class="bash"> 清华</span>/etc/apt/sources.list.qinghua</code></pre><ol start="2"><li>当需要时，用命令切换</li></ol><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 重命名</span>mv sources.list.aliyun sources.list</code></pre><h3 id="1-阿里云"><a href="#1-阿里云" class="headerlink" title="1. 阿里云"></a>1. 阿里云</h3><ul><li>源：<a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a></li></ul><pre><code class="hljs bash"><span class="hljs-comment">#deb包</span>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<span class="hljs-comment">##测试版源  </span>deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<span class="hljs-comment"># 源码  </span>deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<span class="hljs-comment">##测试版源  </span>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<span class="hljs-comment"># Canonical 合作伙伴和附加  </span>deb http://archive.canonical.com/ubuntu/ bionic partnerdeb http://extras.ubuntu.com/ubuntu/ bionic main</code></pre><h3 id="2-清华大学镜像站"><a href="#2-清华大学镜像站" class="headerlink" title="2. 清华大学镜像站"></a>2. 清华大学镜像站</h3><ul><li>源：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></li></ul><pre><code class="hljs bash"><span class="hljs-comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse<span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse<span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse<span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse<span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><span class="hljs-comment"># 预发布软件源，不建议启用</span><span class="hljs-comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span></code></pre><h1 id="五、执行更新"><a href="#五、执行更新" class="headerlink" title="五、执行更新"></a>五、执行更新</h1><pre><code class="hljs shell">sudo apt-get update</code></pre><h1 id="六、更新软件"><a href="#六、更新软件" class="headerlink" title="六、更新软件"></a>六、更新软件</h1><pre><code class="hljs shell">sudo apt-get upgrade</code></pre><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol><li><p><a href="https://blog.csdn.net/gong_xucheng/article/details/53886271" target="_blank" rel="noopener">/etc/apt/sources.list 详解</a></p></li><li><p><a href="https://blog.csdn.net/beckeyloveyou/article/details/51352426" target="_blank" rel="noopener">ubuntu sudo update与upgrade的作用及区别</a></p></li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
@@ -35,6 +62,8 @@
     
     </summary>
     
+    
+      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
       <category term="Linux" scheme="https://melodyjerry.github.io/blog/tags/Linux/"/>
@@ -96,9 +125,9 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="Node" scheme="https://melodyjerry.github.io/blog/tags/Node/"/>
-    
       <category term="npm" scheme="https://melodyjerry.github.io/blog/tags/npm/"/>
+    
+      <category term="Node" scheme="https://melodyjerry.github.io/blog/tags/Node/"/>
     
   </entry>
   
@@ -152,9 +181,9 @@
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="Vue" scheme="https://melodyjerry.github.io/blog/tags/Vue/"/>
-    
       <category term="前端" scheme="https://melodyjerry.github.io/blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="https://melodyjerry.github.io/blog/tags/Vue/"/>
     
   </entry>
   
@@ -228,9 +257,9 @@ npm install graceful-fs@laster --save&lt;/code&gt;&lt;/pre&gt;
       <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
     
     
-      <category term="Node" scheme="https://melodyjerry.github.io/blog/tags/Node/"/>
-    
       <category term="npm" scheme="https://melodyjerry.github.io/blog/tags/npm/"/>
+    
+      <category term="Node" scheme="https://melodyjerry.github.io/blog/tags/Node/"/>
     
   </entry>
   
@@ -625,9 +654,9 @@ npm install graceful-fs@laster --save&lt;/code&gt;&lt;/pre&gt;
     
       <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Vue" scheme="https://melodyjerry.github.io/blog/tags/Vue/"/>
-    
       <category term="前端" scheme="https://melodyjerry.github.io/blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="https://melodyjerry.github.io/blog/tags/Vue/"/>
     
   </entry>
   
@@ -658,47 +687,6 @@ npm install graceful-fs@laster --save&lt;/code&gt;&lt;/pre&gt;
       <category term="前端" scheme="https://melodyjerry.github.io/blog/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="Javascript" scheme="https://melodyjerry.github.io/blog/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue指令：v-clock解决页面闪烁问题</title>
-    <link href="https://melodyjerry.github.io/blog/2020/10/08/Vue%E6%8C%87%E4%BB%A4%EF%BC%9Av-clock%E8%A7%A3%E5%86%B3%E9%A1%B5%E9%9D%A2%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://melodyjerry.github.io/blog/2020/10/08/Vue%E6%8C%87%E4%BB%A4%EF%BC%9Av-clock%E8%A7%A3%E5%86%B3%E9%A1%B5%E9%9D%A2%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/</id>
-    <published>2020-10-08T06:47:11.000Z</published>
-    <updated>2021-01-03T14:28:21.419Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果网速慢，而该标签内容是变量没有请求响应回来的时候，页面上先不显示该标签（vue给该标签加了css样式），当响应回来的时候改标签默认将css样式去除。</p><ul><li>此指令可以解决使用插值表达式页面闪烁问题。</li></ul><p>将该指令加在html标签中时，可以在该文件中加<code>style</code>属性为<code>display：none</code>，例子如下：</p><pre><code class="hljs css">&lt;!<span class="hljs-selector-tag">--v-clock</span> 解决闪烁问题<span class="hljs-selector-tag">--</span>&gt;&lt;<span class="hljs-selector-tag">style</span>&gt;    <span class="hljs-selector-attr">[v-clock]</span> {        <span class="hljs-attribute">display</span>: none;    }&lt;/style&gt;</code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"#app"</span> <span class="hljs-attr">v-clock</span>&gt;</span>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{name}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><a id="more"></a><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果网速慢，而该标签内容是变量没有请求响应回来的时候，页面上先不显示该标签（vue给该标签加了css样式），当响应回来的时候改标签默认将css样式去除。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;此指令可以解决使用插值表达式页面闪烁问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;将该指令加在html标签中时，可以在该文件中加&lt;code&gt;style&lt;/code&gt;属性为&lt;code&gt;display：none&lt;/code&gt;，例子如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;hljs css&quot;&gt;&amp;lt;!&lt;span class=&quot;hljs-selector-tag&quot;&gt;--v-clock&lt;/span&gt; 解决闪烁问题&lt;span class=&quot;hljs-selector-tag&quot;&gt;--&lt;/span&gt;&amp;gt;
-&amp;lt;&lt;span class=&quot;hljs-selector-tag&quot;&gt;style&lt;/span&gt;&amp;gt;
-    &lt;span class=&quot;hljs-selector-attr&quot;&gt;[v-clock]&lt;/span&gt; {
-        &lt;span class=&quot;hljs-attribute&quot;&gt;display&lt;/span&gt;: none;
-    }
-&amp;lt;/style&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;hljs html&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;#app&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;v-clock&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;{{name}}&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-      <category term="uncategorized" scheme="https://melodyjerry.github.io/blog/categories/uncategorized/"/>
-    
-    
-      <category term="笔记" scheme="https://melodyjerry.github.io/blog/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Vue" scheme="https://melodyjerry.github.io/blog/tags/Vue/"/>
-    
-      <category term="前端" scheme="https://melodyjerry.github.io/blog/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
